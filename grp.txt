@@ -1,0 +1,44 @@
+그룹웨어 메뉴
+
+홈 - 그룹웨어 메인화면(공지사항, 알림글, 메일, 대기 문서, 관련사이트, 일정)  grp_main.html
+
+공지사항  grp_notice.html
+		grp_notice_list.html
+		grp_notice_insert.html
+		grp_notice_update.html
+
+게시판 - 
+	자유게시판 grp_freeBoard.html
+		  grp_freeBoard_list.html
+		  grp_freeBoard_insert.html
+		  grp_freeBoard_update.html
+		
+	부서게시판 grp_teamBoard.html
+		grp_teamBoard_list.html
+		grp_teamBoard_insert.html
+		grp_teamBoard_update.html
+
+업무일지 - 업무일지 작성  grp_dailyLog.html
+			grp_dailyLog_update.html
+		 업무일지 목록  grp_dailyLog_list.html
+근태관리- 출퇴근체크 grp_commute.html
+		출퇴근 통계 grp_commute_stat.html
+		출퇴근관리(전체출근목록 grp_commute_list.html , 외근출퇴근 관리 grp_commute_admin.html , 연차/휴일등록 grp_vacation.html )
+전자결재-기안문서 grp_document.html
+		개인문서함 grp_documentBox.html  (임시저장 grp_document_temp.html , 공람문서 grp_document_shar.html )
+		결재 grp_payment.html  (결재대기 grp_payment_wait.html , 결재완료 grp_payment_complete.html , 결재반려 grp_payment_cancel.html )
+		
+메일(보류) 
+일정 - 캘린더  grp_cal.html
+설문조사 - 설문조사목록 grp_vote_list.html
+		설문조사 등록  grp_vote.html 
+		
+		  
+자료실(보류)
+		
+	
+조직도  -사원목록 grp_employee_list.html
+	사원등록	grp_employee_update.html
+		grp_employee_insert.html
+	
+시스템 - 관리자메뉴  (게시판 관리, 게시물 관리, 권한 게시판, 홈페이지 관리)

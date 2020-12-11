@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>** Entertainment GroupWare </title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/calender_main.css" />
+	<link rel="stylesheet" href="assets/css/board.css" />
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
+
+	<!--calendar-->
+	<link href="calender/main.css" rel='stylesheet' />
+	<script src="calender/main.js"></script>
+
+
+
+	<style>
+		.bg-gray {
+			background-color: #eee;
+		}
+
+		#calendar {
+			max-width: 1000px;
+			margin: 0 auto;
+		}
+	</style>
+
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+
+				<!-- Header -->
+				<header id="header">
+					<a href="grp_main.html" class="logo"><strong>** Entertainment</strong> GroupWare</a>
+					<ul class="login align-right">
+						<span><strong>관리자로 접속하셨습니다.</strong></span>
+						<span><a href="#">logout</a></span>
+					</ul>
+				</header>
+
+				<!-- Content -->
+
+				<header class="main" style="margin: 10px;">
+					<h2>개인 일정</h2>
+				</header>
+				<div class="main-top">
+					<h4 class="m-b20">
+						<i class="far fa-calendar-check"></i>일정 > 일정등록</h4>
+				</div>
+				<div class="calendar-insert">
+					<form>
+						<table>
+							<tr>
+								<td class="td-10 noto under bg-gray weight700 center">시작일자</td>
+								<td class="flex flex-justify">
+									<input type="text" autocomplete="off" id="startDate" class="input-150" />
+									<i class="far fa-calendar-alt"></i>
+								</td>
+								<td class="td-10 noto under bg-gray weight700 center">종료일자</td>
+								<td class="flex flex-justify">
+									<input type="text" autocomplete="off" id="endDate" class="input-150" />
+									<i class="far fa-calendar-alt"></i>								
+								</td>
+								<td class="td-10 noto under bg-gray weight700 center">일정내용</td>
+								<td class="flex flex-justify">
+									<input type="text" autocomplete="off" class="input-100" />
+								</td>
+							</tr>
+						</table>
+						<div class="btn-grp center m-t15">
+							<button type="button" class="noto cbtn-on">일정등록</button>
+							<button type="reset" class="noto cbtn-off">등록취소</button>
+						</div>
+					</form>
+				</div>
+				<div class="main-top">
+					<h4 class="m-b20"><i class="far fa-calendar-check"></i>일정 > 일정목록</h4>
+					<div id='calendar'></div>
+
+				</div>
+
+
+			</div>
+		</div>
+
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div class="inner">
+
+
+				<!-- Menu -->
+				<nav id="menu">
+					<header class="major">
+						<h2>Menu</h2>
+					</header>
+					<ul>
+						<li><span class="opener"><a href="grp_notice.html">공지사항</a></span>
+							<ul>
+								<li><a href="grp_notice_list.html">공지사항 목록</a></li>
+								
+
+							</ul>
+						</li>
+						<li><span class="opener"><a href="">조직도</a></span>
+							<ul>
+								<li><a href="grp_employee_list.html">사원목록</a></li>
+								<li><a href="grp_tranee_list.html">연습생목록</a></li>
+							</ul>
+						</li>
+						<li><span class="opener"><a href="">자유게시판</a></span>
+							<ul>
+								<li><a href="grp_freeBoard_list.html">자유게시판 목록</a></li>
+								
+							</ul>
+						</li>
+						<li>
+							<span class="opener"><a href="">부서게시판</a></span>
+							<ul>
+								<li><a href="grp_teamBoard_list.html">부서게시판 목록</a></li>
+								
+
+							</ul>
+						</li>
+						
+						<li><span class="opener"><a href="">근태관리</a></span>
+							<ul>
+								<li><a href="grp_commute.html">출퇴근 관리</a></li>
+
+							</ul>
+						</li>
+						<li>
+							<span class="opener"><a href="">전자결재</a></span>
+							<ul>
+								<li><a href="grp_document.html">기안문서</a></li>
+								<li><a href="grp_documentBox.html">개인문서함</a></li>
+								<li><a href="grp_payment.html">결재문서함</a></li>
+
+							</ul>
+						</li>
+						
+						<!-- <li>
+							<span class="opener"><a href="">메일</a></span>
+							<ul>
+								<li><a href="grp_mail.html">메일작성</a></li>
+								<li><a href="grp_mail_reception.html">받은 메일함</a></li>
+								<li><a href="grp_mail_sent.html">보낸 메일함</a></li>
+								<li><a href="grp_mail_temp.html">임시 보관함</a></li>
+
+							</ul>
+						</li> -->
+						<li>
+							<span class="opener"><a href="">일정</a></span>
+							<ul>
+								<li><a href="grp_cal_list.html">개인 일정</a></li>
+								<li><a href="grp_date.html">회사 일정</a></li>
+								
+
+							</ul>
+						</li>
+						<li>
+							<span class="opener"><a href="grp_system.html">시스템</a></span>
+							<ul>
+								<li><a href="grp_system_grp.html">회사정보수정</a></li>
+								<li><a href="grp_system_board.html">게시판수정</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+
+
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>Get in touch</h2>
+					</header>
+					<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem
+						ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat
+						tempus aliquam.</p>
+					<ul class="contact">
+						<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
+						<li class="icon solid fa-phone">(000) 000-0000</li>
+						<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+							Nashville, TN 00000-0000</li>
+					</ul>
+				</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a
+							href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5
+							UP</a>.</p>
+				</footer>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+<script>
+
+	document.addEventListener('DOMContentLoaded', function () {
+		var calendarEl = document.getElementById('calendar');
+
+		var calendar = new FullCalendar.Calendar(calendarEl, {
+			headerToolbar: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+			},
+			initialDate: '2020-11-01',
+			navLinks: true, // can click day/week names to navigate views
+			businessHours: true, // display business hours
+			editable: true,
+			selectable: true,
+			events: [
+				{
+					title: '점심미팅',
+					start: '2020-11-11T13:00:00',
+					constraint: 'businessHours',
+					color: '#673AB7'
+				},
+				{
+					title: '부서회의',
+					start: '2020-11-15T11:00:00',
+					constraint: 'availableForMeeting', // defined below
+					color: '#673AB7'
+				},
+				{
+					title: '세미나',
+					start: '2020-11-18',
+					end: '2020-11-20',
+					color: '#B39DDB'
+				},
+				{
+					title: 'Nyang 2집 앨범 발매',
+					start: '2020-11-30',
+					color: '#B71C1C'
+				},
+
+
+
+				// red areas where no events can be dropped
+				{
+					start: '2020-11-24',
+					end: '2020-11-28',
+					overlap: false,
+					display: 'background',
+					color: '#D1C4E9'
+				},
+				{
+					start: '2020-09-06',
+					end: '2020-09-08',
+					overlap: false,
+					display: 'background',
+					color: '#ff9f89'
+				}
+			]
+		});
+
+		calendar.render();
+	});
+
+</script>
+
+<!-- calendar event -->
+<script>
+    $(function () {
+        $("#startDate, #endDate").datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+    });
+</script>
+
+</html>

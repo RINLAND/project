@@ -1,0 +1,509 @@
+@charset 'utf-8';
+
+
+/*
+table {
+    width: 70vw;
+    border-collapse: collapse;
+}
+
+
+*/
+.system-main {
+    padding: 0 8px;
+
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+form{
+    display: inline-block;
+
+}
+
+.flex{
+    display: flex;
+}
+
+.flex-justify{
+    justify-content: space-between;
+}
+
+.float-r{
+    float: right;
+}
+
+.clearfix{
+    clear: both;
+}
+
+
+
+
+input{
+    padding: 2px ;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 40px;
+    height: 35px;
+    font-size: 12px;
+}
+
+.input-50{
+    padding: 5px ;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 50px;
+    height: 35px;
+    font-size: 12px;
+}
+
+.input-65{
+    padding: 5px ;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 65px;
+    height: 35px;
+    font-size: 12px;
+}
+
+.input-75{
+    padding: 5px ;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 75px;
+    height: 35px;
+    font-size: 12px;
+}
+
+.input-100{
+    padding: 5px ;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 100%;
+    height: 35px;
+    font-size: 12px;
+}
+
+.input-135{
+    padding: 5px ;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 135px;
+    height: 35px;
+    font-size: 12px;
+}
+
+select{
+    font-size: 12px;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 150px;
+    height: 35px;
+}
+
+.sel-55{
+    font-size: 12px;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 55px;
+    height: 35px;
+}
+
+.sel-100{
+    font-size: 12px;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 100%;
+    height: 35px;
+}
+.sel-135{
+    font-size: 12px;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 135px;
+    height: 35px;
+}
+
+.sel-160{
+    font-size: 12px;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 160px;
+    height: 35px;
+}
+
+
+
+.clearfix{
+    clear: both;
+}
+
+tr {
+    height: 20px;
+    text-align: center;
+    border-top: 1px solid #e8e8e8; 
+    border-bottom: 1px solid #e8e8e8; 
+}
+
+
+
+
+
+
+/* font size */
+/* 한번만 만들어서 가져다 쓸 수 있음 */
+.font14{
+    font-size: 14px;
+}
+.font16{
+    font-size: 16px;
+}
+.font18{
+    font-size: 18px;
+}
+.font20{
+    font-size: 20px;
+}
+
+/* font weight */
+
+.weight300{
+    font-weight: 300;
+}
+.weight400{
+    font-weight: 400;
+}
+.weight500{
+    font-weight: 500;
+}
+.weight700{
+    font-weight: 700;
+}
+
+/* margin: 개체와 개체사이를 띄울 때 */
+.m-t5{
+    margin-top: 5px;
+
+}
+.m-t10{
+    margin-top: 10px;
+    
+}
+.m-t15{
+    margin-top: 15px;
+    
+}
+.m-t20{
+    margin-top: 20px;
+    
+}
+
+.m-b5{
+    margin-bottom: 5px;
+    
+}
+.m-b10{
+    margin-bottom: 10px;
+    
+}
+.m-b15{
+    margin-bottom: 15px;
+    
+}
+.m-b20{
+    margin-bottom: 20px;
+    
+}
+.m-tb10{
+    margin-top: 10px;
+    margin-bottom:10px ;
+}
+.m-tb20{
+    margin-top: 20px;
+    margin-bottom:20px ;
+}
+.m-tb30{
+    margin-top: 30px;
+    margin-bottom:30px ;
+}
+.m-lr10{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.m-lr20{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.m-lr30{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+/* padding: 개체 자신의 두께를 크게 만들어서 띄우기 */
+.p-tb10{
+    padding-top:10px ;
+    padding-bottom: 10px;
+}
+.p-tb20{
+    padding-top:20px ;
+    padding-bottom: 20px;
+}
+
+.p-lr3{
+    padding-left:3px ;
+    padding-right: 3px;
+}
+.p-lr10{
+    padding-left:10px ;
+    padding-right: 10px;
+}
+.p-lr20{
+    padding-left:20px ;
+    padding-right: 20px;
+}
+
+
+.p10{
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+.p20{
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+.p30{
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+}
+
+/* 정렬 align */
+.left{
+    text-align: left;
+}
+.center{
+    text-align: center;
+}
+
+/* underline */
+.under{
+    text-decoration: underline;
+}
+
+
+.page{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    /* 세로정렬위해 height와 같은 값주기 */
+    line-height: 35px;
+    color: black;
+}
+
+.page-grp {
+    text-align: center;
+    margin-top: 20px;
+
+}
+
+.page-active{
+    background-color: white;
+    font-weight: 700;
+ 
+}
+
+.page:hover {
+    cursor: pointer;
+   
+    color: white;
+    transition: 0.1s;
+    font-weight: 700;
+
+}
+
+.btn, .page 
+{
+    border: 0;
+    outline: 0;
+}
+
+
+.btn-on{
+    /* 버튼선택-height는 input,select와 끝선 맞추기 위해 동일하게 */
+    display: inline-block;
+    width: 75px;
+    height: 35px;
+    text-align: center;
+    line-height: 37px;
+    border-radius: 2px;
+    background-color: #651FFF;
+    border: 1px solid transparent;
+    color: white;
+}
+
+.btn-off{
+    display: inline-block;
+    width: 75px;
+    height: 35px;
+    text-align: center;
+    line-height: 37px;
+    border-radius: 2px;
+    background-color:#edeff5;
+    border: 1px solid #d4d4d4;
+    color: black;
+}
+
+.s-btn-on{
+    display: inline-block;
+    width: 35px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 2px;
+    background-color: #651FFF;
+    border: 1px solid transparent;
+    color: white;
+    font-size: 9px;
+}
+
+.s-btn-off{
+    display: inline-block;
+    width: 35px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border-radius: 2px;
+    background-color: #edeff5;
+    border: 1px solid #d4d4d4;
+    color: black;
+    font-size: 9px;
+}
+
+.btn-normal{
+    /* 가변타입:padding */
+    padding: 9.5px 10px;
+    background-color: #651FFF;
+    border-radius: 2px;
+    color: white;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.btn-cancel{
+    /* 가변타입:padding */
+    padding: 9.5px 10px;
+    background-color: #edeff5;
+    border-radius: 2px;
+    color: black;
+    display: inline-block;
+    font-weight: 700;
+}
+
+.btn-red{
+    /* 가변타입:padding */
+    padding: 9.5px 10px;
+    background-color: #d92550;
+    border-radius: 2px;
+    color: white;
+    display: inline-block;
+    font-weight: 700;
+}
+
+/* padding: 개체 자신의 두께를 크게 만들어서 띄우기 */
+.p-tb10{
+    padding-top:10px ;
+    padding-bottom: 10px;
+}
+.p-tb20{
+    padding-top:20px ;
+    padding-bottom: 20px;
+}
+
+.p-lr3{
+    padding-left:3px ;
+    padding-right: 3px;
+}
+.p-lr10{
+    padding-left:10px ;
+    padding-right: 10px;
+}
+.p-lr20{
+    padding-left:20px ;
+    padding-right: 20px;
+}
+
+
+.p10{
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+.p20{
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+.p30{
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+}
+
+/* 정렬 align */
+.left{
+    text-align: left;
+}
+.center{
+    text-align: center;
+}
+
+
+/* table td width */
+.td-3{
+    width: 3%;
+}
+.td-5{
+    width: 5%;
+}
+.td-7{
+    width: 7%;
+}
+.td-8{
+    width:8%;
+}
+
+.td-10{
+    width: 10%;
+}
+
+.td-13{
+    width: 13%;
+}
+
+.td-15{
+    width: 15%;
+}
+
+.td-20{
+    width: 20%;
+}
+.td-40{
+    width: 40%;
+}
+
+.td-90{
+    width: 90%;
+}
+
+
