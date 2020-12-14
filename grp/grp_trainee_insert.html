@@ -94,7 +94,7 @@
 					<header class="main" style="margin: 10px;">
 						<h2>조직도</h2>
 					</header>
-					<h4 class="m-b20">조직도 > 1.사원목록</h4>
+					<h4 class="m-b20">조직도 > 2.연습생목록 > 연습생등록</h4>
 					<div class="system-main">
 						<div class="page-member-bottom"  >
 							<div class="page-content " >
@@ -112,7 +112,7 @@
 										<div class="member-right " >
 											<table class="mem-table" style="font-size: 12px; " >
 												<tr >
-													<td class="td-7 center bg-sub weight700">사원명/성별</td>
+													<td class="td-7 center bg-sub weight700">이름/성별</td>
 													<td class="td-13 p-lr3 flex flex-justify">
 														<input type="text" name="" id="" class="input-75" autofocus autocomplete="off" />
 														<select name="" class="sel-80 " id="">
@@ -144,51 +144,34 @@
 														<input type="text" name="" id="" class="input-75" autocomplete="off"/>
 	
 													</td>
-													<td class="td-7 center  bg-sub weight700">내선번호</td>
+													<td class="td-7 center  bg-sub weight700">키/몸무게</td>
 													<td class="td-13 p-lr3 flex flex-justify">
-														<select name="" class="sel-80" id="">
-															<option value="">001</option>
-															<option value="">002</option>
-															<option value="">003</option>
-															<option value="">004</option>
-															<option value="">005</option>
-															<option value="">006</option>
-															<option value="">007</option>
-														</select>
-														<input type="text" name="" id="" class="input-75" autocomplete="off"/>
+														<input type="text" name="" id="" class="input-65"
+															placeholder="키" autocomplete="off"/>
+														<input type="text" name="" id="" class="input-65"
+															placeholder="몸무게" autocomplete="off"/>
+														
 													</td>
 												</tr>
 												<tr>
-													<td class="td-7 center  bg-sub weight700">채용형태</td>
+													<td class="td-7 center  bg-sub weight700">입사경로</td>
 													<td class="td-13 p-lr3 flex flex-justify">
 														<select name="" class="sel-160" id="">
-															<option value="">공개채용</option>
-															<option value="">수시채용</option>
-															<option value="">특별채용</option>
+															<option value="">공개오디션</option>
+															<option value="">수시오디션</option>
+															<option value="">특별오디션</option>
+															<option value="">캐스팅</option>
 														</select>
 													</td>
-													<td class="td-7 center  bg-sub weight700">부서</td>
+													<td class="td-7 center  bg-sub weight700">입사일</td>
 													<td class="td-13 p-lr3 flex flex-justify">
-														<select name="" class="sel-160" id="">
-															<option value="100">총무팀</option>
-															<option value="200">인사팀</option>
-															<option value="300">영업팀</option>
-															<option value="400">경영기획팀</option>
-															<option value="500">회계팀</option>
-															<option value="600">마케팅팀</option>
-														</select>
+														<input type="text" name="" id="" class="input-135" autocomplete="off"/>
+
 													</td>
-													<td class="td-7 center bg-sub weight700">직급</td>
+													<td class="td-7 center bg-sub weight700">담당자</td>
 													<td class="td-13 p-lr3 flex flex-justify">
-														<select name="" class="sel-160" id="">
-															<option value="7">부장</option>
-															<option value="6">차장</option>
-															<option value="5">과장</option>
-															<option value="4">대리</option>
-															<option value="3">주임</option>
-															<option value="2">사원</option>
-															<option value="1">인턴</option>
-														</select>
+														<input type="text" name="" id="" class="input-135" autocomplete="off"/>
+
 													</td>
 	
 	
@@ -211,29 +194,22 @@
 													
 												</tr>
 												<tr>
-													<td class="td-7 center bg-sub weight700">권한등급</td>
+													<td class="td-7 center bg-sub weight700">구분</td>
 													<td class="td-13 p-lr3 flex flex-justify">
 														<select name="" class="sel-160" id="">
-															<option value="">8</option>
-															<option value="">7</option>
-															<option value="">6</option>
-															<option value="">5</option>
-															<option value="">4</option>
-															<option value="">3</option>
-															<option value="">2</option> 
-															<option value="">1</option>
+															<option value="">팀</option>
+															<option value="">솔로</option>
+															<option value="">미정</option>
+															
 														</select>
 													</td>
-													<td class="td-7 center bg-sub weight700">취미/특기</td>
+													<td class="td-7 center bg-sub weight700">취미</td>
 													<td class="td-13 p-lr3">
 														<input type="text" name="" id="" class="input-135" autocomplete="off"/>
 													</td>
-													<td class="td-7 center bg-sub weight700">장애여부</td>
+													<td class="td-7 center bg-sub weight700">특기</td>
 													<td class="td-13 p-lr3">
-														<select name="" class="sel-160" id="">
-															<option value="">무</option>
-															<option value="">유</option>
-														</select>
+														<input type="text" name="" id="" class="input-135" autocomplete="off"/>
 													</td>
 													<td class="td-7 center bg-sub weight700">보훈대상여부</td>
 													<td class="td-13 p-lr3">
@@ -242,15 +218,6 @@
 															<option value="">유</option>
 														</select>
 													</td>
-													<td class="td-7 center bg-sub weight700">결혼여부</td>
-													<td class="td-13 p-lr3">
-														<select name="" class="sel-160" id="">
-															<option value="">유</option>
-															<option value="">무</option>
-														</select>
-													</td>
-												</tr>
-												<tr>
 													<td class="td-7 center  bg-sub weight700">최종학력</td>
 													<td class="td-13 p-lr3 flex flex-justify">
 														<select name="" class="sel-160" id="">
@@ -261,6 +228,9 @@
 															<option value="">고등학교졸업</option>
 														</select>
 													</td>
+												</tr>
+												<tr>
+													
 													<td class="td-7 center  bg-sub weight700">최종학교명</td>
 													<td class="td-13 p-lr3">
 														<input type="text" name="" id="" class="input-135" autocomplete="off"/>
@@ -274,6 +244,30 @@
 														<input type="text" name="" id="" class="input-135" autocomplete="off"/>
 													</td>
 													<td class="td-7 center  bg-sub weight700">주소</td>
+													<td class="td-13 p-lr3 flex flex-justify">
+														
+														<select name="" class="sel-160" id="">
+															<option value="">서울특별시</option>
+															<option value="">인천광역시</option>
+															<option value="">대전광역시</option>
+															<option value="">대구광역시</option>
+															<option value="">울산광역시</option>
+															<option value="">부산광역시</option>
+															<option value="">광주광역시</option>
+															<option value="">세종특별자치시</option>
+															<option value="">경기도</option>
+															<option value="">강원도</option>
+															<option value="">충청남도</option>
+															<option value="">충청북도</option>
+															<option value="">경상북도</option>
+															<option value="">경상남도</option>
+															<option value="">전라북도</option>
+															<option value="">전라남도</option>
+															<option value="">제주특별자치도</option>
+	
+														</select>
+													</td>
+													<td class="td-7 center  bg-sub weight700">거주지</td>
 													<td class="td-13 p-lr3 flex flex-justify">
 														
 														<select name="" class="sel-160" id="">
@@ -476,7 +470,6 @@
 						</li>
 					</ul>
 				</nav>
-
 
 
 				<!-- Section -->

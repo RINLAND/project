@@ -10,26 +10,34 @@
 	<title>** Entertainment GroupWare </title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/calender_main.css" />
-	<link rel="stylesheet" href="assets/css/board.css" />
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
-
-	<!--calendar-->
-	<link href="calender/main.css" rel='stylesheet' />
-	<script src="calender/main.js"></script>
-
+	<link rel="stylesheet" href="assets/css/board_main.css" />
+	 <link rel="stylesheet" href="assets/css/board.css" />
 
 
 	<style>
-		.bg-gray {
-			background-color: #eee;
+		.mod {
+			display: inline-block;
+			width: 50px;
+			height: 35px;
+			text-align: center;
+			line-height: 35px;
+			border: 2px solid #6200EA;
+			background-color:#6200EA ;
+			color:white;
+
 		}
 
-		#calendar {
-			max-width: 1100px;
-			margin: 0 auto;
+		.mod:hover {
+			cursor: pointer;
+			color: white;
+			transition: 0.1s;
+			font-weight: 700;
+			border: 2px solid#6200EA;
+
+
 		}
 	</style>
+
 
 </head>
 
@@ -52,18 +60,89 @@
 				</header>
 
 				<!-- Content -->
-
-				<header class="main" style="margin: 10px;">
-					<h2>** Entertainment 일정</h2>
-				</header>
 				
+					<header class="main" style="margin: 10px;">
+						<h2>조직도</h2>
+					</header>
+
+					<div class="main">
+						<div class="main-top">
+							<h4 class="m-b20">조직도 > 2.연습생목록</h4>
+							<div class="search-wrap flex flex-justify  m-b5 bg-white">
+								<div class="">
+									<span class="btn-count">전체게시물 수 123 / PAGE</span>
+								</div>
+								<div class="flex flex-justify"  >
+									<form method="post " class="" action="grp_board_list.html"></form>
+										
+										<select class="" >
+											<option value="">사원명</option>
+											<option value="">부서</option>
+											<option value="">사원명+부서</option>
+										</select>
+									
+										<input type="text" name="words" required style="margin-left:-2px" />
+									
+										<button type="submit" class="btn-off" style="margin-left:-2px">검색</button>
+										<button type="button" class="btn-on"
+											onClick="location.href='grp_trainee_insert.html'">등록</button>
+									</form>
+								</div>
+							</div>
+							
+
+						</div>
+
+						<div class="board-wrap bg-white">
+							<table style="table-layout: fixed;">
+								<tr class="weight700 center tr-color f6 font14 ">
+									<td class="td-3">
+										<!-- td-width설정안한곳에 남은 %가 다 지정됨 -->
+										<input type="checkbox" />
+									</td>
+									<td class="td-5">번호</td>
+									<td >이름</td>
+									<td class="td-5">성별</td>
+									<td class="td-10 ">입사일</td>
+									<td class="td-10">입사경로</td>
+									<td class="td-10" >담당자</td>
+									<td class="td-10">구분</td>
+									<td class="td-10">연락처</td>
+									<td class="td-15">주소</td>
+								</tr>
+								<tr class="center font14">
+									<td>
+										<input type="checkbox" />
+									</td>
+									<td>10</td>
+									<td>박보검</td>
+									<td >남</td>
+									<td>2020-03-15</td>
+									<td>공채오디션</td>
+									<td>박사원</td>
+									<td>솔로</td>
+									<td>010-123-4567</td>
+									<td>부산광역시 해운대구</td>
+								</tr>
+							
+							</table>
+						</div>
+						<div class="page-grp center m-t10">
+							<span class="page "><a href=""><i class="fas fa-angle-double-left"></i></a></span>
+							<span class="page"><a href=""><i class="fas fa-angle-left"></i></a></span>
+							<span class="page page-active"><a href="" class="f6">1</a></span>
+							<span class="page"><a href="">2</a></span>
+							<span class="page"><a href="">3</a></span>
+							<span class="page"><a href="">4</a></span>
+							<span class="page"><a href="">5</a></span>
+							<span class="page"><a href=""><i class="fas fa-angle-right"></i></a></span>
+							<span class="page"><a href=""><i class="fas fa-angle-double-right"></i></a></span>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
+
 				
-				<div class="main-top">
-					<h4 class="m-b20"><i class="far fa-calendar-check"></i>일정목록</h4>
-					<div id='calendar'></div>
-
-				</div>
-
 
 			</div>
 		</div>
@@ -142,6 +221,8 @@
 						</li>
 					</ul>
 				</nav>
+				
+
 
 
 				<!-- Section -->
@@ -180,80 +261,5 @@
 	<script src="assets/js/main.js"></script>
 
 </body>
-<script>
-
-	document.addEventListener('DOMContentLoaded', function () {
-		var calendarEl = document.getElementById('calendar');
-
-		var calendar = new FullCalendar.Calendar(calendarEl, {
-			headerToolbar: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-			},
-			initialDate: '2020-11-01',
-			navLinks: true, // can click day/week names to navigate views
-			businessHours: true, // display business hours
-			editable: true,
-			selectable: true,
-			events: [
-				{
-					title: 'Nyang 2집 앨범 예약판매',
-					start: '2020-11-11',
-					end:'2020-11-23',
-					constraint: 'businessHours',
-					color: '#F8BBD0'
-				},
-				{
-					title: 'Nyang 앨범티져',
-					start: '2020-11-23T12:00:00',
-					constraint: 'availableForMeeting', // defined below
-					color: '#673AB7'
-				},
-				{
-					title: 'Nyang 2집 MV 촬영',
-					start: '2020-11-05',
-					end: '2020-11-10',
-					color: '#B39DDB'
-				},
-				{
-					title: 'Nyang 2집 앨범 발매',
-					start: '2020-11-30',
-					color: '#B71C1C'
-				},
-
-
-
-				// red areas where no events can be dropped
-				{
-					start: '2020-11-24',
-					end: '2020-11-28',
-					overlap: false,
-					display: 'background',
-					color: '#D1C4E9'
-				},
-				{
-					start: '2020-09-06',
-					end: '2020-09-08',
-					overlap: false,
-					display: 'background',
-					color: '#ff9f89'
-				}
-			]
-		});
-
-		calendar.render();
-	});
-
-</script>
-
-<!-- calendar event -->
-<script>
-    $(function () {
-        $("#startDate, #endDate").datepicker({
-            dateFormat: 'yy-mm-dd'
-        });
-    });
-</script>
 
 </html>
