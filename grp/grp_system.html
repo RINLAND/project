@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>** Entertainment GroupWare</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/board_main.css" />
+	 <link rel="stylesheet" href="assets/css/board.css" />
+	 <link rel="stylesheet" href="assets/css/fontawesome-all.min.css" />
+	<style>
+		.mod {
+			display: inline-block;
+			width: 50px;
+			height: 35px;
+			text-align: center;
+			line-height: 35px;
+			border: 2px solid #6200EA;
+			background-color:#6200EA ;
+			color:white;
+
+		}
+
+		.mod:hover {
+			cursor: pointer;
+			color: white;
+			transition: 0.1s;
+			font-weight: 700;
+			border: 2px solid#6200EA;
+
+
+		}
+	</style>
+
+
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+
+				<!-- Header -->
+				<header id="header">
+					<a href="" class="logo"><strong>** Entertainment</strong> GroupWare</a>
+					<ul class="login align-right">
+						<span><strong>관리자로 접속하셨습니다.</strong></span>
+						<span><a href="#">logout</a></span>
+					</ul>
+				</header>
+
+				<!-- Content -->
+				
+					<header class="main" style="margin: 10px;">
+						<h2>시스템</h2>
+					</header>
+
+					<div class="main">
+						<div class="main-top">
+							<h4 class="m-b20">회사정보 수정</h4>
+						</div>
+
+						<div class="board-wrap bg-white">
+							<table>
+								<tr>
+									<td class="td-10 center weight700  bg-sub">로고타이틀</td>
+									<td class="td-40 p-lr3">
+										<input type="text" name="comName" id="comName" class="input-100" maxlength="100" required />
+									</td>
+									<td class="td-10 center weight700  bg-sub">서브로고타이틀</td>
+									<td class="td-40 p-lr3">
+										<input type="text" name="comSubName" id="comSubName" class="input-100" maxlength="100" required />
+									</td>
+								</tr>
+								<tr>
+									<td class="td-10 center weight700  bg-sub">대표명</td>
+									<td class="td-40 p-lr3">
+										<input type="text" name="comCeo" id="comCeo" class="input-100" maxlength="100" required />
+									</td>
+									<td class="td-10 center weight700  bg-sub">대표전화</td>
+									<td class="td-40 p-lr3">
+										<input type="text" name="comTel" id="comTel" class="input-100" maxlength="100" required />
+									</td>
+									
+								</tr>
+								<tr>
+									<td  class="td-10 center weight700 bg-sub">URL</td>
+									<td class="p-lr3" colspan="3">
+										<input type="text" name="comUrl" id="comUrl" class="input-100" maxlength="50" required />
+										
+									</td>
+									
+								</tr>
+								<tr>
+									<td class="bg-gray weight700 td-10 center">COPYRIGHT</td>
+									<td class="p-lr3" colspan="3">
+										<input type="text" name="comCopy" id="comCopy" class="input-100" maxlength="200" required />
+										
+									</td>
+									
+								</tr>
+								<tr>
+									<td class="bg-gray weight700 td-10 center">접근권한</td>
+									<td class="p-lr3" colspan="3">
+										<select name="comAuth" id="comAuth">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											
+										</select>                        					
+									</td>
+									
+								</tr>
+								<tr>
+									<td class="bg-gray weight700 td-10 center">타이틀</td>
+									<td class="p-lr3" colspan="3">
+									 <input type="text" name="comMainLogo" id="comMainLogo" class="input-100" maxlength="200" required />
+																				   
+									</td>
+									
+								</tr>
+								<tr>
+									<td class="bg-gray weight700 td-10 center">메뉴</td>
+									<td class="p-lr3" colspan="3">
+									 <input placeholder="메뉴는 (;)으로 구분하세요." type="text" name="comMenu" id="comMenu" class="input-100" maxlength="200"/>
+																				   
+									</td>
+									
+								</tr>
+								<tr>
+									<td class="bg-gray weight700 td-10 center">메인 텍스트 상단</td>
+									<td class="p-lr3" colspan="3">
+									 <input type="text" name="comMianUP" id="comMainUp" class="input-100" maxlength="200"  />
+																				   
+									</td>
+									
+								</tr>
+								<tr>
+									<td class="bg-gray weight700 td-10 center">메인 텍스트 하단</td>
+									<td class="p-lr3" colspan="3">
+									 <input type="text" name="comMianDown" id="comMainDown" class="input-100" maxlength="200" />
+																				   
+									</td>
+									
+								</tr>
+							</table>
+							<div class="btn-grp center m-t5">
+								<button type="submit" class="btn-on">정보수정</button>
+								<button type="reset" class="btn-off">새로고침</button>
+							</div>
+							
+						</div>
+						
+						<div class="clearfix"></div>
+					</div>
+
+
+				
+
+			</div>
+		</div>
+
+
+		<!-- Sidebar -->
+		<div id="sidebar">
+			<div class="inner">
+
+
+			<!-- Menu -->
+			<nav id="menu">
+				<header class="major">
+					<h2>Menu</h2>
+				</header>
+				<ul>
+					<li><span class="opener"><a href="grp_notice.html">공지사항</a></span>
+						<ul>
+							<li><a href="grp_notice_list.html">공지사항 목록</a></li>
+							
+
+						</ul>
+					</li>
+					<li><span class="opener"><a href="">조직도</a></span>
+						<ul>
+							<li><a href="grp_employee_list.html">사원목록</a></li>
+							<li><a href="grp_trainee_list.html">연습생목록</a></li>
+						</ul>
+					</li>
+					<li><span class="opener"><a href="">자유게시판</a></span>
+						<ul>
+							<li><a href="grp_freeBoard_list.html">자유게시판 목록</a></li>
+							
+						</ul>
+					</li>
+					<li>
+						<span class="opener"><a href="">부서게시판</a></span>
+						<ul>
+							<li><a href="grp_teamBoard_list.html">부서게시판 목록</a></li>
+							
+
+						</ul>
+					</li>
+					
+					<li><span class="opener"><a href="">근태관리</a></span>
+						<ul>
+							<li><a href="grp_commute.html">출퇴근 관리</a></li>
+
+						</ul>
+					</li>
+					<li>
+						<span class="opener"><a href="">전자결재</a></span>
+						<ul>
+							<li><a href="grp_document.html">기안문서</a></li>
+							<li><a href="grp_documentBox.html">개인문서함</a></li>
+							<li><a href="grp_payment.html">결재문서함</a></li>
+
+						</ul>
+					</li>
+					
+					
+					<li>
+						<span class="opener"><a href="">일정</a></span>
+						<ul>
+							<li><a href="grp_cal_list.html">개인 일정</a></li>
+							<li><a href="grp_date.html">회사 일정</a></li>
+							
+
+						</ul>
+					</li>
+					<li>
+						<span class="opener"><a href="grp_system.html">시스템</a></span>
+						<ul>
+							<li><a href="grp_system_grp.html">회사정보수정</a></li>
+							<li><a href="grp_system_board.html">게시판수정</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+
+
+
+				<!-- Section -->
+				<section>
+					<header class="major">
+						<h2>Get in touch</h2>
+					</header>
+					<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem
+						ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat
+						tempus aliquam.</p>
+					<ul class="contact">
+						<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
+						<li class="icon solid fa-phone">(000) 000-0000</li>
+						<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
+							Nashville, TN 00000-0000</li>
+					</ul>
+				</section>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a
+							href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5
+							UP</a>.</p>
+				</footer>
+
+			</div>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
