@@ -83,6 +83,17 @@ input{
     font-size: 12px;
 }
 
+
+
+.input-70{
+    padding: 5px ;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 70px;
+    height: 35px;
+    font-size: 12px;
+}
+
 .input-75{
     padding: 5px ;
     border-radius: 2px;
@@ -92,11 +103,30 @@ input{
     font-size: 12px;
 }
 
+
+.input-80{
+    padding: 5px ;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 80px;
+    height: 35px;
+    font-size: 12px;
+}
+
 .input-100{
     padding: 5px ;
     border-radius: 2px;
     border: 1px solid #d5d5d5;
     width: 100%;
+    height: 35px;
+    font-size: 12px;
+}
+
+.input-130{
+    padding: 5px ;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 130px;
     height: 35px;
     font-size: 12px;
 }
@@ -127,6 +157,24 @@ select{
 }
 
 
+.sel-65{
+    font-size: 12px;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 55px;
+    height: 35px;
+}
+
+
+.sel-70{
+    font-size: 12px;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 70px;
+    height: 35px;
+}
+
+
 .sel-80{
     font-size: 12px;
     border-radius: 2px;
@@ -143,11 +191,10 @@ select{
     height: 35px;
 }
 .sel-135{
-    
     font-size: 12px;
     border-radius: 2px;
     border: 1px solid #d5d5d5;
-    width: 160px;
+    width: 135px;
     height: 35px;
 }
 

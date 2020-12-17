@@ -40,9 +40,10 @@ blockquote, q {
     content: '';
     content: none; }
 
+/* separate : 표(table)의 테두리와 셀(td)의 테두리 사이에 간격을 두기 */
 table {
-  border-collapse: collapse;
-  border-spacing: 0; }
+  border-collapse: separate;
+  border-spacing: 10px; }
 
 body {
   -webkit-text-size-adjust: none; }
@@ -141,9 +142,9 @@ body {
 body, input, select, textarea {
   color: #7f888f;
   font-family: "Open Sans", sans-serif;
-  font-size: 13pt;
+  font-size: 15pt;
   font-weight: 400;
-  line-height: 1.65; }
+  line-height: normal; }
   @media screen and (max-width: 1680px) {
     body, input, select, textarea {
       font-size: 11pt; } }
@@ -1058,13 +1059,18 @@ header.main > :last-child {
 /* form {
   margin: 0 0 2em 0; } */
 
+
+
+  /* input, select 의 type=text 인 부분들 */
 label {
   color: #3d4449;
   display: block;
-  font-size: 0.9em;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 400;
   margin: 0 0 1em 0; }
-[type="text"],
+
+
+input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="tel"],
@@ -1077,25 +1083,18 @@ textarea {
   -ms-appearance: none;
   appearance: none;
   background: #ffffff;
-  border-radius: 0.375em;
+  border-radius: 1.5px;
   border: none;
   border: solid 1px rgba(210, 215, 217, 0.75);
   color: inherit;
   display: block;
   outline: 0;
-  padding: 0 1em;
+  /* 아래 padding은 input, select박스안의 간격 */
+  padding: 10px; 
   text-decoration: none;
-  width: 100%; }
-  input[type="text"]:invalid,
-  input[type="password"]:invalid,
-  input[type="email"]:invalid,
-  input[type="tel"]:invalid,
-  input[type="search"]:invalid,
-  input[type="url"]:invalid,
-  select:invalid,
-  textarea:invalid {
-    box-shadow: none; }
-  input[type="text"]:focus,
+   }
+ 
+  /* input[type="text"]:focus,
   input[type="password"]:focus,
   input[type="email"]:focus,
   input[type="tel"]:focus,
@@ -1104,14 +1103,14 @@ textarea {
   select:focus,
   textarea:focus {
     border-color:#651FFF;
-    box-shadow: 0 0 0 1px #651FFF; }
+    box-shadow: 0 0 0 1px #651FFF; } */
 
 select {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='rgba(210, 215, 217, 0.75)' /%3E%3C/svg%3E");
-  background-size: 1.25em;
+  background-size: 0.5em;
   background-repeat: no-repeat;
   background-position: calc(100% - 1em) center;
-  height: 2.75em;
+  
   padding-right: 2.75em;
   text-overflow: ellipsis; }
   select option {
@@ -1122,6 +1121,8 @@ select {
   select::-ms-expand {
     display: none; }
 
+    
+    /* box 크기
 input[type="text"],
 input[type="password"],
 input[type="email"],
@@ -1129,7 +1130,7 @@ input[type="tel"],
 input[type="search"],
 input[type="url"],
 select {
-  height: 2.75em; }
+  height: 20px; }
 
 textarea {
   padding: 0.75em 1em; }
