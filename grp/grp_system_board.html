@@ -35,6 +35,7 @@
 
 
 		}
+	
 	</style>
 
 
@@ -73,26 +74,31 @@
 						<table>
 							<tr>
 								<td class="td-10 center weight700  bg-sub">게시판 이름</td>
-								<td class="td-40 p-lr3">
+								<td class="td-15 p-lr3">
 									<input type="text" name="boardName" id="boardName" class="input-100" maxlength="100"
 										required />
 								</td>
 								<td class="td-10 center weight700  bg-sub"> 게시판 태그</td>
-								<td class="td-40 p-lr3">
+								<td class="td-15 p-lr3">
 									<input type="text" placeholder="영어로만 입력하세요." name="boardTag" id="boardTag"
-										class="input-100" maxlength="100" required />
+										class="input-30" maxlength="100" required />
 								</td>
 								<td class="td-10 center weight700  bg-sub"> 게시판 종류</td>
-								<td class="p-lr3">
+								<td class="td-15 p-lr3">
 									<select class="center sel-100" name="boardSort" id="boardSort">
 										<option value="notice">공지사항</option>
 										<option value="free">자유게시판</option>
 									</select>
 								</td>
+								<td class="td-10 center weight700 bg-gray">게시판 부서</td>
+								<td class="td-15 p-lr3">
+									<input type="text" placeholder="어떤 부서의 게시판인지 입력하세요." name="boardTag"
+										id="boardTag" class="input-100" maxlength="100" required />
+								</td>
 							</tr>
 							<tr>
 
-								<td class="td-10 center weight700  bg-sub">게시판 열람가능 등급</td>
+								<td class="td-10 center weight700  bg-sub font14">게시판 열람가능 등급</td>
 								<td class="p-lr3">
 									<select name="boardRAuth" id="boardRAuth" class="center sel-100">
 										<option value="1">1</option>
@@ -102,7 +108,7 @@
 
 									</select>
 								</td>
-								<td class="td-10 center weight700  bg-sub">게시판 작성가능 등급</td>
+								<td class="td-10 center weight700  bg-sub font14">게시판 글 작성가능 등급</td>
 								<td class="p-lr3">
 									<select name="boardWAuth" id="boardWAuth" class="center sel-100">
 										<option value="1">1</option>
@@ -111,9 +117,18 @@
 										<option value="4">4</option>
 									</select>
 								</td>
-								<td class="td-10 center weight700 bg-gray">게시판 관리가능 등급</td>
+								<td class="td-10 center weight700 bg-gray font14">게시판 관리가능 등급</td>
 								<td class="p-lr3">
 									<select name="boardMAuth" id="boardMAuth" class="center sel-100">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+									</select>
+								</td>
+								<td class="td-10 center weight700 bg-gray font14">댓글 작성가능 등급</td>
+								<td class="p-lr3">
+									<select name="boardRAuth" id="boardRAuth" class="center sel-100">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -136,10 +151,11 @@
 								</td>
 
 								<td class="td-10 center weight700 bg-gray">게시판 설명</td>
-								<td class="td-40 p-lr3">
+								<td class="td-10 p-lr3" colspan="3">
 									<input type="text" placeholder="어떤 게시판인지 설명하는 말을 입력하세요." name="boardTag"
 										id="boardTag" class="input-100" maxlength="100" required />
 								</td>
+
 
 								<td class="td-10 center weight700 bg-gray">자료실 여부</td>
 								<td>
@@ -151,6 +167,9 @@
 
 							</tr>
 
+							
+						
+
 						</table>
 						<div class="btn-grp center m-t5">
 							<button type="submit" class="btn-on">생성완료</button>
@@ -159,7 +178,6 @@
 
 					</div>
 
-					<div class="clearfix"></div>
 				</div>
 
 
@@ -246,21 +264,19 @@
 
 
 
-				<!-- Section -->
-				<section>
-					<header class="major">
-						<h2>Get in touch</h2>
-					</header>
-					<p>Sed varius enim lorem ullamcorper dolore aliquam aenean ornare velit lacus, ac varius enim lorem
-						ullamcorper dolore. Proin sed aliquam facilisis ante interdum. Sed nulla amet lorem feugiat
-						tempus aliquam.</p>
-					<ul class="contact">
-						<li class="icon solid fa-envelope"><a href="#">information@untitled.tld</a></li>
-						<li class="icon solid fa-phone">(000) 000-0000</li>
-						<li class="icon solid fa-home">1234 Somewhere Road #8254<br />
-							Nashville, TN 00000-0000</li>
-					</ul>
-				</section>
+			<!-- Section -->
+			<section>
+				<header class="major">
+					<h2>CONTACT</h2>
+				</header>
+				<p></p>
+				<ul class="contact">
+					<li class="icon solid fa-envelope"><a href="#">Entertainment@untitled.tld</a></li>
+					<li class="icon solid fa-phone">(02) 354-4678</li>
+					<li class="icon solid fa-home">서울 강남구 삼성로 648<br />
+						</li>
+				</ul>
+			</section>
 
 				<!-- Footer -->
 				<footer id="footer">
