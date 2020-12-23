@@ -415,3 +415,10 @@ select{
     background-color: #3f51b5;
     border: 1px solid transparent;
 }
+
+
+/* table border*/
+
+td {
+    border:1px solid #d5d5d5;
+}

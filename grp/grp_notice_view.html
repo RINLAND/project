@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROUPWARE SYSTEM>시스템 공지사항</title>
+    <link rel="stylesheet" href="assets/css/notice_board.css">
+    <link rel="stylesheet" href="assets/css/notice_common.css">
+    <link rel="stylesheet" href="assets/css/notice_text.css">    
+    
+
+    <script src="https://kit.fontawesome.com/62ab751ce0.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+
+
+</head>
+
+<body>
+    <div class="page-wrap bg-gray p10">
+        <div class="container p20 bg-white">
+            <div class="board-insert">
+               
+                <form method="POST" action="grp_board_save.html">
+                     <div class="title">
+                    <h3 class=" font18 m-b5">
+                        게시물 상세보기
+                    </h3>
+                </div>
+                    <table>
+                        <tr>
+                            <td class="td-10 center weight700  bg-sub">게시글 분류</td>
+                            <td class="td-40 p-lr3">
+                                <button type="button"  class="btn-normal">공지사항</button>       
+                                   
+                                </select>
+                            </td>
+                            <td class="td-10 center weight700  bg-sub">게시글 상태</td>
+                            <td class="td-40 p-lr3">
+                                비밀글
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  class="td-10 center weight700  bg-sub">게시글 제목</td>
+                            <td colspan="3"  class="td-90 p-lr3" >
+                                공지사항 등록 테스트입니다.
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td  class="td-10 center weight700 bg-sub">작성자</td>
+                            <td colspan="3"  class="td-90 p-lr3">
+                                관리자
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td  class="td-10 center weight700  bg-sub" style="height:300px;">내용</td>
+                            <td colspan="3"  class="td-90 p-lr3" style="border: 2px; padding-bottom:2px ;">
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td  class="td-10 center weight700 bg-sub">첨부파일</td>
+                            <td colspan="3"  class="td-90 p-lr3">
+                            </td>
+                           
+                        </tr>
+                    </table>
+                    <div class="btn">
+                    
+                    </div>
+                    <div class="btn-grp center m-t10">
+                        <button type="submit" class="btn-normal">수정</button>
+                        <button type="submit" class="btn-cancel">삭제</button>
+
+                        <button type="button" onclick="location.href='grp_notice_list.html'" class="btn-cancel">목록</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(function () {
+        $("tr:nth-child(2n+1)").addClass("tr-even");
+    });
+</script>
+
+</html>
