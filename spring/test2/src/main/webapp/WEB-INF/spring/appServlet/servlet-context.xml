@@ -23,7 +23,7 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/assets/**" location="/assets/" />
 	<resources location="/images/, classpath=/img/" mapping="/images/**" />
-	<resources location="/assets/css/, classpath=/assets/css/" mapping="/assets/css/**" />
+	<resources location="/css/, classpath=/css/" mapping="/css/**" />
 
 	
 	
