@@ -18,13 +18,13 @@
 					<div class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="index.html"> ** Entertainment</a></h1>
+							<h1 id="logo"><a href="${pageContext.request.contextPath }home.html"> ** Entertainment</a></h1>
 							<p>A responsive HTML5 site template. Manufactured by HTML5 UP.</p>
 
 						<!-- Nav -->
 							<nav id="nav">
-								<ul>
-									<li><a class="strong" href="#"><span>MAIN</span></a></li>
+								<ul class="flex flex-justify" >
+									<li><a class="strong" href="${pageContext.request.contextPath }/main"><span>MAIN</span></a></li>
 									
 									<li>
 										<a class="strong"><span>COMPANY</span></a>
@@ -61,7 +61,7 @@
 											<li><a href="#">MY DONATE</a></li>
 										</ul>
 									</li>
-									<li><a class="strong" href="login.html"><span>LOGIN</span></a></li>
+									<li><a class="strong" href="${pageContext.request.contextPath }/grp_login"><span>LOGIN</span></a></li>
 								</ul>
 							</nav>
 
@@ -79,13 +79,13 @@
 
 								<!-- Feature -->
 									<section>
-										<a href="#" class="image featured"><img src="images/main1.jpg" alt="" /></a>
+										<a href="${pageContext.request.contextPath }" class="image featured"><img src="${pageContext.request.contextPath }/images/main1.jpg" alt="" /></a>
 										<header>
 											<h3>Okay, so what is this?</h3>
 										</header>
 										<p>This is <strong>Strongly Typed</strong>, a free, fully responsive site template
-										by <a href="http://html5up.net">HTML5 UP</a>. Free for personal and commercial use under the
-										<a href="http://html5up.net/license">CCA 3.0 license</a>.</p>
+										by <a href="${pageContext.request.contextPath }/http://html5up.net">HTML5 UP</a>. Free for personal and commercial use under the
+										<a href="${pageContext.request.contextPath }/http://html5up.net/license">CCA 3.0 license</a>.</p>
 									</section>
 
 							</div>
@@ -93,7 +93,7 @@
 
 								<!-- Feature -->
 									<section>
-										<a href="#" class="image featured"><img src="images/main2.jpg" alt="" /></a>
+										<a href="#" class="image featured"><img src="${pageContext.request.contextPath }/images/main2.jpg" alt="" /></a>
 										<header>
 											<h3>Nice! What is HTML5 UP?</h3>
 										</header>
@@ -107,12 +107,12 @@
 
 								<!-- Feature -->
 									<section>
-										<a href="#" class="image featured"><img src="images/main4.jpg" alt="" /></a>
+										<a href="#" class="image featured"><img src="${pageContext.request.contextPath }/images/main4.jpg" alt="" /></a>
 										<header>
 											<h3>What's this built with?</h3>
 										</header>
 										<p><strong>Responsive Tools</strong> is a simple set of tools for building responsive
-										sites and apps. All of my templates at <a href="http://html5up.net">HTML5 UP</a> are built using these tools.</p>
+										sites and apps. All of my templates at <a href="${pageContext.request.contextPath }/http://html5up.net">HTML5 UP</a> are built using these tools.</p>
 									</section>
 
 							</div>
@@ -140,7 +140,7 @@
 												<h2><a href="#">I don’t want to say <strong>it’s the aliens</strong> ...<br />
 												but it’s the aliens.</a></h2>
 											</header>
-											<a href="#" class="image featured"><img src="images/main6.jpg" alt="" /></a>
+											<a href="#" class="image featured"><img src="${pageContext.request.contextPath }/images/main6.jpg" alt="" /></a>
 											<h3>I mean isn't it possible?</h3>
 											<p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
 											ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
@@ -162,7 +162,7 @@
 												<h2><a href="#">By the way, many thanks to <strong>regularjane</strong>
 												for these awesome demo photos</a></h2>
 											</header>
-											<a href="#" class="image featured"><img src="images/main5.jpg" alt="" /></a>
+											<a href="#" class="image featured"><img src="${pageContext.request.contextPath }/images/main5.jpg" alt="" /></a>
 											<h3>You should probably check out her work</h3>
 											<p>Phasellus laoreet massa id justo mattis pharetra. Fusce suscipit
 											ligula vel quam viverra sit amet mollis tortor congue. Sed quis mauris
@@ -248,7 +248,7 @@
 															<header>
 																<h3><a href="#">Something of note</a></h3>
 															</header>
-															<a href="#" class="image left"><img src="images/main7.jpg" alt="" /></a>
+															<a href="#" class="image left"><img src="${pageContext.request.contextPath }/images/main7.jpg" alt="" /></a>
 															<p>Phasellus sed laoreet massa id justo mattis pharetra. Fusce suscipit ligula vel quam
 															viverra sit amet mollis tortor congue magna lorem ipsum dolor et quisque ut odio facilisis
 															convallis. Etiam non nunc vel est suscipit convallis non id orci. Ut interdum tempus
@@ -266,7 +266,7 @@
 															<header>
 																<h3><a href="#">Something of less note</a></h3>
 															</header>
-															<a href="#" class="image left"><img src="images/main3.jpg" alt="" /></a>
+															<a href="#" class="image left"><img src="${pageContext.request.contextPath }/images/main3.jpg" alt="" /></a>
 															<p>Phasellus sed laoreet massa id justo mattis pharetra. Fusce suscipit ligula vel quam
 															viverra sit amet mollis tortor congue magna lorem ipsum dolor et quisque ut odio facilisis
 															convallis. Etiam non nunc vel est suscipit convallis non id orci. Ut interdum tempus
@@ -297,13 +297,6 @@
 
 		</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
+		
 	</body>
 </html>

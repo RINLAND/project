@@ -4,8 +4,13 @@
 <!-- type 실제 경로 alias 별명 -->
 <configuration>
 	<typeAliases>
-		
+		<typeAlias alias="LoginVO" type="com.setup.test2.Model.LoginVO"/>
 	</typeAliases>
+	
+	<mappers>
+		<mapper resource="sqlMappers/loginVO.xml"/>
+		
+	</mappers>
 	
 	
 </configuration>
