@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="login">
+	
+	<select id="LoginCheck" resultType="com.setup.test2.Model.EmpVO">
+		SELECT 
+			emp_id AS empID, 
+			emp_pwd as empPwd,
+			emp_auth AS empAuth
+		FROM 
+		grp_employee WHERE emp_id = #{empID} AND emp_pwd = #{empPwd}
+	</select>
+
+</mapper>
