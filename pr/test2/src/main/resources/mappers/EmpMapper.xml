@@ -36,7 +36,7 @@
 		grp_team T, grp_grade G
 		WHERE E.emp_team = T.team_id AND E.emp_grade =
 		G.grade_id
-		<include refid="search"></include> ORDER BY emp_id DESC LIMIT #{start}, #{end}
+		ORDER BY emp_id DESC LIMIT #{start}, #{end}
 
 	</select>
 
@@ -46,7 +46,7 @@
 		FROM
 		grp_employee E, grp_team T, grp_grade G
 		WHERE E.emp_team = T.team_id
-		AND E.emp_grade = G.grade_id <include refid="search"></include>
+		AND E.emp_grade = G.grade_id 
 
 	</select>
 

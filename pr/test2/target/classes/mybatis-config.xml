@@ -8,7 +8,7 @@
 	</typeAliases>
 	
 	<mappers>
-		<mapper resource="Mappers/loginVO.xml"/>
+		<mapper resource="mappers/loginVO.xml"/>
 		
 	</mappers>
 	
