@@ -21,7 +21,7 @@ public class LoginDaoImpl  implements LoginDao{
 	public EmpVO LoginCheck(EmpVO evo) {
 		System.out.println("Repository");
 		System.out.println("mappers");
-		return sql.selectOne("login.loginCheck", evo);
+		return sql.selectOne("login.LoginCheck", evo);
 	}
 
 	@Override
