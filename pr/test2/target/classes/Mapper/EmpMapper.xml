@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="employee">
+	<!--쿼리 추가 위한 -->
+	<sql id="search">
+		<choose>
+			<when test="words==''"></when>
+			<when test="searchOpt=='all'">
+				AND (emp_name LIKE CONCAT('%', #{words}, '%') OR
+				emp_num LIKE CONCAT('%', #{words}, '%'))
+			</when>
+			<otherwise>
+				AND ${searchOpt} = #{words}
+			</otherwise>
+		</choose>
+
+	</sql>
+
+	<select id="getEmpList" parameterType="hashmap" resultType="com.setup.test2.Model.EmpVO">
+		SELECT
+		emp_id AS empID,
+		emp_team AS empTeamCode,
+		T.team_name AS
+		empTeamName,
+
+		emp_grade AS empGradeCode,
+		G.grade_name AS empGradeName,
+
+		emp_num AS empNum,
+		emp_name AS empName,
+		emp_join AS empJoin,
+		emp_Date AS empDate,
+		emp_confirm AS empConfirm,
+		emp_auth AS empAuth
+		FROM grp_employee E,
+		grp_team T, grp_grade G
+		WHERE E.emp_team = T.team_id AND E.emp_grade =
+		G.grade_id
+		<include refid="search"></include> ORDER BY emp_id DESC LIMIT #{start}, #{end}
+
+	</select>
+
+	<select id="getEmpCount" resultType="int">
+		SELECT
+		COUNT(emp_id)
+		FROM
+		grp_employee E, grp_team T, grp_grade G
+		WHERE E.emp_team = T.team_id
+		AND E.emp_grade = G.grade_id <include refid="search"></include>
+
+	</select>
+
+	<delete id="setEmpDelete" parameterType="int">
+		DELETE FROM grp_employee
+		WHERE emp_id = #{eid}
+
+	</delete>
+	
+	
+	<delete id="setEmpDeleteAll" parameterType="int">
+		DELETE FROM grp_employee
+		WHERE emp_id = #{eid}
+
+	</delete>
+	
+
+	<update id="setEmpHeadChange" parameterType="hashmap">
+		UPDATE grp_employee
+		SET emp_head = #{empHead} WHERE emp_id = #{empID}
+	</update>
+
+	<update id="setEmpConfirmChange" parameterType="hashmap">
+		UPDATE
+		grp_employee SET emp_confirm = #{empConfirm} WHERE emp_id = #{empID}
+	</update>
+
+	<update id="setEmpAuthChange" parameterType="hashmap">
+		UPDATE grp_employee
+		SET emp_auth = #{empAuth} WHERE emp_id = #{empID}
+	</update>
+
+<!--여러개면 파라미터 타입이 map이나 get,set  -->
+	<select id="getEmpNeedOne" parameterType="String"
+		resultType="com.setup.test2.Model.EmpVO">
+		SELECT
+		emp_id AS empID,
+		emp_team AS empTeamCode,
+		T.team_name AS empTeamName,
+
+		emp_grade AS empGradeCode,
+		G.grade_name AS empGradeName,
+
+		emp_num AS empNum,
+		emp_name AS empName,
+		emp_join AS empJoin
+		FROM grp_employee E,
+		grp_team T, grp_grade G
+		WHERE E.emp_team = T.team_id AND E.emp_grade = G.grade_id 
+		AND emp_num = #{sessionNum}
+
+	</select>
+
+
+	<select id="grpGetTeam" resultType="com.setup.test2.Model.TeamVO">
+		SELECT * FROM grp_team ORDER BY team_id  
+		<!--변수없어서 파라미터 타입은 없음  -->
+		
+	</select>
+	
+	<select id="grpGetGrade" resultType="com.setup.test2.Model.GradeVO">
+	   SELECT * FROM grp_grade ORDER BY grade_id  
+		
+	</select>
+</mapper>
