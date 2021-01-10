@@ -28,7 +28,7 @@ public class LoginCtr {
 	SysSrv sSrv;
 	
 
-	@RequestMapping(value = "/grp_login", method = RequestMethod.POST)
+	@RequestMapping(value = "/grp_login", method = RequestMethod.GET)
 	public ModelAndView setLogin(@ModelAttribute EmpVO evo, HttpSession httpSession) {
 		//System.out.println(empSrv.getEmployeeNeedOne(evo));
 		
