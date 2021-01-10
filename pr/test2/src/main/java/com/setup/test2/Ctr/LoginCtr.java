@@ -27,6 +27,13 @@ public class LoginCtr {
 	@Autowired
 	SysSrv sSrv;
 	
+	
+	@RequestMapping(value = "/grp_login", method = RequestMethod.GET)
+	public 	String getLogin() {
+		
+		
+		return "grp_login";
+	}
 
 	@RequestMapping(value = "/grp_login", method = RequestMethod.POST)
 	public ModelAndView setLogin(@ModelAttribute EmpVO evo, HttpSession httpSession) {

@@ -5,7 +5,7 @@
 
 <html>
 	<head>
-		<title>** Entertainment</title>
+		<title>VV Entertainment</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main_home.css" />
@@ -18,7 +18,7 @@
 					<div class="container">
 
 						<!-- Logo -->
-							<h1 id="logo"><a href="${pageContext.request.contextPath }home.html"> ** Entertainment</a></h1>
+							<h1 id="logo"><a href="${pageContext.request.contextPath }home.html"> VV Entertainment</a></h1>
 							<p>A responsive HTML5 site template. Manufactured by HTML5 UP.</p>
 
 						<!-- Nav -->

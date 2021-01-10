@@ -1,9 +1,9 @@
 package com.setup.test2.Ctr;
 
-import java.util.Calendar;
+
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,9 +32,6 @@ public class EmpCtr {
 	
 	@Autowired
 	IDnRegSrv irSrv;
-	
-	
-	
 	
 
 	@RequestMapping(value = "/grp_employee_list")
