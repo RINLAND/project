@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="system">
+
+	<select id="getSystem" resultType="com.setup.test2.Model.SysVO">
+		SELECT sys_logo As sysLogo, sys_sub AS sysSub, 
+				sys_ceo AS sysCeo, sys_url AS sysUrl, sys_tell AS sysTell,
+				sys_copy AS sysCopy, sys_auth AS sysAuth, sys_title AS sysTitle, sys_addr AS sysAddr, 
+				sys_up AS sysUp, sys_down AS sysDown 
+		FROM grp_system LIMIT 1  
+	</select>
+	
+	<update id="setSystem" parameterType="com.setup.test2.Model.SysVO">
+		UPDATE grp_system SET 
+		 sys_logo = #{sysLogo}, 
+		 sys_sub = #{sysSub}, 
+		 sys_ceo = #{sysCeo}, 
+		 sys_url = #{sysUrl}, 
+		 sys_tell = #{sysTell},
+		 sys_copy = #{sysCopy}, 
+		 sys_auth = #{sysAuth},
+		 sys_title = #{sysTitle},
+		 sys_addr = #{sysAddr},
+		 sys_up= #{sysUp},
+		 sys_down = #{sysDown}
+	
+	</update>
+
+
+</mapper>
