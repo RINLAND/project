@@ -27,6 +27,7 @@
 	<resources location="/WEB-INF/js/, classpath=/WEB-INF/js/" mapping="/js/**" />
 	<resources location="/WEB-INF/vendor/, classpath=/WEB-INF/vendor/" mapping="/vendor/**" />
 	<resources location="/WEB-INF/fonts/, classpath=/WEB-INF/fonts/" mapping="/fonts/**" />
+	<resources location="/WEB-INF/ckeditor/, classpath=/WEB-INF/ckeditor/" mapping="/ckeditor/**" />
 
 	
 	
