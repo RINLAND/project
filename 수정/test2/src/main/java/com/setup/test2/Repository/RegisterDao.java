@@ -3,6 +3,7 @@ package com.setup.test2.Repository;
 import java.util.HashMap;
 import java.util.List;
 
+
 import com.setup.test2.Model.EmpVO;
 import com.setup.test2.Model.GradeVO;
 import com.setup.test2.Model.TeamVO;
@@ -22,6 +23,10 @@ public List<TeamVO> getTeamList();
 	public void setRegisterOthersOne(EmpVO evo);
 	
 	public void setEmployeeAuthChange(HashMap<String, String> map);
+	
+	/**/
+	
+
 	
 	
 }

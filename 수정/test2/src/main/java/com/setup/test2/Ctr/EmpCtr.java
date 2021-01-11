@@ -1,12 +1,17 @@
 package com.setup.test2.Ctr;
 
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Calendar;
 import java.util.List;
+import java.util.UUID;
 
-
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,11 +20,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import com.setup.test2.Model.EmpVO;
 import com.setup.test2.Model.GradeVO;
 import com.setup.test2.Model.TeamVO;
 import com.setup.test2.Service.EmpSrv;
-import com.setup.test2.Service.IDnRegSrv;
+import com.setup.test2.Service.LoginSrv;
+import com.setup.test2.Service.RegisterSrv;
 
 
 
@@ -31,7 +38,10 @@ public class EmpCtr {
 	EmpSrv eSrv;
 	
 	@Autowired
-	IDnRegSrv irSrv;
+	LoginSrv lSrv;
+	
+	@Autowired
+	RegisterSrv rSrv;
 	
 
 	@RequestMapping(value = "/grp_employee_list")
@@ -51,19 +61,19 @@ public class EmpCtr {
 	
 	@RequestMapping(value= "/grp_employee_delete", method = RequestMethod.POST )
 	@ResponseBody
-	public String grpEmpDelete(@RequestParam int eid) {
-		eSrv.setEmpDeleteOne(eid);
+	public String grpEmpDelete(@RequestParam String empNum) {
+		eSrv.setEmpDeleteOne(empNum);
 		return "success";
 	}
 	
 	@RequestMapping(value= "/grp_employee_delete_all", method = RequestMethod.POST )
 	@ResponseBody
 	public String grpEmpDelete(@RequestParam(value="chkArr[]")List<String> chkArr) {
-		//System.out.println(chkArr); �迭�Ѿ������ Ȯ��
-		int eid;
+		
+		int empId;
 		for(String list : chkArr) {
-			eid = Integer.parseInt(list);
-			eSrv.setEmpDeleteAll(eid);
+			empId = Integer.parseInt(list);
+			eSrv.setEmpDeleteAll(empId);
 		}
 		return "success";
 		
@@ -83,81 +93,36 @@ public class EmpCtr {
 		eSrv.setEmpAuthChange(empAuth, empID);
 		return "success";
 	}
-	/* 다시해야할듯
-	@RequestMapping(value= "/grp_employee_register", method = RequestMethod.GET )
-	public ModelAndView grpEmpReg(HttpSession session) {
-		//System.out.println(session.getAttribute("empNum"));
-		String sessionNum = (String) session.getAttribute("empNum");
-		
-		EmpVO evo = eSrv.getEmpNeedOne(evo);
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("empOne", evo);
-		mav.setViewName("grp_employee/grp_employee_register");
-		return mav;
-			
-	}
-	*/
 	
-	@RequestMapping(value = "/grp_register", method = RequestMethod.GET)
-	public String getGrpRegister() {
-		return "grp_register";
+	
+	
+	@RequestMapping(value = "/grp_employee_register", method = RequestMethod.GET)
+	public String getEmployeeRegister() {
+		return "grp_employee/grp_employee_register";
 	}
 	
-	@RequestMapping(value = "/grp_register", method = RequestMethod.POST)
-	public String setGrpRegister(@ModelAttribute EmpVO evo) {
+	@RequestMapping(value = "/grp_employee_register", method = RequestMethod.POST)
+	public String setEmployeeRegister(@ModelAttribute EmpVO evo, MultipartFile file) throws IOException {
+		Calendar cal = Calendar.getInstance();
+		int dateYear  = Integer.parseInt(evo.getEmpDate().substring(0, 4));
 		
-		//�����ȣ �����-�Ի��+ �μ���ȣ + ����+pk -> empNum
-		int enterYear = Integer.parseInt(evo.getEmpJoin().substring(0, 4));
-		String tCode = evo.getEmpTeamCode();
-		String gCode = evo.getEmpGradeCode();
+		int regYear	= cal.get(Calendar.YEAR);
 		
-		String eNum = enterYear + tCode + gCode;
-		evo.setEmpNum(eNum);
+		int stepSize = regYear - dateYear + 1;
+		//System.out.println(stepSize);
+		evo.setEmpAuth(stepSize);
 		
-		System.out.println(evo.getEmpNum());
-		 //ù��°���� 4�ڸ� �߶󳻱� -2020
-		//�����ȣ ����� ��
-		
-		
-		//ȸ�����Խ� �ʼ� �Է�
-		
-		irSrv.setEmpRegister(evo); 
-		
-		//ȸ�����Խ� �ʼ� �Է� ��
+		String num = dateYear + evo.getEmpTeamCode() + evo.getEmpGradeCode();
+		evo.setEmpNum(num);
 		
 		
-		return "redirect:/grp_login";
-	}
-	
-	@RequestMapping(value = "/grp_admin_register", method = RequestMethod.POST)
-	public String setGrpRegister(
-			@ModelAttribute EmpVO evo, MultipartFile file ) {
-		
-		System.out.println("aaa");
-		//���� ���� ���� �Է�
-		eSrv.setEmpRegOthers(evo);
-		//���� ���� ���� �Է� ��
-		
-		
-		return "redirect:/employee/grp_employee_list";
+		rSrv.setRegisterOne(evo);
+		rSrv.setRegisterOthersOne(evo);
+		return "redirect:/employee/grp_employee_list_all";
 	}
 	
 	
-	@RequestMapping(value = "/grp_get_team", method = RequestMethod.POST)
-	@ResponseBody //ajax�� �غ�
-	public List<TeamVO> grpGetTeam() {
-		eSrv.grpGetTeam();
-		List<TeamVO> list = eSrv.grpGetTeam();
-		return list;
-	}
 	
-	@RequestMapping(value = "/grp_get_grade", method = RequestMethod.POST)
-	@ResponseBody
-	public List<GradeVO> grpGetGrade() {
-		eSrv.grpGetGrade();
-		List<GradeVO> list = eSrv.grpGetGrade();
-		return list;
-	}
-
+	
+	
 }

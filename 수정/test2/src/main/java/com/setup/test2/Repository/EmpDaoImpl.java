@@ -19,13 +19,13 @@ public class EmpDaoImpl implements EmpDao {
 	SqlSession sqlSession;
 	
 	@Override
-	public void setEmpDeleteOne(int eid) {
-		 sqlSession.delete("employee.setEmpDelete", eid);		
+	public void setEmpDeleteOne(String empNum) {
+		 sqlSession.delete("employee.setEmpDelete", empNum);		
 	}
 	
 	@Override
-	public void setEmpDeleteAll(int eid) {
-		 sqlSession.delete("employee.setEmpDeleteAll", eid);
+	public void setEmpDeleteAll(int empId) {
+		 sqlSession.delete("employee.setEmpDeleteAll", empId);
 	}
 
 	@Override
@@ -53,20 +53,20 @@ public class EmpDaoImpl implements EmpDao {
 	}
 
 	@Override
-	public void setEmpConfirmChange(String empConfirm, int empID) {
+	public void setEmpConfirmChange(String empConfirm, int empId) {
 	
 		Map<String,Object> map =new HashMap<String, Object>();
 		map.put("empConfirm", empConfirm);
-		map.put("empID", empID);
+		map.put("empId", empId);
 		sqlSession.update("employee.setEmpConfirmChange", map);
 		
 	}
 
 	@Override
-	public void setEmpAuthChange(int empAuth, int empID) {
+	public void setEmpAuthChange(int empAuth, int empId) {
 		Map<Object,Object> map =new HashMap<Object, Object>();
 		map.put("empAuth", empAuth);
-		map.put("empID", empID);
+		map.put("empId", empId);
 		sqlSession.update("employee.setEmpAuthChange", map);
 		
 	}

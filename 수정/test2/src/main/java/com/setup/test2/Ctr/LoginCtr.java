@@ -1,5 +1,8 @@
 package com.setup.test2.Ctr;
 
+import java.util.Calendar;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,12 +10,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.setup.test2.Model.EmpVO;
+import com.setup.test2.Model.GradeVO;
+import com.setup.test2.Model.TeamVO;
 import com.setup.test2.Service.EmpSrv;
 import com.setup.test2.Service.LoginSrv;
+import com.setup.test2.Service.RegisterSrv;
 import com.setup.test2.Service.SysSrv;
 
 
@@ -26,6 +33,9 @@ public class LoginCtr {
 	EmpSrv empSrv;
 	@Autowired
 	SysSrv sSrv;
+	
+	@Autowired
+	RegisterSrv rSrv;
 	
 	
 	@RequestMapping(value = "/grp_login", method = RequestMethod.GET)
@@ -71,6 +81,63 @@ public class LoginCtr {
 	public String grpLogout(HttpSession httpSession) {
 		lSrv.logout(httpSession);
 		return "success";
+	}
+	
+	@RequestMapping(value = "/grp_register", method = RequestMethod.GET)
+	public String getRegisterOne() {
+		return "grp_register";
+	}
+	
+	@RequestMapping(value = "/grp_chk_empNum", method = RequestMethod.POST)
+	@ResponseBody
+	public String chkEmpNum(@RequestParam("empNum") String empNum) {
+		
+		String msg;
+		int empNumCheck = rSrv.getEmpNumCheck(empNum);
+		
+		if( empNumCheck > 0 ) {
+			msg = "failure";
+		}else {
+			msg = "success";
+		}
+		
+		return msg;
+	}
+	
+	@RequestMapping(value = "/grp_register", method = RequestMethod.POST)
+	public String setRegisterOne(@ModelAttribute EmpVO evo) {
+		Calendar cal = Calendar.getInstance();
+		int dateYear  = Integer.parseInt(evo.getEmpDate().substring(0, 4));
+		System.out.println(dateYear);
+		
+		int regYear	= cal.get(Calendar.YEAR);
+		System.out.println(regYear);
+		
+		int stepSize = regYear - dateYear + 1;
+		//System.out.println(stepSize);
+		evo.setEmpAuth(stepSize);
+		
+		String num = dateYear + evo.getEmpTeamCode() + evo.getEmpGradeCode();
+		evo.setEmpNum(num);
+		
+		rSrv.setRegisterOne(evo);
+		return "redirect:/grp_login";
+	}
+	
+	@RequestMapping(value = "/grp_get_team", method = RequestMethod.POST)
+	@ResponseBody
+	public List<TeamVO> getTeam() {
+		List<TeamVO> list = rSrv.getTeamList();
+		//System.out.println(list);
+		return list;
+	}
+	
+	@RequestMapping(value = "/grp_get_grade", method = RequestMethod.POST)
+	@ResponseBody
+	public List<GradeVO> getGrade() {
+		List<GradeVO> list = rSrv.getGradeList();
+		//System.out.println(list);
+		return list;
 	}
 
 }

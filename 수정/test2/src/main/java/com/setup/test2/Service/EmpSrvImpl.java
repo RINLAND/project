@@ -17,13 +17,13 @@ public class EmpSrvImpl implements EmpSrv {
 	EmpDao EmpDao;
 	
 	@Override
-	public void setEmpDeleteOne(int eid) {
-		EmpDao.setEmpDeleteOne(eid);
+	public void setEmpDeleteOne(String empNum) {
+		EmpDao.setEmpDeleteOne(empNum);
 	}
 	
 	@Override
-	public void setEmpDeleteAll(int eid) {
-		EmpDao.setEmpDeleteAll(eid);
+	public void setEmpDeleteAll(int empId) {
+		EmpDao.setEmpDeleteAll(empId);
 	}
 
 	@Override
@@ -44,17 +44,17 @@ public class EmpSrvImpl implements EmpSrv {
 	}
 
 	@Override
-	public void setEmpConfirmChange(String empConfirm, int empID) {
+	public void setEmpConfirmChange(String empConfirm, int empId) {
 	
 		
-		EmpDao.setEmpConfirmChange(empConfirm, empID);
+		EmpDao.setEmpConfirmChange(empConfirm, empId);
 		
 	}
 
 	@Override
-	public void setEmpAuthChange(int empAuth, int empID) {
+	public void setEmpAuthChange(int empAuth, int empId) {
 		
-		EmpDao.setEmpAuthChange(empAuth, empID);
+		EmpDao.setEmpAuthChange(empAuth, empId);
 		
 	}
 
@@ -72,4 +72,6 @@ public class EmpSrvImpl implements EmpSrv {
 	public List<GradeVO> grpGetGrade() {
 		return EmpDao.grpGetGrade();
 	}
+	
+	
 }

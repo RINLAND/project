@@ -2,18 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="register">
 
-<select id="grpGetTeam" resultType="com.setup.test2.Model.TeamVO">
-		SELECT * FROM grp_team ORDER BY team_id  
-		<!--변수없어서 파라미터 타입은 없음  -->
-		
-	</select>
+
 	
-	<select id="grpGetGrade" resultType="com.setup.test2.Model.TeamVO">
-	   SELECT * FROM grp_grade ORDER BY grade_id  
-		
-	</select>
-	
-	<insert id="setEmpRegister" parameterType="com.setup.test2.Model.EmpVO">
+	<insert id="setEmpRegisterOne" parameterType="com.setup.test2.Model.EmpVO">
 	<!--default 들어가 있는건 신경 x  -->
 	
 		<selectKey keyProperty="ref" order="BEFORE" resultType="int"> 
@@ -39,6 +30,10 @@
 		AND emp_pwd = #{empPwd}
 	
 	</select>
+	
+	<update id = "setEmployeeAuthChange" parameterType="hashmap">
+		UPDATE grp_employee SET emp_confirm = #{empAuth} WHERE emp_num = #{empNum}
+	</update>
 	
 	<select id="getEmpInfo" parameterType="hashmap" resultType="com.setup.test2.Model.EmpVO">
 		SELECT 

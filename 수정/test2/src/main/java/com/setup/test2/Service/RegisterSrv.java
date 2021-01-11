@@ -13,13 +13,13 @@ import com.setup.test2.Model.TeamVO;
 
 public interface RegisterSrv {
 
-public List<TeamVO> getTeamList();
+	public List<TeamVO> getTeamList();
 	
 	public List<GradeVO> getGradeList();
 	
 	public int getEmpNumCheck(String empNum);
 	
-	public void setRegister(EmpVO evo);
+	public void setRegisterOne(EmpVO evo);
 	
 	public void setRegisterOthersOne(EmpVO evo);
 		

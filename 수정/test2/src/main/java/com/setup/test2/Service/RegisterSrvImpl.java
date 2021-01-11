@@ -35,7 +35,7 @@ public class RegisterSrvImpl implements RegisterSrv{
 	}
 
 	@Override
-	public void setRegister(EmpVO evo) {
+	public void setRegisterOne(EmpVO evo) {
 		rDao.setRegisterOne(evo);
 	}
 

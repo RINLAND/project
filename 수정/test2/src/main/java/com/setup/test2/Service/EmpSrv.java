@@ -15,9 +15,9 @@ import com.setup.test2.Model.TeamVO;
 public interface EmpSrv {
 	
 	
-	public void setEmpDeleteOne(int eid);
+	public void setEmpDeleteOne(String empNum);
 	
-	public void setEmpDeleteAll(int eid);
+	public void setEmpDeleteAll(int empId);
 	
 	public List<EmpVO> getEmpListAll(int start, int end, String words, String searchOpt);
 	
@@ -25,15 +25,17 @@ public interface EmpSrv {
 	
 	public EmpVO getEmpNeedOne(EmpVO evo);
 
-	public void setEmpConfirmChange(String empConfirm, int empID);
+	public void setEmpConfirmChange(String empConfirm, int empId);
 	
-	public void setEmpAuthChange(int empAuth, int empID);
+	public void setEmpAuthChange(int empAuth, int empId);
 	
 	public void setEmpRegOthers(EmpVO evo);
 	
 	public List<TeamVO> grpGetTeam();
 	
 	public List<GradeVO> grpGetGrade();
+
+	
 
 	
 

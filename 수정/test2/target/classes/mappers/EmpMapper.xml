@@ -16,7 +16,7 @@
 
 	</sql>
 
-	<select id="getEmpList" parameterType="hashmap" resultType="com.setup.test2.Model.EmpVO">
+	<select id="getEmpListAll" parameterType="hashmap" resultType="com.setup.test2.Model.EmpVO">
 		SELECT
 		emp_id AS empId,
 		emp_team AS empTeamCode,
@@ -50,24 +50,20 @@
 
 	</select>
 
-	<delete id="setEmpDelete" parameterType="int">
+	<delete id="setEmpDeleteOne" parameterType="int">
 		DELETE FROM grp_employee
-		WHERE emp_id = #{eid}
+		WHERE emp_id = #{empId}
 
 	</delete>
 	
 	
 	<delete id="setEmpDeleteAll" parameterType="int">
 		DELETE FROM grp_employee
-		WHERE emp_id = #{eid}
+		WHERE emp_id = #{empId}
 
 	</delete>
 	
 
-	<update id="setEmpHeadChange" parameterType="hashmap">
-		UPDATE grp_employee
-		SET emp_head = #{empHead} WHERE emp_id = #{empId}
-	</update>
 
 	<update id="setEmpConfirmChange" parameterType="hashmap">
 		UPDATE

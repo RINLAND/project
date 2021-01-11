@@ -21,7 +21,7 @@ public class RegisterDaoImpl implements RegisterDao{
 	
 	@Override
 	public List<TeamVO> getTeamList() {
-		return sql.selectList("buseo.getBuseoList");
+		return sql.selectList("team.getTeamList");
 	}
 
 
