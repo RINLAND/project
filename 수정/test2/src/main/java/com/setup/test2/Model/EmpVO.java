@@ -19,21 +19,19 @@ public class EmpVO {
 	private int empAuth;
 	private String empConfirm;
 	private Date empJoin;
-	private Date empEnter;
+	private String empEnter;
 	
 	
-	
-	
-
-	public Date getEmpEnter() {
+	public String getEmpEnter() {
 		return empEnter;
 	}
 
 
 
-	public void setEmpEnter(Date empEnter) {
+	public void setEmpEnter(String empEnter) {
 		this.empEnter = empEnter;
 	}
+
 
 
 	public Date getEmpJoin() {

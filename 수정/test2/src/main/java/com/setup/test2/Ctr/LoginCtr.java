@@ -108,7 +108,7 @@ public class LoginCtr {
 	@RequestMapping(value = "/grp_register", method = RequestMethod.POST)
 	public String setRegisterOne(@ModelAttribute EmpVO evo) {
 		Calendar cal = Calendar.getInstance();
-		int enterYear  = Integer.parseInt( evo.getEmpJoin().substring(0, 4));
+		int enterYear  = Integer.parseInt( evo.getEmpEnter().substring(0, 4));
 		System.out.println(enterYear);
 		
 		
