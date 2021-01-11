@@ -98,7 +98,7 @@ select{
 
 					<div class="register">
 						<span class="Login" >
-							<a href="${pageContext.request.contextPath }/login">LOGIN</a>
+							<a href="${pageContext.request.contextPath }/grp_login">LOGIN</a>
 						</span>
 						
 					</div>
