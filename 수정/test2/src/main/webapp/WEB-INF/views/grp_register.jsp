@@ -51,7 +51,7 @@ select{
 				<form class="login100-form validate-form" onSubmit="return checkPwd();" 
 				method="POST" action="${pageContext.request.contextPath }/employee/register" autocomplete="off">
 					<span class="login100-form-title p-b-26">
-						** ENT   REGISTER
+						VV ENT   REGISTER
 					</span>
 					
 					<select name="empTeam" id="empTeam">
