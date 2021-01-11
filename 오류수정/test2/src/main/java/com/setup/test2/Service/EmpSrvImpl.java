@@ -3,12 +3,14 @@ package com.setup.test2.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.setup.test2.Model.EmpVO;
 import com.setup.test2.Model.GradeVO;
 import com.setup.test2.Model.TeamVO;
 import com.setup.test2.Repository.EmpDao;
 
+@Service
 public class EmpSrvImpl implements EmpSrv {
 
 	@Autowired

@@ -17,8 +17,8 @@
 	</sql>
 
 	<select id="getEmpList" parameterType="hashmap" resultType="com.setup.test2.Model.EmpVO">
-		SELECT
-		emp_id AS empID,
+		SELECT 
+		emp_id AS empId,
 		emp_team AS empTeamCode,
 		T.team_name AS
 		empTeamName,
@@ -29,13 +29,13 @@
 		emp_num AS empNum,
 		emp_name AS empName,
 		emp_join AS empJoin,
-		emp_Date AS empDate,
+		emp_date AS empDate,
 		emp_confirm AS empConfirm,
-		emp_auth AS empAuth
+		emp_auth AS empAuth 
 		FROM grp_employee E,
-		grp_team T, grp_grade G
-		WHERE E.emp_team = T.team_id AND E.emp_grade =
-		G.grade_id
+		grp_team T, grp_grade G 
+		WHERE E.emp_team = T.team_id AND E.emp_grade = 
+		G.grade_id 
 		ORDER BY emp_id DESC LIMIT #{start}, #{end}
 
 	</select>
@@ -64,26 +64,22 @@
 	</delete>
 	
 
-	<update id="setEmpHeadChange" parameterType="hashmap">
-		UPDATE grp_employee
-		SET emp_head = #{empHead} WHERE emp_id = #{empID}
-	</update>
 
 	<update id="setEmpConfirmChange" parameterType="hashmap">
-		UPDATE
-		grp_employee SET emp_confirm = #{empConfirm} WHERE emp_id = #{empID}
+		UPDATE 
+		grp_employee SET emp_confirm = #{empConfirm} WHERE emp_id = #{empId}
 	</update>
 
 	<update id="setEmpAuthChange" parameterType="hashmap">
-		UPDATE grp_employee
-		SET emp_auth = #{empAuth} WHERE emp_id = #{empID}
+		UPDATE grp_employee 
+		SET emp_auth = #{empAuth} WHERE emp_id = #{empId}
 	</update>
 
 <!--여러개면 파라미터 타입이 map이나 get,set  -->
 	<select id="getEmpNeedOne" parameterType="String"
 		resultType="com.setup.test2.Model.EmpVO">
 		SELECT
-		emp_id AS empID,
+		emp_id AS empId,
 		emp_team AS empTeamCode,
 		T.team_name AS empTeamName,
 

@@ -86,7 +86,7 @@ public class EmpCtr {
 		eSrv.setEmpAuthChange(empAuth, empID);
 		return "success";
 	}
-	/* 다시해야할듯
+	
 	@RequestMapping(value= "/grp_employee_register", method = RequestMethod.GET )
 	public ModelAndView grpEmpReg(HttpSession session) {
 		//System.out.println(session.getAttribute("empNum"));
@@ -100,7 +100,7 @@ public class EmpCtr {
 		return mav;
 			
 	}
-	*/
+	
 	
 	@RequestMapping(value = "/grp_register", method = RequestMethod.GET)
 	public String getGrpRegister() {
