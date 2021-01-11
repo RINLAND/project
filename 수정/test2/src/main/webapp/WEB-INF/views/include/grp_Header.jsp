@@ -13,4 +13,7 @@
 		<script src="${pageContext.request.contextPath }/assets/js/breakpoints.min.js"></script>
 		<script src="${pageContext.request.contextPath }/assets/js/util.js"></script>
 		<script src="${pageContext.request.contextPath }/assets/js/main.js"></script>
+		
+		<script src="https://kit.fontawesome.com/62ab751ce0.js" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	</head>
