@@ -54,9 +54,9 @@ select{
 						VV ENT   REGISTER
 					</span>
 					
-					<select name="empTeam" id="empTeam">
+					<select name="empTeamCode" id="empTeamCode">
 					</select>
-					<select name="empGrade" id= "empGrade">
+					<select name="empGradeCode" id= "empGradeCode">
 						
 					</select>
 
@@ -139,7 +139,7 @@ select{
 			dataType : "json",
 			success : function(resData){
 				$.each(resData, function(key, value) {
-						$("#empTeam").append("<option value="+value.team_id+">"+value.team_name+"</option>");
+						$("#empTeamCode").append("<option value="+value.team_id+">"+value.team_name+"</option>");
 					});
 			},
 			error : function(){
@@ -158,7 +158,7 @@ select{
 			dataType : "json",
 			success : function(resData){
 				$.each(resData, function(key, value) {
-						$("#empGrade").append("<option value="+value.grade_id+">"+value.grade_name+"</option>");
+						$("#empGradeCode").append("<option value="+value.grade_id+">"+value.grade_name+"</option>");
 					});
 			},
 			error : function(){

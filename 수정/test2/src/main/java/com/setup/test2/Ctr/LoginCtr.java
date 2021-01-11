@@ -127,7 +127,8 @@ public class LoginCtr {
 	@RequestMapping(value = "/grp_get_team", method = RequestMethod.POST)
 	@ResponseBody
 	public List<TeamVO> getTeam() {
-		List<TeamVO> list = rSrv.getTeamList();
+		empSrv.grpGetTeam();
+		List<TeamVO> list = empSrv.grpGetTeam();
 		//System.out.println(list);
 		return list;
 	}
@@ -135,7 +136,8 @@ public class LoginCtr {
 	@RequestMapping(value = "/grp_get_grade", method = RequestMethod.POST)
 	@ResponseBody
 	public List<GradeVO> getGrade() {
-		List<GradeVO> list = rSrv.getGradeList();
+		empSrv.grpGetGrade();
+		List<GradeVO> list = empSrv.grpGetGrade();
 		//System.out.println(list);
 		return list;
 	}
