@@ -49,9 +49,9 @@
 	<div class="limiter">
 		<div class="container-login100" >
 			<div class="wrap-login100">
-				<form method="post" class="login100-form validate-form" action="${pageContext.request.contextPath}/grp_login" autocomplete="off">
+				<form class="login100-form validate-form" action="${pageContext.request.contextPath }/grp_login" autocomplete="off">
 					<span class="login100-form-title p-b-26">
-						VV ENTERTAINMENT
+						**  ENTERTAINMENT
 					</span>
 					
 
@@ -71,7 +71,7 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<a href="${pageContext.request.contextPath}">
+							<a href="${pageContext.request.contextPath }">
 							<button type="submit" class="login100-form-btn">
 								Login
 							</button>
@@ -81,10 +81,10 @@
 
 					<div class="register">
 						<span class="main">
-							<a href="${pageContext.request.contextPath}">Return to main</a>
+							<a href="${pageContext.request.contextPath }/main">Return to main</a>
 						</span>
 						<span class="account">
-							<a href="${pageContext.request.contextPath}/grp_register" class="">Create New Account</a>
+							<a href="${pageContext.request.contextPath }/employee/register" class="">Create New Account</a>
 						</span>
 						<div class="clearfix"></div>
 					</div>
