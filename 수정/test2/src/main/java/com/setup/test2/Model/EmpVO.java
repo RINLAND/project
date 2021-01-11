@@ -6,8 +6,8 @@ import java.util.Date;
 public class EmpVO {
 
 	private int empId;
-	private String empTeamCode; //ÀúÀå
-	private String empTeamName; //º¼¶§
+	private String empTeamCode; //ï¿½ï¿½ï¿½ï¿½
+	private String empTeamName; //ï¿½ï¿½ï¿½ï¿½
 	
 	private String empGradeCode;
 	private String empGradeName;
@@ -18,19 +18,31 @@ public class EmpVO {
 	private Date empDate;
 	private int empAuth;
 	private String empConfirm;
-	private String empJoin;
+	private Date empJoin;
+	private Date empEnter;
 	
 	
 	
 	
 
-	public String getEmpJoin() {
+	public Date getEmpEnter() {
+		return empEnter;
+	}
+
+
+
+	public void setEmpEnter(Date empEnter) {
+		this.empEnter = empEnter;
+	}
+
+
+	public Date getEmpJoin() {
 		return empJoin;
 	}
 
 
 
-	public void setEmpJoin(String empJoin) {
+	public void setEmpJoin(Date empJoin) {
 		this.empJoin = empJoin;
 	}
 

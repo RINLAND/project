@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.example.grp.model.RegisterVO;
 import com.setup.test2.Model.EmpVO;
 import com.setup.test2.Model.GradeVO;
 import com.setup.test2.Model.TeamVO;
@@ -107,17 +108,11 @@ public class LoginCtr {
 	@RequestMapping(value = "/grp_register", method = RequestMethod.POST)
 	public String setRegisterOne(@ModelAttribute EmpVO evo) {
 		Calendar cal = Calendar.getInstance();
-		int dateYear  = Integer.parseInt(evo.getEmpDate().substring(0, 4));
-		System.out.println(dateYear);
+		int enterYear  = Integer.parseInt( evo.getEmpJoin().substring(0, 4));
+		System.out.println(enterYear);
 		
-		int regYear	= cal.get(Calendar.YEAR);
-		System.out.println(regYear);
 		
-		int stepSize = regYear - dateYear + 1;
-		//System.out.println(stepSize);
-		evo.setEmpAuth(stepSize);
-		
-		String num = dateYear + evo.getEmpTeamCode() + evo.getEmpGradeCode();
+		String num = enterYear + evo.getEmpTeamCode() + evo.getEmpGradeCode();
 		evo.setEmpNum(num);
 		
 		rSrv.setRegisterOne(evo);

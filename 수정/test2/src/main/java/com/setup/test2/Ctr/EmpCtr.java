@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.example.grp.model.RegisterVO;
 import com.setup.test2.Model.EmpVO;
 import com.setup.test2.Model.GradeVO;
 import com.setup.test2.Model.TeamVO;
@@ -82,15 +82,15 @@ public class EmpCtr {
 	
 	@RequestMapping(value= "/grp_employee_confirm_change", method = RequestMethod.POST )
 	@ResponseBody
-	public String EmpConfirmChange(@RequestParam String empConfirm, @RequestParam int empID) {
-		eSrv.setEmpConfirmChange(empConfirm, empID);
+	public String EmpConfirmChange(@RequestParam String empConfirm, @RequestParam int empId) {
+		eSrv.setEmpConfirmChange(empConfirm, empId);
 		return "success";
 	}
 	
 	@RequestMapping(value= "/grp_employee_auth_change", method = RequestMethod.POST )
 	@ResponseBody
-	public String EmpAuthChange(@RequestParam int empAuth, @RequestParam int empID) {
-		eSrv.setEmpAuthChange(empAuth, empID);
+	public String EmpAuthChange(@RequestParam int empAuth, @RequestParam int empId) {
+		eSrv.setEmpAuthChange(empAuth, empId);
 		return "success";
 	}
 	
@@ -101,24 +101,20 @@ public class EmpCtr {
 		return "grp_employee/grp_employee_register";
 	}
 	
-	@RequestMapping(value = "/grp_employee_register", method = RequestMethod.POST)
-	public String setEmployeeRegister(@ModelAttribute EmpVO evo, MultipartFile file) throws IOException {
+	@RequestMapping(value = "/grp_register", method = RequestMethod.POST)
+	public String setRegisterOne(@ModelAttribute EmpVO evo) {
 		Calendar cal = Calendar.getInstance();
-		int dateYear  = Integer.parseInt(evo.getEmpDate().substring(0, 4));
+		int enterYear  = Integer.parseInt(evo.getEmpEnter().substring(0, 4));
+		System.out.println(enterYear);
 		
 		int regYear	= cal.get(Calendar.YEAR);
+		System.out.println(regYear);
 		
-		int stepSize = regYear - dateYear + 1;
-		//System.out.println(stepSize);
-		evo.setEmpAuth(stepSize);
-		
-		String num = dateYear + evo.getEmpTeamCode() + evo.getEmpGradeCode();
+		String num = enterYear + evo.getEmpTeamCode() + evo.getEmpGradeCode();
 		evo.setEmpNum(num);
 		
-		
 		rSrv.setRegisterOne(evo);
-		rSrv.setRegisterOthersOne(evo);
-		return "redirect:/employee/grp_employee_list_all";
+		return "redirect:/grp_login";
 	}
 	
 	
