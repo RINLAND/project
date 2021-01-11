@@ -25,6 +25,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/board_main.css" />
 	 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/board.css" />
 	 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/fontawesome-all.min.css" />
+	 <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/main.css" />
 	 <script src="https://kit.fontawesome.com/62ab751ce0.js" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="assets/js/jquery.min.js"></script>
