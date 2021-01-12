@@ -4,11 +4,11 @@
 	
 	<select id="LoginCheck" resultType="com.setup.test2.Model.EmpVO">
 		SELECT 
-			emp_id AS empID, 
+			emp_id AS empId, 
 			emp_pwd as empPwd,
 			emp_auth AS empAuth
 		FROM 
-		grp_employee WHERE emp_id = #{empID} AND emp_pwd = #{empPwd}
+		grp_employee WHERE emp_id = #{empId} AND emp_pwd = #{empPwd}
 	</select>
 
 </mapper>

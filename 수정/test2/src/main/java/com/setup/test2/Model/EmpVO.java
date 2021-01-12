@@ -22,6 +22,20 @@ public class EmpVO {
 	private String empEnter;
 	
 	
+	private int ref; //디벵도 넣어야하나?
+	
+	public int getRef() {
+		return ref;
+	}
+
+
+
+	public void setRef(int ref) {
+		this.ref = ref;
+	}
+
+
+
 	public String getEmpEnter() {
 		return empEnter;
 	}
