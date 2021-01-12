@@ -3,6 +3,7 @@
 
 <%@ include file="/WEB-INF/views/include/Header.jsp" %> 
 
+
 <style>
 select{
     border: 0;
@@ -61,7 +62,7 @@ select{
 					</select>
 
 					<div class="wrap-input100 validate-input" data-validate = "">
-						<input class="input100" type="date" name="empDate" id="empDate">
+						<input class="input100" type="date" name="empEnter" id="empEnter" max="2021-12-31" Min="1980-01-01">
 						<span class="focus-input100" data-placeholder="Date of joining the year"></span>
 					</div>
 
