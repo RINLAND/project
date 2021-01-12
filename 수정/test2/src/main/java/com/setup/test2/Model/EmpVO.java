@@ -18,11 +18,10 @@ public class EmpVO {
 	private Date empDate;
 	private int empAuth;
 	private String empConfirm;
-	private Date empJoin;
 	private String empEnter;
 	
 	
-	private int ref; //디벵도 넣어야하나?
+	private int ref; //디비에도 넣어야하나?
 	
 	public int getRef() {
 		return ref;
@@ -45,19 +44,6 @@ public class EmpVO {
 	public void setEmpEnter(String empEnter) {
 		this.empEnter = empEnter;
 	}
-
-
-
-	public Date getEmpJoin() {
-		return empJoin;
-	}
-
-
-
-	public void setEmpJoin(Date empJoin) {
-		this.empJoin = empJoin;
-	}
-
 
 
 	public int getEmpId() {
