@@ -145,7 +145,7 @@ select{
 			error : function(){
 				alert("시스템에러");
 				},			
-				complete : function(){}
+				
 	});
 }
 
@@ -194,7 +194,7 @@ select{
 			a.focus();
 			return false;
 			}
-	} 다 만들고 이 주석을 없애야 편함*/
+	} 
 
 	$(function(){
 		loadTeam();

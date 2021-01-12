@@ -31,9 +31,7 @@ public interface EmpSrv {
 	
 	public void setEmpRegOthers(EmpVO evo);
 	
-	public List<TeamVO> grpGetTeam();
-	
-	public List<GradeVO> grpGetGrade();
+
 
 	
 

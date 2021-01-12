@@ -22,4 +22,5 @@ public class TeamVO {
 		this.team_name = team_name;
 	}
 
+
 }

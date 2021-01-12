@@ -63,15 +63,6 @@ public class EmpSrvImpl implements EmpSrv {
 		EmpDao.setEmpRegOthers(evo);
 	}
 
-	@Override
-	public List<TeamVO> grpGetTeam() {
-		return EmpDao.grpGetTeam();
-	}
-
-	@Override
-	public List<GradeVO> grpGetGrade() {
-		return EmpDao.grpGetGrade();
-	}
 	
 	
 }

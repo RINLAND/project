@@ -18,5 +18,6 @@ public class GradeVO {
 	public void setGrade_name(String grade_name) {
 		this.grade_name = grade_name;
 	}
-
+	
+	
 }

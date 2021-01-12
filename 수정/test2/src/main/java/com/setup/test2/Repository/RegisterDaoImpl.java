@@ -21,13 +21,13 @@ public class RegisterDaoImpl implements RegisterDao{
 	
 	@Override
 	public List<TeamVO> getTeamList() {
-		return sql.selectList("team.getTeamList");
+		return sql.selectList("register.getTeamList");
 	}
 
 
 	@Override
 	public List<GradeVO> getGradeList() {
-		return sql.selectList("grade.getGradeList");
+		return sql.selectList("register.getGradeList");
 	}
 
 

@@ -119,22 +119,6 @@ public class LoginCtr {
 		return "redirect:/grp_login";
 	}
 	
-	@RequestMapping(value = "/grp_get_team", method = RequestMethod.POST)
-	@ResponseBody
-	public List<TeamVO> getTeam() {
-		empSrv.grpGetTeam();
-		List<TeamVO> list = empSrv.grpGetTeam();
-		//System.out.println(list);
-		return list;
-	}
-	
-	@RequestMapping(value = "/grp_get_grade", method = RequestMethod.POST)
-	@ResponseBody
-	public List<GradeVO> getGrade() {
-		empSrv.grpGetGrade();
-		List<GradeVO> list = empSrv.grpGetGrade();
-		//System.out.println(list);
-		return list;
-	}
+
 
 }

@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 public class MySqlConnectionTest {
 	 private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	 private static final String URL = "jdbc:mysql://127.0.0.1 /grp?serverTimezone=UTC"; 
-	 private static final String USER = "root"; //DB »ç¿ëÀÚ¸í
-	 private static final String PW = "root";   //DB »ç¿ëÀÚ ºñ¹Ğ¹øÈ£
+	 private static final String USER = "root"; //DB ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½
+	 private static final String PW = "root";   //DB ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ğ¹ï¿½È£
 	 
 	 @Test
 	 public void testConnection() throws Exception{
@@ -18,10 +18,10 @@ public class MySqlConnectionTest {
 	  
 	  try(Connection con = DriverManager.getConnection(URL, USER, PW)){
 		  
-	   System.out.println("¼º°ø");
+	   System.out.println("ë°ë² ì—°ê²°ì™„ë£Œ");
 	   System.out.println(con);
 	  }catch (Exception e) {
-	   System.out.println("¿¡·¯¹ß»ı");
+	   System.out.println("ì˜¤ë¥˜ë°œìƒ");
 	   e.printStackTrace();
 	  }
 	 }
