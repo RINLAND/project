@@ -68,6 +68,7 @@
 									<c:if test="${sessionScope.empName != null}">
                 							${sessionScope.empName}
                 						<a href="${pageContext.request.contextPath }/grp_logout"> LOGOUT</a>
+                						<a href="${pageContext.request.contextPath }/grp_admin_main"> GRUPWARE</a>
                						 </c:if>
 									</li>
 								</ul>
