@@ -15,12 +15,10 @@
 
 		INSERT INTO grp_employee SET
 		emp_team = #{empTeamCode},
-		emp_grade =
-		#{empGradeCode},
-		emp_join = #{empJoin},
+		emp_grade = #{empGradeCode},
+		emp_enter = #{empEnter},
 		emp_name = #{empName},
-		emp_pwd =
-		#{empPwd},
+		emp_pwd = #{empPwd},
 		emp_date = now(),
 		emp_num = CONCAT(#{empNum}, #{ref})
 

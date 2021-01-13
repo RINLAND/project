@@ -15,9 +15,13 @@
 		<property name="driverClassName"
 			value="com.mysql.cj.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://127.0.0.1:6789/grp?serverTimezone=UTC" />
+			value="jdbc:mysql://127.0.0.1 /grp?serverTimezone=UTC" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
+		<!--<property name="validationQuery" value="select 1"/>
+		<property name="testWhileIdle" value="true"/>
+		<property name="timeBetweenEvictionRunsMillis" value="7200000"/>  -->
+		
 	</bean>
 
 	<bean id="sqlSessionFactory"
