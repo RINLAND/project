@@ -50,7 +50,7 @@ select{
 		<div class="container-login100" >
 			<div class="wrap-login100">
 				<form class="login100-form validate-form" onSubmit="return checkPwd();" 
-				method="POST" action="${pageContext.request.contextPath }/employee/register" autocomplete="off">
+				method="POST" action="${pageContext.request.contextPath }/grp_register" autocomplete="off">
 					<span class="login100-form-title p-b-26">
 						VV ENT   REGISTER
 					</span>
