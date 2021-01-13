@@ -3,7 +3,7 @@
 <mapper namespace="register">
 
 
-	<insert id="setEmpRegisterOne" parameterType="com.setup.test2.Model.EmpVO">
+	<insert id="setRegisterOne" parameterType="com.setup.test2.Model.EmpVO">
 		<!--default 들어가 있는건 신경 x -->
 
 		<selectKey keyProperty="ref" order="BEFORE" resultType="int">

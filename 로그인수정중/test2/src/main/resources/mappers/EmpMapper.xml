@@ -29,7 +29,7 @@
 		emp_num AS empNum,
 		emp_name AS empName,
 		emp_pwd AS empPwd,
-		emp_Date AS empDate,
+		emp_date AS empDate,
 		emp_confirm AS empConfirm,
 		emp_auth AS empAuth
 		FROM grp_employee E,
