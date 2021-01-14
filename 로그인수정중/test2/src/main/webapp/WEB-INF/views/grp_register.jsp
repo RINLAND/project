@@ -62,13 +62,16 @@ select{
 					</select>
 
 					<div class="wrap-input100 validate-input" data-validate = "">
-						<input class="input100" type="date" name="empEnter" id="empEnter" max="2021-12-31" Min="1980-01-01">
-						<span class="focus-input100" data-placeholder="Date of joining the year"></span>
+						
+						<input class="input100" type="date" name="empEnter" id="empEnter" max="2021-12-31" Min="1980-01-01"  placeholder="입사날짜를 입력하세요."	>
+						<span class="focus-input100" data-placeholder="　　　　　　　date"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid name">
-						<input class="input100" type="text" name="empName" id="empName">
-						<span class="focus-input100" data-placeholder="name"></span>
+						<input class="input100" type="text" name="empName" id="empName" >
+						<span class="focus-input100" data-placeholder="　　　　　　　name"></span>
+						
+						
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
@@ -77,7 +80,7 @@ select{
 							<i class="zmdi zmdi-eye"></i>
 						</span>
 						<input class="input100" type="password" name="empPwd" id="empPwd">
-						<span class="focus-input100" data-placeholder="Password"></span>
+						<span class="focus-input100" data-placeholder="　　　　　　　Password"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
@@ -85,7 +88,7 @@ select{
 							<i class="zmdi zmdi-eye"></i>
 						</span>
 						<input class="input100" type="password" name="rePwd" id="rePwd">
-						<span class="focus-input100" data-placeholder="Password Check"></span>
+						<span class="focus-input100" data-placeholder="　　　　　　　Passwordcheck"></span>
 					</div>
 
 					<div class="container-login100-form-btn">

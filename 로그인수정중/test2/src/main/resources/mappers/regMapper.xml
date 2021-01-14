@@ -25,10 +25,7 @@
 	</insert>
 
 	<select id="getEmpNumCheck" parameterType="hashmap" resultType="int">
-		SELECT COUNT(emp_id) FROM grp_employee WHERE emp_num =
-		#{empNum}
-		AND emp_pwd = #{empPwd}
-
+		SELECT COUNT(emp_id) FROM grp_employee WHERE emp_num = #{empNum} AND emp_pwd = #{empPwd}
 	</select>
 
 	<update id="setEmployeeAuthChange" parameterType="hashmap">

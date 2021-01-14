@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/grp_admin")
 public class AdminCtr {
 	
-	@RequestMapping("") //localhost:5678/grp/grp_admin -> °ü¸®ÀÚ·Î ·Î±×ÀÎ½Ã ÀÌµ¿
+	@RequestMapping("") //localhost:5678/grp/grp_admin -> ï¿½ï¿½ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½Î±ï¿½ï¿½Î½ï¿½ ï¿½Ìµï¿½
 	public String grpAdmin() {
-		return"grp_admin/grp_admin.main";
+		return"grp_admin/grp_admin_main";
 	}
 
 }

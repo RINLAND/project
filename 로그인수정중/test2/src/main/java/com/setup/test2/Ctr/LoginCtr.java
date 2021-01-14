@@ -52,12 +52,12 @@ public class LoginCtr {
 
 	@RequestMapping(value = "/grp_login", method = RequestMethod.POST)
 	public ModelAndView setLogin(@ModelAttribute EmpVO evo, HttpSession session) {
-		// System.out.println(evo.getEmpNum());
-		// System.out.println(evo.getEmpPwd());
-		// System.out.println(evo);
-
+		//System.out.println(evo.getEmpNum());
+		//System.out.println(evo.getEmpPwd());
+		//System.out.println(lSrv.getEmpNumCheck(evo));
+		//System.out.println(sSrv.getSystem());
+		//System.out.println(sSrv.getSystem().getSysAuth());
 		int result = lSrv.getEmpNumCheck(evo);
-
 		SysVO svo = sSrv.getSystem();
 
 		int auth = sSrv.getSystem().getSysAuth();

@@ -46,16 +46,16 @@ public class LoginDaoImpl  implements LoginDao{
 	}
 	
 	public int getEmpNumCheck(EmpVO evo) {
-		Map<String, String> map = new HashMap<String, String>();  //�𸣰����� object
-		map.put("emp_num", evo.getEmpNum() );
-		map.put("emp_pwd", evo.getEmpPwd());
+		Map<String, String> map = new HashMap<String, String>();  
+		map.put("empNum", evo.getEmpNum());
+		map.put("empPwd", evo.getEmpPwd());
 		return sql.selectOne("register.getEmpNumCheck", map);
 	}
 	
 	public EmpVO getEmpInfo(EmpVO evo) {
 		Map<String, String> map = new HashMap<String, String>(); 
-		map.put("emp_num", evo.getEmpNum() );
-		map.put("emp_pwd", evo.getEmpPwd());
+		map.put("empNum", evo.getEmpNum() );
+		map.put("empPwd", evo.getEmpPwd());
 		return sql.selectOne("register.getEmpInfo", map);
 	}
 }
