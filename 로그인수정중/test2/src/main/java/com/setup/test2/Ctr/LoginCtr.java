@@ -44,8 +44,8 @@ public class LoginCtr {
 
 		SysVO svo = sSrv.getSystem();
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("comName", svo.getSysTitle());
-		mav.addObject("comSubName", svo.getSysSub());
+		mav.addObject("sysName", svo.getSysTitle());
+		mav.addObject("sysSub", svo.getSysSub());
 		mav.setViewName("grp_login");
 		return mav;
 	}
@@ -63,8 +63,8 @@ public class LoginCtr {
 		int auth = sSrv.getSystem().getSysAuth();
 
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("comName", svo.getSysTitle());
-		mav.addObject("comSubName", svo.getSysSub());
+		mav.addObject("sysName", svo.getSysTitle());
+		mav.addObject("sysSub", svo.getSysSub());
 
 		String msg;
 
