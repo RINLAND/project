@@ -3,12 +3,7 @@
     
     <%@include file = "/WEB-INF/views/grp_admin/grp_admin_header.jsp" %>
     
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
+
 
 <body class="is-preload">
 
