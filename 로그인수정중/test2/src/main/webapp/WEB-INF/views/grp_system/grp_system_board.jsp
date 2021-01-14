@@ -82,8 +82,8 @@
 								</td>
 								<td class="td-10 center weight700 bg-gray">게시판 부서</td>
 								<td class="td-15 p-lr3">
-									<input type="text" placeholder="어떤 부서의 게시판인지 입력하세요." name="boardTag"
-										id="boardTag" class="input-100" maxlength="100" required />
+									<input type="text" placeholder="어떤 부서의 게시판인지 입력하세요." name="boardTeam"
+										id="boardTeam" class="input-100" maxlength="100" required />
 								</td>
 							</tr>
 							<tr>

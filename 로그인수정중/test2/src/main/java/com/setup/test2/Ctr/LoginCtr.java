@@ -72,13 +72,13 @@ public class LoginCtr {
 			EmpVO vo = lSrv.getEmpInfo(evo);
 			if (vo.getEmpAuth() >= auth && vo.getEmpConfirm().equals("Y")) {
 				lSrv.setSession(evo, session);
-				mav.setViewName("redirect:/grp_admin");
+				mav.setViewName("redirect:/grp_admin_main");
 
-			} else if (vo.getEmpAuth() >= auth && vo.getEmpConfirm().equals("Y")) {
+			} /*else if (vo.getEmpAuth() >= auth && vo.getEmpConfirm().equals("Y")) {
 				lSrv.setSession(evo, session);
 				mav.setViewName("redirect:/");
 
-			} else {
+			}*/ else {
 				msg = "로그인오류!";
 				mav.addObject("msg", msg); // ��
 				mav.setViewName("grp_login"); // ȭ��

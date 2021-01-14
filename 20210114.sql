@@ -16,6 +16,40 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `grp_board`
+--
+
+DROP TABLE IF EXISTS `grp_board`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `grp_board` (
+  `boardID` int NOT NULL AUTO_INCREMENT,
+  `boardTeam` varchar(20) NOT NULL,
+  `boardCode` varchar(20) NOT NULL,
+  `boardColor` varchar(20) NOT NULL,
+  `boardMaker` varchar(20) NOT NULL,
+  `boardTitle` varchar(200) NOT NULL,
+  `boardRead` char(1) DEFAULT '1',
+  `boardWrite` char(1) DEFAULT '1',
+  `boardReply` char(1) DEFAULT '1',
+  `boardDown` char(1) DEFAULT '1',
+  `boardType` char(1) DEFAULT '1',
+  `boardReference` char(1) DEFAULT 'Y',
+  `boardRegdate` date DEFAULT NULL,
+  PRIMARY KEY (`boardID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `grp_board`
+--
+
+LOCK TABLES `grp_board` WRITE;
+/*!40000 ALTER TABLE `grp_board` DISABLE KEYS */;
+/*!40000 ALTER TABLE `grp_board` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `grp_employee`
 --
 
@@ -34,7 +68,7 @@ CREATE TABLE `grp_employee` (
   `emp_confirm` char(1) DEFAULT 'N',
   `emp_enter` date DEFAULT NULL,
   PRIMARY KEY (`emp_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +77,7 @@ CREATE TABLE `grp_employee` (
 
 LOCK TABLES `grp_employee` WRITE;
 /*!40000 ALTER TABLE `grp_employee` DISABLE KEYS */;
-INSERT INTO `grp_employee` VALUES (1,'','','admin',NULL,'관리자','1234',10,'Y',NULL);
+INSERT INTO `grp_employee` VALUES (1,'','','admin',NULL,'관리자','1234',10,'Y',NULL),(2,'200','1','202020012','2021-01-13','김사원','1234',1,'N','2020-03-16'),(3,'700','3','201970033','2021-01-13','박주임','4567',1,'N','2019-05-13');
 /*!40000 ALTER TABLE `grp_employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +132,7 @@ CREATE TABLE `grp_system` (
 
 LOCK TABLES `grp_system` WRITE;
 /*!40000 ALTER TABLE `grp_system` DISABLE KEYS */;
-INSERT INTO `grp_system` VALUES ('** ENTERTAMENT','GROUP SYSTEM','CYJ','051-152-4567','**ENT.good.co.kr','good alright reserved','Korea. Seoul','Have A Good Day','BEST ENTERTAMENT','BEST PEOPLE',2);
+INSERT INTO `grp_system` VALUES ('VV ENTERTAMENT','GROUP SYSTEM','CYJ','051-152-4567','VV ENT.good.co.kr','good alright reserved','Korea. Seoul','Have A Good Day','BEST ENTERTAMENT','BEST PEOPLE',2);
 /*!40000 ALTER TABLE `grp_system` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,4 +168,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-13 14:39:11
+-- Dump completed on 2021-01-14 15:43:10
