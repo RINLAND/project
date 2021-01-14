@@ -85,7 +85,7 @@
 
 		emp_grade AS empGradeCode,
 		G.grade_name AS empGradeName,
-		emp_date AS empDate
+		emp_date AS empDate,
 		emp_num AS empNum,
 		emp_name AS empName,
 		emp_enter AS empEnter,
