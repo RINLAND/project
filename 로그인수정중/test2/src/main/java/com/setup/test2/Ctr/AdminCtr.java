@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/grp_admin")
 public class AdminCtr {
 	
-	@RequestMapping("") //localhost:5678/grp/grp_admin -> �����ڷ� �α��ν� �̵�
+	@RequestMapping("") 
 	public String grpAdmin() {
 		return"grp_admin/grp_admin_main";
 	}
