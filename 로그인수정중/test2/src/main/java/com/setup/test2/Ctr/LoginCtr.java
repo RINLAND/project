@@ -52,11 +52,11 @@ public class LoginCtr {
 
 	@RequestMapping(value = "/grp_login", method = RequestMethod.POST)
 	public ModelAndView setLogin(@ModelAttribute EmpVO evo, HttpSession session) {
-		//System.out.println(evo.getEmpNum());
-		//System.out.println(evo.getEmpPwd());
-		//System.out.println(lSrv.getEmpNumCheck(evo));
-		//System.out.println(sSrv.getSystem());
-		//System.out.println(sSrv.getSystem().getSysAuth());
+		System.out.println(evo.getEmpNum());
+		System.out.println(evo.getEmpPwd());
+		System.out.println(lSrv.getEmpNumCheck(evo));
+		System.out.println(sSrv.getSystem());
+		System.out.println(sSrv.getSystem().getSysAuth());
 		int result = lSrv.getEmpNumCheck(evo);
 		SysVO svo = sSrv.getSystem();
 
@@ -72,7 +72,7 @@ public class LoginCtr {
 			EmpVO vo = lSrv.getEmpInfo(evo);
 			if (vo.getEmpAuth() >= auth && vo.getEmpConfirm().equals("Y")) {
 				lSrv.setSession(evo, session);
-				mav.setViewName("redirect:/grp_admin_main");
+				mav.setViewName("redirect:/grp_admin");
 
 			} /*else if (vo.getEmpAuth() >= auth && vo.getEmpConfirm().equals("Y")) {
 				lSrv.setSession(evo, session);
