@@ -80,8 +80,8 @@ public class LoginCtr {
 
 			}*/ else {
 				msg = "로그인오류!";
-				mav.addObject("msg", msg); // ��
-				mav.setViewName("grp_login"); // ȭ��
+				mav.addObject("msg", msg); 
+				mav.setViewName("grp_login"); 
 			}
 
 		} else {
