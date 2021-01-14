@@ -74,21 +74,20 @@ public class LoginCtr {
 				lSrv.setSession(evo, session);
 				mav.setViewName("redirect:/grp_admin");
 
-			} /*else if (vo.getEmpAuth() >= auth && vo.getEmpConfirm().equals("Y")) {
+			} else if (vo.getEmpAuth() < auth && vo.getEmpConfirm().equals("Y")) {
 				lSrv.setSession(evo, session);
 				mav.setViewName("redirect:/");
 
-			}*/ else {
-				msg = "로그인오류!";
+			} else {
+				msg = "관리자의 승인이 필요합니다.!";
 				mav.addObject("msg", msg); 
-				mav.setViewName("grp_login"); 
+				mav.setViewName("/grp_login"); 
 			}
 
 		} else {
-
-			msg = "다시접속.";
+			msg = "아이디/비밀번호를 확인하세요.";
 			mav.addObject("msg", msg); // ��
-			mav.setViewName("grp_login"); // ȭ��
+			mav.setViewName("/grp_login"); // ȭ��
 		}
 		return mav;
 	}
