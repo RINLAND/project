@@ -61,6 +61,7 @@
 					</div>
 
 					<div class="board-wrap bg-white">
+					<form action="" method="POST" id="frm">
 						<table>
 							<tr>
 								<td class="td-10 center weight700  bg-sub">게시판 이름</td>
@@ -162,6 +163,8 @@
 							<button type="submit" class="btn-on">생성완료</button>
 							<button type="reset" class="btn-off">새로고침</button>
 						</div>
+						
+						</form>
 
 					</div>
 
