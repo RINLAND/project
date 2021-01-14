@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
+       
+ <%@include file = "/WEB-INF/views/grp_admin/grp_admin_header.jsp" %>
+
 <body class="is-preload">
 
 	<!-- Wrapper -->
@@ -68,6 +65,7 @@
 		</div>
 
 	</div>
+
 
 </body>
 </html>
