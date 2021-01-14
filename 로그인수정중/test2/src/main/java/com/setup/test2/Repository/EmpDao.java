@@ -20,16 +20,13 @@ public interface EmpDao {
 	
 	public int getEmpCount(String searchOpt, String words);
 	
-	public EmpVO getEmpNeedOne(EmpVO evo);
+	public EmpVO getEmpNeedOne(String sessionNum);
 
 	public void setEmpConfirmChange(String empConfirm, int empId);
 	
 	public void setEmpAuthChange(int empAuth, int empId);
 	
 	public void setEmpRegOthers(EmpVO evo);
-	
-	/**/
-	
 	
 	public List<TeamVO> grpGetTeam();
 	

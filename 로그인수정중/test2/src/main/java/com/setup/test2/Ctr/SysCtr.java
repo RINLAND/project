@@ -21,7 +21,7 @@ public class SysCtr {
 
 	@RequestMapping(value="", method = RequestMethod.GET)
 	public String getSystem() {
-		return "grp_system/grp_system";
+		return "grp_system/grp_system_main";
 	}
 	
 	@RequestMapping(value="", method = RequestMethod.POST)
@@ -34,7 +34,7 @@ public class SysCtr {
 	@RequestMapping(value="/grp_system", method = RequestMethod.POST)
 	public String getSystem(@ModelAttribute SysVO svo) {
 		sysSrv.setSystem(svo);
-		return "grp_system/grp_system";
+		return "grp_system/grp_system_main";
 	}
 
 }

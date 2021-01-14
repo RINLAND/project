@@ -61,16 +61,7 @@
 											<li><a href="#">MY DONATE</a></li>
 										</ul>
 									</li>
-									<li>
-									 <c:if test="${sessionScope.empName == null}">
-										<a class="strong" href="${pageContext.request.contextPath }/grp_login"><span>LOGIN</span></a>
-									</c:if>
-									<c:if test="${sessionScope.empName != null}">
-                							${sessionScope.empName}
-                						<a href="${pageContext.request.contextPath }/grp_logout"> LOGOUT</a>
-                						<a href="${pageContext.request.contextPath }/grp_admin_main"> GRUPWARE</a>
-               						 </c:if>
-									</li>
+									<li><a class="strong" href="${pageContext.request.contextPath }/grp_login"><span>LOGIN</span></a></li>
 								</ul>
 							</nav>
 

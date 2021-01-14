@@ -5,11 +5,6 @@ import java.util.List;
 
 
 import com.setup.test2.Model.EmpVO;
-import com.setup.test2.Model.GradeVO;
-import com.setup.test2.Model.TeamVO;
-
-
-
 
 
 public interface EmpSrv {
@@ -23,7 +18,7 @@ public interface EmpSrv {
 	
 	public int getEmpCount(String searchOpt, String words);
 	
-	public EmpVO getEmpNeedOne(EmpVO evo);
+	public EmpVO getEmpNeedOne(String sessionNum);
 
 	public void setEmpConfirmChange(String empConfirm, int empId);
 	
