@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
 import com.setup.test2.Model.EmpVO;
 import com.setup.test2.Model.GradeVO;
 import com.setup.test2.Model.TeamVO;
@@ -51,6 +52,8 @@ public class EmpDaoImpl implements EmpDao {
 	public EmpVO getEmpNeedOne(EmpVO evo) {
 		return sqlSession.selectOne("employee.getEmpNeedOne", evo);
 	}
+	
+
 
 	@Override
 	public void setEmpConfirmChange(String empConfirm, int empId) {
