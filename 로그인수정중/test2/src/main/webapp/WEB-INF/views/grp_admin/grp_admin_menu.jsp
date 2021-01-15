@@ -7,7 +7,13 @@
 					<header class="major">
 						<h2>Menu</h2>
 					</header>
-					<ul>
+					<div class="tree-wrap">
+						<div id="sidetreecontrol" class="">
+                            <a href="#" class="tab active" id="open">전체닫기</a>
+                            <a href="#" class="tab" id="close">전체열기</a>
+                        </div>
+                        	<div class="clearfix"></div>
+					<ul id="tree">
 						<li><span class="opener"><a href="${pageContext.request.contextPath }/grp_notice.html">공지사항</a></span>
 							<ul>
 								<li><a href="${pageContext.request.contextPath }/grp_notice_list.html">공지사항 목록</a></li>
@@ -65,11 +71,12 @@
 						<li>
 							<span class="opener"><a href="">시스템</a></span>
 							<ul>
-								<li><a href="${pageContext.request.contextPath }/grp_system.html">회사정보수정</a></li>
-								<li><a href="${pageContext.request.contextPath }/grp_system_board.html">게시판 생성</a></li>
+								<li><a href="${pageContext.request.contextPath }/grp_system">회사정보수정</a></li>
+								<li><a href="${pageContext.request.contextPath }/grp_system_board">게시판 생성</a></li>
 							</ul>
 						</li>
 					</ul>
+				</div>
 				</nav>
 
 				<!-- Section -->

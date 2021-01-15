@@ -41,13 +41,7 @@
 			<div class="inner">
 
 				<!-- Header -->
-				<header id="header">
-					<a href="" class="logo"><strong>VV Entertainment</strong> GroupWare</a>
-					<ul class="login align-right">
-						<span><strong>관리자로 접속하셨습니다.</strong></span>
-						<span><a href="#">logout</a></span>
-					</ul>
-				</header>
+					<%@include file = "/WEB-INF/views/grp_admin/grp_admin_auth.jsp" %>
 
 				<!-- Content -->
 
@@ -75,9 +69,9 @@
 								</td>
 								<td class="td-10 center weight700  bg-sub"> 게시판 종류</td>
 								<td class="td-15 p-lr3">
-									<select class="center sel-100" name="boardSort" id="boardSort">
-										<option value="notice">부서게시판</option>
-										<option value="free">자유게시판</option>
+									<select class="center sel-100" name="boardType" id="boardType">
+										<option value="notice">공지</option>
+										<option value="free">일반</option>
 									</select>
 								</td>
 								<td class="td-10 center weight700 bg-gray">게시판 부서</td>
@@ -90,7 +84,7 @@
 
 								<td class="td-10 center weight700  bg-sub font14">게시판 열람가능 등급</td>
 								<td class="p-lr3">
-									<select name="boardRAuth" id="boardRAuth" class="center sel-100">
+									<select name="boardRead" id="boardRead" class="center sel-100">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -100,16 +94,16 @@
 								</td>
 								<td class="td-10 center weight700  bg-sub font14">게시판 글 작성가능 등급</td>
 								<td class="p-lr3">
-									<select name="boardWAuth" id="boardWAuth" class="center sel-100">
+									<select name="boardWrite" id="boardWrite" class="center sel-100">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
 										<option value="4">4</option>
 									</select>
 								</td>
-								<td class="td-10 center weight700 bg-gray font14">게시판 관리가능 등급</td>
+								<td class="td-10 center weight700 bg-gray font14">자료다운로드가능 등급</td>
 								<td class="p-lr3">
-									<select name="boardMAuth" id="boardMAuth" class="center sel-100">
+									<select name="boardDown" id="boardDown" class="center sel-100">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -118,7 +112,7 @@
 								</td>
 								<td class="td-10 center weight700 bg-gray font14">댓글 작성가능 등급</td>
 								<td class="p-lr3">
-									<select name="boardRAuth" id="boardRAuth" class="center sel-100">
+									<select name="boardReply" id="boardReply" class="center sel-100">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -142,16 +136,16 @@
 
 								<td class="td-10 center weight700 bg-gray">게시판 설명</td>
 								<td class="td-10 p-lr3" colspan="3">
-									<input type="text" placeholder="어떤 게시판인지 설명하는 말을 입력하세요." name="boardTag"
-										id="boardTag" class="input-100" maxlength="100" required />
+									<input type="text" placeholder="어떤 게시판인지 설명하는 말을 입력하세요." name="boardDetail"
+										id="boardDetail" class="input-100" maxlength="100" required />
 								</td>
 
 
 								<td class="td-10 center weight700 bg-gray">자료실 여부</td>
 								<td>
-									<select name="boardMAuth" id="boardMAuth" class="center sel-100">
-										<option value="yes">포함</option>
-										<option value="no">비포함</option>
+									<select name="boardReference" id="boardReference" class="center sel-100">
+										<option value="yes">Y</option>
+										<option value="no">N</option>
 									</select>
 								</td>
 

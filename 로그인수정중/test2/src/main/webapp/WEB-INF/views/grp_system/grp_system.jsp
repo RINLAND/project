@@ -15,13 +15,8 @@
 			<div class="inner">
 
 				<!-- Header -->
-				<header id="header">
-					<a href="" class="logo"><strong>** Entertainment</strong> GroupWare</a>
-					<ul class="login align-right">
-						<span><strong>관리자로 접속하셨습니다.</strong></span>
-						<span><a href="#">logout</a></span>
-					</ul>
-				</header>
+					<%@include file = "/WEB-INF/views/grp_admin/grp_admin_auth.jsp" %>
+
 
 				<!-- Content -->
 				
@@ -37,30 +32,30 @@
 						<div class="board-wrap bg-white">
 							<table>
 								<tr>
-									<td class="td-10 center weight700  bg-sub">로고타이틀</td>
+									<td class="td-10 center weight700  bg-sub">LOGO</td>
 									<td class="td-40 p-lr3">
-										<input type="text" name="comName" id="comName" class="input-100" maxlength="100" required />
+										<input type="text" name="sysName" id="sysName" class="input-100" maxlength="100" required />
 									</td>
-									<td class="td-10 center weight700  bg-sub">서브로고타이틀</td>
+									<td class="td-10 center weight700  bg-sub">SUB LOGO</td>
 									<td class="td-40 p-lr3">
-										<input type="text" name="comSubName" id="comSubName" class="input-100" maxlength="100" required />
+										<input type="text" name="sysSub" id="sysSub" class="input-100" maxlength="100" required />
 									</td>
 								</tr>
 								<tr>
-									<td class="td-10 center weight700  bg-sub">대표명</td>
+									<td class="td-10 center weight700  bg-sub">CEO</td>
 									<td class="td-40 p-lr3">
-										<input type="text" name="comCeo" id="comCeo" class="input-100" maxlength="100" required />
+										<input type="text" name="sysCeo" id="sysCeo" class="input-100" maxlength="100" required />
 									</td>
-									<td class="td-10 center weight700  bg-sub">대표전화</td>
+									<td class="td-10 center weight700  bg-sub">TELL</td>
 									<td class="td-40 p-lr3">
-										<input type="text" name="comTel" id="comTel" class="input-100" maxlength="100" required />
+										<input type="text" name="sysTell" id="sysTell" class="input-100" maxlength="100" required />
 									</td>
 									
 								</tr>
 								<tr>
 									<td  class="td-10 center weight700 bg-sub">URL</td>
 									<td class="p-lr3" colspan="3">
-										<input type="text" name="comUrl" id="comUrl" class="input-100" maxlength="50" required />
+										<input type="text" name="sysUrl" id="sysUrl" class="input-100" maxlength="50" required />
 										
 									</td>
 									
@@ -68,15 +63,15 @@
 								<tr>
 									<td class="bg-gray weight700 td-10 center">COPYRIGHT</td>
 									<td class="p-lr3" colspan="3">
-										<input type="text" name="comCopy" id="comCopy" class="input-100" maxlength="200" required />
+										<input type="text" name="sysCopy" id="sysCopy" class="input-100" maxlength="200" required />
 										
 									</td>
 									
 								</tr>
 								<tr>
-									<td class="bg-gray weight700 td-10 center">접근권한</td>
+									<td class="bg-gray weight700 td-10 center">ACCESS</td>
 									<td class="p-lr3" colspan="3">
-										<select name="comAuth" id="comAuth">
+										<select name="sysAuth" id="sysAuth">
 											<option value="1">1</option>
 											<option value="2">2</option>
 											<option value="3">3</option>
@@ -87,33 +82,33 @@
 									
 								</tr>
 								<tr>
-									<td class="bg-gray weight700 td-10 center">타이틀</td>
+									<td class="bg-gray weight700 td-10 center">TITLE</td>
 									<td class="p-lr3" colspan="3">
-									 <input type="text" name="comMainLogo" id="comMainLogo" class="input-100" maxlength="200" required />
+									 <input type="text" name="sysTitle" id="sysTitle" class="input-100" maxlength="200" required />
 																				   
 									</td>
 									
 								</tr>
 								<tr>
-									<td class="bg-gray weight700 td-10 center">메뉴</td>
+									<td class="bg-gray weight700 td-10 center">ADDRESS</td>
 									<td class="p-lr3" colspan="3">
-									 <input placeholder="메뉴는 (;)으로 구분하세요." type="text" name="comMenu" id="comMenu" class="input-100" maxlength="200"/>
+									 <input placeholder="" type="text" name="sysAddr" id="sysAddr" class="input-100" maxlength="200"/>
 																				   
 									</td>
 									
 								</tr>
 								<tr>
-									<td class="bg-gray weight700 td-10 center">메인 텍스트 상단</td>
+									<td class="bg-gray weight700 td-10 center">MAIN TOP TEXT</td>
 									<td class="p-lr3" colspan="3">
-									 <input type="text" name="comMianUP" id="comMainUp" class="input-100" maxlength="200"  />
+									 <input type="text" name="sysUp" id="sysUp" class="input-100" maxlength="200"  />
 																				   
 									</td>
 									
 								</tr>
 								<tr>
-									<td class="bg-gray weight700 td-10 center">메인 텍스트 하단</td>
+									<td class="bg-gray weight700 td-10 center">MAIN UNDER TEXT</td>
 									<td class="p-lr3" colspan="3">
-									 <input type="text" name="comMianDown" id="comMainDown" class="input-100" maxlength="200" />
+									 <input type="text" name="sysDown" id="sysDown" class="input-100" maxlength="200" />
 																				   
 									</td>
 									
@@ -143,10 +138,7 @@
 
 			<!-- Menu -->
 			<%@include file = "/WEB-INF/views/grp_admin/grp_admin_menu.jsp" %>
-
-
-
-				
+	
 
 			</div>
 		</div>
