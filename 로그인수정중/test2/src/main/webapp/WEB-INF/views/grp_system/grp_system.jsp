@@ -30,103 +30,100 @@
 						</div>
 
 						<div class="board-wrap bg-white">
-							<table>
-								<tr>
-									<td class="td-10 center weight700  bg-sub">LOGO</td>
-									<td class="td-40 p-lr3">
-										<input type="text" name="sysName" id="sysName" class="input-100" maxlength="100" required />
-									</td>
-									<td class="td-10 center weight700  bg-sub">SUB LOGO</td>
-									<td class="td-40 p-lr3">
-										<input type="text" name="sysSub" id="sysSub" class="input-100" maxlength="100" required />
-									</td>
-								</tr>
-								<tr>
-									<td class="td-10 center weight700  bg-sub">CEO</td>
-									<td class="td-40 p-lr3">
-										<input type="text" name="sysCeo" id="sysCeo" class="input-100" maxlength="100" required />
-									</td>
-									<td class="td-10 center weight700  bg-sub">TELL</td>
-									<td class="td-40 p-lr3">
-										<input type="text" name="sysTell" id="sysTell" class="input-100" maxlength="100" required />
-									</td>
-									
-								</tr>
-								<tr>
-									<td  class="td-10 center weight700 bg-sub">URL</td>
-									<td class="p-lr3" colspan="3">
-										<input type="text" name="sysUrl" id="sysUrl" class="input-100" maxlength="50" required />
+						 <form id="frm" method="post" action="${pageContext.request.contextPath }/system/grp_system">
+								<table>
+									<tr>
+										<td class="td-10 center weight700  bg-sub">LOGO</td>
+										<td class="td-40 p-lr3">
+											<input type="text" name="sysName" id="sysName" class="input-100" maxlength="100" required />
+										</td>
+										<td class="td-10 center weight700  bg-sub">SUB LOGO</td>
+										<td class="td-40 p-lr3">
+											<input type="text" name="sysSub" id="sysSub" class="input-100" maxlength="100" required />
+										</td>
+									</tr>
+									<tr>
+										<td class="td-10 center weight700  bg-sub">CEO</td>
+										<td class="td-40 p-lr3">
+											<input type="text" name="sysCeo" id="sysCeo" class="input-100" maxlength="100" required />
+										</td>
+										<td class="td-10 center weight700  bg-sub">TELL</td>
+										<td class="td-40 p-lr3">
+											<input type="text" name="sysTell" id="sysTell" class="input-100" maxlength="100" required />
+										</td>
 										
-									</td>
-									
-								</tr>
-								<tr>
-									<td class="bg-gray weight700 td-10 center">COPYRIGHT</td>
-									<td class="p-lr3" colspan="3">
-										<input type="text" name="sysCopy" id="sysCopy" class="input-100" maxlength="200" required />
-										
-									</td>
-									
-								</tr>
-								<tr>
-									<td class="bg-gray weight700 td-10 center">ACCESS</td>
-									<td class="p-lr3" colspan="3">
-										<select name="sysAuth" id="sysAuth">
-											<option value="1">1</option>
-											<option value="2">2</option>
-											<option value="3">3</option>
-											<option value="4">4</option>
+									</tr>
+									<tr>
+										<td  class="td-10 center weight700 bg-sub">URL</td>
+										<td class="p-lr3" colspan="3">
+											<input type="text" name="sysUrl" id="sysUrl" class="input-100" maxlength="50" required />
 											
-										</select>                        					
-									</td>
-									
-								</tr>
-								<tr>
-									<td class="bg-gray weight700 td-10 center">TITLE</td>
-									<td class="p-lr3" colspan="3">
-									 <input type="text" name="sysTitle" id="sysTitle" class="input-100" maxlength="200" required />
-																				   
-									</td>
-									
-								</tr>
-								<tr>
-									<td class="bg-gray weight700 td-10 center">ADDRESS</td>
-									<td class="p-lr3" colspan="3">
-									 <input placeholder="" type="text" name="sysAddr" id="sysAddr" class="input-100" maxlength="200"/>
-																				   
-									</td>
-									
-								</tr>
-								<tr>
-									<td class="bg-gray weight700 td-10 center">MAIN TOP TEXT</td>
-									<td class="p-lr3" colspan="3">
-									 <input type="text" name="sysUp" id="sysUp" class="input-100" maxlength="200"  />
-																				   
-									</td>
-									
-								</tr>
-								<tr>
-									<td class="bg-gray weight700 td-10 center">MAIN UNDER TEXT</td>
-									<td class="p-lr3" colspan="3">
-									 <input type="text" name="sysDown" id="sysDown" class="input-100" maxlength="200" />
-																				   
-									</td>
-									
-								</tr>
-							</table>
-							<div class="btn-grp center m-t5">
-								<button type="submit" class="btn-on">정보수정</button>
-								<button type="reset" class="btn-off">새로고침</button>
-							</div>
-							
+										</td>
+										
+									</tr>
+									<tr>
+										<td class="bg-gray weight700 td-10 center">COPYRIGHT</td>
+										<td class="p-lr3" colspan="3">
+											<input type="text" name="sysCopy" id="sysCopy" class="input-100" maxlength="200" required />
+											
+										</td>
+										
+									</tr>
+									<tr>
+										<td class="bg-gray weight700 td-10 center">ACCESS</td>
+										<td class="p-lr3" colspan="3">
+											<select name="sysAuth" id="sysAuth">
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												
+											</select>                        					
+										</td>
+										
+									</tr>
+									<tr>
+										<td class="bg-gray weight700 td-10 center">TITLE</td>
+										<td class="p-lr3" colspan="3">
+										 <input type="text" name="sysTitle" id="sysTitle" class="input-100" maxlength="200" required />
+																					   
+										</td>
+										
+									</tr>
+									<tr>
+										<td class="bg-gray weight700 td-10 center">ADDRESS</td>
+										<td class="p-lr3" colspan="3">
+										 <input placeholder="" type="text" name="sysAddr" id="sysAddr" class="input-100" maxlength="200"/>
+																					   
+										</td>
+										
+									</tr>
+									<tr>
+										<td class="bg-gray weight700 td-10 center">MAIN TOP TEXT</td>
+										<td class="p-lr3" colspan="3">
+										 <input type="text" name="sysUp" id="sysUp" class="input-100" maxlength="200"  />
+																					   
+										</td>
+										
+									</tr>
+									<tr>
+										<td class="bg-gray weight700 td-10 center">MAIN UNDER TEXT</td>
+										<td class="p-lr3" colspan="3">
+										 <input type="text" name="sysDown" id="sysDown" class="input-100" maxlength="200" />
+																					   
+										</td>
+										
+									</tr>
+								</table>
+									<div class="btn-grp center m-t5">
+										<button type="submit" class="btn-on">정보수정</button>
+										<button type="reset" class="btn-off">새로고침</button>
+									</div>
+							</form>
 						</div>
 						
 						<div class="clearfix"></div>
 					</div>
-
-
-				
-
 			</div>
 		</div>
 
@@ -146,4 +143,32 @@
 	</div>
 
 </body>
+<script>
+	function sysInfo(){
+		
+		$.ajax({
+				url : "${pageContext.request.contextPath }/system",
+				type : "post",
+				data : "",
+				success : function(resData){
+					$("#sysName").val(resData.sysName);
+					$("#sysSub").val(resData.sysSub);
+					$("#sysCeo").val(resData.sysCeo);
+					$("#sysTell").val(resData.sysTell);
+					$("#sysUrl").val(resData.sysUrl);
+					$("#sysCopy").val(resData.sysCopy);
+					$("#sysAuth").val(resData.sysAuth);
+					$("#sysTitle").val(resData.sysTitle);
+					},
+					error : function(){
+						alert("시스템에러");
+						}
+			});
+		
+		}
+
+	$(function(){
+		sysInfo();
+		});
+</script>
 </html>

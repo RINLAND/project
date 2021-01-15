@@ -21,7 +21,7 @@
 		 sys_auth = #{sysAuth},
 		 sys_title = #{sysTitle},
 		 sys_addr = #{sysAddr},
-		 sys_up= #{sysUp},
+		 sys_up = #{sysUp},
 		 sys_down = #{sysDown}
 	
 	</update>

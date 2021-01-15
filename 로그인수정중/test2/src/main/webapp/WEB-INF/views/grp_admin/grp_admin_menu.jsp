@@ -71,7 +71,7 @@
 						<li>
 							<span class="opener"><a href="">시스템</a></span>
 							<ul>
-								<li><a href="${pageContext.request.contextPath }/grp_system">회사정보수정</a></li>
+								<li><a href="${pageContext.request.contextPath }/system">회사정보수정</a></li>
 								<li><a href="${pageContext.request.contextPath }/grp_system_board">게시판 생성</a></li>
 							</ul>
 						</li>
