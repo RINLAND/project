@@ -29,6 +29,7 @@
 	<resources location="/WEB-INF/fonts/, classpath=/WEB-INF/fonts/" mapping="/fonts/**" />
 	<resources location="/WEB-INF/ckeditor/, classpath=/WEB-INF/ckeditor/" mapping="/ckeditor/**" />
 	<resources location="/WEB-INF/webfonts/, classpath=/WEB-INF/webfonts/" mapping="/webfonts/**" />
+	<resources location="/WEB-INF/sass/, classpath=/WEB-INF/sass/" mapping="/sass/**" />
 	
 	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->

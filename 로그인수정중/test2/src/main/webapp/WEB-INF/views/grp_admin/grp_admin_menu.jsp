@@ -14,20 +14,20 @@
 
 						</ul>
 					</li>
-					<li><span class="opener"><a href="${pageContext.request.contextPath }">조직도</a></span>
+					<li><span class="opener"><a href="#">조직도</a></span>
 						<ul>
 							<li><a href="${pageContext.request.contextPath }/grp_employee_list.html">사원목록</a></li>
 							<li><a href="${pageContext.request.contextPath }/grp_trainee_list.html">연습생목록</a></li>
 						</ul>
 					</li>
-					<li><span class="opener"><a href="${pageContext.request.contextPath }">자유게시판</a></span>
+					<li><span class="opener"><a href="#">자유게시판</a></span>
 						<ul>
 							<li><a href="${pageContext.request.contextPath }/grp_freeBoard_list.html">자유게시판 목록</a></li>
 							
 						</ul>
 					</li>
 					<li>
-						<span class="opener"><a href="${pageContext.request.contextPath }">부서게시판</a></span>
+						<span class="opener"><a href="#">부서게시판</a></span>
 						<ul>
 							<li><a href="${pageContext.request.contextPath }/grp_teamBoard_list.html">부서게시판 목록</a></li>
 							
@@ -35,7 +35,7 @@
 						</ul>
 					</li>
 					
-					<li><span class="opener"><a href="${pageContext.request.contextPath }">근태관리</a></span>
+					<li><span class="opener"><a href="#">근태관리</a></span>
 						<ul>
 							<li><a href="${pageContext.request.contextPath }/grp_commute.html">출퇴근 관리</a></li>
 
@@ -44,7 +44,7 @@
 					
 					
 					<li>
-						<span class="opener"><a href="${pageContext.request.contextPath }">일정</a></span>
+						<span class="opener"><a href="#">일정</a></span>
 						<ul>
 							<li><a href="${pageContext.request.contextPath }/grp_cal_list.html">개인 일정</a></li>
 							<li><a href="${pageContext.request.contextPath }/grp_date.html">회사 일정</a></li>
