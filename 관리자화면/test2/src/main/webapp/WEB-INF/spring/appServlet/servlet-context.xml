@@ -23,6 +23,7 @@
 	<resources mapping="/resources/**" location="/resources/**" />
 	<resources mapping="/WEB-INF/assets/**" location="/assets/**" />
 	<resources location="/WEB-INF/images/, classpath=/WEB-INF/images/" mapping="/images/**" />
+	<resources location="/WEB-INF/assets/, classpath=/WEB-INF/assets/" mapping="/assets/**" />
 	<resources location="/WEB-INF/css/, classpath=/WEB-INF/css/" mapping="/css/**" />
 	<resources location="/WEB-INF/js/, classpath=/WEB-INF/js/" mapping="/js/**" />
 	<resources location="/WEB-INF/vendor/, classpath=/WEB-INF/vendor/" mapping="/vendor/**" />

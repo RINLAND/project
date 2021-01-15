@@ -3,69 +3,70 @@
        
  <%@include file = "/WEB-INF/views/grp_admin/grp_admin_header.jsp" %>
 
-<body class="is-preload">
+	<body class="is-preload">
 
-	<!-- Wrapper -->
-	<div id="wrapper">
+			<!-- Wrapper -->
+			<div id="wrapper">
 
-		<!-- Main -->
-		<div id="main">
-			<div class="inner">
+				<!-- Main -->
+				<div id="main">
+					<div class="inner">
 
-				<!-- Header -->
-				<header id="header">
-					<a href="grp_main.html" class="logo"><strong>** Entertainment</strong> GroupWare</a>
-					<ul class="login align-right">
-						<span><strong>${emp_name}로 접속하셨습니다.</strong></span>
-						<span><a href="#">logout</a></span>
-					</ul>
-				</header>
+						<!-- Header -->
+						<header id="header">
+							<a href="grp_main.html" class="logo"><strong>VV Entertainment GroupWare</strong></a>
+							<ul class="login align-right">
+								<span><strong>${emp_name}로 접속하셨습니다.</strong></span>
+								<span><a href="#">logout</a></span>
+							</ul>
+						</header>
 
-				<!-- Content -->
+						<!-- Content -->
 
-				<div class="main-wrap">
+						<div class="main-wrap">
 
-					<div class="main-top flex flex-justify">
-						<div class="box1">
-							<span><strong>공지사항</strong></span>
-							11111111111111111111111
+							<div class="main-top flex flex-justify">
+								<div class="box1">
+									<span><strong>공지사항</strong></span>
+									11111111111111111111111
+								</div>
+								<div class="box2">
+									<span><strong>부서 게시판 최신글</strong></span>
+									22222222222222222222222
+								</div>
+							</div>
+							<div class="main-bottom flex flex-justify">
+								<div class="box3">
+									<span><strong>대기문서</strong></span>
+									33333333333333333333333333
+								</div>
+								<div class="box3">
+									<span><strong>일정/스케줄</strong></span>
+									444444444444444444
+								</div>
+								<div class="box3">
+									<span><strong>관련 참고 사이트</strong></span>
+									5555555555555555555
+								</div>
+							</div>
+
+
 						</div>
-						<div class="box2">
-							<span><strong>부서 게시판 최신글</strong></span>
-							22222222222222222222222
-						</div>
+
 					</div>
-					<div class="main-bottom flex flex-justify">
-						<div class="box3">
-							<span><strong>대기문서</strong></span>
-							33333333333333333333333333
-						</div>
-						<div class="box3">
-							<span><strong>일정/스케줄</strong></span>
-							444444444444444444
-						</div>
-						<div class="box3">
-							<span><strong>관련 참고 사이트</strong></span>
-							5555555555555555555
-						</div>
-					</div>
-
-
 				</div>
 
-			</div>
-		</div>
-
-		<!-- Sidebar -->
-		<div id="sidebar">
-			<div class="inner">
-
-				<%@include file = "/WEB-INF/views/grp_admin/grp_admin_menu.jsp" %>
+				<!-- Sidebar -->
 				
-		</div>
+						<%@include file="/WEB-INF/views/grp_admin/grp_admin_menu.jsp" %>
+					
+			</div>
 
-	</div>
 
-
-</body>
+	</body>
+	<script src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath }/js/browser.min.js"></script>
+	<script src="${pageContext.request.contextPath }/js/breakpoints.min.js"></script>
+	<script src="${pageContext.request.contextPath }/js/util.js"></script>
+	<script src="${pageContext.request.contextPath }/js/main.js"></script>
 </html>
