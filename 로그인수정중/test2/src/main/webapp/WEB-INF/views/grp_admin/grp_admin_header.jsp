@@ -11,8 +11,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VV Entertainment</title>
 
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/board_main.css" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/board.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/fontawesome-all.min.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/main.css" />
 	 
