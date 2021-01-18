@@ -36,7 +36,7 @@
 						<li>
 							<span class="opener"><a href="">부서게시판</a></span>
 							<ul>
-								<li><a href="${pageContext.request.contextPath }/grp_teamBoard_list.html">부서게시판 목록</a></li>
+								<li><a href="${pageContext.request.contextPath }/board">부서게시판 목록</a></li>
 
 
 							</ul>
@@ -72,7 +72,6 @@
 							<span class="opener"><a href="">시스템</a></span>
 							<ul>
 								<li><a href="${pageContext.request.contextPath }/system">회사정보수정</a></li>
-								<li><a href="${pageContext.request.contextPath }/grp_system_board">게시판 생성</a></li>
 							</ul>
 						</li>
 					</ul>

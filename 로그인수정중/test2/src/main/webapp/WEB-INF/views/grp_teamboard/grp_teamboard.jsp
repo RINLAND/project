@@ -21,12 +21,12 @@
 						<h2>부서게시판</h2>
 					</header>
 
-					<div class="main">
-						<div class="main-top">
+					<div class="main ">
+						<div class="main-top ">
 							<h4 class="m-b20">부서게시판 > 부서게시판목록</h4>
 							
 <!------------------------------------------------ 게시판생성--------------------------------------- -->
-							<div class="board-wrap bg-white">
+				<div class="board-wrap bg-white ">
 					<form method="POST" id="frm">
 						<table>
 							<tr>
@@ -42,14 +42,16 @@
 								</td>
 								<td class="td-10 center weight700  bg-sub"> 게시판 종류</td>
 								<td class="td-15 p-lr3">
-									<select class="center sel-100" name="grpPost" id="grpPost">
+									<select class="center sel-100" name="boardType" id="boardType">
 										
 									</select>
 								</td>
 								<td class="td-10 center weight700 bg-gray">게시판 부서</td>
-								<td class="td-15 p-lr3">
-									<input type="text" placeholder="어떤 부서의 게시판인지 입력하세요." name="boardTeam"
-										id="boardTeam" class="input-100" maxlength="100" required />
+								<td class="p-lr3">
+									<select name="boardTeam" id="boardTeam" class="center sel-100">
+									
+									</select>
+									
 								</td>
 							</tr>
 							<tr>
@@ -131,7 +133,7 @@
 						</div>
 					</form>
 					</div>
-							
+						<div class="  m-b5 bg-white">
 <!------------------------------------------------ 게시판생성 끝--------------------------------------- -->
 							
 							<div class="search-wrap flex flex-justify  m-b5 bg-white">
@@ -139,7 +141,7 @@
 									<span class="btn-count">전체게시판 수  ${count }개</span>
 								</div>
 								<div class="flex flex-justify"  >
-									<form method="post " class="" action="${pageContext.request.contextPath }/board">
+									<form method="post " class="flex flex-justify " action="${pageContext.request.contextPath }/board">
 										
 										<select class="" >
 											<option value="boardCode">게시판코드</option>
@@ -152,14 +154,131 @@
 									</form>
 								</div>
 							</div>
-						</div>
-				
-					
+							
+<!------------------------------------------------ 게시판생성 목록--------------------------------------- -->
+ 					<div class="board-list">
+                            <table>
+                                <tr class="center under tr-color f6 weight700 font14" id="rowColor">
+                                    <td class="td-5">
+                                        <input type="checkbox" onClick="chkAll();"/>
+                                    </td>
+                                    <td class="td-10">게시판그룹</td>
+                                    <td class="td-10">게시판코드</td>
+                                    <td class="td-10">게시판색상</td>
+                                    <td>게시판제목</td>
+                                    <td class="td-5">읽기권한</td>
+                                    <td class="td-5">쓰기권한</td>
+                                    <td class="td-5">댓글권한</td>
+                                    <td class="td-5">다운권한</td>
+                                    <td class="td-5">자료실여부</td>
+                                    <td class="td-10">게시판관리</td>
+                                   
+                                </tr>
+                                <c:forEach items="${list }" var="board">
+                                <tr class="center font14 weight700">
+                                    <td>
+                                        <input type="checkbox"  name="chk" class="chk" data-uid="${board.boardCode }"/>
+                                    </td>
+                                    <td>${board.team_name}</td>
+                                    <td>
+                                        <a href="${pageContext.request.contextPath }/article/grp_article_list?boardCode=${board.boardCode }" 
+                                        target="_blank" class="under">
+                                        ${board.boardCode}</a></td>
+                                    <td>${board.boardColor}</td>
+                                    <td>
+                                        <a href="${pageContext.request.contextPath }/article/grp_article_list?boardCode=${board.boardCode }" 
+                                        target="_blank" class="under">
+                                         ${board.boardTitle }</a></td>
+                                    <td>${board.boardRead }</td>
+                                    <td>${board.boardWrite }</td>
+                                    <td>${board.boardReply }</td>
+                                    <td>${board.boardDown }</td>
+                                  	<td>${board.boardReference }</td>
+                                    <td>
+                                        <button class="s-btn-on" onClick="boardModify('${board.boardCode}');">수정</button>
+                                            <button class="s-btn-off" onClick="boardDel('${board.boardCode}');">삭제</button>
+                                    </td>
+                                </tr>
+                                </c:forEach>
+                                
+                            </table>
+                            
+  <!-------------------------------페이징 ui 시작------------------------------------------------------>
+								<c:if test = "${count > 0 }">
+									<div class="page-grp center m-t10">
+									<!--맨앞으로  -->
+									<c:choose>
+										<c:when test="${curPage > 1 }">
+											<span class="page ">
+											<a href="${pageContext.request.contextPath }/board?curPage=1&searchOpt=${searchOpt}&words=${words}">
+											<i class="fas fa-angle-double-left"></i></a>
+											</span> 
+										</c:when>
+										<c:otherwise>
+											<span class="page "><i class="fas fa-angle-double-left"></i></span> 
+										</c:otherwise>
+									</c:choose>
+									<!--한칸 앞으로  -->
+									<c:choose>
+										<c:when test="${curPage > 1 }">
+											
+											<a href="${pageContext.request.contextPath }/board?curPage=${curPage-1 }&searchOpt=${searchOpt}&words=${words}">
+											<span class="page "><i class="fas fa-angle-left"></i></a>
+											</span> 
+										</c:when>
+										<c:otherwise>
+											<span class="page "><i class="fas fa-angle-left"></i></span> 
+										</c:otherwise>
+									</c:choose>
+										
+									<!--페이지 번호 출력  -->
+									<c:forEach begin="${blockBegin }" end="${blockEnd }" var="num"> <!--시작, 끝, 변수명  -->
+										<c:if test="${selected == num }">
+											<span class="page page-active"><a href="#" class="f6">${num }</a></span> 
+										</c:if>
+										<c:if test="${selected != num }">
+											<a href="${pageContext.request.contextPath }/board?curPage=${num }&searchOpt=${searchOpt}&words=${words}">
+												<span class="page">${num }</a></span> 
+										</c:if>
+									</c:forEach>
+<!-----------------------------페이지 번호 출력 끝 --------------------------------------------------------------->
+<!--------------------------------------한칸 뒤로-------------------------------------------------------------->
+									<c:choose>
+										<c:when test="${curPage != totalPage }">
+											
+											<a href="${pageContext.request.contextPath }/board?curPage=${curPage+1 }&searchOpt=${searchOpt}&words=${words}">
+											<span class="page "><i class="fas fa-angle-right"></i></a>
+											</span> 
+										</c:when>
+										<c:otherwise>
+											<span class="page "><i class="fas fa-angle-right"></i></span> 
+										</c:otherwise>
+									</c:choose>
+									
+									<!--맨 뒤로  -->
+										<c:choose>
+										<c:when test="${curPage != totalPage }">
+											
+											<a href="${pageContext.request.contextPath }/board?curPage=${totalPage}&searchOpt=${searchOpt}&words=${words}">
+											<span class="page "><i class="fas fa-angle-double-right"></i></a>
+											</span> 
+										</c:when>
+										<c:otherwise>
+											<span class="page "><i class="fas fa-angle-double-right"></i></span> 
+										</c:otherwise>
+									</c:choose>
+										
+									</div>
+								</c:if>
+								<!--페이징 ui 끝  -->
+                            
+                        </div>
+<!------------------------------------------------ 게시판생성 목록 끝--------------------------------------- -->
+
+						</div>	
 					</div>
-
-
-				
-
+					
+				</div>
 			</div>
 		</div>
 
@@ -181,20 +300,20 @@
 <script>
 function loadPost(){
 	$.ajax({
-		url : "${pageContext.request.contextPath }/grp_get_post",
+		url : "${pageContext.request.contextPath }/board/grp_get_post",
 		type : "post",
 		data : "",
 		contentType : "application/x-www-form-urlencoded; charset=utf-8",
 		dataType : "json",
 		success : function(resData){
 			$.each(resData, function(key, value) {
-					$("#grpPost").append("<option value="+value.post_id+">"+value.post_name+"</option>");
+					$("#boardType").append("<option value="+value.post_id+">"+value.post_name+"</option>");
 				});
 			},
 		error : function(){
-			alert("시스템에러");
+			alert("타입시스템에러");
 		},			
-			
+		complete : function(){}	
 	});
 }
 
@@ -229,7 +348,7 @@ function loadTeam(){
 				});
 		},
 		error : function(){
-			alert("시스템에러");
+			alert("부서 시스템에러");
 			},			
 			complete : function(){}
 	});
@@ -285,7 +404,7 @@ $(function(){
 					window.location.reload();
 				},
 				error : function(){
-					alert("시스템 에러");
+					alert("저장 시스템 에러");
 			},
 				complete : function(){}
 		});
@@ -315,12 +434,72 @@ function chkBoardCode(){
 			}
 		},
 		error : function(){
-			alert("시스템 에러");
+			alert("코드 시스템 에러");
 	},
 		complete : function(){}
 });
 		
 }
 </script>
+
+<!--게시판 삭제  -->
+<script>
+	function boardDel(boardCode){
+		//alert(boardCode);
+
+		var msg = "삭제 후 복구는 불가능합니다. \n선택하신 게시판&댓글을 삭제하시겠습니까?";
+		if(confirm(msg)){  //확인 클릭
+
+			var formData = {
+					boardCode : boardCode  //ctr 변수 : 파라미터 키
+				};
+			
+			$.ajax({
+				url : "${pageContext.request.contextPath }/board/grp_teamboard_delete",
+				type : "post",
+				data : formData,
+				success : function(resData){
+					if(resData == "success"){
+						alert("삭제되었습니다.");
+						window.location.reload();
+					}
+				},
+				error : function(){
+					alert("삭제 시스템 에러");
+			},
+				complete : function(){}
+		});
+	}
+}
+</script>
+
+<script>
+	function boardModify(boardCode){
+		var msg = "수정하신 내용을 저장하시겠습니까?";
+		if(confirm(msg)){  //확인 클릭
+
+			var formData = {
+					boardCode : boardCode  //ctr 변수 : 파라미터 키
+				};
+			
+			$.ajax({
+				url : "${pageContext.request.contextPath }/board/grp_teamboard_modify",
+				type : "post",
+				data : formData,
+				success : function(resData){
+					if(resData == "success"){
+						alert("수정이 완료되었습니다.");
+						window.location.reload();
+					}
+				},
+				error : function(){
+					alert("수정 시스템 에러");
+			},
+				complete : function(){}
+		});
+	}
+}
+</script>
+
 
 </html>

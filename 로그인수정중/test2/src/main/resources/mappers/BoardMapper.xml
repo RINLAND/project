@@ -51,4 +51,8 @@
 	
 	</update>
 	
+	<select id="getPostList" resultType="com.setup.test2.Model.PostVO">
+		SELECT * FROM grp_post ORDER BY post_id
+	</select>
+	
 </mapper>

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.setup.test2.Model.BoardVO;
+import com.setup.test2.Model.PostVO;
+import com.setup.test2.Model.TeamVO;
 import com.setup.test2.Service.BoardSrv;
 
 import pager.Pager;
@@ -103,7 +105,7 @@ public class BoardCtr {
 	
 	
 	
-	@RequestMapping("/grp_board_delete") 
+	@RequestMapping("/grp_teamboard_delete") 
 	@ResponseBody  
 	public String setBoardDel(@RequestParam String boardCode) {
 		
@@ -114,20 +116,14 @@ public class BoardCtr {
 	}
 	
 	
-	
-	@RequestMapping(value= "/grp_board_delete_all", method = RequestMethod.POST )
+	@RequestMapping(value = "/grp_get_post", method = RequestMethod.POST)
 	@ResponseBody
-	public String setBoardDeleteAll(@RequestParam(value="chkArr[]")List<String> chkArr) {
-		
-		for(String boardCode : chkArr) {  
-			
-			
-			bSrv.setBoardDel(boardCode);
-			
-			
-		}
-		return "success";
-		
+	public List<PostVO> getPost() {
+		bSrv.getPostList();
+		List<PostVO> list = bSrv.getPostList();
+		//System.out.println(list);
+		return list;
 	}
-
+	
+	
 }

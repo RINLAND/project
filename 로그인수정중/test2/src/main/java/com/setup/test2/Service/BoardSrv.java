@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.setup.test2.Model.BoardVO;
+import com.setup.test2.Model.PostVO;
 import com.setup.test2.Repository.BoardDao;
 
 
@@ -40,5 +41,9 @@ public class BoardSrv {
 	
 	public int getBoardCount() {
 		return bDao.getBoardCount();
+	}
+	
+	public List<PostVO> getPostList() {
+		return bDao.getPostList();
 	}
 }

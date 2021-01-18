@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.setup.test2.Model.BoardVO;
+import com.setup.test2.Model.PostVO;
 
 
 
@@ -48,6 +49,10 @@ public class BoardDao {
 	
 	public int getBoardCount() {
 		return sql.selectOne("board.getBoardCount");
+	}
+	
+	public List<PostVO> getPostList() {
+		return sql.selectList("board.getPostList");
 	}
 
 }
