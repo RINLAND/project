@@ -128,7 +128,7 @@
 						</table>
 						
 						<div class="btn-grp center m-t5">
-							<button type="submit" class="btn-on" id="btn">생성완료</button>
+							<button type="button" class="btn-on" id="btn">생성완료</button>
 							<button type="reset" class="btn-off">새로고침</button>
 						</div>
 					</form>

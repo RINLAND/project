@@ -89,7 +89,7 @@ public class BoardCtr {
 	@RequestMapping("/grp_teamboard_check") 
 	@ResponseBody  
 	public String setBoardChk(@RequestParam String boardCode) {
-		//System.out.println(boardCode);
+		System.out.println(boardCode);
 		int result = bSrv.getBoardChk(boardCode);
 		
 		String msg;
