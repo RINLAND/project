@@ -18,7 +18,7 @@ import pager.Pager;
 
 
 @Controller
-@RequestMapping("/grp_system_board")
+@RequestMapping("/board")
 public class BoardCtr {
 	
 	@Autowired
@@ -70,12 +70,12 @@ public class BoardCtr {
 				
 		
 		
-		mav.setViewName("grp_system/grp_system_board");
+		mav.setViewName("grp_teamboard/grp_teamboard");
 		
 		return mav;
 	}
 	
-	@RequestMapping("/grp_board_insert")
+	@RequestMapping("/grp_teamboard_insert")
 	@ResponseBody  
 	public String setBoard(@ModelAttribute BoardVO bvo) {
 		bSrv.setBoard(bvo);
@@ -84,7 +84,7 @@ public class BoardCtr {
 	}
 	
 	
-	@RequestMapping("/grp_board_check") 
+	@RequestMapping("/grp_teamboard_check") 
 	@ResponseBody  
 	public String setBoardChk(@RequestParam String boardCode) {
 		//System.out.println(boardCode);
