@@ -36,6 +36,7 @@ CREATE TABLE `grp_board` (
   `boardType` char(1) DEFAULT '1',
   `boardReference` char(1) DEFAULT 'Y',
   `boardRegdate` date DEFAULT NULL,
+  `boardDetail` varchar(100) NOT NULL,
   PRIMARY KEY (`boardID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -68,7 +69,7 @@ CREATE TABLE `grp_employee` (
   `emp_confirm` char(1) DEFAULT 'N',
   `emp_enter` date DEFAULT NULL,
   PRIMARY KEY (`emp_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,8 +78,35 @@ CREATE TABLE `grp_employee` (
 
 LOCK TABLES `grp_employee` WRITE;
 /*!40000 ALTER TABLE `grp_employee` DISABLE KEYS */;
-INSERT INTO `grp_employee` VALUES (1,'','','admin',NULL,'관리자','1234',10,'Y',NULL),(2,'200','1','202020012','2021-01-13','김사원','1234',1,'N','2020-03-16'),(3,'700','3','201970033','2021-01-13','박주임','4567',1,'N','2019-05-13');
+INSERT INTO `grp_employee` VALUES (1,'','','admin',NULL,'관리자','1234',10,'Y',NULL),(2,'200','1','202020012','2021-01-13','김사원','1234',1,'N','2020-03-16'),(3,'700','3','201970033','2021-01-13','박주임','4567',1,'N','2019-05-13'),(4,'100','9','201610094','2021-01-14','박이사','4567',1,'N','2016-06-13');
 /*!40000 ALTER TABLE `grp_employee` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `grp_freeboard`
+--
+
+DROP TABLE IF EXISTS `grp_freeboard`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `grp_freeboard` (
+  `fid` int NOT NULL AUTO_INCREMENT,
+  `fTeam` varchar(10) NOT NULL,
+  `fTitle` varchar(100) NOT NULL,
+  `fWriter` varchar(10) NOT NULL,
+  `fColor` varchar(20) NOT NULL,
+  `fRegdate` date NOT NULL,
+  PRIMARY KEY (`fid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `grp_freeboard`
+--
+
+LOCK TABLES `grp_freeboard` WRITE;
+/*!40000 ALTER TABLE `grp_freeboard` DISABLE KEYS */;
+/*!40000 ALTER TABLE `grp_freeboard` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -102,6 +130,57 @@ LOCK TABLES `grp_grade` WRITE;
 /*!40000 ALTER TABLE `grp_grade` DISABLE KEYS */;
 INSERT INTO `grp_grade` VALUES ('9','이사'),('8','본부장'),('7','팀장'),('6','과장'),('5','부장'),('4','대리'),('3','주임'),('2','사원'),('1','인턴');
 /*!40000 ALTER TABLE `grp_grade` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `grp_notice`
+--
+
+DROP TABLE IF EXISTS `grp_notice`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `grp_notice` (
+  `nid` int NOT NULL AUTO_INCREMENT,
+  `nPost` varchar(10) NOT NULL,
+  `nTeam` varchar(10) NOT NULL,
+  `nTitle` varchar(100) NOT NULL,
+  `nWriter` varchar(10) NOT NULL,
+  `nCount` int NOT NULL,
+  `nRegdate` date NOT NULL,
+  PRIMARY KEY (`nid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `grp_notice`
+--
+
+LOCK TABLES `grp_notice` WRITE;
+/*!40000 ALTER TABLE `grp_notice` DISABLE KEYS */;
+/*!40000 ALTER TABLE `grp_notice` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `grp_post`
+--
+
+DROP TABLE IF EXISTS `grp_post`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `grp_post` (
+  `post_id` varchar(5) NOT NULL,
+  `post_name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `grp_post`
+--
+
+LOCK TABLES `grp_post` WRITE;
+/*!40000 ALTER TABLE `grp_post` DISABLE KEYS */;
+INSERT INTO `grp_post` VALUES ('100','일반행정'),('200','기획'),('300','인사관리'),('400','예산회계'),('500','근태관리'),('600','경조사');
+/*!40000 ALTER TABLE `grp_post` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -155,8 +234,35 @@ CREATE TABLE `grp_team` (
 
 LOCK TABLES `grp_team` WRITE;
 /*!40000 ALTER TABLE `grp_team` DISABLE KEYS */;
-INSERT INTO `grp_team` VALUES ('100','마케팅'),('200','경영지원'),('300','매니지먼트'),('400','엔터사업'),('500','재무회계'),('600','프로듀싱'),('700','영업'),('800','영상/디자인');
+INSERT INTO `grp_team` VALUES ('100','마케팅'),('200','경영지원'),('300','매니지먼트'),('400','엔터사업'),('500','재무회계'),('600','프로듀싱'),('700','영업'),('800','영상디자인');
 /*!40000 ALTER TABLE `grp_team` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `grp_teamboard`
+--
+
+DROP TABLE IF EXISTS `grp_teamboard`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `grp_teamboard` (
+  `tid` int NOT NULL AUTO_INCREMENT,
+  `tTeam` varchar(10) NOT NULL,
+  `tTitle` varchar(100) NOT NULL,
+  `tWriter` varchar(10) NOT NULL,
+  `tColor` int NOT NULL,
+  `tRegdate` date NOT NULL,
+  PRIMARY KEY (`tid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `grp_teamboard`
+--
+
+LOCK TABLES `grp_teamboard` WRITE;
+/*!40000 ALTER TABLE `grp_teamboard` DISABLE KEYS */;
+/*!40000 ALTER TABLE `grp_teamboard` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -168,4 +274,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-14 15:43:10
+-- Dump completed on 2021-01-18 11:05:15
