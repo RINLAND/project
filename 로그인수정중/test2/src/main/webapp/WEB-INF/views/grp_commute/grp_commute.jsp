@@ -114,8 +114,7 @@
 		<div id="sidebar">
 			<div class="inner">
 
-				<%@include file="/WEB-INF/views/grp_commute/grp_commute_menu.jsp"%>
-
+			<%@include file="/WEB-INF/views/grp_freeboard/grp_freeboard_menu.jsp"%>
 
 
 			</div>

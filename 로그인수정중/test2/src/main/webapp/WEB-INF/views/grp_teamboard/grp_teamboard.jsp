@@ -109,7 +109,7 @@
 		<div id="sidebar">
 			<div class="inner">
 
-			<%@include file = "/WEB-INF/views/grp_teamboard/grp_teamboard_menu.jsp" %>
+			<%@include file="/WEB-INF/views/grp_freeboard/grp_freeboard_menu.jsp"%>
 				
 
 			</div>
