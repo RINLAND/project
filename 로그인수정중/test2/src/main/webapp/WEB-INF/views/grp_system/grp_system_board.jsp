@@ -172,8 +172,7 @@
 			<div class="inner">
 				
 				<!-- Menu -->
-				<%@include file = "/WEB-INF/views/grp_admin/grp_admin_menu.jsp" %>
-
+				<%@include file="/WEB-INF/views/grp_freeboard/grp_freeboard_menu.jsp"%>
 			
 			</div>
 		</div>
