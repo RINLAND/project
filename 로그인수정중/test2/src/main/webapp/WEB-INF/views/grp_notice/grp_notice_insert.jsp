@@ -6,9 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GROUPWARE SYSTEM>시스템 공지사항</title>
-    <link rel="stylesheet" href="assets/css/notice_text.css">
-    <link rel="stylesheet" href="assets/css/notice_common.css">
+    <title>VV Entertainment GroupWare 공지사항</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/notice_text.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/notice_common.css">
     
     
     
@@ -28,7 +28,7 @@
                 <form method="POST" action="grp_board_save.html">
                      <div class="title">
                     <h3 class=" font18 m-b5">
-                        게시글 작성
+                        공지사항 작성
                     </h3>
                 </div>
                     <table>

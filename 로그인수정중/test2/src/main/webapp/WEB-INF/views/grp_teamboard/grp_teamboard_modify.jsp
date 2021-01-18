@@ -6,9 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VV Entertainment GroupWare 자유게시판</title>
+    <title>VV Entertainment GroupWare 부서게시판</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/notice_text.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }assets/css/notice_common.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/notice_common.css"> 
     <script src="https://kit.fontawesome.com/62ab751ce0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
@@ -24,7 +24,7 @@
                 <form method="POST" action="grp_board_save.html">
                      <div class="title">
                     <h3 class=" font18 m-b5">
-                        게시글 작성
+                        게시글 수정
                     </h3>
                 </div>
                     <table>
@@ -78,7 +78,7 @@
                     </table>
                     <div class="btn-grp center m-t10">
                         <button type="submit" class="btn-normal">게시글저장</button>
-                        <button type="button" onclick="location.href='admin.html'" class="btn-cancel">게시글목록</button>
+                        <button type="button" onclick="${pageContext.request.contextPath }/" class="btn-cancel">게시글목록</button>
                     </div>
                 </form>
             </div>

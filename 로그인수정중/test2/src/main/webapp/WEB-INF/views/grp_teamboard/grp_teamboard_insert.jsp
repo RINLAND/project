@@ -6,14 +6,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GROUPWARE SYSTEM>시스템 공지사항</title>
-    <link rel="stylesheet" href="assets/css/notice_text.css">
-    <link rel="stylesheet" href="assets/css/notice_common.css">
-    
-    
-    
-
-    <script src="https://kit.fontawesome.com/62ab751ce0.js" crossorigin="anonymous"></script>
+    <title>VV Entertainment GroupWare 부서게시판</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/notice_text.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/notice_common.css">
+	<script src="https://kit.fontawesome.com/62ab751ce0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
 
