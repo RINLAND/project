@@ -12,7 +12,8 @@
 <title>VV Entertainment</title>
 
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/fontawesome-all.min.css" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/main.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/board.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/board_main.css" />
 	 
 	<script src="https://kit.fontawesome.com/62ab751ce0.js" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
