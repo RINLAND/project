@@ -62,7 +62,7 @@
 						<li>
 							<span class="opener"><a href="">일정</a></span>
 							<ul>
-								<li><a href="${pageContext.request.contextPath }/grp_cal_list.html">개인 일정</a></li>
+								<li><a href="${pageContext.request.contextPath }/cal">개인 일정</a></li>
 								<li><a href="${pageContext.request.contextPath }/grp_date.html">회사 일정</a></li>
 
 

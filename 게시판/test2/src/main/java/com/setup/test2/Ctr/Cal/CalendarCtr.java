@@ -12,7 +12,7 @@ import com.setup.test2.Model.CalVO;
 import com.setup.test2.Service.Cal.CalSrv;
 
 @Controller
-@RequestMapping("/calendar")
+@RequestMapping("/cal")
 public class CalendarCtr {
 	
 	@Autowired
@@ -20,7 +20,7 @@ public class CalendarCtr {
 
 	@RequestMapping("")
 	public String getCalendarHome() {
-		return "grp_calendar/grp_calendar_main";
+		return "grp_cal/grp_personalcal";
 	}
 	
 	@RequestMapping("/grp_calendar_add")

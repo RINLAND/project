@@ -28,6 +28,7 @@
 	<resources location="/WEB-INF/vendor/, classpath=/WEB-INF/vendor/" mapping="/vendor/**" />
 	<resources location="/WEB-INF/fonts/, classpath=/WEB-INF/fonts/" mapping="/fonts/**" />
 	<resources location="/WEB-INF/ckeditor/, classpath=/WEB-INF/ckeditor/" mapping="/ckeditor/**" />
+	<resources location="/WEB-INF/calendar/, classpath=/WEB-INF/calendar/" mapping="/calendar/**" />	
 	<resources location="/WEB-INF/webfonts/, classpath=/WEB-INF/webfonts/" mapping="/webfonts/**" />
 	<resources location="/WEB-INF/sass/, classpath=/WEB-INF/sass/" mapping="/sass/**" />
 	
