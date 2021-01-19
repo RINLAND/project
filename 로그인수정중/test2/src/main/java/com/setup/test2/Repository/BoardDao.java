@@ -23,10 +23,6 @@ public class BoardDao {
 		sql.insert("board.setBoard", bvo);
 	}
 	
-	public int getBoardChk(String boardCode) {
-		return sql.selectOne("board.getBoardChk", boardCode);
-	}
-	
 	
 	public List<BoardVO> getBoardList(int start, int end) {
 		Map<String,Object> map =new HashMap<String, Object>();

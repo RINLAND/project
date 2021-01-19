@@ -19,9 +19,7 @@
 			
 	</insert>
 	
-	<select id="getBoardChk" parameterType="String" resultType="int">
-		SELECT COUNT(boardID) FROM grp_board WHERE boardCode = #{boardCode}
-	</select>
+
 	
 	<select id= "getBoardList" resultType="com.setup.test2.Model.BoardVO">
 		SELECT * FROM grp_board A, grp_team B WHERE A.boardTeam = B.team_id ORDER BY boardID DESC LIMIT #{start}, #{end}

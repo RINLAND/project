@@ -21,10 +21,6 @@ public class BoardSrv {
 		bDao.setBoard(bvo);
 	}
 	
-	public int getBoardChk(String boardCode) {
-		return bDao.getBoardChk(boardCode);
-	}
-	
 	public List<BoardVO> getBoardList(int start, int end) {
 		return bDao.getBoardList(start, end);
 		

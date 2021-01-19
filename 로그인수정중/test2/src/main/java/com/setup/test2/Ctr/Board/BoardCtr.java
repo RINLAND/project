@@ -86,24 +86,6 @@ public class BoardCtr {
 	}
 	
 	
-	@RequestMapping("/grp_teamboard_check") 
-	@ResponseBody  
-	public String setBoardChk(@RequestParam String boardCode) {
-		System.out.println(boardCode);
-		int result = bSrv.getBoardChk(boardCode);
-		
-		String msg;
-		
-		if(result > 0)
-			msg="failure";
-		else
-			msg="success";
-		
-		return msg;
-	}
-	
-	
-	
 	
 	@RequestMapping("/grp_teamboard_delete") 
 	@ResponseBody  

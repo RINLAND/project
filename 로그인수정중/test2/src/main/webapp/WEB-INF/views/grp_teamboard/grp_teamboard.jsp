@@ -37,7 +37,7 @@
 								</td>
 								<td class="td-10 center weight700  bg-sub"> 게시판 코드</td>
 								<td class="td-15 p-lr3">
-									<input type="text" placeholder="영어로만 입력하세요." onBlur="chkBoardCode();" name="boardCord" id="boardCord"
+									<input type="text" placeholder="영어로만 입력하세요." name="boardCord" id="boardCord"
 										class="input-30" maxlength="100" required />
 								</td>
 								<td class="td-10 center weight700  bg-sub"> 게시판 종류</td>
@@ -413,34 +413,6 @@ $(function(){
 });
 </script>
 
-
-<!--게시물 코드 중복안되게  -->
-<script>
-function chkBoardCode(){
-	
-	var formData = {
-		boardCode : $("#boardCode").val()
-	};
-
-	$.ajax({
-		url : "${pageContext.request.contextPath }/board/grp_teamboard_check",
-		type : "post",
-		data : formData,
-		success : function(resData){
-			if(resData == 'failure'){
-				alert("사용할 수 없는 코드입니다.");
-				$("#boardCode").val("");
-				$("#boardCode").focus();
-			}
-		},
-		error : function(){
-			alert("코드 시스템 에러");
-	},
-		complete : function(){}
-});
-		
-}
-</script>
 
 <!--게시판 삭제  -->
 <script>
