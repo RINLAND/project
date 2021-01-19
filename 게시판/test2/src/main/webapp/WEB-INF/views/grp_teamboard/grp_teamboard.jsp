@@ -32,12 +32,12 @@
 							<tr>
 								<td class="td-10 center weight700  bg-sub">게시판 이름</td>
 								<td class="td-15 p-lr3">
-									<input type="text" name="boardName" id="boardName" class="input-100" maxlength="100"
+									<input type="text" name="boardTitle" id="boardTitle" class="input-100" maxlength="100"
 										required />
 								</td>
 								<td class="td-10 center weight700  bg-sub"> 게시판 코드</td>
 								<td class="td-15 p-lr3">
-									<input type="text" placeholder="영어로만 입력하세요." name="boardCord" id="boardCord"
+									<input type="text" placeholder="영어로만 입력하세요." name="boardCode" id="boardCode"
 										class="input-30" maxlength="100" required />
 								</td>
 								<td class="td-10 center weight700  bg-sub"> 게시판 종류</td>
@@ -109,10 +109,14 @@
 								</td>
 
 								<td class="td-10 center weight700 bg-gray">게시판 설명</td>
-								<td class="td-10 p-lr3" colspan="3">
-									<input type="text" placeholder="어떤 게시판인지 설명하는 말을 입력하세요." name="boardDetail"
+								<td class="td-10 p-lr3" >
+									<input type="text" name="boardDetail"
 										id="boardDetail" class="input-100" maxlength="100" required />
 								</td>
+								<td class="bg-gray weight700 td-10">게시판 관리자</td>
+                                    <td class="td-15 p-lr3">
+                                    <input type="text" class="input-100" value="${sessionScope.empName }" name="boardMaker" readonly />
+                               </td>
 
 
 								<td class="td-10 center weight700 bg-gray">자료실 여부</td>
@@ -147,6 +151,7 @@
 											<option value="boardCode">게시판코드</option>
 											<option value="boardTitle">게시판제목</option>
 											<option value="boardTeam">게시판그룹</option>
+											<option value="boardType">게시판타입</option>
 										</select>
 									<input value="${words }" type="text" name="words" required style="margin-left: -2px" />
 									<button type="submit" class="btn-on" style="margin-left: -2px">검색</button>
@@ -170,8 +175,8 @@
                                     <td class="td-5">쓰기권한</td>
                                     <td class="td-5">댓글권한</td>
                                     <td class="td-5">다운권한</td>
-                                    <td class="td-5">자료실여부</td>
-                                    <td class="td-10">게시판관리</td>
+                                    <td class="td-5">자료실</td>
+                                    <td class="td-10">관리</td>
                                    
                                 </tr>
                                 <c:forEach items="${list }" var="board">
@@ -197,7 +202,7 @@
                                   	<td>${board.boardReference }</td>
                                     <td>
                                         <button class="s-btn-on" onClick="boardModify('${board.boardCode}');">수정</button>
-                                            <button class="s-btn-off" onClick="boardDel('${board.boardCode}');">삭제</button>
+                                        <button class="s-btn-off" onClick="boardDel('${board.boardCode}');">삭제</button>
                                     </td>
                                 </tr>
                                 </c:forEach>
