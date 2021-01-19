@@ -12,7 +12,7 @@
 			boardRead     = #{boardRead},
 			boardWrite    = #{boardWrite},
 			boardReply    = #{boardReply},
-			boardDown 	  = #{boardDown},
+			boardDown 	  = #{boardDown}, 
 			boardDetail		=#{boardDetail},
 			boardReference  =#{boardReference},
 			boardRegdate  = now()

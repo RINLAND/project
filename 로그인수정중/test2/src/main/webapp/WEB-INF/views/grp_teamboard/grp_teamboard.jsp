@@ -177,6 +177,7 @@
                                 <c:forEach items="${list }" var="board">
                                 <tr class="center font14 weight700">
                                     <td>
+                                    <!-- data-uid : 가져오려는 값의 ID -->
                                         <input type="checkbox"  name="chk" class="chk" data-uid="${board.boardCode }"/>
                                     </td>
                                     <td>${board.team_name}</td>
