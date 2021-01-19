@@ -35,7 +35,7 @@
 									<tr>
 										<td class="td-10 center weight700  bg-sub">LOGO</td>
 										<td class="td-40 p-lr3">
-											<input type="text" name="sysName" id="sysName" class="input-100" maxlength="100" required />
+											<input type="text" name="sysLogo" id="sysLogo" class="input-100" maxlength="100" required />
 										</td>
 										<td class="td-10 center weight700  bg-sub">SUB LOGO</td>
 										<td class="td-40 p-lr3">
@@ -151,7 +151,7 @@
 				type : "post",
 				data : "",
 				success : function(resData){
-					$("#sysName").val(resData.sysName);
+					$("#sysLogo").val(resData.sysLogo);
 					$("#sysSub").val(resData.sysSub);
 					$("#sysCeo").val(resData.sysCeo);
 					$("#sysTell").val(resData.sysTell);
@@ -159,6 +159,9 @@
 					$("#sysCopy").val(resData.sysCopy);
 					$("#sysAuth").val(resData.sysAuth);
 					$("#sysTitle").val(resData.sysTitle);
+					$("#sysUp").val(resData.sysUp);
+					$("#sysDown").val(resData.sysDown);
+					$("#sysAddr").val(resData.sysAddr);
 					},
 					error : function(){
 						alert("시스템에러");
