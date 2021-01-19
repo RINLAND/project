@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="calendar">
+
+	<insert id="setCal" parameterType="com.setup.test2.model.CalVO">
+		INSERT INTO grp_calendar SET 
+		startDate 	= #{startDate},
+		endDate 	= #{endDate},
+		calContent 	= #{calContent},
+		empNum		= #{empNum}
+	</insert>
+	
+	<select id="getCal" resultType="com.setup.test2.model.CalVO">
+		SELECT * FROM grp_calendar
+	</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+

@@ -25,12 +25,6 @@ public interface EmpSrv {
 	public void setEmpAuthChange(int empAuth, int empId);
 	
 	public void setEmpRegOthers(EmpVO evo);
-	
-
-
-	
-
-	
 
 	
 }
