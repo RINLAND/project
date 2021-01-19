@@ -23,7 +23,7 @@
 						</li>
 						<li><span class="opener"><a href="">조직도</a></span>
 							<ul>
-								<li><a href="${pageContext.request.contextPath }/grp_employee_list.html">사원목록</a></li>
+								<li><a href="${pageContext.request.contextPath }/employee/grp_employee_list">사원목록</a></li>
 								<li><a href="${pageContext.request.contextPath }/grp_trainee_list.html">연습생목록</a></li>
 							</ul>
 						</li>
