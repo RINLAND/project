@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@include file = "/WEB-INF/views/grp_cal/grp_cal_header.jsp" %>
 
@@ -26,34 +25,32 @@
 						<i class="far fa-calendar-check"></i>일정 > 일정등록</h4>
 				</div>
 				<div class="calendar-insert">
-					<form>
+					<form method="post" id="form">
+					<input type="hidden" name="empNum" value="${sessionScope.empNum}" />
 						<table>
 							<tr>
 								<td class="td-10 noto under bg-gray weight700 center">시작일자</td>
-								<td class="flex flex-justify">
-									<input type="text" autocomplete="off" id="startDate" class="input-150" />
-									<i class="far fa-calendar-alt"></i>
+								<td class="td-15 p-lr5"><input type="text" autocomplete="off" id="startDate" name="startDate" class="input-150">
+								<i class="far fa-calendar-alt"></i>
 								</td>
-								<td class="td-10 noto under bg-gray weight700 center">종료일자</td>
-								<td class="flex flex-justify">
-									<input type="text" autocomplete="off" id="endDate" class="input-150" />
-									<i class="far fa-calendar-alt"></i>								
-								</td>
+								<td class="td-10 under bg-gray weight700 center">종료일자</td>
+								 <td class="td-15 p-lr5 pos-rel">
+								 <input type="text" autocomplete="off" id="endDate" name="endDate" class="input-150"> 
+								 <i class="fal fa-calendar-alt font16"></i></td>						
 								<td class="td-10 noto under bg-gray weight700 center">일정내용</td>
-								<td class="flex flex-justify">
-									<input type="text" autocomplete="off" class="input-100" />
+								<td class="td-90 p-lr5"><input type="text" name="calContent" id="calContent" class="input-100" />
 								</td>
 							</tr>
 						</table>
 						<div class="btn-grp center m-t15">
-							<button type="button" class="noto cbtn-on">일정등록</button>
-							<button type="reset" class="noto cbtn-off">등록취소</button>
+							<button type="button" class="noto cbtn-on" id="addCalBtn">일정등록</button>
+							<button type="reset" class="noto cbtn-off" id="">등록취소</button>
 						</div>
 					</form>
 				</div>
 				<div class="main-top">
 					<h4 class="m-b20"><i class="far fa-calendar-check"></i>일정 > 일정목록</h4>
-					<div id='calendar'></div>
+					<div id='calendar'class='calendar'></div>
 
 				</div>
 
@@ -73,79 +70,95 @@
 	</div>
 
 </body>
-<script>
 
-	document.addEventListener('DOMContentLoaded', function () {
-		var calendarEl = document.getElementById('calendar');
-
-		var calendar = new FullCalendar.Calendar(calendarEl, {
-			headerToolbar: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-			},
-			initialDate: '2020-11-01',
-			navLinks: true, // can click day/week names to navigate views
-			businessHours: true, // display business hours
-			editable: true,
-			selectable: true,
-			events: [
-				{
-					title: '점심미팅',
-					start: '2020-11-11T13:00:00',
-					constraint: 'businessHours',
-					color: '#673AB7'
-				},
-				{
-					title: '부서회의',
-					start: '2020-11-15T11:00:00',
-					constraint: 'availableForMeeting', // defined below
-					color: '#673AB7'
-				},
-				{
-					title: '세미나',
-					start: '2020-11-18',
-					end: '2020-11-20',
-					color: '#B39DDB'
-				},
-				{
-					title: 'Nyang 2집 앨범 발매',
-					start: '2020-11-30',
-					color: '#B71C1C'
-				},
-
-
-
-				// red areas where no events can be dropped
-				{
-					start: '2020-11-24',
-					end: '2020-11-28',
-					overlap: false,
-					display: 'background',
-					color: '#D1C4E9'
-				},
-				{
-					start: '2020-09-06',
-					end: '2020-09-08',
-					overlap: false,
-					display: 'background',
-					color: '#ff9f89'
-				}
-			]
-		});
-
-		calendar.render();
-	});
-
-</script>
+	<script src="${pageContext.request.contextPath }/calendar/main.js"></script>
+	<script src='${pageContext.request.contextPath }/calendar/core/locales/ko.js'></script>
+	<script src='${pageContext.request.contextPath }/calendar/interaction/main.js'></script>
+	<script src='${pageContext.request.contextPath }/calendar/daygrid/main.js'></script>	
+	<script src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath }/js/browser.min.js"></script>
+	<script src="${pageContext.request.contextPath }/js/breakpoints.min.js"></script>
+	<script src="${pageContext.request.contextPath }/js/util.js"></script>
+	<script src="${pageContext.request.contextPath }/js/main.js"></script>
 
 <!-- calendar event -->
+
 <script>
-    $(function () {
+    $(document).ready(function () { //$(function() )
+   
         $("#startDate, #endDate").datepicker({
             dateFormat: 'yy-mm-dd'
         });
+
+        getCalData();
+        
     });
+
+	function addCalendar() {
+		var formData = $("#form").serialize();
+
+		$.ajax({
+			url		: "${pageContext.request.contextPath}/grp_cal/grp_calendar_add",
+			type	: "POST",
+			data	: formData,
+			success	: function(resData) {
+				alert("일정이 추가 되었습니다.");
+				window.location.reload();
+			},
+			error	: function() {
+				alert("관리자에게 문의하세요!");
+			}
+		});
+	}
+
+	$(function() {
+		$("#addCalBtn").click(function(){
+			addCalendar();
+		});
+	});
+</script>
+
+<script>
+	function getCalData() {
+		$.ajax({
+			url		: "${pageContext.request.contextPath}/grp_cal/grp_calendar_list",
+			type	: "POST",
+			success	: function(resData) {
+				for(var i = 0; i < resData.length; i++) {
+					resData[i].start 	= resData[i].startDate;
+					resData[i].end 		= resData[i].endDate;
+					resData[i].title	= resData[i].calContent;
+					resData[i].color	= "skyblue";
+				}
+				getCalendar(resData);
+				
+			},
+			error	: function() {
+				alert("관리자에게 문의하세요!!");
+			}
+		});
+	}
+
+
+    function getCalendar(resData) {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            plugins: ['interaction', 'dayGrid'],
+            header: {
+                left: 'prevYear,prev,next,nextYear today',
+                center: 'title',
+                right: 'dayGridMonth,dayGridWeek,dayGridDay'
+            },
+            navLinks: true,
+            editable: true,
+            eventLimit: true,
+            locales: "ko",
+            events: resData
+        });
+
+        calendar.render();
+    }
 </script>
 
 </html>
