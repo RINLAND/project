@@ -1,4 +1,4 @@
-package com.setup.test2.Ctr.Board;
+package com.setup.test2.Ctr.teemBoard;
 
 import java.util.List;
 
@@ -13,8 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.setup.test2.Model.BoardVO;
 import com.setup.test2.Model.PostVO;
-import com.setup.test2.Model.TeamVO;
-import com.setup.test2.Service.BoardSrv;
+import com.setup.test2.Service.teemBoard.BoardSrv;
 
 import pager.Pager;
 
