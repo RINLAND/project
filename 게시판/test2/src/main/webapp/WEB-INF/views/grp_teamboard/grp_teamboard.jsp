@@ -406,7 +406,7 @@ $(function(){
 				type : "post",
 				data : $("#frm").serialize(),
 				success : function(resData){
-					alert(a + "게시판&댓글게시판이 생성되었습니다.");
+					alert(a + "게시판이 생성되었습니다.");
 					window.location.reload();
 				},
 				error : function(){
