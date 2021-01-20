@@ -97,7 +97,7 @@
                             <a href="${pageContext.request.contextPath }/article/grp_article_view?boardCode=${boardCode}&aid=${artList.aid}" 
                             class="under weight700">${artList.subject }
                        </a>
-                         <c:set var="fileName" value="${fn:toLowerCase(artList.fileOriName) }"> </c:set>
+                         <!--<c:set var="fileName" vlaue="${fn:toLowerCase(artList.fileOriName) }"> </c:set> -->
                          <c:forTokens var="ext" items="${fileName }" delims="." varStatus="status">
                          	<c:if test="${status.last }">
                          		<c:choose>
