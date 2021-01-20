@@ -75,7 +75,9 @@
 	<script src='${pageContext.request.contextPath }/calendar/core/locales/ko.js'></script>
 	<script src='${pageContext.request.contextPath }/calendar/interaction/main.js'></script>
 	<script src='${pageContext.request.contextPath }/calendar/daygrid/main.js'></script>	
-	<script src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/browser.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/breakpoints.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/util.js"></script>
