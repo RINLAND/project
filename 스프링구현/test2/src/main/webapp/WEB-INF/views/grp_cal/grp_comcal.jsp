@@ -25,7 +25,7 @@
 						<i class="far fa-calendar-check"></i>일정 > 일정등록</h4>
 				</div>
 				<div class="calendar-insert">
-					<form method="post" id="form">
+					<form method="POST" id="form">
 						<table>
 							<tr>
 								<td class="td-10 noto under bg-gray weight700 center">시작일자</td>
@@ -49,7 +49,7 @@
 				</div>
 				<div class="main-top">
 					<h4 class="m-b20"><i class="far fa-calendar-check"></i>일정 > 일정목록</h4>
-					<div id='calendar'class='calendar'></div>
+					<div id='calendar' class='calendar'>11</div>
 
 				</div>
 
@@ -74,15 +74,9 @@
 	<script src='${pageContext.request.contextPath }/calendar/core/locales/ko.js'></script>
 	<script src='${pageContext.request.contextPath }/calendar/interaction/main.js'></script>
 	<script src='${pageContext.request.contextPath }/calendar/daygrid/main.js'></script>	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-	<script src="${pageContext.request.contextPath }/js/browser.min.js"></script>
-	<script src="${pageContext.request.contextPath }/js/breakpoints.min.js"></script>
-	<script src="${pageContext.request.contextPath }/js/util.js"></script>
-	<script src="${pageContext.request.contextPath }/js/main.js"></script>
 
 <!-- calendar event -->
+
 
 <script>
     $(document).ready(function () { //$(function() )
@@ -129,7 +123,7 @@
 					resData[i].start 	= resData[i].comstartDate;
 					resData[i].end 		= resData[i].comendDate;
 					resData[i].title	= resData[i].comcalContent;
-					resData[i].color	= "skyblue";
+					resData[i].color	= "tomato";
 				}
 				getCalendar(resData);
 				
@@ -161,5 +155,7 @@
         calendar.render();
     }
 </script>
+
+
 
 </html>

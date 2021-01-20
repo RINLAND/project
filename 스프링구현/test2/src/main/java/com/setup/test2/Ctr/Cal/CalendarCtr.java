@@ -43,7 +43,6 @@ public class CalendarCtr {
 		return list;
 	}
 	
-	
 	@RequestMapping("/grp_calendar_cadd")
 	@ResponseBody
 	public void csetCal(@ModelAttribute ComCalVO ccvo) {
