@@ -35,7 +35,7 @@
 								<td class="td-10 under bg-gray weight700 center">종료일자</td>
 								 <td class="td-15 p-lr5 pos-rel">
 								 <input type="text" autocomplete="off" id="comendDate" name="comendDate" class="input-150"> 
-								 <i class="fal fa-calendar-alt font16"></i></td>						
+								 <i class="far fa-calendar-alt font16"></i></td>						
 								<td class="td-10 noto under bg-gray weight700 center">일정내용</td>
 								<td class="td-90 p-lr5"><input type="text" name="comcalContent" id="comcalContent" class="input-100" />
 								</td>
