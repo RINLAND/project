@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.setup.test2.Model.CalVO;
+import com.setup.test2.Model.ComCalVO;
 
 @Repository
 public class CalDaoImpl implements CalDao{
@@ -21,6 +22,18 @@ public class CalDaoImpl implements CalDao{
 	@Override
 	public List<CalVO> getCal() {
 		return sql.selectList("calendar.getCal");
+	}
+
+	@Override
+	public void csetCal(ComCalVO ccvo) {
+		sql.insert("calendar.csetCal", ccvo);
+		
+	}
+
+	@Override
+	public List<ComCalVO> cgetCal() {
+		return sql.selectList("calendar.cgetCal");
+
 	}
 
 }

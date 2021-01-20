@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.setup.test2.Model.CalVO;
+import com.setup.test2.Model.ComCalVO;
 import com.setup.test2.Service.Cal.CalSrv;
 
 @Controller
@@ -23,6 +24,11 @@ public class CalendarCtr {
 		return "grp_cal/grp_personalcal";
 	}
 	
+	@RequestMapping("/grp_comcal")
+	public String getComCalendarHome() {
+		return "grp_cal/grp_comcal";
+	}
+	
 	@RequestMapping("/grp_calendar_add")
 	@ResponseBody
 	public void setCal(@ModelAttribute CalVO cvo) {
@@ -33,6 +39,21 @@ public class CalendarCtr {
 	@ResponseBody
 	public List<CalVO> getCal() {
 		List<CalVO> list = cSrv.getCal();
+		
+		return list;
+	}
+	
+	
+	@RequestMapping("/grp_calendar_cadd")
+	@ResponseBody
+	public void csetCal(@ModelAttribute ComCalVO ccvo) {
+		cSrv.csetCal(ccvo);
+	}
+	
+	@RequestMapping("/grp_calendar_clist")
+	@ResponseBody
+	public List<ComCalVO> cgetCal() {
+		List<ComCalVO> list = cSrv.cgetCal();
 		
 		return list;
 	}

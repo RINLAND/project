@@ -43,7 +43,7 @@
 							</tr>
 						</table>
 						<div class="btn-grp center m-t15">
-							<button type="button" class="noto cbtn-on" id="addCalBtn">일정등록</button>
+							<button type="submit" class="noto cbtn-on" id="addCalBtn">일정등록</button>
 							<button type="reset" class="noto cbtn-off" id="">등록취소</button>
 						</div>
 					</form>
