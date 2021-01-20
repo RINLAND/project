@@ -13,6 +13,19 @@
 	<select id="getCal" resultType="com.setup.test2.Model.CalVO">
 		SELECT * FROM grp_calendar
 	</select>
+	
+	
+	<insert id="csetCal" parameterType="com.setup.test2.Model.ComCalVO">
+		INSERT INTO grp_comcalendar SET 
+		comstartDate 	= #{comstartDate},
+		comendDate 	= #{comendDate},
+		comcalContent 	= #{comcalContent}
+	</insert>
+	
+	<select id="cgetCal" resultType="com.setup.test2.Model.ComCalVO">
+		SELECT * FROM grp_comcalendar
+	</select>
+	
 
 </mapper>
 
