@@ -29,7 +29,7 @@
 						</li>
 						<li><span class="opener"><a href="">자유게시판</a></span>
 							<ul>
-								<li><a href="${pageContext.request.contextPath }/grp_freeBoard_list.html">자유게시판 목록</a></li>
+								<li><a href="${pageContext.request.contextPath }/freeboard">자유게시판 목록</a></li>
 
 							</ul>
 						</li>

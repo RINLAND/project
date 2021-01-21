@@ -179,7 +179,7 @@
                                     <td class="td-10">관리</td>
                                    
                                 </tr>
-                                <c:forEach items="${list }" var="board">
+                                <c:forEach items="${list }" var="freeboard">
                                 <tr class="center font14 weight700">
                                     <td>
                                     <!-- data-uid : 가져오려는 값의 ID -->
