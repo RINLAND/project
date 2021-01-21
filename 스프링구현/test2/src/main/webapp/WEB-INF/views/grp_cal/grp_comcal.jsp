@@ -89,6 +89,41 @@
 <script src='${pageContext.request.contextPath }/calendar/daygrid/main.js'></script>
 
 <script>
+    $(document).ready(function () { //$(function() )
+   
+        $("#comstartDate, #comendDate").datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+        getCalData();
+        
+    });
+</script>
+
+<script>
+	function addCalendar() {
+		var formData = $("#frm").serialize();
+		$.ajax({
+			url		: "${pageContext.request.contextPath}/grp_cal/grp_calendar_cadd",
+			type	: "POST",
+			data	: formData,
+			success	: function(resData) {
+				alert("일정이 추가 되었습니다.");
+				window.location.reload();
+			},
+			error	: function() {
+				alert("관리자에게 문의하세요.(일정추가)");
+			}
+		});
+	}
+
+	$(function() {
+		$("#addCalBtn").click(function(){
+			addCalendar();
+		});
+	});
+</script>
+<script>
 	function getCalData() {
 		$.ajax({
 			url		: "${pageContext.request.contextPath }/grp_cal/grp_calendar_clist",
@@ -131,40 +166,7 @@
     }
 </script>
 
-<script>
-    $(document).ready(function () { //$(function() )
-   
-        $("#comstartDate, #comendDate").datepicker({
-            dateFormat: 'yy-mm-dd'
-        });
 
-        getCalData();
-        
-    });
-</script>
-<script>
-	function addCalendar() {
-		var formData = $("#frm").serialize();
-		$.ajax({
-			url		: "${pageContext.request.contextPath}/grp_cal/grp_calendar_cadd",
-			type	: "POST",
-			data	: formData,
-			success	: function(resData) {
-				alert("일정이 추가 되었습니다.");
-				window.location.reload();
-			},
-			error	: function() {
-				alert("관리자에게 문의하세요.(일정추가)");
-			}
-		});
-	}
-
-	$(function() {
-		$("#addCalBtn").click(function(){
-			addCalendar();
-		});
-	});
-</script>
 
 	
 
