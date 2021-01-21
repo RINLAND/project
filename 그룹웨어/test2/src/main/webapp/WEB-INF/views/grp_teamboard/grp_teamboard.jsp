@@ -425,7 +425,7 @@ $(function(){
 	function boardDel(boardCode){
 		//alert(boardCode);
 
-		var msg = "삭제 후 복구는 불가능합니다. \n선택하신 게시판&댓글을 삭제하시겠습니까?";
+		var msg = "삭제 후 복구는 불가능합니다. \n선택하신 게시판을 삭제하시겠습니까?";
 		if(confirm(msg)){  //확인 클릭
 
 			var formData = {
