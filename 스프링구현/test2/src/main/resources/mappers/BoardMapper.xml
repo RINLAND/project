@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="board">
 	<insert id= "setBoard" parameterType="com.setup.test2.Model.BoardVO">
-		INSERT INTO grp_board SET 
+		INSERT INTO grp_teamboard SET 
 			boardTeam      = #{boardTeam},
 			boardCode     = #{boardCode},
 			boardColor    = #{boardColor},
@@ -22,20 +22,20 @@
 
 	
 	<select id= "getBoardList" resultType="com.setup.test2.Model.BoardVO">
-		SELECT * FROM grp_board A, grp_team B WHERE A.boardTeam = B.team_id ORDER BY boardID DESC LIMIT #{start}, #{end}
+		SELECT * FROM grp_teamboard A, grp_team B WHERE A.boardTeam = B.team_id ORDER BY boardID DESC LIMIT #{start}, #{end}
 	</select>
 
 	
 	<delete id="setBoardDel" parameterType="String">
-		DELETE FROM grp_board WHERE boardCode = #{boardCode}
+		DELETE FROM grp_teamboard WHERE boardCode = #{boardCode}
 	</delete>
 	
 	<select id= "getBoardCount"  resultType="int">
-		SELECT COUNT(boardID) FROM grp_board
+		SELECT COUNT(boardID) FROM grp_teamboard
 	</select>
 	
 	<update id="setBoardModify" parameterType="com.setup.test2.Model.BoardVO">
-		UPDATE grp_board SET 
+		UPDATE grp_teamboard SET 
 		 boardCode = #{boardCode}, 
 		 boardColor = #{boardColor}, 
 		 boardTitle = #{boardTitle}, 
