@@ -31,7 +31,7 @@
 							
 <!------------------------------------------------ 게시판생성--------------------------------------- -->
 				<div class="board-wrap bg-white ">
-					<form method="POST" id="frm" action="${pageContext.request.contextPath }/grp_teamboard_modify.html">
+					<form method="POST" id="frm" action="${pageContext.request.contextPath }/grp_teamboard_modify">
 						<table>
 							<tr>
 								<td class="td-10 center weight700  bg-sub">게시판 이름</td>
