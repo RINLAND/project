@@ -1,4 +1,4 @@
-package com.setup.test2.Ctr.teemBoard;
+package com.setup.test2.Ctr.teamBoard;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -24,7 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.setup.test2.Model.ArticleVO;
 import com.setup.test2.Model.BoardVO;
-import com.setup.test2.Service.teemBoard.ArticleSrv;
+import com.setup.test2.Service.teamBoard.ArticleSrv;
 
 import pager.Pager;
 
@@ -83,7 +83,7 @@ public class ArticleCtr {
 		
 		
 		
-		mav.setViewName("grp_board/grp_article_list");
+		mav.setViewName("grp_teamboard/grp_teamboard_list");
 		return mav;
 		
 	}
@@ -98,7 +98,7 @@ public class ArticleCtr {
 		mav.addObject("boardColor", info.getBoardColor());
 		mav.addObject("boardCode", boardCode);
 		
-		mav.setViewName("grp_board/grp_article_insert");
+		mav.setViewName("grp_teamboard/grp_teamboard_insert");
 		return mav;
 	}
 	
@@ -154,7 +154,7 @@ public class ArticleCtr {
 		
 		mav.addObject("boardCode", boardCode);
 		
-		mav.setViewName("grp_board/grp_article_view");
+		mav.setViewName("grp_teamboard/grp_teamboard_view");
 		
 		return mav;
 	}
@@ -174,7 +174,7 @@ public class ArticleCtr {
 		mav.addObject("boardCode", boardCode);
 		mav.addObject("view", aSrv.getArticleView(boardCode, aid));
 		
-		mav.setViewName("grp_board/grp_article_reply");
+		mav.setViewName("grp_teamboard/grp_teamboard_reply");
 		return mav;
 	}
 	

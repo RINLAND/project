@@ -4,7 +4,7 @@
 
 <!--정보 뽑아내기  -->
 	<select id="getBoardInfo" parameterType="String" resultType="com.setup.test2.Model.BoardVO">
-		SELECT * FROM grp_board WHERE boardCode = #{boardCode} 
+		SELECT * FROM grp_teamboard WHERE boardCode = #{boardCode} 
 	</select>
 	
 	

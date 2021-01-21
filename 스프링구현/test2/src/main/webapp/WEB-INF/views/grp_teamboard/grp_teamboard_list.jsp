@@ -39,8 +39,7 @@
 										</select>
 									<input value="${words }" type="text" name="words" required style="margin-left: -2px" />
 									<button type="submit" class="btn-on" style="margin-left: -2px">검색</button>
-									  <button type="button" class="btn-on"
-                            onClick="location.href='${pageContext.request.contextPath }/article/grp_article_insert?boardCode=${boardCode }'">게시글작성</button>
+									  <button type="button" class="btn-on"onClick="location.href='${pageContext.request.contextPath }/article/grp_article_insert?boardCode=${boardCode }'">게시글작성</button>
 
 									</form>
 								</div>
@@ -226,9 +225,6 @@
 		</div>
 
 	</div>
-
-	
-
 </body>
 
 </html>

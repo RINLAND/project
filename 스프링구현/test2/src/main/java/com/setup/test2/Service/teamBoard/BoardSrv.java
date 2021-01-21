@@ -1,4 +1,4 @@
-package com.setup.test2.Service.teemBoard;
+package com.setup.test2.Service.teamBoard;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.setup.test2.Model.BoardVO;
 import com.setup.test2.Model.PostVO;
-import com.setup.test2.Repository.teemBoard.BoardDao;
+import com.setup.test2.Repository.teamBoard.BoardDao;
 
 
 

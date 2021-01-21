@@ -1,4 +1,4 @@
-package com.setup.test2.Repository.teemBoard;
+package com.setup.test2.Repository.teamBoard;
 
 import java.util.HashMap;
 import java.util.List;
