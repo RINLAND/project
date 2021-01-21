@@ -1,7 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
-<%@include file = "/WEB-INF/views/grp_cal/grp_cal_header.jsp" %>
+<%@include file="/WEB-INF/views/grp_cal/grp_cal_header.jsp"%>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/board.css">
 
+<!-- datepicker(달력모양 css) -->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
+<!-- datepicker(달력모양 css) -->
+
+<link href='${pageContext.request.contextPath}/calendar/core/main.css' rel='stylesheet' />
+<link href='${pageContext.request.contextPath}/calendar/daygrid/main.css' rel='stylesheet' />
 
 <body class="is-preload">
 
@@ -13,11 +21,11 @@
 			<div class="inner">
 
 				<!-- Header -->
-				<%@include file = "/WEB-INF/views/grp_cal/grp_cal_auth.jsp" %>
-				
-				<!-- Content -->
+				<%@include
+					file="/WEB-INF/views/grp_cal/grp_cal_auth.jsp"%>
 
-				<header class="main" style="margin: 10px;">
+				<!-- Content -->
+					<header class="main" style="margin: 10px;">
 					<h2>개인 일정</h2>
 				</header>
 				<div class="main-top">
@@ -25,34 +33,37 @@
 						<i class="far fa-calendar-check"></i>일정 > 일정등록</h4>
 				</div>
 				<div class="calendar-insert">
-					<form method="post" id="form">
-					<input type="hidden" name="empNum" value="${sessionScope.empNum}" />
+					<form method="POST" id="frm">
+					 <input type="hidden" name="empNum" value="${sessionScope.empNum}" />
 						<table>
 							<tr>
 								<td class="td-10 noto under bg-gray weight700 center">시작일자</td>
-								<td class="td-15 p-lr5"><input type="text" autocomplete="off" id="startDate" name="startDate" class="input-150">
-								<i class="far fa-calendar-alt"></i>
+								<td class="flex flex-justify">
+									<input type="text" autocomplete="off" id="startDate" name="startDate" class="input-150" />
+									<i class="far fa-calendar-alt font16"></i>
 								</td>
-								<td class="td-10 under bg-gray weight700 center">종료일자</td>
-								 <td class="td-15 p-lr5 pos-rel">
-								 <input type="text" autocomplete="off" id="endDate" name="endDate" class="input-150"> 
-								 <i class="fal fa-calendar-alt font16"></i></td>						
+								<td class="td-10 noto under bg-gray weight700 center">종료일자</td>
+								<td class="flex flex-justify">
+									<input type="text" autocomplete="off" id="endDate" name="endDate" class="input-150" />
+									<i class="far fa-calendar-alt font16"></i>								
+								</td>
 								<td class="td-10 noto under bg-gray weight700 center">일정내용</td>
-								<td class="td-90 p-lr5"><input type="text" name="calContent" id="calContent" class="input-100" />
+								<td class="flex flex-justify">
+									<input type="text" autocomplete="off" name="calContent" id="calContent" class="input-100" />
 								</td>
 							</tr>
 						</table>
 						<div class="btn-grp center m-t15">
-							<button type="submit" class="noto cbtn-on" id="addCalBtn">일정등록</button>
-							<button type="reset" class="noto cbtn-off" id="">등록취소</button>
+							<button type="submit" class="noto cbtn-on"  id="addCalBtn">일정등록</button>
+							<button type="reset" class="noto cbtn-off">등록취소</button>
 						</div>
 					</form>
 				</div>
 				<div class="main-top">
 					<h4 class="m-b20"><i class="far fa-calendar-check"></i>일정 > 일정목록</h4>
-					<div id='calendar'class='calendar'></div>
+					<div id='calendar'></div>
 
-				</div>
+				</div>			
 
 
 			</div>
@@ -64,26 +75,20 @@
 
 				<%@include file="/WEB-INF/views/grp_freeboard/grp_freeboard_menu.jsp"%>
 
+
 			</div>
 		</div>
 
 	</div>
 
+
 </body>
 
-	<script src="${pageContext.request.contextPath }/calendar/main.js"></script>
-	<script src='${pageContext.request.contextPath }/calendar/core/locales/ko.js'></script>
-	<script src='${pageContext.request.contextPath }/calendar/interaction/main.js'></script>
-	<script src='${pageContext.request.contextPath }/calendar/daygrid/main.js'></script>	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
-	<script src="${pageContext.request.contextPath }/js/browser.min.js"></script>
-	<script src="${pageContext.request.contextPath }/js/breakpoints.min.js"></script>
-	<script src="${pageContext.request.contextPath }/js/util.js"></script>
-	<script src="${pageContext.request.contextPath }/js/main.js"></script>
+<script src='${pageContext.request.contextPath }/calendar/core/main.js'></script>
+<script src='${pageContext.request.contextPath }/calendar/core/locales/ko.js'></script>
+<script src='${pageContext.request.contextPath }/calendar/interaction/main.js'></script>
+<script src='${pageContext.request.contextPath }/calendar/daygrid/main.js'></script>
 
-<!-- calendar event -->
 
 <script>
     $(document).ready(function () { //$(function() )
@@ -97,8 +102,7 @@
     });
 
 	function addCalendar() {
-		var formData = $("#form").serialize();
-
+		var formData = $("#frm").serialize();
 		$.ajax({
 			url		: "${pageContext.request.contextPath}/grp_cal/grp_calendar_add",
 			type	: "POST",
@@ -108,7 +112,7 @@
 				window.location.reload();
 			},
 			error	: function() {
-				alert("관리자에게 문의하세요!");
+				alert("관리자에게 문의하세요.(일정추가)");
 			}
 		});
 	}
@@ -119,24 +123,23 @@
 		});
 	});
 </script>
-
 <script>
 	function getCalData() {
 		$.ajax({
-			url		: "${pageContext.request.contextPath}/grp_cal/grp_calendar_list",
+			url		: "${pageContext.request.contextPath }/grp_cal/grp_calendar_list",
 			type	: "POST",
 			success	: function(resData) {
 				for(var i = 0; i < resData.length; i++) {
 					resData[i].start 	= resData[i].startDate;
 					resData[i].end 		= resData[i].endDate;
 					resData[i].title	= resData[i].calContent;
-					resData[i].color	= "skyblue";
+					resData[i].color	= "tomato";
 				}
 				getCalendar(resData);
 				
 			},
 			error	: function() {
-				alert("관리자에게 문의하세요!!");
+				alert("관리자에게 문의하세요.(불러오기)");
 			}
 		});
 	}
@@ -162,5 +165,6 @@
         calendar.render();
     }
 </script>
+	
 
 </html>
