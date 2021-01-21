@@ -32,23 +32,23 @@
 					<h4 class="m-b20">
 						<i class="far fa-calendar-check"></i>일정 > 일정등록</h4>
 				</div>
-				<div class="calendar-insert">
+				<div class="calendar-insert center">
 					<form method="POST" id="frm">
 						<table>
 							<tr>
-								<td class="td-10 noto under bg-gray weight700 center">시작일자</td>
+								<td class="td-10 noto  bg-gray weight600 center">시작일자</td>
 								<td class="flex flex-justify">
 									<input type="text" autocomplete="off" id="comstartDate" name="comstartDate" class="input-150" />
 									<i class="far fa-calendar-alt font16"></i>
 								</td>
-								<td class="td-10 noto under bg-gray weight700 center">종료일자</td>
+								<td class="td-10 noto  bg-gray weight600 center">종료일자</td>
 								<td class="flex flex-justify">
 									<input type="text" autocomplete="off" id="comendDate" name="comendDate" class="input-150" />
 									<i class="far fa-calendar-alt font16"></i>								
 								</td>
-								<td class="td-10 noto under bg-gray weight700 center">일정내용</td>
-								<td class="flex flex-justify">
-									<input type="text" autocomplete="off" name="comcalContent" id="comcalContent" class="input-100" />
+								<td class="td-10 noto  bg-gray weight600 center">일정내용</td>
+								<td class="">
+									<input type="text" autocomplete="off" name="comcalContent" id="comcalContent" class="input-200" />
 								</td>
 							</tr>
 						</table>
@@ -88,6 +88,41 @@
 <script src='${pageContext.request.contextPath }/calendar/interaction/main.js'></script>
 <script src='${pageContext.request.contextPath }/calendar/daygrid/main.js'></script>
 
+<script>
+    $(document).ready(function () { //$(function() )
+   
+        $("#comstartDate, #comendDate").datepicker({
+            dateFormat: 'yy-mm-dd'
+        });
+
+        getCalData();
+        
+    });
+</script>
+
+<script>
+	function addCalendar() {
+		var formData = $("#frm").serialize();
+		$.ajax({
+			url		: "${pageContext.request.contextPath}/grp_cal/grp_calendar_cadd",
+			type	: "POST",
+			data	: formData,
+			success	: function(resData) {
+				alert("일정이 추가 되었습니다.");
+				window.location.reload();
+			},
+			error	: function() {
+				alert("관리자에게 문의하세요.(일정추가)");
+			}
+		});
+	}
+
+	$(function() {
+		$("#addCalBtn").click(function(){
+			addCalendar();
+		});
+	});
+</script>
 <script>
 	function getCalData() {
 		$.ajax({
@@ -131,40 +166,7 @@
     }
 </script>
 
-<script>
-    $(document).ready(function () { //$(function() )
-   
-        $("#comstartDate, #comendDate").datepicker({
-            dateFormat: 'yy-mm-dd'
-        });
 
-        getCalData();
-        
-    });
-</script>
-<script>
-	function addCalendar() {
-		var formData = $("#frm").serialize();
-		$.ajax({
-			url		: "${pageContext.request.contextPath}/grp_cal/grp_calendar_cadd",
-			type	: "POST",
-			data	: formData,
-			success	: function(resData) {
-				alert("일정이 추가 되었습니다.");
-				window.location.reload();
-			},
-			error	: function() {
-				alert("관리자에게 문의하세요.(일정추가)");
-			}
-		});
-	}
-
-	$(function() {
-		$("#addCalBtn").click(function(){
-			addCalendar();
-		});
-	});
-</script>
 
 	
 

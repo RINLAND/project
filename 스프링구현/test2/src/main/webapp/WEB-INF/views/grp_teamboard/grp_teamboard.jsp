@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	 <%@include file = "/WEB-INF/views/grp_teamboard/grp_teamboard_header.jsp" %>
 	
 <body class="is-preload">
@@ -26,7 +26,7 @@
 							<h4 class="m-b20">부서게시판 > 부서게시판목록</h4>
 							
 <!------------------------------------------------ 게시판생성--------------------------------------- -->
-				<div class="board-wrap bg-white ">
+				<div class="board-wrap bg-white center">
 					<form method="POST" id="frm">
 						<table>
 							<tr>
@@ -145,7 +145,7 @@
 									<span class="btn-count">전체게시판 수  ${count }개</span>
 								</div>
 								<div class="flex flex-justify"  >
-									<form method="post " class="flex flex-justify " action="${pageContext.request.contextPath }/board">
+									<form method="POST" class="flex flex-justify " action="${pageContext.request.contextPath }/board">
 										
 										<select class="" >
 											<option value="boardCode">게시판코드</option>
