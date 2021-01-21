@@ -27,9 +27,27 @@ public class BoardSrv {
 		
 	}
 	
+	public void createArticleTbl(String boardCode) {
+		bDao.createArticleTbl(boardCode);
+	}
+
+	
+	public void createCommentTbl(String boardCode) {
+		bDao.createCommentTbl(boardCode);
+	}
+	
 	
 	public void setBoardDel(String boardCode) {
 		bDao.setBoardDel(boardCode);
+	}
+	
+	public void dropArticleTbl(String boardCode) {
+		bDao.dropArticleTbl(boardCode);
+	}
+
+	
+	public void dropCommentTbl(String boardCode) {
+		bDao.dropCommentTbl(boardCode);
 	}
 	
 	public void setBoardModify(BoardVO bvo) {

@@ -80,7 +80,8 @@ public class BoardCtr {
 	@ResponseBody  
 	public String setBoard(@ModelAttribute BoardVO bvo) {
 		bSrv.setBoard(bvo);
-		
+		bSrv.createArticleTbl(bvo.getBoardCode());
+		bSrv.createCommentTbl(bvo.getBoardCode());
 		return "success";
 	}
 	
@@ -91,7 +92,8 @@ public class BoardCtr {
 	public String setBoardDel(@RequestParam String boardCode) {
 		
 		bSrv.setBoardDel(boardCode);
-		
+		bSrv.dropArticleTbl(boardCode);
+		bSrv.dropCommentTbl(boardCode);
 		return "success";
 		
 	}

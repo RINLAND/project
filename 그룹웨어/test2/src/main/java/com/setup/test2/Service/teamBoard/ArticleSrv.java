@@ -13,58 +13,102 @@ import com.setup.test2.Repository.teamBoard.ArticleDao;
 public class ArticleSrv {
 
 	@Autowired
-	ArticleDao aDao;
+	ArticleDao articleDao;
 	
-	public BoardVO getBoardInfo(String boardCode) {
-		return aDao.getBoardInfo(boardCode);
-	}
 	
-	public List<ArticleVO> getArticleList(String boardCode, int start, int end){
-		return aDao.getArticleList(boardCode, start, end);
-	}
-	
-	public void setArticle(ArticleVO avo) {
+	public List<ArticleVO> getArticleList(
+			int start, int end,
+			String words, 
+			String searchOpt,
+			String boardCode) {
 		
-		String subject = avo.getSubject(); 
-		subject.replace("<", "&lt;"); 
-		subject.replace(">", "&gt;");
-		subject.replace(" ", "&nbsp;");
-		subject.replace("\n", "<br />");
+		return articleDao.getArticleList(start, end, words, searchOpt, boardCode);
+	}
+
+	
+	public int getArticleTotalCount(String words, String searchOpt, String boardCode) {
+		return articleDao.getArticleTotalCount(words, searchOpt, boardCode);
+	}
+
+	
+	public int setArticle(ArticleVO vo) {
+		String subject 	= vo.getSubject();
+		String writer 	= vo.getWriter();
+		String content 	= vo.getContent();
 		
-		avo.setSubject(subject); 
+		subject 	= subject.replace("<", "&lt;");
+		subject 	= subject.replace("<", "&gt;");
+		writer 		= writer.replace("<", "&lt;");
+		writer 		= writer.replace("<", "&gt;");
+		content 	= content.replace("<", "&lt;");
+		content 	= content.replace("<", "&gt;");
 		
-		aDao.setArticle(avo);
-	}
-	
-	public int getArticleCount(String boardCode) {
-		return aDao.getArticleCount(boardCode);
-	}
-	
-	public void hitUp(String boardCode, int aid) {
-		aDao.hitUp(boardCode, aid);
-	}
-	
-	public ArticleVO getArticleView(String boardCode, int aid) {
-		return aDao.getArticleView(boardCode, aid);
-	}
-	
-	
-	
-	public ArticleVO getArticleReplyInfo(String boardCode, int aid) {
-		return aDao.getArticleReplyInfo(boardCode, aid);
-	}
-	
-	public void setArticleReplyOrder(ArticleVO avo) {
-		aDao.setArticleReplyOrder(avo);
-	}
-	
-	public void setArticleReply(ArticleVO avo) {
-		ArticleVO vo = aDao.getArticleReplyInfo(avo.getBoardCode(), avo.getAid());
-		avo.setRef(vo.getRef());
-		avo.setRe_step(vo.getRe_step());
-		avo.setRe_level(vo.getRe_level());
+		subject		= subject.replace(" ", "&nbsp;");
+		writer		= writer.replace(" ", "&nbsp;");
 		
-		aDao.setArticleReplyOrder(avo);
-		aDao.setArticleReply(avo);
+		content 	= content.replace("\n", "<br />");
+		
+		vo.setSubject(subject);
+		vo.setWriter(writer);
+		vo.setContent(content);
+		
+		return articleDao.setArticle(vo);
 	}
+
+	
+	public ArticleVO getArticleOne(ArticleVO avo) {
+		return articleDao.getArticleOne(avo);
+	}
+
+	
+	public void hitUp(ArticleVO avo) {
+		articleDao.hitUp(avo);
+	}
+
+	
+	public int setArticleDelete(int aid, String boardCode) {
+		return articleDao.setArticleDelete(aid, boardCode);
+	}
+
+	
+	public int setArticleModify(ArticleVO vo) {
+		return articleDao.setArticleModify(vo);
+	}
+
+	
+	public BoardVO getBoardOne(String boardCode) {
+		return articleDao.getBoardOne(boardCode);
+	}
+
+	
+	public int setArticleDeleteAll(int aid, String boardCode) {
+		return articleDao.setArticleDeleteAll(aid, boardCode);
+	}
+
+	
+	public ArticleVO getArticleReplyInfo(ArticleVO avo) throws Exception {
+		return null;
+	}
+
+	
+	public int setArticleRef(ArticleVO avo) throws Exception {
+		return 0;
+	}
+
+	
+	public int setArticleReply(ArticleVO avo) throws Exception {
+		
+		ArticleVO dto = articleDao.getArticleReplyInfo(avo);
+		avo.setRef(dto.getRef()); //update
+		avo.setRe_step(dto.getRe_step());
+		avo.setRe_level(dto.getRe_level());
+		
+		int result = 0;
+		
+		result += articleDao.setArticleRef(avo);
+		result += articleDao.setArticleReply(avo);
+		
+		return result;
+	}
+	
 }

@@ -15,60 +15,89 @@ import com.setup.test2.Model.BoardVO;
 public class ArticleDao {
 	
 	@Autowired
-	SqlSession sql;
+	private SqlSession sql;
 	
-	public BoardVO getBoardInfo(String boardCode) {
-		return sql.selectOne("article.getBoardInfo", boardCode);
-	}
 	
-	public List<ArticleVO> getArticleList(String boardCode, int start, int end ){
-		Map<String,Object> map =new HashMap<String, Object>();
+	public List<ArticleVO> getArticleList(
+			int start, int end,
+			String words, 
+			String searchOpt,
+			String boardCode) {
+		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("start", start);
 		map.put("end", end);
+		map.put("words", words);
+		map.put("searchOpt", searchOpt);
 		map.put("boardCode", boardCode);
 		return sql.selectList("article.getArticleList", map);
 	}
+
 	
-	public void setArticle(ArticleVO avo) {
-		sql.insert("article.setArticle", avo);
-	}
-	
-	public int getArticleCount(String boardCode) {
-		return sql.selectOne("article.getArticleCount", boardCode);
-	}
-	
-	public void hitUp(String boardCode, int aid) {
-		Map<String,Object> map =new HashMap<String, Object>();
+	public int getArticleTotalCount(String words, String searchOpt, String boardCode) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("words", words);
+		map.put("searchOpt", searchOpt);
 		map.put("boardCode", boardCode);
-		map.put("aid", aid);
-		sql.update("article.hitUp", map);
+		return sql.selectOne("article.getArticleTotalCount", map);
+	}
+
+	
+	public int setArticle(ArticleVO vo) {
+		return sql.insert("article.setArticle", vo);
+	}
+
+	
+	public ArticleVO getArticleOne(ArticleVO avo) {
+		return sql.selectOne("article.getArticleOne", avo);
+	}
+
+	
+	public void hitUp(ArticleVO avo) {
+		sql.update("article.hitUp", avo);
 	}
 	
-	public ArticleVO getArticleView(String boardCode, int aid) {
-		Map<String,Object> map =new HashMap<String, Object>();
+	
+	public int setArticleModify(ArticleVO vo) {
+	System.out.println(vo.getAid());
+	System.out.println(vo.getBoardCode());
+		return sql.update("article.setArticleModify", vo);
+	}
+
+	
+	public int setArticleDelete(int aid, String boardCode) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("aid", aid);
 		map.put("boardCode", boardCode);
-		map.put("aid", aid);
-		return sql.selectOne("article.getArticleView", map);
+		return sql.delete("article.setArticleDelete", map);
 	}
+
 	
+	public BoardVO getBoardOne(String boardCode) {
+		return sql.selectOne("article.getBoardOne", boardCode);
+	}
+
 	
-	
-	public ArticleVO getArticleReplyInfo(String boardCode, int aid) {
-		Map<String,Object> map =new HashMap<String, Object>();
+	public int setArticleDeleteAll(int aid, String boardCode) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("aid", aid);
 		map.put("boardCode", boardCode);
-		map.put("aid", aid);
-		return sql.selectOne("article.getArticleReplyInfo", map);
+		return sql.delete("article.setArticleDeleteAll", map);
 	}
 	
-	public void setArticleReplyOrder(ArticleVO avo) {
-		sql.update("article.setArticleReplyOrder", avo);
+	/** 게시판 - 답글 정보  조회 */
+	public ArticleVO getArticleReplyInfo(ArticleVO avo) throws Exception {
+		return sql.selectOne("article.getArticleReplyInfo", avo);
 	}
 	
-	public void setArticleReply(ArticleVO avo) {
-		sql.insert("article.setArticleReply", avo);
+	/** 게시판 - 답글의 순서 수정 */
+	public int setArticleRef(ArticleVO avo) throws Exception {
+
+		return sql.update("article.setArticleRef", avo);
 	}
 	
-	
-	
+	/** 게시판 - 답글 등록 */
+	public int setArticleReply(ArticleVO avo) throws Exception {
+		return sql.insert("article.setArticleReply", avo);
+	}
 	
 }

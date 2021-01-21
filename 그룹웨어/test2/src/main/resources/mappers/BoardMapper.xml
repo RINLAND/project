@@ -19,7 +19,14 @@
 			
 	</insert>
 	
+	<insert id="createArticleTbl">
+		${str}
+	</insert>
 
+	<insert id="createCommentTbl">
+		${str}
+	</insert>
+	
 	
 	<select id= "getBoardList" resultType="com.setup.test2.Model.BoardVO">
 		SELECT * FROM grp_teamboard A, grp_team B WHERE A.boardTeam = B.team_id ORDER BY boardID DESC LIMIT #{start}, #{end}
@@ -29,6 +36,15 @@
 	<delete id="setBoardDel" parameterType="String">
 		DELETE FROM grp_teamboard WHERE boardCode = #{boardCode}
 	</delete>
+	
+	<insert id="dropArticleTbl">
+		${str}
+	</insert>
+
+	<insert id="dropCommentTbl">
+		${str}
+	</insert>
+	
 	
 	<select id= "getBoardCount"  resultType="int">
 		SELECT COUNT(boardID) FROM grp_teamboard
