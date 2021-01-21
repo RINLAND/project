@@ -165,6 +165,15 @@ input{
     height: 35px;
     font-size: 12px;
 }
+
+.input-200 {
+			padding: 5px;
+			border-radius: 2px;
+			border: 1px solid #d5d5d5;
+			width: 200px;
+			height: 35px;
+			font-size: 12px;
+		}
 /* select */
 select{
     font-size: 12px;

@@ -32,23 +32,23 @@
 					<h4 class="m-b20">
 						<i class="far fa-calendar-check"></i>일정 > 일정등록</h4>
 				</div>
-				<div class="calendar-insert">
+				<div class="calendar-insert center">
 					<form method="POST" id="frm">
 						<table>
 							<tr>
-								<td class="td-10 noto under bg-gray weight700 center">시작일자</td>
+								<td class="td-10 noto  bg-gray weight600 center">시작일자</td>
 								<td class="flex flex-justify">
 									<input type="text" autocomplete="off" id="comstartDate" name="comstartDate" class="input-150" />
 									<i class="far fa-calendar-alt font16"></i>
 								</td>
-								<td class="td-10 noto under bg-gray weight700 center">종료일자</td>
+								<td class="td-10 noto  bg-gray weight600 center">종료일자</td>
 								<td class="flex flex-justify">
 									<input type="text" autocomplete="off" id="comendDate" name="comendDate" class="input-150" />
 									<i class="far fa-calendar-alt font16"></i>								
 								</td>
-								<td class="td-10 noto under bg-gray weight700 center">일정내용</td>
-								<td class="flex flex-justify">
-									<input type="text" autocomplete="off" name="comcalContent" id="comcalContent" class="input-100" />
+								<td class="td-10 noto  bg-gray weight600 center">일정내용</td>
+								<td class="">
+									<input type="text" autocomplete="off" name="comcalContent" id="comcalContent" class="input-200" />
 								</td>
 							</tr>
 						</table>
