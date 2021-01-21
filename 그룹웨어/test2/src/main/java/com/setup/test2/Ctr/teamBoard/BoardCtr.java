@@ -108,8 +108,8 @@ public class BoardCtr {
 		return list;
 	}
 	
-	@RequestMapping("/grp_board_modify") //�Խ��� ����
-	@ResponseBody //ajax�� ó���Ѵٴ� �� 
+	@RequestMapping("/grp_board_modify") 
+	@ResponseBody 
 	 public String setModify(@ModelAttribute BoardVO bvo) { 
 	 bSrv.setBoardModify(bvo); bSrv.createArticleTbl(bvo.getBoardCode());
 	 bSrv.createCommentTbl(bvo.getBoardCode()); return "success"; }

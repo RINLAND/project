@@ -22,7 +22,7 @@ public class freeBoardDao {
 	
 	
 	public void createArticleTbl(String boardCode) {
-		String str = "CREATE TABLE gat_article_" + boardCode;
+		String str = "CREATE TABLE gat_freearticle_" + boardCode;
 		str += "(aid int not null auto_increment primary key,";
 		str += "division char(1),";
 		str += "subject varchar(300) not null,";
@@ -43,7 +43,7 @@ public class freeBoardDao {
 	}
 	
 	public void createCommentTbl(String boardCode) {
-		String str = "CREATE TABLE gat_comment_" + boardCode;
+		String str = "CREATE TABLE gat_freecomment_" + boardCode;
 		str += "(cid int not null auto_increment primary key,";
 		str += "aid int not null,";
 		str += "comment text,";
