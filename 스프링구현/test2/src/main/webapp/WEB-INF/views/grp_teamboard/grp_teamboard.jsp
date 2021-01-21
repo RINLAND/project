@@ -26,7 +26,7 @@
 							<h4 class="m-b20">부서게시판 > 부서게시판목록</h4>
 							
 <!------------------------------------------------ 게시판생성--------------------------------------- -->
-				<div class="board-wrap bg-white ">
+				<div class="board-wrap bg-white center">
 					<form method="POST" id="frm">
 						<table>
 							<tr>
