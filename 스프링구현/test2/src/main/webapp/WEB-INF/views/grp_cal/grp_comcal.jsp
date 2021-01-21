@@ -141,7 +141,8 @@
         getCalData();
         
     });
-
+</script>
+<script>
 	function addCalendar() {
 		var formData = $("#frm").serialize();
 		$.ajax({
