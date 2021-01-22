@@ -75,7 +75,7 @@ public class ArticleCtr {
 		mav.addObject("boardColor", bvo.getBoardColor());
 		mav.addObject("boardTitle", bvo.getBoardTitle());
 		
-		mav.setViewName("grp_board/grp_article_list");
+		mav.setViewName("grp_teamboard/grp_teamboard_list");
 		return mav;
 	}
 	
@@ -89,7 +89,7 @@ public class ArticleCtr {
 		mav.addObject("boardTitle", bvo.getBoardTitle());
 		mav.addObject("boardWrite", bvo.getBoardWrite());
 		
-		mav.setViewName("grp_board/grp_article_insert");
+		mav.setViewName("grp_teamboard/grp_teamboard_insert");
 		return mav;
 	}
 	
@@ -141,7 +141,7 @@ public class ArticleCtr {
 			mav.addObject("boardColor", bvo.getBoardColor());
 			mav.addObject("boardReply", bvo.getBoardReply());
 			
-			mav.setViewName("grp_board/grp_article_reply");
+			mav.setViewName("grp_teamboard/grp_teamboard_reply");
 		}
 
 		return mav;
@@ -192,13 +192,13 @@ public class ArticleCtr {
 		mav.addObject("boardColor", bvo.getBoardColor());
 		mav.addObject("boardTitle", bvo.getBoardTitle());
 		mav.addObject("boardCode", vo.getBoardCode());
-		mav.setViewName("grp_board/grp_article_modify");
+		mav.setViewName("grp_teamboard/grp_teamboard_textmodify");
 		return mav;
 	}
 	
 	@RequestMapping(value = "/grp_article_delete", method = RequestMethod.GET)
 	public String getArticleDelete() {
-		return "grp_board/grp_article_delete";
+		return "grp_teamboard/grp_article_delete";
 	}
 	
 	@RequestMapping(value = "/grp_article_delete", method = RequestMethod.POST)
@@ -230,7 +230,7 @@ public class ArticleCtr {
 		mav.addObject("boardRead", bvo.getBoardRead());
 		
 		
-		mav.setViewName("grp_board/grp_article_view");
+		mav.setViewName("grp_teamboard/grp_teamboard_view");
 		
 		return mav;
 	}

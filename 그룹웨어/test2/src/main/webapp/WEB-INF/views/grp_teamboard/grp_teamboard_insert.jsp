@@ -7,25 +7,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VV Entertainment GroupWare 부서게시판</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/notice_text.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/notice_common.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/notice_text.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/notice_common.css">
 	<script src="https://kit.fontawesome.com/62ab751ce0.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="ckeditor/ckeditor.js"></script>
+	<script src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
 
 
 </head>
 
 <body>
-    <div class="page-wrap ">
+    <div class="page-wrap p10">
         <div class="container p20 bg-white">
             <div class="board-insert">
                
-                <form method="POST" action="${pageContext.request.contextPath }/article/grp_article_insert">
+                <form enctype="multipart/form-data" method="POST" action="${pageContext.request.contextPath }/article/grp_article_insert">
                 	<input type="hidden" name="boardCode" value="${boardCode }" />
                      <div class="title">
                     <h3 class=" font18 m-b5">
-                        <i class="fas fa-feather-alt"></i>${boardTitle }
+                        ${boardTitle }
                     </h3>
                 </div>
                     <table>

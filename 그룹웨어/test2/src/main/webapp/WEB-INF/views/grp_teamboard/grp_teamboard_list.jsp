@@ -39,7 +39,7 @@
 										</select>
 									<input value="${words }" type="text" name="words" required style="margin-left: -2px" />
 									<button type="submit" class="btn-on" style="margin-left: -2px">검색</button>
-									  <button type="button" class="btn-on"onClick="location.href='${pageContext.request.contextPath }/article/grp_article_insert?boardCode=${boardCode }'">게시글작성</button>
+									  <button type="button" class="btn-on"onClick="location.href='${pageContext.request.contextPath }/article/grp_article_insert?boardCode=${boardCode }'">작성</button>
 
 									</form>
 								</div>
@@ -47,7 +47,7 @@
 <!------------------------------------------------ 게시판생성 목록--------------------------------------- -->
  					 <div class="title">
                 		<h3 class="tomato font18 noto m-t10">
-                    		<i class="fas fa-feather-alt"></i>${boardTitle }
+                    		${boardTitle }
                 		</h3>
             		</div>
  					<div class="board-list">
@@ -96,7 +96,7 @@
                             <a href="${pageContext.request.contextPath }/article/grp_article_view?boardCode=${boardCode}&aid=${artList.aid}" 
                             class="under weight700">${artList.subject }
                        </a>
-                         <!--<c:set var="fileName" vlaue="${fn:toLowerCase(artList.fileOriName) }"> </c:set> -->
+                         <c:set var="fileName" value="${fn:toLowerCase(artList.fileOriName) }"> </c:set> 
                          <c:forTokens var="ext" items="${fileName }" delims="." varStatus="status">
                          	<c:if test="${status.last }">
                          		<c:choose>
