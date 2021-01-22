@@ -2,28 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comment">
 
-<select  id="getCommentCount" resultType="int">
-	SELECT COUNT(*) FROM grp_comment_${boardCode} WHERE aid = #{aid}
-</select>
+	<select id="getCommentCount" resultType="int">
+		SELECT COUNT(*) FROM gat_comment_${boardCode} WHERE aid = #{aid}
+	</select>
 
 
-<select id="getCommentList" resultType="com.setup.test2.Model.CommentVO">
-	SELECT * FROM grp_comment_${boardCode} WHERE aid = #{aid} ORDER BY cid DESC
-</select>
-	
-<insert id="setComment" parameterType="com.setup.test2.Model.CommentVO">
-	INSERT INTO grp_comment_${boardCode} (aid, comment, regdate, who) 
-	VALUES (#{aid}, #{comment}, #{regdate}, #{who})
+	<select id="getCommentList"
+		resultType="com.setup.test2.Model.CommentVO">
+		SELECT * FROM gat_comment_${boardCode} WHERE aid = #{aid} ORDER BY cid DESC
+	</select>
 
-</insert>
+	<insert id="setComment"
+		parameterType="com.setup.test2.Model.CommentVO">
+		INSERT INTO gat_comment_${boardCode} (aid, comment, regdate, who)
+		VALUES (#{aid}, #{comment}, #{regdate}, #{who})
 
-<delete id="setCommentDelete" parameterType="com.setup.test2.Model.CommentVO">
-	DELETE FROM grp_comment_${boardCode} WHERE cid = #{cid}
-</delete>
+	</insert>
 
-<update id="setCommentModify" parameterType="com.setup.test2.Model.CommentVO">
-	UPDATE grp_comment_${boardCode} SET comment = #{comment} WHERE cid = #{cid}
+	<delete id="setCommentDelete"
+		parameterType="com.setup.test2.Model.CommentVO">
+		DELETE FROM gat_comment_${boardCode} WHERE cid = #{cid}
+	</delete>
 
-</update>
-	
+	<update id="setCommentModify"
+		parameterType="com.setup.test2.Model.CommentVO">
+		UPDATE gat_comment_${boardCode} SET comment = #{comment} WHERE cid = #{cid}
+
+	</update>
+
 </mapper>
