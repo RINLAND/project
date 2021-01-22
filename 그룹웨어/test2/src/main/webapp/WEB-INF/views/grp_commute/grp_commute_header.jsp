@@ -7,9 +7,9 @@
 	<title>VV Entertainment GroupWare </title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/board_main.css" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/board.css" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/fontawesome-all.min.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/board_main.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/board.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/fontawesome-all.min.css" />
 	
 	<script src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/browser.min.js"></script>

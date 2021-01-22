@@ -44,7 +44,7 @@
 
 						<li><span class="opener"><a href="">근태관리</a></span>
 							<ul>
-								<li><a href="${pageContext.request.contextPath }/grp_commute.html">출퇴근 관리</a></li>
+								<li><a href="${pageContext.request.contextPath }/commute">출퇴근 관리</a></li>
 
 							</ul>
 						</li>
