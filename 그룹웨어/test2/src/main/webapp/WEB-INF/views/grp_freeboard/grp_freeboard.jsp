@@ -187,12 +187,12 @@
                                     </td>
                                     <td>${freeboard.team_name}</td>
                                     <td>
-                                        <a href="${pageContext.request.contextPath }/freeArticle/grp_freeArticle_list?boardCode=${freeboard.boardCode }" 
+                                        <a href="${pageContext.request.contextPath }/freeArticle/grp_article_list?boardCode=${freeboard.boardCode }" 
                                         target="_blank" class="under">
                                         ${freeboard.boardCode}</a></td>
                                     <td>${freeboard.boardColor}</td>
                                     <td>
-                                        <a href="${pageContext.request.contextPath }/freeArticle/grp_freeArticle_list?boardCode=${freeboard.boardCode }" 
+                                        <a href="${pageContext.request.contextPath }/freeArticle/grp_article_list?boardCode=${freeboard.boardCode }" 
                                         target="_blank" class="under">
                                          ${freeboard.boardTitle }</a></td>
                                     <td>${freeboard.boardRead }</td>

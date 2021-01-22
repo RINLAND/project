@@ -8,7 +8,7 @@
         <div class="container p20 bg-white">
             <div class="board-insert">
                
-                <form enctype="multipart/form-data" method="POST" action="${pageContext.request.contextPath }/article/grp_article_insert">
+                <form enctype="multipart/form-data" method="POST" action="${pageContext.request.contextPath }/freeArticle/grp_article_insert">
                 	<input type="hidden" name="boardCode" value="${boardCode }" />
                      <div class="title">
                     <h3 class=" font18 m-b5">
@@ -59,14 +59,14 @@
                         <tr>
                             <td  class="td-10 center weight700 bg-sub" style="background-color: ${boardColor}">첨부파일</td>
                             <td colspan="3"  class="td-90 p-lr3">
-                                <input type="file" class="input-100" multiple="multiple"/>
+                                <input type="file" name="files" class="input-100" multiple="multiple"/>
                             </td>
                            
                         </tr>
                     </table>
                     <div class="btn-grp center m-t10">
                         <button type="submit" class="btn-normal">게시글저장</button>
-                        <button type="button" onclick="location.href='${pageContext.request.contextPath }/article/grp_article_list?boardCode=${boardCode }'" class="btn-cancel">게시글목록</button>
+                        <button type="button" onclick="location.href='${pageContext.request.contextPath }/freeArticle/grp_article_list?boardCode=${boardCode }'" class="btn-cancel">게시글목록</button>
                     </div>
                 </form>
             </div>

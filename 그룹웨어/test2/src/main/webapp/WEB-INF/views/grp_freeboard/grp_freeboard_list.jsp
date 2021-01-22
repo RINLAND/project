@@ -56,16 +56,13 @@
                                     <td class="td-5">
                                         <input type="checkbox" onClick="chkAll();"/>
                                     </td>
-                                    <td class="td-10">게시판그룹</td>
-                                    <td class="td-10">게시판코드</td>
-                                    <td class="td-10">게시판색상</td>
-                                    <td>게시판제목</td>
-                                    <td class="td-5">읽기권한</td>
-                                    <td class="td-5">쓰기권한</td>
-                                    <td class="td-5">댓글권한</td>
-                                    <td class="td-5">다운권한</td>
-                                    <td class="td-5">자료실</td>
-                                    <td class="td-10">관리</td>
+                                    <td class="td-5">번호</td>
+				                        <td class="td-5 ">분류</td>
+				                        <td>게시물제목</td>
+				                        <td class="td-5">작성자</td>
+				                        <td class="td-5">조회</td>
+				                        <td class="td-8">게시일</td>
+				                        <td class="td-7">관리</td>
                                    
                                 </tr>
                   <c:forEach items="${list }" var="artList" varStatus="status">

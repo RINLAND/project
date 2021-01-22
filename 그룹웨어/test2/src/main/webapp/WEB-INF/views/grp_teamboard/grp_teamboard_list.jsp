@@ -56,7 +56,7 @@
                                     <td class="td-5">
                                         <input type="checkbox" onClick="chkAll();"/>
                                     </td>
-                                    <td class="td-5">번호</td>
+                                    	<td class="td-5">번호</td>
 				                        <td class="td-5 ">분류</td>
 				                        <td>게시물제목</td>
 				                        <td class="td-5">작성자</td>
