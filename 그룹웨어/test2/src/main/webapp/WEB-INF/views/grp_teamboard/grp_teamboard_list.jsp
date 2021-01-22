@@ -125,7 +125,7 @@
                         <td>${artList.regdate }</td>
                         <td>
                             <!-- input이면 type=submit -->
-                            <button type="button" class="s-btn-on" onclick="location.href='grp_board_modify.html?id=10'">수정</button>
+                            <button type="button" class="s-btn-on" onclick="${pageContext.request.contextPath }/article/grp_article_modify">수정</button>
                             <button type="button" class="s-btn-off">삭제</button>
                         </td>
                     </tr>
