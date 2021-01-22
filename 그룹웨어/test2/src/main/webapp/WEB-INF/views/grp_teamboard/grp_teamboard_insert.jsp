@@ -1,20 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="ko">
+<%@include file="/WEB-INF/views/grp_freeboard/article_header.jsp"%>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VV Entertainment GroupWare 부서게시판</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/notice_text.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/css/notice_common.css">
-	<script src="https://kit.fontawesome.com/62ab751ce0.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<script src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
-
-
-</head>
 
 <body>
     <div class="page-wrap p10">
@@ -72,7 +59,7 @@
                         <tr>
                             <td  class="td-10 center weight700 bg-sub" style="background-color: ${boardColor}">첨부파일</td>
                             <td colspan="3"  class="td-90 p-lr3">
-                                <input type="file" class="input-100" multiple="multiple"/>
+                                <input type="file" name="files" class="input-100" multiple="multiple"/>
                             </td>
                            
                         </tr>

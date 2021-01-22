@@ -74,7 +74,7 @@ public class freeArticleCtr {
 		mav.addObject("boardColor", fvo.getBoardColor());
 		mav.addObject("boardTitle", fvo.getBoardTitle());
 		
-		mav.setViewName("grp_freeboard/grp_article_list");
+		mav.setViewName("grp_freeboard/grp_freeboard_list");
 		return mav;
 	}
 	
@@ -88,7 +88,7 @@ public class freeArticleCtr {
 		mav.addObject("boardTitle", fvo.getBoardTitle());
 		mav.addObject("boardWrite", fvo.getBoardWrite());
 		
-		mav.setViewName("grp_freeboard/grp_article_insert");
+		mav.setViewName("grp_freeboard/grp_freeboard_insert");
 		return mav;
 	}
 	
@@ -140,7 +140,7 @@ public class freeArticleCtr {
 			mav.addObject("boardColor", fbvo.getBoardColor());
 			mav.addObject("boardReply", fbvo.getBoardReply());
 			
-			mav.setViewName("grp_board/grp_article_reply");
+			mav.setViewName("grp_freeboard/grp_freeboard_reply");
 		}
 
 		return mav;
@@ -191,7 +191,7 @@ public class freeArticleCtr {
 		mav.addObject("boardColor", fbvo.getBoardColor());
 		mav.addObject("boardTitle", fbvo.getBoardTitle());
 		mav.addObject("boardCode", vo.getBoardCode());
-		mav.setViewName("grp_freeboard/grp_article_modify");
+		mav.setViewName("grp_freeboard/grp_freeboard_modify");
 		return mav;
 	}
 	
@@ -229,7 +229,7 @@ public class freeArticleCtr {
 		mav.addObject("boardRead", fbvo.getBoardRead());
 		
 		
-		mav.setViewName("grp_freeboard/grp_article_view");
+		mav.setViewName("grp_freeboard/grp_freeboard_view");
 		
 		return mav;
 	}

@@ -12,7 +12,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/board_main.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/board.css" />
-	<script src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
 		
 	<script src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/browser.min.js"></script>
