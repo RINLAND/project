@@ -40,13 +40,14 @@
                     </h3>
                 </div>
                     <table>
+           				
                         <tr>
                             <td class="td-10 center weight700 noto under bg-gray" style="background-color: ${boardColor}">게시글 분류</td>
                             <td class="td-40 p-lr3">
-                                <c:if test="${view.division eq 'Y' }">
+                                <c:if test="${article.division eq 'Y' }">
                         			<span class="notice">공지사항</span>
 	                        	</c:if>
-	                        	<c:if test="${view.division eq 'N' }">
+	                        	<c:if test="${article.division eq 'N' }">
 	                        		일반
 	                        	</c:if>
                             </td>
@@ -58,32 +59,32 @@
                         <tr>
                             <td  class="td-10 center weight700 noto under bg-gray" style="background-color: ${boardColor}">게시글 제목</td>
                             <td colspan="3"  class="td-90 p-lr3">
-                                <strong>${view.subject }</strong>
+                                <strong>${article.subject }</strong>
                             </td>
                             
                         </tr>
                         <tr>
                             <td  class="td-10 center weight700 noto under bg-gray" style="background-color: ${boardColor}">작성자</td>
                             <td colspan="3"  class="td-90 p-lr3">
-                               <strong>${view.writer }</strong>
+                               <strong>${article.writer }</strong>
                             </td>
                             
                         </tr>
                         <tr>
                             <td  class="td-10 center weight700 noto under bg-gray" style="background-color: ${boardColor}">내용</td>
                             <td colspan="3"  class="td-90 p-lr3" style="border: 2px; padding-bottom:2px ; height: 300px">
-                               ${view.content }
+                               ${article.content }
                             </td>
                             
                         </tr>
                         <tr>
                             <td  class="td-10 center weight700 noto under bg-gray" style="background-color: ${boardColor}">첨부파일</td>
                             <td colspan="3"  class="td-90 p-lr3 " >
-                               <c:if test="${view.fileOriName eq '' }">
+                               <c:if test="${article.fileOriName eq '' }">
                                	<strong>첨부파일이 없습니다.</strong>
                                </c:if>
                                
-                               <c:if test="${view.fileOriName ne '' }">
+                               <c:if test="${article.fileOriName ne '' }">
                                	<a href="${pageContext.request.contextPath }/article/grp_article_download?boardCode=${boardCode}&=${view.aid}"><strong>${view.fileOriName }</strong></a>
                                </c:if>
                             </td>
@@ -92,10 +93,11 @@
                         <tr>
                             <td  class="td-10 center weight700 noto under bg-gray" style="background-color: ${boardColor}">조회수</td>
                             <td colspan="3"  class="td-90 p-lr3">
-                               ${view.hit }회
+                               ${article.hit }회
                             </td>
                            
                         </tr>
+                     
                     </table>
                     <div class="btn-grp center m-t10 flex flex-justify">
                         <div class="btn-left">

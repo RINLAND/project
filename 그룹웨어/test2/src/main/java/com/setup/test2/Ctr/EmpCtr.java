@@ -47,7 +47,8 @@ public class EmpCtr {
 	@RequestMapping(value = "/grp_employee_list")
 	public ModelAndView empList(
 		@RequestParam(defaultValue = "1") int curPage, 
-		@RequestParam(defaultValue = "empName") String searchOpt, @RequestParam(defaultValue = "") String words) {
+		@RequestParam(defaultValue = "empName") String searchOpt, 
+		@RequestParam(defaultValue = "") String words) {
 		
 		ModelAndView mav = new ModelAndView();
 		
