@@ -33,30 +33,37 @@ public class LoginCtr {
 	@Autowired
 	RegisterSrv rSrv;
 
+	
 	@RequestMapping(value = "/grp_logout", method = RequestMethod.GET)
-	public String getGrpLogout(HttpSession session) {
-		lSrv.logout(session);
+	public String getGrpLogout(HttpSession httpSession) {
+		lSrv.logout(httpSession);
 		return "redirect:/grp_login";
 	}
-
+	
+	
 	@RequestMapping(value = "/grp_login", method = RequestMethod.GET)
 	public ModelAndView getGrpLogin() {
 
 		SysVO svo = sSrv.getSystem();
+		
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("sysName", svo.getSysTitle());
 		mav.addObject("sysSub", svo.getSysSub());
 		mav.setViewName("grp_login");
 		return mav;
 	}
+	
+	
 
 	@RequestMapping(value = "/grp_login", method = RequestMethod.POST)
-	public ModelAndView setLogin(@ModelAttribute EmpVO evo, HttpSession session) {
-		System.out.println(evo.getEmpNum());
-		System.out.println(evo.getEmpPwd());
-		System.out.println(lSrv.getEmpNumCheck(evo));
-		System.out.println(sSrv.getSystem());
-		System.out.println(sSrv.getSystem().getSysAuth());
+	public ModelAndView setLogin(@ModelAttribute EmpVO evo, HttpSession httpSession) {
+		
+		//System.out.println(evo.getEmpNum());
+		//System.out.println(evo.getEmpPwd());
+		//System.out.println(lSrv.getEmpNumCheck(evo));
+		//System.out.println(sSrv.getSystem());
+		//System.out.println(sSrv.getSystem().getSysAuth());
 		int result = lSrv.getEmpNumCheck(evo);
 		SysVO svo = sSrv.getSystem();
 
@@ -71,26 +78,29 @@ public class LoginCtr {
 		if (result > 0) {
 			EmpVO vo = lSrv.getEmpInfo(evo);
 			if (vo.getEmpAuth() >= auth && vo.getEmpConfirm().equals("Y")) {
-				lSrv.setSession(evo, session);
+				lSrv.setSession(evo, httpSession);
 				mav.setViewName("redirect:/grp_admin");
 
-			} else if (vo.getEmpAuth() < auth && vo.getEmpConfirm().equals("Y")) {
-				lSrv.setSession(evo, session);
+			} else if (vo.getEmpAuth() >= auth && vo.getEmpConfirm().equals("Y")) {
+				lSrv.setSession(evo, httpSession);
 				mav.setViewName("redirect:/");
 
 			} else {
 				msg = "관리자의 승인이 필요합니다.!";
 				mav.addObject("msg", msg); 
-				mav.setViewName("/grp_login"); 
+				mav.setViewName("grp_login"); 
 			}
 
 		} else {
 			msg = "아이디/비밀번호를 확인하세요.";
 			mav.addObject("msg", msg); // ��
-			mav.setViewName("/grp_login"); // ȭ��
+			mav.setViewName("grp_login"); // ȭ��
 		}
 		return mav;
 	}
+	
+	
+
 
 	@RequestMapping(value = "/grp_register", method = RequestMethod.GET)
 	public String getRegisterOne() {

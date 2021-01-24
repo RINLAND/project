@@ -17,7 +17,7 @@
 	<script src="${pageContext.request.contextPath }/js/browser.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/breakpoints.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/util.js"></script>
-	<script src="${pageContext.request.contextPath }/js/main.js"></script>
+	
 	<style>
 		.mod {
 			display: inline-block;

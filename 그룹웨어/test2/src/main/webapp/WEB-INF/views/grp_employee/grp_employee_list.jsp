@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
- <%@include file = "/WEB-INF/views/grp_teamboard/grp_teamboard_header.jsp" %>
+ <%@include file = "/WEB-INF/views/grp_employee/grp_employee_header.jsp" %>
 
 <body class="is-preload">
 
@@ -13,7 +13,7 @@
 			<div class="inner">
 
 				<!-- Header -->
-				<%@include file = "/WEB-INF/views/grp_teamboard/grp_teamboard_auth.jsp" %>
+				<%@include file = "/WEB-INF/views/grp_freeboard/grp_freeboard_auth.jsp" %>
 
 				<!-- Content -->
 				
@@ -32,15 +32,16 @@
 								</div>
 								<div class="flex flex-justify"  >
 									<form method="post" action="${pageContext.request.contextPath }/employee/grp_employee_list">
-										
+						
 										<select class="" name="searchOpt">
 											<option value="emp_name" <c:if test="${searchOpt eq 'emp_name' }">selected</c:if>>직원명</option>
 											<option value="emp_num" <c:if test="${searchOpt eq 'emp_num' }">selected</c:if>>사원번호</option>
 											<option value="all" <c:if test="${searchOpt eq 'all' }">selected</c:if>>전체검색</option>
 										</select>
-										<input value="${words }" type="text" name="words" required style="margin-left: -2px" />
-										<button type="submit" class="btn-on" style="margin-left: -2px">검색</button>
-										<a href="${pageContext.request.contextPath }/employee/grp_employee_register"> <span class="btn-off">사원등록</span></a>
+										<input value="${words}" type="text" name="words" required style="margin-left: -2px" />
+										<button type="submit" class="cbtn-off" style="margin-left: -2px">검색</button>
+										<button type="button" class="cbtn-on" onClick="location.href='${pageContext.request.contextPath }/employee/grp_employee_register'">등록</button>
+										
 									</form>
 								</div>
 							</div>

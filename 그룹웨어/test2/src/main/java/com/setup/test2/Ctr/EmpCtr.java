@@ -119,7 +119,10 @@ public class EmpCtr {
 	}
 	
 	
-	
+	@RequestMapping(value="/grp_memberchart", method = RequestMethod.GET)
+	public String grpMemberChart() {
+		return "grp_employee/grp_memberchart";
+	}
 	
 	
 }
