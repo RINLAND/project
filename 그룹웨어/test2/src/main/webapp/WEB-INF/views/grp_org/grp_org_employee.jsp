@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
- <%@include file = "/WEB-INF/views/grp_employee/grp_employee_header.jsp" %>
+ <%@include file = "/WEB-INF/views/grp_org/grp_org_header.jsp" %>
 
 <body class="is-preload">
 
@@ -31,7 +31,7 @@
 								</span>
 								</div>
 								<div class="flex flex-justify"  >
-									<form method="post"  class="flex flex-justify" action="${pageContext.request.contextPath }/employee/grp_employee_list">
+									<form method="post"  class="flex flex-justify" action="${pageContext.request.contextPath }/Organization/grp_employee_list">
 						
 										<select class="" name="searchOpt">
 											<option value="emp_name" <c:if test="${searchOpt eq 'emp_name' }">selected</c:if>>직원명</option>
@@ -40,7 +40,7 @@
 										</select>
 										<input value="${words}" type="text" name="words" required style="margin-left: -2px" />
 										<button type="submit" class="cbtn-off" style="margin-left: -2px">검색</button>
-										<button type="button" class="cbtn-on" onClick="location.href='${pageContext.request.contextPath }/employee/grp_employee_register'">등록</button>
+										<button type="button" class="cbtn-on" onClick="location.href='${pageContext.request.contextPath }/Organization/grp_employee_register'">등록</button>
 										
 									</form>
 								</div>
@@ -118,7 +118,7 @@
 									<c:choose>
 										<c:when test="${curPage > 1 }">
 											<span class="page ">
-											<a href="${pageContext.request.contextPath }/employee/grp_employee_list?curPage=1&searchOpt=${searchOpt}&words=${words}">
+											<a href="${pageContext.request.contextPath }/Organization/grp_employee_list?curPage=1&searchOpt=${searchOpt}&words=${words}">
 											<i class="fas fa-angle-double-left"></i></a>
 											</span> 
 										</c:when>
@@ -130,7 +130,7 @@
 									<c:choose>
 										<c:when test="${curPage > 1 }">
 											
-											<a href="${pageContext.request.contextPath }/employee/grp_employee_list?curPage=${curPage-1 }&searchOpt=${searchOpt}&words=${words}">
+											<a href="${pageContext.request.contextPath }/Organization/grp_employee_list?curPage=${curPage-1 }&searchOpt=${searchOpt}&words=${words}">
 											<span class="page "><i class="fas fa-angle-left"></i></a>
 											</span> 
 										</c:when>
@@ -145,7 +145,7 @@
 											<span class="page page-active"><a href="#" class="f6">${num }</a></span> 
 										</c:if>
 										<c:if test="${selected != num }">
-											<a href="${pageContext.request.contextPath }/employee/grp_employee_list?curPage=${num }&searchOpt=${searchOpt}&words=${words}">
+											<a href="${pageContext.request.contextPath }/Organization/grp_employee_list?curPage=${num }&searchOpt=${searchOpt}&words=${words}">
 												<span class="page">${num }</a></span> 
 										</c:if>
 									</c:forEach>
@@ -155,7 +155,7 @@
 									<c:choose>
 										<c:when test="${curPage != totalPage }">
 											
-											<a href="${pageContext.request.contextPath }/employee/grp_employee_list?curPage=${curPage+1 }&searchOpt=${searchOpt}&words=${words}">
+											<a href="${pageContext.request.contextPath }/Organization/grp_employee_list?curPage=${curPage+1 }&searchOpt=${searchOpt}&words=${words}">
 											<span class="page "><i class="fas fa-angle-right"></i></a>
 											</span> 
 										</c:when>
@@ -168,7 +168,7 @@
 										<c:choose>
 										<c:when test="${curPage != totalPage }">
 											
-											<a href="${pageContext.request.contextPath }/employee/grp_employee_list?curPage=${totalPage}&searchOpt=${searchOpt}&words=${words}">
+											<a href="${pageContext.request.contextPath }/Organization/grp_employee_list?curPage=${totalPage}&searchOpt=${searchOpt}&words=${words}">
 											<span class="page "><i class="fas fa-angle-double-right"></i></a>
 											</span> 
 										</c:when>

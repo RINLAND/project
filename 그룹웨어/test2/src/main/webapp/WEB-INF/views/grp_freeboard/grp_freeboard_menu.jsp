@@ -23,9 +23,9 @@
 						</li>
 						<li><span class="opener"><a href="${pageContext.request.contextPath }/grp_org_tralist">조직도</a></span>
 							<ul>
-								<li><a href="${pageContext.request.contextPath }/employee/grp_memberchart">조직도</a></li>
-								<li><a href="${pageContext.request.contextPath }/employee/grp_employee_list">사원목록</a></li>
-								<li><a href="${pageContext.request.contextPath }/grp_trainee_list.html">연습생목록</a></li>
+								<li><a href="${pageContext.request.contextPath }/Organization/grp_orgchart">조직도</a></li>
+								<li><a href="${pageContext.request.contextPath }/Organization">사원목록</a></li>
+								<li><a href="${pageContext.request.contextPath }/Organization">연습생목록</a></li>
 							</ul>
 						</li>
 						<li><span class="opener"><a href="">자유게시판</a></span>

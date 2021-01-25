@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@include file = "/WEB-INF/views/grp_employee/grp_employee_header.jsp" %>
+ <%@include file = "/WEB-INF/views/grp_org/grp_org_header.jsp" %>
 
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
