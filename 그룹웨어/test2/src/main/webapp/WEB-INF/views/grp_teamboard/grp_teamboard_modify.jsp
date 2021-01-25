@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
 
 
-	 <%@include file = "/WEB-INF/views/grp_teamboard/grp_teamboard_header.jsp" %>
-	  <script src="ckeditor/ckeditor.js"></script>
+	 <%@include file="/WEB-INF/views/grp_freeboard/article_header.jsp"%>
 	
 
 <body>
@@ -156,7 +155,7 @@
 						</table>
 						
 						<div class="btn-grp center m-t5">
-							<button type="submit" class="btn-on" id="btn">수정완료</button>
+							<button class="s-btn-on" onClick="boardModify('${board.boardCode}');">수정</button>
                         	<button type="button" onclick="location.href='${pageContext.request.contextPath }/grp_board_list.html'" class="btn-red">게시글목록</button>
 						</div>
 					</form>
@@ -284,6 +283,32 @@ $(function(){
 });
 </script>
 
+<script>
+	function boardModify(boardCode){
+		var msg = "수정하신 내용을 저장하시겠습니까?";
+		if(confirm(msg)){  //확인 클릭
 
+			var formData = {
+					boardCode : boardCode  //ctr 변수 : 파라미터 키
+				};
+			
+			$.ajax({
+				url : "${pageContext.request.contextPath }/board/grp_teamboard_modify",
+				type : "post",
+				data : formData,
+				success : function(resData){
+					if(resData == "success"){
+						alert("수정이 완료되었습니다.");
+						window.location.reload();
+					}
+				},
+				error : function(){
+					alert("수정 시스템 에러");
+			},
+				complete : function(){}
+		});
+	}
+}
+</script>
 
 </html>

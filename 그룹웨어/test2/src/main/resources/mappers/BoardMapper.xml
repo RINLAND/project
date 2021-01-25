@@ -57,9 +57,9 @@
 		 boardTitle = #{boardTitle}, 
 		 boardType = #{boardType}, 
 		 boardRead = #{boardRead}, 
-		 boardDownload = #{boardDownload},
+		 boardDown = #{boardDown},
 		 boardDetail	=#{boardDetail},
-		 boardReference  =#{boardReference}, 
+		 boardReference  =#{boardReference} 
 		 WHERE boardID = ${boardID}
 		 
 	

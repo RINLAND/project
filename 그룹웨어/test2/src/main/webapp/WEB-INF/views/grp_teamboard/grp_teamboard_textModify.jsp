@@ -1,27 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="ko">
+	 <%@include file="/WEB-INF/views/grp_freeboard/article_header.jsp"%>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VV Entertainment GroupWare 부서게시판</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/notice_text.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath }/assets/css/notice_common.css">
-	<script src="https://kit.fontawesome.com/62ab751ce0.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="ckeditor/ckeditor.js"></script>
-
-
-</head>
 
 <body>
     <div class="page-wrap ">
         <div class="container p20 bg-white">
             <div class="board-insert">
                
-                <form id="frm" method="post" action="${pageContext.request.contextPath}/article/grp_article_insert" enctype="multipart/form-data" autocomplete="off">
+                <form id="frm" method="post" action="${pageContext.request.contextPath}/article/grp_article_modify" enctype="multipart/form-data" autocomplete="off">
                 	<input type="hidden" name="aid" value="${modifyArticle.aid}" />
                      <div class="title">
                     <h3 class=" font18 m-b5">
@@ -52,7 +39,7 @@
                         <tr>
                             <td  class="td-10 center weight700 bg-sub" style="background-color: ${boardColor}">작성자</td>
                             <td colspan="3"  class="td-90 p-lr3">
-                                <input type="text" value="${modifyArticle.writer}" name="writer"  class="input-50" maxlength="5" required/> 
+                                <input type="text"   value="${modifyArticle.writer}" name="writer"  class="input-50" maxlength="5" required/> 
                             </td>
                             
                         </tr>

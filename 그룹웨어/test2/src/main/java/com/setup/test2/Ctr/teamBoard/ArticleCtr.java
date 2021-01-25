@@ -192,7 +192,7 @@ public class ArticleCtr {
 		mav.addObject("boardColor", bvo.getBoardColor());
 		mav.addObject("boardTitle", bvo.getBoardTitle());
 		mav.addObject("boardCode", vo.getBoardCode());
-		mav.setViewName("grp_teamboard/grp_teamboard_textmodify");
+		mav.setViewName("grp_teamboard/grp_teamboard_textModify");
 		return mav;
 	}
 	

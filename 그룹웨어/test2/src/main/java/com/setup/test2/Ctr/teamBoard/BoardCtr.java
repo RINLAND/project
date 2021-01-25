@@ -108,7 +108,7 @@ public class BoardCtr {
 		return list;
 	}
 	
-	@RequestMapping("/grp_board_modify") 
+	@RequestMapping("/grp_teamboard_modify") 
 	@ResponseBody 
 	 public String setModify(@ModelAttribute BoardVO bvo) { 
 	 bSrv.setBoardModify(bvo); bSrv.createArticleTbl(bvo.getBoardCode());
