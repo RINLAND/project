@@ -1,33 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file = "/WEB-INF/views/grp_teamboard/grp_teamboard_header.jsp" %>
+ <%@include file = "/WEB-INF/views/grp_org/grp_org_header.jsp" %>
 
-<style>
-	/* 사진 */
-        .member-left {
-            width: 11%;
-            /* 해상도 계산해서 만들어 줘야함 max-width */
-            max-width: 150px;
-        }
-
-        .photo-area {
-            /* member-left의 width에 설정된 11%만큼 꽉 채워서 쓰겠다 */
-            width: 100%;
-            border: 1px solid black;
-        }
-
-        .photo-area img {
-            width: 100%;
-            height: 180px;
-            display: inline-block;
-        }
-
-        .member-right {
-            width: 88.7%;
-            max-width: 2000px;
-		}
-		
-</style>
 
 <body class="is-preload">
 
@@ -48,21 +22,21 @@
 						<h2>조직도</h2>
 					</header>
 					<h4 class="m-b20">조직도 > 1.사원목록</h4>
-					<div class="system-main">
+					<div class="system-main center">
 						<div class="page-member-bottom"  >
 							<div class="page-content " >
 								<form style="padding: 10px 170px 10px  40px;" id="frm"  enctype="multipart/form-data" 
-								action="${pageContext.request.contextPath}/employee/grp_admin_register" method="POST">
+								action="${pageContext.request.contextPath}/Organization/grp_employee_register" method="POST">
 								
 									<input type="hidden" name="empIDFK" value="${empOne.empID }" />
 								
-									<div class="member-info flex flex-justify" >
+									<div class="member-info flex flex-justify " >
 										<div class="member-left" >
 											<div class="photo-area">
 												<img src="${pageContext.request.contextPath }/images/main3.jpg" id='empPhotoImg' />
 											</div>
 											<div class="photo-btn center m-t5">
-												<input type="file" name="file" id="empPhoto" />
+												<input type="file" name="file" id="empPhoto" class="input-100"/>
 											</div>
 										</div>
 										<div class="member-right " >
@@ -87,7 +61,7 @@
 															<option value="">010</option>
 															<option value="">070</option>
 														</select>
-														<input type="text" name="empPhon" id="empPhon" class="input-70" autocomplete="off"/>
+														<input type="text" name="empCP" id="empCP" class="input-70" autocomplete="off"/>
 	
 													</td>
 													<td class="td-7 center  bg-sub weight700">비상연락처</td>
@@ -97,7 +71,7 @@
 															<option value="">070</option>
 															<option value="">02</option>
 														</select>
-														<input type="text" name="empTell" id="empTell" class="input-70" autocomplete="off"/>
+														<input type="text" name="empIn" id="empIn" class="input-70" autocomplete="off"/>
 	
 													</td>
 													<td class="td-7 center  bg-sub weight700">내선번호</td>
@@ -111,13 +85,13 @@
 															<option value="">006</option>
 															<option value="">007</option>
 														</select>
-														<input type="text" name="empCp" id="empCp" class="input-70" autocomplete="off"/>
+														<input type="text" name="empTel" id="empTel" class="input-70" autocomplete="off"/>
 													</td>
 												</tr>
 												<tr>
 													<td class="td-7 center  bg-sub weight700">채용형태</td>
 													<td class="td-13 p-lr3 ">
-														<select name="empHire" class="sel-135" id="empHire">
+														<select name="empRecruit" class="sel-135" id="empRecruit">
 															<option value="">공개채용</option>
 															<option value="">수시채용</option>
 															<option value="">특별채용</option>
@@ -182,14 +156,14 @@
 													</td>
 													<td class="td-7 center bg-sub weight700">보훈대상여부</td>
 													<td class="td-13 p-lr3">
-														<select name="empRewarding" class="sel-135" id="empRewarding">
+														<select name="empReward" class="sel-135" id="empReward">
 															<option value="">무</option>
 															<option value="">유</option>
 														</select>
 													</td>
 													<td class="td-7 center bg-sub weight700">결혼여부</td>
 													<td class="td-13 p-lr3">
-														<select name="empMarriage" class="sel-135" id="empMarriage">
+														<select name="empMarried" class="sel-135" id="empMarried">
 															<option value="">유</option>
 															<option value="">무</option>
 														</select>
@@ -259,7 +233,7 @@
 													</td>
 													<td class="td-7 center bg-sub weight700">어학사항1</td>
 													<td class="td-13 p-lr3 flex flex-justify">
-														<input type="text" name="empLanguge1" id="empLanguge1" class="input-80" autocomplete="off"/>
+														<input type="text" name="empLanguge1" id="empLang1" class="input-75" autocomplete="off"/>
 														<select name="" class="sel-60" id="">
 															<option value="">상</option>
 															<option value="">중</option>
@@ -268,7 +242,7 @@
 													</td>
 													<td class="td-7 center bg-sub weight700">어학사항2</td>
 													<td class="td-13 p-lr3 flex flex-justify">
-														<input type="text" name="empLanguge2" id="empLanguge2" class="input-80" autocomplete="off"/>
+														<input type="text" name="empLanguge2" id="empLang2" class="input-75" autocomplete="off"/>
 														<select name="" class="sel-60" id="">
 															<option value="">상</option>
 															<option value="">중</option>
@@ -308,7 +282,7 @@
 											</h3>
 										</div>
 										<div class="content">
-											<textarea id="editor" name=""
+											<textarea id="empComment" name="empComment"
 												style=" border: 1px solid #cccccc;padding: 10px; border-radius: 2px;"
 												class="noto">
 	
@@ -320,8 +294,8 @@
 										</div>
 									</div>
 									<div class="btn-grp center m-t10 ">
-										<button type="submit" class="btn-normal" >내용저장</button>
-										<button type="reset" class="btn-cancel">새로고침</button>
+										<button type="submit" class="btn-on" >내용저장</button>
+										<button type="reset" class="btn-off">새로고침</button>
 									</div>
 								</form>
 	
@@ -346,7 +320,23 @@
 	
 
 </body>
+<script>
+function readURL(input) { 
+	if (input.files && input.files[0]) { 
+		var reader = new FileReader(); 
+		reader.onload = function (e) { 
+			$('#empPhotoImg').attr('src', e.target.result);
+		} 
+		reader.readAsDataURL(input.files[0]);
+	}
+}
 
+	$(function() {
+		$("#empPhoto").change(function(){ 
+			readURL(this); 
+		});  
+	});
+</script>
 <script>
 	function loadTeam(){
 		$.ajax({

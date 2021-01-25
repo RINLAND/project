@@ -1,0 +1,35 @@
+alter table grp_employee add emp_photo varchar(300) ;
+
+
+create table grp_emp_others(
+emp_gender char(2) ,
+emp_birth char(8),
+emp_cp char(8),
+emp_in char(8),
+emp_tel char(8),
+emp_recruit char(8),
+emp_unique varchar(30),
+emp_uniquedetail varchar(30),
+emp_military char(8),
+emp_hobby varchar(20),
+emp_disability char(3),
+emp_reward char(3),
+emp_married char(3),
+emp_level char(14),
+emp_school varchar(20),
+emp_major varchar(20),
+emp_email varchar(20),
+emp_address char(14),
+emp_license1 varchar(20),
+emp_license2 varchar(20),
+emp_license3 varchar(20),
+emp_lang1 varchar(20),
+emp_lang2 varchar(20),
+emp_award1 varchar(20),
+emp_award2 varchar(20),
+emp_award3 varchar(20),
+emp_award4 varchar(20),
+emp_award5 varchar(20),
+emp_num varchar(30) NOT NULL,
+emp_comment text
+);

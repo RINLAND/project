@@ -16,14 +16,51 @@
 		INSERT INTO grp_employee SET
 		emp_team = #{empTeamCode},
 		emp_grade = #{empGradeCode},
+		emp_num = CONCAT(#{empNum}, #{ref}),
 		emp_enter = #{empEnter},
 		emp_name = #{empName},
 		emp_pwd = #{empPwd},
+		emp_enter	= #{empEnter},
 		emp_date = now(),
-		emp_num = CONCAT(#{empNum}, #{ref})
+		emp_photo	= #{empPhoto}
 
 	</insert>
-
+	
+	<insert id = "setRegisterOthersOne" parameterType="com.setup.test2.Model.EmpVO">
+		INSERT INTO grp_emp_others SET 
+			emp_gender 		= #{empGender},
+			emp_birth 		= #{empBirth}, 
+			emp_cp 			= #{empCP}, 
+			emp_in 			= #{empIn}, 
+			emp_tel 		= #{empTel}, 
+			emp_recruit 	= #{empRecruit}, 
+			emp_unique	 	= #{empUnique}, 
+			emp_uniquedetail= #{empUniqueDetail}, 
+			emp_military	= #{empMilitary}, 
+			emp_hobby		= #{empHobby}, 
+			emp_disability	= #{empDisability}, 
+			emp_reward		= #{empReward}, 
+			emp_married		= #{empMarried},
+			emp_level		= #{empLevel},
+			emp_school		= #{empSchool},
+			emp_major		= #{empMajor},
+			emp_email		= #{empEmail},
+			emp_address		= #{empAddress},
+			emp_license1	= #{empLicense1}, 
+			emp_license2	= #{empLicense2}, 
+			emp_license3	= #{empLicense3},
+			emp_lang1		= #{empLang1}, 
+			emp_lang2		= #{empLang2},
+			emp_award1		= #{empAward1},
+			emp_award2		= #{empAward2},
+			emp_award3		= #{empAward3},
+			emp_award4		= #{empAward4},
+			emp_award5		= #{empAward5},
+			emp_num			= #{empNum}.
+			emp_comment		= #{empComment}
+	</insert>
+	
+	
 	<select id="getEmpNumCheck" parameterType="hashmap" resultType="int">
 		SELECT COUNT(emp_id) FROM grp_employee WHERE emp_num = #{empNum} AND emp_pwd = #{empPwd}
 	</select>

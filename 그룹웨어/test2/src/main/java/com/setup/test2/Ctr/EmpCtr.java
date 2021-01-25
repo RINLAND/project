@@ -43,7 +43,7 @@ public class EmpCtr {
 	@Autowired
 	RegisterSrv rSrv;
 	
-
+	/*
 	@RequestMapping(value = "/grp_employee_list")
 	public ModelAndView empList(
 		@RequestParam(defaultValue = "1") int curPage, 
@@ -59,26 +59,10 @@ public class EmpCtr {
 		
 		return mav;
 	}
+	*/
 	
-	@RequestMapping(value= "/grp_employee_delete", method = RequestMethod.POST )
-	@ResponseBody
-	public String grpEmpDelete(@RequestParam String empNum) {
-		eSrv.setEmpDeleteOne(empNum);
-		return "success";
-	}
 	
-	@RequestMapping(value= "/grp_employee_delete_all", method = RequestMethod.POST )
-	@ResponseBody
-	public String grpEmpDelete(@RequestParam(value="chkArr[]")List<String> chkArr) {
-		
-		int empId;
-		for(String list : chkArr) {
-			empId = Integer.parseInt(list);
-			eSrv.setEmpDeleteAll(empId);
-		}
-		return "success";
-		
-	}
+
 	
 	
 	@RequestMapping(value= "/grp_employee_confirm_change", method = RequestMethod.POST )
@@ -88,19 +72,10 @@ public class EmpCtr {
 		return "success";
 	}
 	
-	@RequestMapping(value= "/grp_employee_auth_change", method = RequestMethod.POST )
-	@ResponseBody
-	public String EmpAuthChange(@RequestParam int empAuth, @RequestParam int empId) {
-		eSrv.setEmpAuthChange(empAuth, empId);
-		return "success";
-	}
 	
 	
 	
-	@RequestMapping(value = "/grp_employee_register", method = RequestMethod.GET)
-	public String getEmployeeRegister() {
-		return "grp_employee/grp_employee_register";
-	}
+
 	
 	@RequestMapping(value = "/grp_register", method = RequestMethod.POST)
 	public String setRegisterOne(@ModelAttribute EmpVO evo) {
@@ -119,10 +94,7 @@ public class EmpCtr {
 	}
 	
 	
-	@RequestMapping(value="/grp_memberchart", method = RequestMethod.GET)
-	public String grpMemberChart() {
-		return "grp_employee/grp_memberchart";
-	}
+	
 	
 	
 }
