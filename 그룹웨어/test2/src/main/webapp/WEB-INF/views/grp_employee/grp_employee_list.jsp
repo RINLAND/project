@@ -31,7 +31,7 @@
 								</span>
 								</div>
 								<div class="flex flex-justify"  >
-									<form method="post" action="${pageContext.request.contextPath }/employee/grp_employee_list">
+									<form method="post"  class="flex flex-justify" action="${pageContext.request.contextPath }/employee/grp_employee_list">
 						
 										<select class="" name="searchOpt">
 											<option value="emp_name" <c:if test="${searchOpt eq 'emp_name' }">selected</c:if>>직원명</option>
