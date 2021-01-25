@@ -46,9 +46,7 @@
                         <tr>
                             <td  class="td-10 center weight700  bg-sub" style="background-color: ${boardColor}">내용</td>
                             <td colspan="3"  class="td-90 p-lr3" style="border: 2px; padding-bottom:2px ;">
-                                <textarea id="editor" name="content" style=" border: 1px solid #cccccc;padding: 10px; border-radius: 2px;" class="noto">
-                                ${modifyArticle.content}
-                                </textarea>
+                                <textarea id="editor" name="content" style=" border: 1px solid #cccccc;padding: 10px; border-radius: 2px;" class="noto">${modifyArticle.content}</textarea>
                                 <script>
                                     CKEDITOR.replace('editor');
                                     CKEDITOR.config.height=300;
@@ -59,7 +57,7 @@
                         <tr>
                             <td  class="td-10 center weight700 bg-sub" style="background-color: ${boardColor}">첨부파일</td>
                             <td colspan="3"  class="td-90 p-lr3">
-                                <input type="file" class="input-100" multiple="multiple"/>
+                                <input type="file"  name="files" class="input-100" multiple="multiple"/>
                             </td>
                            
                         </tr>
@@ -72,7 +70,7 @@
                         </c:if>
                     </table>
                     <div class="btn-grp center m-t10">
-                        <button type="submit" class="btn-normal">게시글수정</button>
+                        <button type="submit"  class="btn-normal"  onClick="articleModify('${article.aid}');">게시글수정</button>
                         <button type="button" onclick="location.href='${pageContext.request.contextPath }/article/grp_article_list?boardCode=${boardCode }'" class="btn-cancel">게시글목록</button>
                     </div>
                 </form>
@@ -85,5 +83,31 @@
         $("tr:nth-child(2n+1)").addClass("tr-even");
     });
 </script>
+<script>
+	function articleModify(boardCode){
+		var msg = "수정하신 내용을 저장하시겠습니까?";
+		if(confirm(msg)){  //확인 클릭
 
+			var formData = {
+					aid : aid  //ctr 변수 : 파라미터 키
+				};
+			
+			$.ajax({
+				url : "${pageContext.request.contextPath }/article/grp_article_modify",
+				type : "post",
+				data : formData,
+				success : function(resData){
+					if(resData == "success"){
+						alert("수정이 완료되었습니다.");
+						window.location.reload();
+					}
+				},
+				error : function(){
+					alert("수정 시스템 에러");
+			},
+				complete : function(){}
+		});
+	}
+}
+</script>
 </html>

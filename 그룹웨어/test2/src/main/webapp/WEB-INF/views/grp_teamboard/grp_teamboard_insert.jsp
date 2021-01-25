@@ -46,13 +46,8 @@
                         <tr>
                             <td  class="td-10 center weight700  bg-sub" style="background-color: ${boardColor}">내용</td>
                             <td colspan="3"  class="td-90 p-lr3" style="border: 2px; padding-bottom:2px ;">
-                                <textarea id="editor" name="content" style=" border: 1px solid #cccccc;padding: 10px; border-radius: 2px;" class="noto">
+                                <textarea id="editor" name="content" style=" border: 1px solid #cccccc;padding: 10px; border-radius: 2px;" class="noto"></textarea>
                                 
-                                </textarea>
-                                <script>
-                                    CKEDITOR.replace('editor');
-                                    CKEDITOR.config.height=300;
-                                </script>
                             </td>
                             
                         </tr>

@@ -2,6 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="article">
 
+<!--정보 뽑아내기  -->
+	<select id="getBoardInfo" parameterType="String" resultType="com.setup.test2.Model.BoardVO">
+		SELECT * FROM grp_teamboard WHERE boardCode = #{boardCode} 
+	</select>
+
 <sql id="search">
 		<choose>
 			<when test = "searchOpt == 'all'">

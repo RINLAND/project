@@ -453,7 +453,33 @@ $(function(){
 }
 </script>
 
+<script>
+	function boardModify(boardCode){
+		var msg = "수정하신 내용을 저장하시겠습니까?";
+		if(confirm(msg)){  //확인 클릭
 
+			var formData = {
+					boardCode : boardCode  //ctr 변수 : 파라미터 키
+				};
+			
+			$.ajax({
+				url : "${pageContext.request.contextPath }/board/grp_teamboard_modify",
+				type : "post",
+				data : formData,
+				success : function(resData){
+					if(resData == "success"){
+						alert("수정이 완료되었습니다.");
+						window.location.reload();
+					}
+				},
+				error : function(){
+					alert("수정 시스템 에러");
+			},
+				complete : function(){}
+		});
+	}
+}
+</script>
 
 
 </html>

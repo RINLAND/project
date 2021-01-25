@@ -104,9 +104,7 @@
                         <button type="button" onclick="location.href='${pageContext.request.contextPath }/article/grp_article_list?boardCode=${boardCode }'" class="btn-red">게시글목록</button>
 
                         </div>
-                        <div class="btn-right">
-                            <button type="button" class="btn-on" onClick="location.href='${pageContext.request.contextPath }/article/grp_article_insert?boardCode=${boardCode }'">게시글작성</button>
-                           
+                        <div class="btn-right">                           
                             <button type="button" class="btn-on" onclick="location.href='grp_board_modify.html'">게시글수정</button>
                             <button type="button" class="btn-on" onClick="location.href='${pageContext.request.contextPath }/article/grp_article_reply?boardCode=${boardCode }&aid=${view.aid}'">게시글답글</button>
                             <button type="button" class="btn-off" >게시글삭제</button>

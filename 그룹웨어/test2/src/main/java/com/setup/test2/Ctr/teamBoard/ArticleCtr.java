@@ -182,7 +182,7 @@ public class ArticleCtr {
 	}
 	
 	
-	@RequestMapping(value = "/grp_article_modify", method = RequestMethod.GET)
+	@RequestMapping(value = "/grp_article_modify", method = {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView getArticleModify(@ModelAttribute ArticleVO vo) {
 		ArticleVO avo = articleSrv.getArticleOne(vo);
 		BoardVO bvo = articleSrv.getBoardOne(vo.getBoardCode());
