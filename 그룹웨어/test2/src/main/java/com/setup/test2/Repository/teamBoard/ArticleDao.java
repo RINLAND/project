@@ -84,20 +84,6 @@ public class ArticleDao {
 		return sql.delete("article.setArticleDeleteAll", map);
 	}
 	
-	/** 게시판 - 답글 정보  조회 */
-	public ArticleVO getArticleReplyInfo(ArticleVO avo) throws Exception {
-		return sql.selectOne("article.getArticleReplyInfo", avo);
-	}
 	
-	/** 게시판 - 답글의 순서 수정 */
-	public int setArticleRef(ArticleVO avo) throws Exception {
-
-		return sql.update("article.setArticleRef", avo);
-	}
-	
-	/** 게시판 - 답글 등록 */
-	public int setArticleReply(ArticleVO avo) throws Exception {
-		return sql.insert("article.setArticleReply", avo);
-	}
 	
 }

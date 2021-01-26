@@ -106,7 +106,6 @@
                         </div>
                         <div class="btn-right">                           
                             <button type="button" class="btn-on" onclick="location.href='grp_board_modify.html'">게시글수정</button>
-                            <button type="button" class="btn-on" onClick="location.href='${pageContext.request.contextPath }/article/grp_article_reply?boardCode=${boardCode }&aid=${view.aid}'">게시글답글</button>
                             <button type="button" class="btn-off" >게시글삭제</button>
                         </div>
 
@@ -126,7 +125,7 @@
                     <!-- ajax로 자료 전체 전송하기(input->name을 사용) 위한 id -->
                     <form id="frm"> 
                     <input type="hidden" id="boardCode" name="boardCode" value="${boardCode}" />
-                     <input type="hidden" name="aid" value="${view.aid}" />
+                     <input type="hidden" name="aid" value="${article.aid}" />
                         <input type="hidden" name="who" value="${sessionScope.empName }" readonly/>
                         <textarea id="comment" name="comment" style="border:1px solid #e7e7e7; width:100%; height: 100px;" 
                         class="p10 noto font16" placeholder="댓글 내용을 입력하세요"></textarea>

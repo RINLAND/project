@@ -156,7 +156,7 @@
 						
 						<div class="btn-grp center m-t5">
 							<button class="s-btn-on" onClick="boardModify('${board.boardCode}');">수정</button>
-                        	<button type="button" onclick="location.href='${pageContext.request.contextPath }/grp_board_list.html'" class="btn-red">게시글목록</button>
+                        	<button type="button" onclick="location.href='${pageContext.request.contextPath }/grp_board_list.html'" class="btn-red">목록</button>
 						</div>
 					</form>
 					</div>

@@ -127,59 +127,6 @@ public class ArticleCtr {
 		return "redirect:/article/grp_article_list?boardCode="+vo.getBoardCode();
 	}
 	
-	@RequestMapping(value = "/grp_article_reply", method = RequestMethod.GET)
-	public ModelAndView getArticleReply(@ModelAttribute ArticleVO vo) {
-		ArticleVO avo = articleSrv.getArticleOne(vo);
-		BoardVO bvo = articleSrv.getBoardOne(vo.getBoardCode());
-		
-		ModelAndView mav = new ModelAndView();
-		
-		if( avo != null ) {
-			mav.addObject("article", avo);
-			mav.addObject("boardCode", vo.getBoardCode());
-			mav.addObject("boardTitle", bvo.getBoardTitle());
-			mav.addObject("boardColor", bvo.getBoardColor());
-			mav.addObject("boardReply", bvo.getBoardReply());
-			
-			mav.setViewName("grp_teamboard/grp_teamboard_reply");
-		}
-
-		return mav;
-	}
-	
-	
-	@RequestMapping(value = "/grp_article_reply", method=RequestMethod.POST)
-	public String setArticleReply(
-			@ModelAttribute ArticleVO vo,
-			@RequestPart MultipartFile files) throws Exception {
-		
-		
-		if (files.isEmpty()) { // 업로드할 파일이 없을 시
-			articleSrv.setArticleReply(vo);
-			
-		} else {
-			String fileName = files.getOriginalFilename();
-			String fileNameExtension = FilenameUtils.getExtension(fileName).toLowerCase();
-			File destinationFile;
-			String destinationFileName;
-			String fileUrl = "c://upload//fileUpload//";
-
-			do {
-				destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "." + fileNameExtension;
-				destinationFile = new File(fileUrl + destinationFileName);
-			} while (destinationFile.exists());
-
-				destinationFile.getParentFile().mkdirs();
-				files.transferTo(destinationFile);
-	
-				vo.setFileName(destinationFileName);
-				vo.setFileOriName(fileName);
-				vo.setFileUrl(fileUrl);
-				articleSrv.setArticleReply(vo);
-		}
-		
-		return "redirect:/article/grp_article_list?boardCode="+vo.getBoardCode();
-	}
 	
 	
 	@RequestMapping(value = "/grp_article_modify", method = {RequestMethod.GET, RequestMethod.POST})
