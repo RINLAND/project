@@ -48,7 +48,7 @@ public class LoginCtr {
 		
 		
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("sysName", svo.getSysTitle());
+		mav.addObject("sysTitle", svo.getSysTitle());
 		mav.addObject("sysSub", svo.getSysSub());
 		mav.setViewName("grp_login");
 		return mav;
@@ -110,7 +110,7 @@ public class LoginCtr {
 	@RequestMapping(value = "/grp_chk_empNum", method = RequestMethod.POST)
 	@ResponseBody
 	public String chkEmpNum(@RequestParam("empNum") String empNum) {
-
+		
 		String msg;
 		int empNumCheck = rSrv.getEmpNumCheck(empNum);
 

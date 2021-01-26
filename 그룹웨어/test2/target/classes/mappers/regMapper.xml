@@ -20,7 +20,6 @@
 		emp_enter = #{empEnter},
 		emp_name = #{empName},
 		emp_pwd = #{empPwd},
-		emp_enter	= #{empEnter},
 		emp_date = now(),
 		emp_photo	= #{empPhoto}
 
