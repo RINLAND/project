@@ -35,7 +35,7 @@ public class EmpDaoImpl implements EmpDao {
 		map.put("words", words);
 		map.put("start", start);
 		map.put("end", end);
-		return sqlSession.selectList("employee.getEmpList", map);
+		return sqlSession.selectList("employee.getEmpListAll", map);
 	}
 
 	@Override

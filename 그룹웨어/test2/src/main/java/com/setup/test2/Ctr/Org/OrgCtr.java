@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,42 +46,90 @@ public class OrgCtr {
 	
 	@RequestMapping("/grp_employee_list")
 	public ModelAndView getEmployeeList(
-			@RequestParam(defaultValue = "") String words, 
-			@RequestParam(defaultValue = "emp_name") String searchOpt,
-			@RequestParam(defaultValue = "1") int curPage) {
-		
-		int count = eSrv.getEmpCount(searchOpt, words);
-		
-		Pager pager = new Pager(count, curPage);
-		
-		int start = pager.getPageBegin();
-		int end = pager.getPageEnd();
-		
-		List<EmpVO> list = eSrv.getEmpListAll(start, end, words, searchOpt);
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", list);
-		mav.addObject("count", count);
-		mav.addObject("searchOpt", searchOpt);
-		mav.addObject("words", words);
-		mav.addObject("start", start);
-		mav.addObject("end", end);
-		mav.addObject("blockBegin", pager.getBlockBegin());
-		mav.addObject("blockEnd", pager.getBlockEnd());
-		mav.addObject("curBlock", pager.getCurBlock());
-		mav.addObject("totalBlock", pager.getTotBlock());
-		mav.addObject("prevPage", pager.getPrevPage());
-		mav.addObject("nextPage", pager.getNextPage());
-		mav.addObject("totalPage", pager.getTotPage());
-		mav.addObject("curPage", pager.getCurPage());
-		mav.addObject("selected", pager.getCurPage());
-		mav.setViewName("grp_employee/grp_employee_list");
-		return mav;
+			@RequestParam(defaultValue = "1") int curPage, 
+			@RequestParam(defaultValue = "emp_name") String searchOpt, @RequestParam(defaultValue = "") String words) {
+			
+			ModelAndView mav = new ModelAndView();
+			
+			
+			int count = eSrv.getEmpCount(searchOpt, words);
+			
+			
+			Pager pager = new Pager(count, curPage);
+			
+			int start = pager.getPageBegin();
+			int end = pager.getPageEnd();
+			
+			List<EmpVO> list = eSrv.getEmpListAll(start, end, searchOpt, words);
+			
+			mav.addObject("list",list);
+			mav.addObject("count", count);
+			mav.addObject("searchOpt", searchOpt);
+			mav.addObject("words", words);
+			
+			mav.addObject("start", start); 
+			mav.addObject("end", end); 
+			
+			mav.addObject("blockBegin", pager.getBlockBegin());
+			mav.addObject("blockEnd", pager.getBlockEnd());
+			mav.addObject("curBlock", pager.getCurBlock());
+			mav.addObject("totalBlock", pager.getTotBlock());
+			
+			mav.addObject("prevPage", pager.getPrevPage());
+			mav.addObject("nextPage", pager.getNextPage());
+			mav.addObject("curPage", pager.getCurPage());
+			mav.addObject("totalPage", pager.getTotPage());
+			mav.addObject("selected", pager.getCurPage());	
+			
+			mav.setViewName("grp_employee/grp_employee_list");
+			
+			return mav;
 	}
 	
-	@RequestMapping(value = "/grp_employee_register", method = RequestMethod.GET)
-	public String getEmployeeRegister() {
-		return "grp_org/grp_orgemp_register";
+	//직원삭제
+	@RequestMapping(value = "/grp_employee_delete", method = RequestMethod.POST)
+	@ResponseBody
+	public String setEmployeeDeleteOne(@RequestParam String empNum) {
+		//System.out.println(empNum);
+		eSrv.setEmpDeleteOne(empNum);
+		return "success";
+	}
+	
+	//직원모두삭제
+		@RequestMapping(value = "/grp_employee_delete_all", method = RequestMethod.POST)
+		@ResponseBody
+		public String userDeleteAll(@RequestParam(value = "chkArr[]") List<String> chkArr) {
+			int empID;
+			for(String list : chkArr) {
+				empID = Integer.parseInt(list);
+				eSrv.setEmpDeleteAll(empID);
+			}
+			return "success";
+		}
+	//직원권한변경
+		@RequestMapping(value = "/grp_employee_auth_change", method = RequestMethod.POST)
+		@ResponseBody
+		public String setEmployeeAuthChange(@RequestParam int empAuth, @RequestParam int empId) {
+			eSrv.setEmpAuthChange(empAuth, empId);
+			return "success";
+		}
+		
+	@RequestMapping(value= "/grp_employee_register", method = RequestMethod.GET )
+	public ModelAndView grpEmpReg(HttpSession session) {
+		//System.out.println(session.getAttribute("empNum"));
+		String sessionNum = (String) session.getAttribute("empNum");
+		
+		EmpVO evo = eSrv.getEmpNeedOne(sessionNum);
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("empOne", evo);
+		mav.setViewName("grp_org/grp_orgemp_register"); //
+		return mav;
+			
+	}
+	@RequestMapping(value = "/grp_register", method = RequestMethod.GET)
+	public String getGrpRegister() {
+		return "grp_register";
 	}
 	
 	@RequestMapping(value = "/grp_employee_register", method = RequestMethod.POST)
@@ -110,34 +159,12 @@ public class OrgCtr {
 		return "redirect:/Organization/grp_employee_list";
 	}
 	
-	//직원권한변경
-	@RequestMapping(value = "/grp_employee_auth_change", method = RequestMethod.POST)
-	@ResponseBody
-	public String setEmployeeAuthChange(@RequestParam String auth, @RequestParam String empNum) {
-		rSrv.setEmployeeAuthChange(auth, empNum);
-		return "success";
-	}
 	
-	//직원삭제
-	@RequestMapping(value = "/grp_employee_delete", method = RequestMethod.POST)
-	@ResponseBody
-	public String setEmployeeDeleteOne(@RequestParam String empNum) {
-		//System.out.println(empNum);
-		eSrv.setEmpDeleteOne(empNum);
-		return "success";
-	}
 	
-	//직원모두삭제
-	@RequestMapping(value = "/grp_employee_delete_all", method = RequestMethod.POST)
-	@ResponseBody
-	public String userDeleteAll(@RequestParam(value = "chkArr[]") List<String> chkArr) {
-		int empID;
-		for(String list : chkArr) {
-			empID = Integer.parseInt(list);
-			eSrv.setEmpDeleteAll(empID);
-		}
-		return "success";
-	}
+	
+	
+
+	
 	
 	@RequestMapping(value="/grp_orgchart", method = RequestMethod.GET)
 	public String grpMemberChart() {
