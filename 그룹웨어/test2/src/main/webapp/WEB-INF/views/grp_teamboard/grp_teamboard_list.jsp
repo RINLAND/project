@@ -18,7 +18,7 @@
 				<!-- Content -->
 				
 					<header class="main" style="margin: 10px;">
-						<h2> 부서 게시판</h2>
+						<h2> 부서 게시판 - ${boardTitle}</h2>
 					</header>
 
 					<div class="main">
@@ -29,15 +29,16 @@
 									<span class="btn-count">전체게시판 수  ${count }개</span>
 								</div>
 								<div class="flex flex-justify"  >
-									<form method="post " class="flex flex-justify " action="${pageContext.request.contextPath }/board">
+									<form method="post " class="flex flex-justify " action="${pageContext.request.contextPath }/article/grp_article_list">
+										<input type="hidden" name="boardCode" value="${boardCode}" />
 										
-										<select class="" >
-											<option value="boardCode">게시판코드</option>
-											<option value="boardTitle">게시판제목</option>
-											<option value="boardTeam">게시판그룹</option>
-											<option value="boardType">게시판타입</option>
+										<select class="searchOpt" >
+											<option value="all">전제검색</option>
+											<option value="subject">게시글제목</option>
+											<option value="writer">작성자</option>
+											<option value="division">분류</option>
 										</select>
-									<input value="${words }" type="text" name="words" required style="margin-left: -2px" />
+									<input  type="text" name="words" required style="margin-left: -2px" />
 									<button type="submit" class="btn-on" style="margin-left: -2px">검색</button>
 									  <button type="button" class="btn-on"onClick="location.href='${pageContext.request.contextPath }/article/grp_article_insert?boardCode=${boardCode }'">작성</button>
 
@@ -67,7 +68,7 @@
                   <c:forEach items="${list }" var="artList" varStatus="status">
                     <tr class="center font14">
                         <td>
-                            <input type="checkbox" />
+                            <input type="checkbox" name="chk" class="chk" data-uid="${articleList.aid}" data-code="${boardCode}" />
                         </td>
                         <td>
                         	<c:if test="${artList.division eq 'Y' }">
@@ -126,7 +127,7 @@
                         <td>
                             <!-- input이면 type=submit -->
 		                    <button type="button" class="s-btn-on" onClick="location.href='${pageContext.request.contextPath}/article/grp_article_modify?boardCode=${boardCode}&aid=${artList.aid}'">수정</button>
-                            <button type="button" class="s-btn-off">삭제</button>
+                            <button type="button" onClick="articleDel('${boardCode}', ${artList.aid});" class="s-btn-off">삭제</button>
                         </td>
                     </tr>
                     </c:forEach>
@@ -222,5 +223,36 @@
 
 	</div>
 </body>
+<!--게시글 삭제  -->
+<script>
+	function articleDel(boardCode, aid){
+		//alert(aid);
+		//alert(boardCode);
 
+		var msg = "삭제 후 복구는 불가능합니다. \n선택하신 게시글을 삭제하시겠습니까?";
+		if(confirm(msg)){  //확인 클릭
+
+			var formData = {
+					boardCode : boardCode,
+					aid : aid  //ctr 변수 : 파라미터 키
+				};
+			
+			$.ajax({
+				url : "${pageContext.request.contextPath }/article/grp_article_delete",
+				type : "post",
+				data : formData,
+				success : function(resData){
+					if(resData == "success"){
+						alert("삭제되었습니다.");
+						window.location.reload();
+					}
+				},
+				error : function(){
+					alert("삭제 시스템 에러");
+			},
+				complete : function(){}
+		});
+	}
+}
+</script>
 </html>

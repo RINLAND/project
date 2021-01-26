@@ -108,7 +108,7 @@ function checkInfo() {
 				
 		}
 		$("#frm").submit();
-		/* else{
+		 else{
 			$.ajax({
 				type: "POST",
 				url: "/grp/grp_chk_empNum",
@@ -126,7 +126,7 @@ function checkInfo() {
 					}
 				}
 			});
-		} */
+		} 
 	});	
 }
 $(function() {

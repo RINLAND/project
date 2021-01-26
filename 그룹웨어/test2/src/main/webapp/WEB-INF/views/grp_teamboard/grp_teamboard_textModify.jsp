@@ -8,7 +8,7 @@
         <div class="container p20 bg-white">
             <div class="board-insert">
                
-                <form id="frm" method="post" action="${pageContext.request.contextPath}/article/grp_article_modify" enctype="multipart/form-data" autocomplete="off">
+                <form id="frm" method="post" action="${pageContext.request.contextPath}/article/grp_article_insert" enctype="multipart/form-data" autocomplete="off">
                 	<input type="hidden" name="aid" value="${modifyArticle.aid}" />
                      <div class="title">
                     <h3 class=" font18 m-b5">
