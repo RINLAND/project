@@ -61,6 +61,10 @@ public class EmpSrvImpl implements EmpSrv {
 		empdao.setEmpRegOthers(evo);
 	}
 
-	
+	@Override
+	public EmpVO getEmployeeNeedOne(EmpVO evo) {
+		return empdao.getEmployeeNeedOne(evo);
+	}
+
 	
 }

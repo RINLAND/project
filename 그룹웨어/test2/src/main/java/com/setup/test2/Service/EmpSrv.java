@@ -25,6 +25,8 @@ public interface EmpSrv {
 	public void setEmpAuthChange(int empAuth, int empId);
 	
 	public void setEmpRegOthers(EmpVO evo);
+	
+	public EmpVO getEmployeeNeedOne(EmpVO evo);
 
 	
 }

@@ -54,8 +54,6 @@ public class LoginCtr {
 		return mav;
 	}
 	
-	
-
 	@RequestMapping(value = "/grp_login", method = RequestMethod.POST)
 	public ModelAndView setLogin(@ModelAttribute EmpVO evo, HttpSession httpSession) {
 		
@@ -98,9 +96,6 @@ public class LoginCtr {
 		}
 		return mav;
 	}
-	
-	
-
 
 	@RequestMapping(value = "/grp_register", method = RequestMethod.GET)
 	public String getRegisterOne() {

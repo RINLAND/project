@@ -31,5 +31,7 @@ public interface EmpDao {
 	public List<TeamVO> grpGetTeam();
 	
 	public List<GradeVO> grpGetGrade();
+	
+	public EmpVO getEmployeeNeedOne(EmpVO evo);
 
 }

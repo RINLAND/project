@@ -87,6 +87,9 @@ public class EmpDaoImpl implements EmpDao {
 		return sqlSession.selectList("register.grpGetGrade");
 	}
 	
-	
+	@Override
+	public EmpVO getEmployeeNeedOne(EmpVO evo) {
+		return sqlSession.selectOne("employee.getEmployeeNeedOne", evo);
+	}
 
 }

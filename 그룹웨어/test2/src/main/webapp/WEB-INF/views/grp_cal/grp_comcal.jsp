@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@include file="/WEB-INF/views/grp_cal/grp_cal_header.jsp"%>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/board.css">
+
 
 <!-- datepicker(달력모양 css) -->
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
