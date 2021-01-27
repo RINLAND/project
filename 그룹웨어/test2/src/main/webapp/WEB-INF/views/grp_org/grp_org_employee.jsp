@@ -66,7 +66,7 @@
 									<td class="td-5">승인</td>
 									<td class="td-10">비고</td>
 								</tr>
-								<c:if test="${count == 0 }">	
+								<c:if test="${list == null }">	
 									<tr>
 										<td colspan="15" class="center font14 weight700">등록된 직원이 없습니다.</td>
 									</tr>
