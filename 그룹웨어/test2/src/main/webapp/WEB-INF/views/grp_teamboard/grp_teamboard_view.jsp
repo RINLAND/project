@@ -106,7 +106,7 @@
                         </div>
                         <div class="btn-right">                           
                             <button type="button" class="btn-on" onclick="location.href='grp_board_modify.html'">게시글수정</button>
-                            <button type="button" class="btn-off" >게시글삭제</button>
+                            <button type="button" class="btn-off" onClick="articleDel('${boardCode}', ${article.aid});" class="s-btn-off"class="s-btn-off" >게시글삭제</button>
                         </div>
 
                         
@@ -148,6 +148,39 @@
     $(function () {
         $("tr:nth-child(2n+1)").addClass("tr-even");
     });
+</script>
+
+<!--게시글 삭제  -->
+<script>
+	function articleDel(boardCode, aid){
+		//alert(aid);
+		//alert(boardCode);
+
+		var msg = "삭제 후 복구는 불가능합니다. \n선택하신 게시글을 삭제하시겠습니까?";
+		if(confirm(msg)){  //확인 클릭
+
+			var formData = {
+					boardCode : boardCode,
+					aid : aid  //ctr 변수 : 파라미터 키
+				};
+			
+			$.ajax({
+				url : "${pageContext.request.contextPath }/article/grp_article_delete",
+				type : "post",
+				data : formData,
+				success : function(resData){
+					if(resData == "success"){
+						alert("삭제되었습니다.");
+						location.href="${pageContext.request.contextPath }/article/grp_article_list?boardCode=${boardCode }";
+					}
+				},
+				error : function(){
+					alert("삭제 시스템 에러");
+			},
+				complete : function(){}
+		});
+	}
+}
 </script>
 
 <script>
