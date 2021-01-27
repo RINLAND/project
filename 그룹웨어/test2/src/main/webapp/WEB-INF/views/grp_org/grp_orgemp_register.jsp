@@ -14,7 +14,6 @@
 
 				<!-- Header -->
 					<%@include file = "/WEB-INF/views/grp_teamboard/grp_teamboard_auth.jsp" %>
-				</header>
 
 				<!-- Content -->
 				
@@ -26,10 +25,7 @@
 						<div class="page-member-bottom"  >
 							<div class="page-content " >
 								<form style="padding: 10px 170px 10px  40px;" id="frm"  enctype="multipart/form-data" 
-								action="${pageContext.request.contextPath}/Organization/grp_employee_register" method="POST">
-								
-									<input type="hidden" name="empIDFK" value="${empOne.empID }" />
-								
+								action="${pageContext.request.contextPath}/Organization/grp_employee_register" method="POST">								
 									<div class="member-info flex flex-justify " >
 										<div class="member-left" >
 											<div class="photo-area">
@@ -297,6 +293,8 @@
 										<button type="submit" class="btn-on" >내용저장</button>
 										<button type="reset" class="btn-off">새로고침</button>
 									</div>
+										<input type="hidden" name="empNum"
+										value="${sessionScope.empNum}" />
 								</form>
 	
 							</div>

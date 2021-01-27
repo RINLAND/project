@@ -31,11 +31,13 @@
 		emp_pwd AS empPwd,
 		emp_date AS empDate,
 		emp_confirm AS empConfirm,
+		emp_enter as empEnter,
 		emp_auth AS empAuth
 		FROM grp_employee E,
 		grp_team T, grp_grade G
 		WHERE E.emp_team = T.team_id AND E.emp_grade =
 		G.grade_id
+		<include refid="search"></include>
 		ORDER BY emp_id DESC LIMIT #{start}, #{end}
 
 	</select>
@@ -46,7 +48,7 @@
 		FROM
 		grp_employee E, grp_team T, grp_grade G
 		WHERE E.emp_team = T.team_id
-		AND E.emp_grade = G.grade_id 
+		AND E.emp_grade = G.grade_id <include refid="search"></include>
 
 	</select>
 

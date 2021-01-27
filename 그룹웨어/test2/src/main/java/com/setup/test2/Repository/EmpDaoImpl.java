@@ -30,12 +30,13 @@ public class EmpDaoImpl implements EmpDao {
 
 	@Override
 	public List<EmpVO> getEmpListAll(int start, int end, String words, String searchOpt) {
-		Map<String,Object> map =new HashMap<String, Object>();
-		map.put("searchOpt", searchOpt);
-		map.put("words", words);
+		HashMap<String,Object> map =new HashMap<String, Object>();
 		map.put("start", start);
 		map.put("end", end);
-		return sqlSession.selectList("employee.getEmpList", map);
+		map.put("words", words);
+		map.put("searchOpt", searchOpt);
+	
+		return sqlSession.selectList("employee.getEmpListAll", map);
 	}
 
 	@Override

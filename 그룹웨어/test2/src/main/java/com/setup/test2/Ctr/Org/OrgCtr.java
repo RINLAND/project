@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -74,9 +75,10 @@ public class OrgCtr {
 		mav.addObject("totalPage", pager.getTotPage());
 		mav.addObject("curPage", pager.getCurPage());
 		mav.addObject("selected", pager.getCurPage());
-		mav.setViewName("grp_employee/grp_employee_list");
+		mav.setViewName("grp_org/grp_org_employee");
 		return mav;
 	}
+	
 	
 	@RequestMapping(value = "/grp_employee_register", method = RequestMethod.GET)
 	public String getEmployeeRegister() {
@@ -89,8 +91,11 @@ public class OrgCtr {
 		int enterYear  = Integer.parseInt(evo.getEmpEnter().substring(0, 4));
 		
 		int regYear	= cal.get(Calendar.YEAR);
-		
-		
+		/*
+		int stepSize = regYear - enterYear + 1;
+		//System.out.println(stepSize);
+		evo.setEmpStep(stepSize);
+		*/
 		String num = enterYear + evo.getEmpTeamCode() + evo.getEmpGradeCode();
 		evo.setEmpNum(num);
 		
@@ -109,15 +114,6 @@ public class OrgCtr {
 		rSrv.setRegisterOthersOne(evo);
 		return "redirect:/Organization/grp_employee_list";
 	}
-	
-	//직원권한변경
-	@RequestMapping(value = "/grp_employee_auth_change", method = RequestMethod.POST)
-	@ResponseBody
-	public String setEmployeeAuthChange(@RequestParam String auth, @RequestParam String empNum) {
-		rSrv.setEmployeeAuthChange(auth, empNum);
-		return "success";
-	}
-	
 	//직원삭제
 	@RequestMapping(value = "/grp_employee_delete", method = RequestMethod.POST)
 	@ResponseBody
@@ -128,16 +124,33 @@ public class OrgCtr {
 	}
 	
 	//직원모두삭제
-	@RequestMapping(value = "/grp_employee_delete_all", method = RequestMethod.POST)
-	@ResponseBody
-	public String userDeleteAll(@RequestParam(value = "chkArr[]") List<String> chkArr) {
-		int empID;
-		for(String list : chkArr) {
-			empID = Integer.parseInt(list);
-			eSrv.setEmpDeleteAll(empID);
+		@RequestMapping(value = "/grp_employee_delete_all", method = RequestMethod.POST)
+		@ResponseBody
+		public String userDeleteAll(@RequestParam(value = "chkArr[]") List<String> chkArr) {
+			int empID;
+			for(String list : chkArr) {
+				empID = Integer.parseInt(list);
+				eSrv.setEmpDeleteAll(empID);
+			}
+			return "success";
 		}
-		return "success";
-	}
+	//직원권한변경
+		@RequestMapping(value = "/grp_employee_auth_change", method = RequestMethod.POST)
+		@ResponseBody
+		public String setEmployeeAuthChange(@RequestParam int empAuth, @RequestParam int empId) {
+			eSrv.setEmpAuthChange(empAuth, empId);
+			return "success";
+		}
+
+	
+	
+
+	
+	
+	
+	
+
+	
 	
 	@RequestMapping(value="/grp_orgchart", method = RequestMethod.GET)
 	public String grpMemberChart() {
