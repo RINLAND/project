@@ -30,28 +30,28 @@
 							
 <!------------------------------------------------ 게시판생성--------------------------------------- -->
 				<div class="board-wrap bg-white ">
-					<form method="POST" id="frm" action="${pageContext.request.contextPath }/grp_teamboard_modify">
+					<form method="POST" id="frm" action="${pageContext.request.contextPath }/board/grp_teamboard_modify?boardCode=${board.boardCode }">
 						<table>
 							<tr>
 								<td class="td-10 center weight700  bg-sub">게시판 이름</td>
 								<td class="td-15 p-lr3">
-									<input type="text" name="boardTitle" id="boardTitle" class="input-100" maxlength="100"
+									<input type="text" name="boardTitle" id="boardTitle" value="${board.boardTitle }" class="input-100" maxlength="100"
 										required />
 								</td>
 								<td class="td-10 center weight700  bg-sub"> 게시판 코드</td>
 								<td class="td-15 p-lr3">
-									<input type="text"  placeholder="영어로만 입력하세요." name="boardCode" id="boardCode"
+									<input type="text" placeholder="영어로만 입력하세요." value="${board.boardCode }"  name="boardCode" id="boardCode"
 										class="input-30" maxlength="100" required />
 								</td>
 								<td class="td-10 center weight700  bg-sub"> 게시판 종류</td>
 								<td class="td-15 p-lr3">
-									<select class="center sel-100" name="boardType" id="boardType">
+									<select class="center sel-100" name="boardType" id="boardType" value="${board.boardType }" >
 										
 									</select>
 								</td>
 								<td class="td-10 center weight700 bg-gray">게시판 부서</td>
 								<td class="p-lr3">
-									<select name="boardTeam" id="boardTeam" class="center sel-100">
+									<select name="boardTeam" id="boardTeam" value="${board.boardTeam }"  class="center sel-100" >
 									
 									</select>
 									
@@ -61,7 +61,7 @@
 
 								<td class="td-10 center weight700  bg-sub font14">게시판 열람가능 등급</td>
 								<td class="p-lr3">
-									<select name="boardRead" id="boardRead" class="center sel-100">
+									<select name="boardRead" id="boardRead" value="${board.boardRead }"  class="center sel-100">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -71,7 +71,7 @@
 								</td>
 								<td class="td-10 center weight700  bg-sub font14">게시판 글 작성가능 등급</td>
 								<td class="p-lr3">
-									<select name="boardWrite" id="boardWrite" class="center sel-100">
+									<select name="boardWrite" id="boardWrite"value="${board.boardWrite }"  class="center sel-100">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -80,7 +80,7 @@
 								</td>
 								<td class="td-10 center weight700 bg-gray font14">자료다운로드가능 등급</td>
 								<td class="p-lr3">
-									<select name="boardDown" id="boardDown" class="center sel-100">
+									<select name="boardDown" id="boardDown" value="${board.boardDown }" class="center sel-100">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -89,7 +89,7 @@
 								</td>
 								<td class="td-10 center weight700 bg-gray font14">댓글 작성가능 등급</td>
 								<td class="p-lr3">
-									<select name="boardReply" id="boardReply" class="center sel-100">
+									<select name="boardReply" id="boardReply" value="${board.boardReply }"  class="center sel-100">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -100,7 +100,7 @@
 							<tr>
 								<td class="td-10 center weight700 bg-gray">게시판 색상</td>
 								<td class="p-lr3">
-									<select class="center sel-100" name="boardColor" id="boardColor">
+									<select class="center sel-100" name="boardColor" id="boardColor" value="${board.boardColor }" >
 										<option value="red">Red / #C62828</option>
 										<option value="blue">Blue / #283593</option>
 										<option value="skyblue">Sky Blue / #1565C0 </option>
@@ -113,7 +113,7 @@
 
 								<td class="td-10 center weight700 bg-gray">게시판 설명</td>
 								<td class="td-10 p-lr3" >
-									<input type="text" name="boardDetail"
+									<input type="text" name="boardDetail" value="${board.boardDetail }" 
 										id="boardDetail" class="input-100" maxlength="100" required />
 								</td>
 								<td class="bg-gray weight700 td-10">게시판 관리자</td>
@@ -124,39 +124,19 @@
 
 								<td class="td-10 center weight700 bg-gray">자료실 여부</td>
 								<td>
-									<select name="boardReference" id="boardReference" class="center sel-100">
+									<select name="boardReference" id="boardReference" value="${board.boardRefence }" class="center sel-100">
 										<option value="yes">Y</option>
 										<option value="no">N</option>
 									</select>
 								</td>
 
 							</tr>
-							<tr>
-                            <td  class="td-10 center weight700 noto under bg-gray">내용</td>
-                            <td colspan="3"  class="td-90 p-lr3" style="border: 2px; padding-bottom:2px ;">
-                                <textarea id="editor" name="" style="width: 100%; height: 300px; border: 1px solid #cccccc;padding: 10px; border-radius: 2px;" class="noto">
-                                
-                                </textarea>
-                                <script>
-                                    CKEDITOR.replace('editor');
-                                    CKEDITOR.config.height=300;
-                                </script>
-                            </td>
-                            
-                        </tr>
-                        <tr>
-                            <td  class="td-10 center weight700 noto under bg-gray">첨부파일</td>
-                            <td colspan="3"  class="td-90 p-lr3">
-                                <input type="file" class="input-100" />
-                            </td>
-                           
-                        </tr>
 
 						</table>
 						
 						<div class="btn-grp center m-t5">
 							<button class="s-btn-on" onClick="boardModify('${board.boardCode}');">수정</button>
-                        	<button type="button" onclick="location.href='${pageContext.request.contextPath }/grp_board_list.html'" class="btn-red">목록</button>
+                        	<button type="button" onclick="location.href='${pageContext.request.contextPath }/board/grp_teamboard_list'"  class="btn-red">목록</button>
 						</div>
 					</form>
 					</div>

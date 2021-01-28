@@ -112,7 +112,10 @@ public class BoardCtr {
 	@ResponseBody 
 	 public String setModify(@ModelAttribute BoardVO bvo) { 
 	 bSrv.setBoardModify(bvo); bSrv.createArticleTbl(bvo.getBoardCode());
-	 bSrv.createCommentTbl(bvo.getBoardCode()); return "success"; }
+	 bSrv.createCommentTbl(bvo.getBoardCode()); 
+	 return "success"; 
+	 
+	}
 	
 	
 }
