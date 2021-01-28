@@ -94,6 +94,18 @@
 		AND emp_num = #{sessionNum}
 	</select>
 	
+	<select id="getEmployeeNeedOne" parameterType="com.setup.test2.Model.EmpVO" resultType="com.setup.test2.Model.EmpVO">
+		SELECT
+			emp_id as empID,
+			emp_team as empTeamCode,
+			emp_grade as empGradeCode,
+			emp_num as empNum,
+			emp_name as empName,
+			emp_enter as empEnter,
+			emp_confirm as empConfirm,
+			emp_auth as empAuth
+		FROM grp_employee WHERE emp_num = #{empNum} AND emp_pwd = #{empPwd}
+	</select>
 	
 
 </mapper>

@@ -58,4 +58,6 @@ public class LoginDaoImpl  implements LoginDao{
 		map.put("empPwd", evo.getEmpPwd());
 		return sql.selectOne("register.getEmpInfo", map);
 	}
+
+	
 }
