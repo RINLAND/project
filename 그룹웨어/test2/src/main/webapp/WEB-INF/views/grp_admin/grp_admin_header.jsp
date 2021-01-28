@@ -4,6 +4,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page session="true" %>
 
+<c:if test="${sessionScope.empNum == null}">
+<script>
+	alert("등록된 사용자가 아닙니다.\n관리자에게 문의하세요.");
+	window.location.replace("${pageContext.request.contextPath}/grp_login");
+	</script>
+</c:if>
+
+<c:if test="${sessionScope.empAuth < 2}">
+<script>
+	alert("접근 권한이 없습니다.\n관리자에게 문의하세요.");
+	window.location.replace("${pageContext.request.contextPath}/grp_login");
+	</script>
+</c:if>
+
+
 <!DOCTYPE html>
 <html>
 <head>

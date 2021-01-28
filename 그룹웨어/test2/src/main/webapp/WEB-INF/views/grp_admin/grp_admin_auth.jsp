@@ -9,7 +9,7 @@
 						<span><a href="#" id="logout">logout</a></span>
 						<div class="logout">
 						<a href="${pageContext.request.contextPath}">
-			<span class="noto font20" style="color:purple">
+			<span class="noto font20" style="color:#6200EA">
 				<i class="fas fa-home"></i>
 			</span>
 		</a>

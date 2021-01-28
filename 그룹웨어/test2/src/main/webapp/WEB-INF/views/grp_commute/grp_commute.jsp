@@ -13,8 +13,7 @@
 			<div class="inner">
 
 				<!-- Header -->
-				<%@include file="/WEB-INF/views/grp_commute/grp_commute_auth.jsp"%>
-
+				<%@include file = "/WEB-INF/views/grp_admin/grp_admin_auth.jsp" %>
 				<!-- Content -->
 
 				<header class="main" style="margin: 10px;">

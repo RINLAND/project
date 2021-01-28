@@ -13,7 +13,7 @@
 			<div class="inner">
 
 				<!-- Header -->
-					<%@include file = "/WEB-INF/views/grp_notice/grp_notice_auth.jsp" %>
+					<%@include file = "/WEB-INF/views/grp_admin/grp_admin_auth.jsp" %>
 
 								<!-- Content -->
 				
