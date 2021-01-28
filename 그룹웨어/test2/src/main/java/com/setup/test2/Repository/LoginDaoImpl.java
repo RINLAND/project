@@ -33,25 +33,26 @@ public class LoginDaoImpl  implements LoginDao{
 	@Override
 	public void logout(HttpSession httpSession) {}
 	
+	@Override
 	public List<TeamVO> grpGetTeam() {
 		return sql.selectList("register.grpGetTeam");
 	}
-	
+	@Override
 	public List<GradeVO> grpGetGrade() {
 		return sql.selectList("register.grpGetGrade");
 	}
-	
+	@Override
 	public void setEmpRegister(EmpVO evo) {
 		sql.insert("register.setEmpRegister", evo);
 	}
-	
+	@Override
 	public int getEmpNumCheck(EmpVO evo) {
 		Map<String, String> map = new HashMap<String, String>();  
 		map.put("empNum", evo.getEmpNum());
 		map.put("empPwd", evo.getEmpPwd());
 		return sql.selectOne("register.getEmpNumCheck", map);
 	}
-	
+	@Override
 	public EmpVO getEmpInfo(EmpVO evo) {
 		Map<String, String> map = new HashMap<String, String>(); 
 		map.put("empNum", evo.getEmpNum() );

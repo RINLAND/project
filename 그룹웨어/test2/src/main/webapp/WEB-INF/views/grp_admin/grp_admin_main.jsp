@@ -49,7 +49,7 @@
 						<div class="box1">
 							<span><strong>공지사항</strong></span>
 							11111111111111111111111
-								${empId} 12로 접속하셨습니다.
+								${emp_id} 12로 접속하셨습니다.
 						</div>
 						<div class="box2">
 							<span><strong>부서 게시판 최신글</strong></span>
