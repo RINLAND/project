@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="article">
+
+<!--정보 뽑아내기  -->
+	<select id="getBoardInfo" parameterType="String" resultType="com.setup.test2.Model.BoardVO">
+		SELECT * FROM grp_teamboard WHERE boardCode = #{boardCode} 
+	</select>
+
+<sql id="search">
+		<choose>
+			<when test = "searchOpt == 'all'">
+				WHERE subject LIKE CONCAT('%', #{words}, '%') 
+				OR writer LIKE CONCAT('%', #{words}, '%') 
+				OR content LIKE CONCAT('%', #{words}, '%')
+			</when>
+			<otherwise> 
+				WHERE ${searchOpt} LIKE CONCAT('%', #{words}, '%')
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<select id="getArticleList" parameterType="hashMap" resultType="com.setup.test2.Model.ArticleVO">
+		SELECT 
+				division, aid, subject, writer, hit, fileOriName, ref, re_step, re_level, date_format(regdate, '%Y-%m-%d') as regdate,
+				(SELECT count(*) FROM gat_comment_${boardCode} c WHERE c.aid = a.aid ) AS cnt 
+		FROM gat_article_${boardCode} a 
+		<include refid = "search"></include>
+		ORDER BY division DESC, ref DESC, re_step ASC LIMIT #{start}, #{end}
+	</select>
+	
+	<select id="getArticleTotalCount"  resultType="int">
+		SELECT COUNT(*) FROM gat_article_${boardCode} 
+		<include refid = "search"></include>
+	</select>
+	
+	<insert id="setArticle" >
+	
+		<selectKey resultType="int" keyProperty="ref" order="BEFORE">
+			
+			SELECT IFNULL(MAX(ref), 0) + 1 FROM gat_article_${boardCode}
+			  
+		</selectKey>
+		INSERT INTO gat_article_${boardCode} 
+		SET division = #{division}, subject = #{subject}, content = #{content}, writer = #{writer}, regdate = NOW(), 
+		fileName = #{fileName}, fileOriName = #{fileOriName}, fileUrl = #{fileUrl},
+		ref = #{ref}, re_step = 0, re_level = 0
+	</insert>
+	
+	<select id="getArticleOne" resultType="com.setup.test2.Model.ArticleVO">
+		SELECT * FROM gat_article_${boardCode} WHERE aid = #{aid}
+	</select>
+	
+	<update id="hitUp">
+		UPDATE gat_article_${boardCode} SET hit = hit + 1 WHERE aid = #{aid}
+	</update>
+	
+	<update id="setArticleModify" >
+		UPDATE gat_article_${boardCode} SET 
+			division = #{division},
+			subject = #{subject}, 
+			content = #{content}, 
+			regdate = now(), 
+			fileName = #{fileName}, 
+			fileOriName = #{fileOriName}, 
+			fileUrl = #{fileUrl}
+		WHERE aid = #{aid}
+	</update>
+	
+	<delete id="setArticleDelete" parameterType="hashMap">
+		DELETE FROM gat_article_${boardCode} WHERE aid = #{aid}
+	</delete>
+	
+	<select id="getBoardOne" resultType="com.setup.test2.Model.BoardVO">
+		SELECT * FROM grp_teamboard WHERE boardCode = #{boardCode}
+	</select>
+	
+	<delete id="setArticleDeleteAll">
+		DELETE FROM gat_article_${boardCode} WHERE aid = #{aid}
+	</delete>
+	
+	<select id="getArticleReplyInfo" resultType="com.setup.test2.Model.ArticleVO">
+		SELECT aid, ref, re_step, re_level
+	    FROM gat_article_${boardCode}
+	    WHERE aid = #{aid}
+	</select>
+	
+	<update id="setArticleRef" parameterType="com.setup.test2.Model.ArticleVO">
+		UPDATE gat_article_${boardCode}
+		   SET re_step = re_step + 1, regdate = NOW()
+		 WHERE ref = #{ref} AND re_step > #{re_step}	
+	</update>
+	
+	<insert id="setArticleReply" >	
+		INSERT INTO gat_article_${boardCode} 
+		SET division=#{division},subject = #{subject}, content = #{content}, writer = #{writer}, regdate = NOW(), 
+		fileName = #{fileName}, fileOriName = #{fileOriName}, fileUrl = #{fileUrl},
+		ref = #{ref}, re_step = #{re_step} + 1, re_level = #{re_step} + 1
+	</insert>
+</mapper>
