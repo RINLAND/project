@@ -61,7 +61,7 @@
                             <td colspan="3"  class="td-90 p-lr3">
                                 <input type="file"  name="files" class="input-100" multiple="multiple"/>
                             </td>
-                           ..
+                           
                         </tr>
                         <c:if test="${modifyArticle.fileOriName != null}">
 	                        <tr>
