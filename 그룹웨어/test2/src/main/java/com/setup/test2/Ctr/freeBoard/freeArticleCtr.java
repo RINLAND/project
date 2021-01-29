@@ -126,59 +126,6 @@ public class freeArticleCtr {
 		return "redirect:/freeArticle/grp_article_list?boardCode="+fvo.getBoardCode();
 	}
 	
-	@RequestMapping(value = "/grp_article_reply", method = RequestMethod.GET)
-	public ModelAndView getArticleReply(@ModelAttribute freeArticleVO vo) {
-		freeArticleVO fvo = freeArticleSrv.getArticleOne(vo);
-		freeBoardVO fbvo = freeArticleSrv.getBoardOne(vo.getBoardCode());
-		
-		ModelAndView mav = new ModelAndView();
-		
-		if( fvo != null ) {
-			mav.addObject("article", fvo);
-			mav.addObject("boardCode", vo.getBoardCode());
-			mav.addObject("boardTitle", fbvo.getBoardTitle());
-			mav.addObject("boardColor", fbvo.getBoardColor());
-			mav.addObject("boardReply", fbvo.getBoardReply());
-			
-			mav.setViewName("grp_freeboard/grp_freeboard_reply");
-		}
-
-		return mav;
-	}
-	
-	
-	@RequestMapping(value = "/grp_article_reply", method=RequestMethod.POST)
-	public String setArticleReply(
-			@ModelAttribute freeArticleVO fvo,
-			@RequestPart MultipartFile files) throws Exception {
-		
-		
-		if (files.isEmpty()) { // 업로드할 파일이 없을 시
-			freeArticleSrv.setArticleReply(fvo);
-			
-		} else {
-			String fileName = files.getOriginalFilename();
-			String fileNameExtension = FilenameUtils.getExtension(fileName).toLowerCase();
-			File destinationFile;
-			String destinationFileName;
-			String fileUrl = "c://upload//fileUpload//";
-
-			do {
-				destinationFileName = RandomStringUtils.randomAlphanumeric(32) + "." + fileNameExtension;
-				destinationFile = new File(fileUrl + destinationFileName);
-			} while (destinationFile.exists());
-
-				destinationFile.getParentFile().mkdirs();
-				files.transferTo(destinationFile);
-	
-				fvo.setFileName(destinationFileName);
-				fvo.setFileOriName(fileName);
-				fvo.setFileUrl(fileUrl);
-				freeArticleSrv.setArticleReply(fvo);
-		}
-		
-		return "redirect:/freeArticle/grp_article_list?boardCode="+fvo.getBoardCode();
-	}
 	
 	
 	@RequestMapping(value = "/grp_article_modify", method = RequestMethod.GET)
@@ -222,7 +169,7 @@ public class freeArticleCtr {
 		freeBoardVO fbvo = freeArticleSrv.getBoardOne(vo.getBoardCode());
 		ModelAndView mav = new ModelAndView();
 		freeArticleSrv.hitUp(vo);
-		mav.addObject("article", fvo);
+		mav.addObject("freeArticle", fvo);
 		mav.addObject("boardCode", vo.getBoardCode());
 		mav.addObject("boardTitle", fbvo.getBoardTitle());
 		mav.addObject("boardColor", fbvo.getBoardColor());
