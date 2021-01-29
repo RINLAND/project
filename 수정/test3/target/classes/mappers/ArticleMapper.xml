@@ -79,22 +79,5 @@
 		DELETE FROM gat_article_${boardCode} WHERE aid = #{aid}
 	</delete>
 	
-	<select id="getArticleReplyInfo" resultType="com.setup.test2.Model.ArticleVO">
-		SELECT aid, ref, re_step, re_level
-	    FROM gat_article_${boardCode}
-	    WHERE aid = #{aid}
-	</select>
 	
-	<update id="setArticleRef" parameterType="com.setup.test2.Model.ArticleVO">
-		UPDATE gat_article_${boardCode}
-		   SET re_step = re_step + 1, regdate = NOW()
-		 WHERE ref = #{ref} AND re_step > #{re_step}	
-	</update>
-	
-	<insert id="setArticleReply" >	
-		INSERT INTO gat_article_${boardCode} 
-		SET division=#{division},subject = #{subject}, content = #{content}, writer = #{writer}, regdate = NOW(), 
-		fileName = #{fileName}, fileOriName = #{fileOriName}, fileUrl = #{fileUrl},
-		ref = #{ref}, re_step = #{re_step} + 1, re_level = #{re_step} + 1
-	</insert>
 </mapper>
