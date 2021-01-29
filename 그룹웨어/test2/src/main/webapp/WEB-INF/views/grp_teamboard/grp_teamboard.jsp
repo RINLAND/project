@@ -163,7 +163,7 @@
 <!------------------------------------------------ 게시판생성 목록--------------------------------------- -->
  					<div class="board-list">
                             <table>
-                                <tr class="center under tr-color f6 weight700 font14" id="rowColor">
+                                <tr class="center  tr-color f6 weight700 font14" id="rowColor">
                                     <td class="td-5">
                                         <input type="checkbox" onClick="chkAll();"/>
                                     </td>
@@ -188,12 +188,12 @@
                                     <td>${board.team_name}</td>
                                     <td>
                                         <a href="${pageContext.request.contextPath }/article/grp_article_list?boardCode=${board.boardCode }" 
-                                        target="_blank" class="under">
+                                        target="_blank" class="">
                                         ${board.boardCode}</a></td>
                                     <td>${board.boardColor}</td>
                                     <td>
                                         <a href="${pageContext.request.contextPath }/article/grp_article_list?boardCode=${board.boardCode }" 
-                                        target="_blank" class="under">
+                                        target="_blank" class="">
                                          ${board.boardTitle }</a></td>
                                     <td>${board.boardRead }</td>
                                     <td>${board.boardWrite }</td>

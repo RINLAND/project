@@ -10,6 +10,8 @@
                
                 <form id="frm" method="post" action="${pageContext.request.contextPath}/article/grp_article_modify" enctype="multipart/form-data" autocomplete="off">
                 	<input type="hidden" name="aid" value="${modifyArticle.aid}" />
+                	<input type="hidden" name="boardCode" value="${boardCode}" />
+                	
                      <div class="title">
                     <h3 class=" font18 m-b5">
                         <i class="fas fa-feather-alt"></i>${boardTitle }
@@ -39,7 +41,7 @@
                         <tr>
                             <td  class="td-10 center weight700 bg-sub" style="background-color: ${boardColor}">작성자</td>
                             <td colspan="3"  class="td-90 p-lr3">
-                                <input type="text"   value="${modifyArticle.writer}" name="writer"  class="input-50" maxlength="5" required/> 
+                                <input type="text"  value="${modifyArticle.writer}" name="writer"  class="input-50" maxlength="5" required/> 
                             </td>
                             
                         </tr>
