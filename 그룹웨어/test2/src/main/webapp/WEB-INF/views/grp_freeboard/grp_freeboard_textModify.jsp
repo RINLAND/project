@@ -70,7 +70,7 @@
                         </c:if>
                     </table>
                     <div class="btn-grp center m-t10">
-                        <button type="submit"  class="btn-normal"  onClick="articleModify('${article.aid}');">게시글수정</button>
+                        <button type="submit"  class="btn-normal"  onClick="articleModify('${boardCode}', ${modifyArticle.aid});">게시글수정</button>
                         <button type="button" onclick="location.href='${pageContext.request.contextPath }/freeArticle/grp_article_list?boardCode=${boardCode }'" class="btn-cancel">게시글목록</button>
                     </div>
                 </form>
@@ -84,11 +84,14 @@
     });
 </script>
 <script>
-	function articleModify(boardCode){
+	function articleModify(boardCode, aid){
+		alert(boardCode);
+		alert(aid);
 		var msg = "수정하신 내용을 저장하시겠습니까?";
 		if(confirm(msg)){  //확인 클릭
 
 			var formData = {
+					boardCode : boardCode,
 					aid : aid  //ctr 변수 : 파라미터 키
 				};
 			
