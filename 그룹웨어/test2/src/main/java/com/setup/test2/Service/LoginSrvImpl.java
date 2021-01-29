@@ -61,10 +61,10 @@ public class LoginSrvImpl implements LoginSrv {
 		if(vo != null) {
 			session.setAttribute("empTeamName", vo.getEmpTeamName());
 			session.setAttribute("empGradeName", vo.getEmpGradeName());
-			session.setAttribute("emp_num", vo.getEmpNum());
-			session.setAttribute("emp_name", vo.getEmpName());
-			session.setAttribute("emp_auth", vo.getEmpAuth());
-			session.setAttribute("emp)_confirm", vo.getEmpConfirm());
+			session.setAttribute("empNum", vo.getEmpNum());
+			session.setAttribute("empName", vo.getEmpName());
+			session.setAttribute("empAuth", vo.getEmpAuth());
+			session.setAttribute("empConfirm", vo.getEmpConfirm());
 			
 		}
 	}

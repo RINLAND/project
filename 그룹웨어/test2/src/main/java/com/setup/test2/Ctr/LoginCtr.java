@@ -34,12 +34,14 @@ public class LoginCtr {
 	RegisterSrv rSrv;
 
 	
-	@RequestMapping(value = "/grp_logout", method = RequestMethod.GET)
-	public String getGrpLogout(HttpSession httpSession) {
-		lSrv.logout(httpSession);
-		return "redirect:/grp_login";
-	}
+
 	
+	@RequestMapping("/grp_logout")
+	@ResponseBody
+	public String grpLogout(HttpSession httpSession) {
+		lSrv.logout(httpSession);
+		return "success";
+	}
 	
 	@RequestMapping(value = "/grp_login", method = RequestMethod.GET)
 	public ModelAndView getGrpLogin() {

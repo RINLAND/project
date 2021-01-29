@@ -16,7 +16,7 @@
 			<div class="inner">
 
 				<!-- Header -->
-					<%@include file = "/WEB-INF/views/grp_teamboard/grp_teamboard_auth.jsp" %>
+					<%@include file = "/WEB-INF/views/grp_admin/grp_admin_auth.jsp" %>
 
 				<!-- Content -->
 				
