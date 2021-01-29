@@ -25,7 +25,7 @@
 
 				<!-- Content -->
 					<header class="main" style="margin: 10px;">
-					<h2>개인 일정</h2>
+					<h2>${empName}의 개인 일정</h2>
 				</header>
 				<div class="main-top">
 					<h4 class="m-b20">
@@ -33,7 +33,7 @@
 				</div>
 				<div class="calendar-insert">
 					<form method="POST" id="frm">
-					 <input type="hidden" name="empNum" value="${sessionScope.empNum}" />
+					 <input type="hidden" id="empNum" name="empNum" value="${empNum}" />
 						<table>
 							<tr>
 								<td class="td-10 noto under bg-gray weight700 center">시작일자</td>
@@ -52,10 +52,12 @@
 								</td>
 							</tr>
 						</table>
+						
 						<div class="btn-grp center m-t15">
 							<button type="submit" class="noto cbtn-on"  id="addCalBtn">일정등록</button>
 							<button type="reset" class="noto cbtn-off">등록취소</button>
 						</div>
+
 					</form>
 				</div>
 				<div class="main-top">
