@@ -126,7 +126,7 @@
 	function getCalData() {
 		$.ajax({
 			url		: "${pageContext.request.contextPath }/grp_cal/grp_calendar_clist",
-			type	: "POST",
+			type	: "POST",			
 			success	: function(resData) {
 				for(var i = 0; i < resData.length; i++) {
 					resData[i].start 	= resData[i].comstartDate;

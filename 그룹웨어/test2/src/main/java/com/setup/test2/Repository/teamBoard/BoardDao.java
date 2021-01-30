@@ -28,7 +28,7 @@ public class BoardDao {
 		String str = "CREATE TABLE gat_article_" + boardCode;
 		str += "(aid int not null auto_increment primary key,";
 		str += "division char(1),";
-		str += "subject varchar(300) not null,";
+		str += "subject varchar(300) ,";
 		str += "writer varchar(20) not null,";
 		str += "content text,";
 		str += "regdate datetime,";
@@ -86,8 +86,12 @@ public class BoardDao {
 		sql.insert("board.dropCommentTbl", map);
 	}
 	
-	public void setBoardModify(BoardVO bvo) {
-		sql.update("board.setBoardModify", bvo);
+	public BoardVO getBoardOne(String boardCode) {
+		return sql.selectOne("board.getBoardOne", boardCode);
+	}
+	
+	public int setBoardModify(BoardVO bvo) {
+		return sql.update("board.setBoardModify", bvo);
 		
 	}
 	

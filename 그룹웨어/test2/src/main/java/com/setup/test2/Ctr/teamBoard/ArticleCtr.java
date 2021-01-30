@@ -129,20 +129,38 @@ public class ArticleCtr {
 	
 	
 	
-	@RequestMapping(value = "/grp_article_modify", method = {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value = "/grp_article_modify", method =  RequestMethod.GET)
 	public ModelAndView getArticleModify(@ModelAttribute ArticleVO vo) {
 		ArticleVO avo = articleSrv.getArticleOne(vo);
 		BoardVO bvo = articleSrv.getBoardOne(vo.getBoardCode());
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("modifyArticle", avo);
+		mav.addObject("aid", avo.getAid());
 		mav.addObject("boardColor", bvo.getBoardColor());
 		mav.addObject("boardTitle", bvo.getBoardTitle());
 		mav.addObject("boardCode", vo.getBoardCode());
+		mav.addObject("subject", vo.getSubject());
 		mav.setViewName("grp_teamboard/grp_teamboard_textModify");
 		return mav;
 	}
 	
+	@RequestMapping(value = "/grp_article_modify", method =  RequestMethod.POST)
+	public ModelAndView getArticleModifysave(@ModelAttribute ArticleVO vo) {
+		ArticleVO avo = articleSrv.getArticleOne(vo);
+		BoardVO bvo = articleSrv.getBoardOne(vo.getBoardCode());
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("modifyArticle", avo);
+		mav.addObject("aid", avo.getAid());
+		mav.addObject("boardColor", bvo.getBoardColor());
+		mav.addObject("boardTitle", bvo.getBoardTitle());
+		mav.addObject("boardCode", vo.getBoardCode());
+		mav.addObject("subject", vo.getSubject());
+		mav.setViewName("grp_teamboard/grp_teamboard_textModify");
+		articleSrv.setArticleModify(vo);
+		return mav;
+	}
 	@RequestMapping(value = "/grp_article_delete", method = RequestMethod.GET)
 	public String getArticleDelete() {
 		return "grp_teamboard/grp_article_delete";

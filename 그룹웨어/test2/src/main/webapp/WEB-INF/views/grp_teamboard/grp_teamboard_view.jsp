@@ -105,7 +105,7 @@
 
                         </div>
                         <div class="btn-right">                           
-                            <button type="button" class="btn-on" onclick="location.href='grp_board_modify.html'">게시글수정</button>
+                            <button type="button" class="btn-on" onClick="location.href='${pageContext.request.contextPath}/article/grp_article_modify?boardCode=${boardCode}&aid=${article.aid}'">게시글수정</button>
                             <button type="button" class="btn-off" onClick="articleDel('${boardCode}', ${article.aid});" class="s-btn-off"class="s-btn-off" >게시글삭제</button>
                         </div>
 

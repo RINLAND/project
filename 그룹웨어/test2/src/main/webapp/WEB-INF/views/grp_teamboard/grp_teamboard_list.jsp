@@ -13,8 +13,8 @@
 			<div class="inner">
 
 				<!-- Header -->
-				<%@include file = "/WEB-INF/views/grp_admin/grp_admin_auth.jsp" %>
-			
+						<%@include file = "/WEB-INF/views/grp_admin/grp_admin_auth.jsp" %>
+				
 				<!-- Content -->
 				
 					<header class="main" style="margin: 10px;">
@@ -91,7 +91,7 @@
                         	<img src="${pageContext.request.contextPath }/images/icon_reply.gif" />
                         </c:forEach>
                             <a href="${pageContext.request.contextPath }/article/grp_article_view?boardCode=${boardCode}&aid=${artList.aid}" 
-                            class="under weight700">${artList.subject }
+                            class="weight700">${artList.subject }
                        </a>
                          <c:set var="fileName" value="${fn:toLowerCase(artList.fileOriName) }"> </c:set> 
                          <c:forTokens var="ext" items="${fileName }" delims="." varStatus="status">
