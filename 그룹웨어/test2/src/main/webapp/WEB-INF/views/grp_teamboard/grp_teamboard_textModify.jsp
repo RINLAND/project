@@ -104,7 +104,7 @@
 				success : function(resData){
 					if(resData == "success"){
 						alert("수정이 완료되었습니다.");
-						location.href="location.href='${pageContext.request.contextPath }/article/grp_article_list?boardCode=${boardCode }";
+						window.location.href="location.href='${pageContext.request.contextPath }/article/grp_article_list?boardCode=${boardCode }";
 
 					}
 				},

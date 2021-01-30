@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.setup.test2.Model.ArticleVO;
 import com.setup.test2.Model.freeBoard.freeArticleVO;
 import com.setup.test2.Model.freeBoard.freeBoardVO;
 import com.setup.test2.Service.freeBoard.freeArticleSrv;
@@ -128,17 +127,35 @@ public class freeArticleCtr {
 	
 	
 	
-	@RequestMapping(value = "/grp_article_modify", method = RequestMethod.GET)
+	@RequestMapping(value = "/grp_article_modify", method =  RequestMethod.GET)
 	public ModelAndView getArticleModify(@ModelAttribute freeArticleVO vo) {
-		freeArticleVO fvo = freeArticleSrv.getArticleOne(vo);
+		freeArticleVO avo = freeArticleSrv.getArticleOne(vo);
 		freeBoardVO fbvo = freeArticleSrv.getBoardOne(vo.getBoardCode());
 		
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("modifyArticle", fvo);
+		mav.addObject("modifyArticle", avo);
+		mav.addObject("aid", avo.getAid());
 		mav.addObject("boardColor", fbvo.getBoardColor());
 		mav.addObject("boardTitle", fbvo.getBoardTitle());
 		mav.addObject("boardCode", vo.getBoardCode());
-		mav.setViewName("grp_freeboard/grp_freeboard_modify");
+		mav.addObject("subject", vo.getSubject());
+		mav.setViewName("grp_freeboard/grp_freeboard_textModify");
+		return mav;
+	}
+	@RequestMapping(value = "/grp_article_modify", method =  RequestMethod.POST)
+	public ModelAndView getArticleModifysave(@ModelAttribute freeArticleVO vo) {
+		freeArticleVO avo = freeArticleSrv.getArticleOne(vo);
+		freeBoardVO bvo = freeArticleSrv.getBoardOne(vo.getBoardCode());
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("modifyArticle", avo);
+		mav.addObject("aid", avo.getAid());
+		mav.addObject("boardColor", bvo.getBoardColor());
+		mav.addObject("boardTitle", bvo.getBoardTitle());
+		mav.addObject("boardCode", vo.getBoardCode());
+		mav.addObject("subject", vo.getSubject());
+		mav.setViewName("grp_freeboard/grp_freeboard_textModify");
+		freeArticleSrv.setArticleModify(vo);
 		return mav;
 	}
 	
@@ -149,7 +166,7 @@ public class freeArticleCtr {
 	
 	@RequestMapping(value = "/grp_article_delete", method = RequestMethod.POST)
 	@ResponseBody
-	public String setArtcileDelete(@ModelAttribute freeArticleVO vo) {
+	public String setArticleDelete(@ModelAttribute freeArticleVO vo) {
 		
 		freeArticleVO fvo = freeArticleSrv.getArticleOne(vo);
 		if( fvo.getFileName() != null ) {

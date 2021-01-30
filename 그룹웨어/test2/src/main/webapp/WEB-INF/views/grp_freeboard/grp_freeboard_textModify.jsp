@@ -8,8 +8,10 @@
         <div class="container p20 bg-white">
             <div class="board-insert">
                
-                <form id="frm" method="post" action="${pageContext.request.contextPath}/freeArticle/grp_article_insert" enctype="multipart/form-data" autocomplete="off">
+                <form id="frm" method="post" action="${pageContext.request.contextPath}/freeArticle/grp_article_modify" enctype="multipart/form-data" autocomplete="off">
                 	<input type="hidden" name="aid" value="${modifyArticle.aid}" />
+                	<input type="hidden" name="boardCode" value="${boardCode}" />
+                	
                      <div class="title">
                     <h3 class=" font18 m-b5">
                         <i class="fas fa-feather-alt"></i>${boardTitle }
@@ -102,7 +104,6 @@
 				success : function(resData){
 					if(resData == "success"){
 						alert("수정이 완료되었습니다.");
-						window.location.reload();
 					}
 				},
 				error : function(){

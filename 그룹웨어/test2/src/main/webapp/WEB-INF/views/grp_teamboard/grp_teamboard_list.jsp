@@ -26,10 +26,10 @@
 												
 							<div class="search-wrap flex flex-justify  m-b5 bg-white">
 								<div class="">
-									<span class="btn-count">전체게시판 수  ${count }개</span>
+									<span class="btn-count">전체게시글 수  ${count }개</span>
 								</div>
 								<div class="flex flex-justify"  >
-									<form method="post " class="flex flex-justify " action="${pageContext.request.contextPath }/article/grp_article_list">
+									<form method="post" class="flex flex-justify " action="${pageContext.request.contextPath }/article/grp_article_list">
 										<input type="hidden" name="boardCode" value="${boardCode}" />
 										
 										<select class="searchOpt" >
