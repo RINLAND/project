@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+
+<!--정보 뽑아내기  -->
+	
+<sql id="search">
+		<choose>
+			<when test = "searchOpt == 'all'">
+				WHERE subject LIKE CONCAT('%', #{words}, '%') 
+				OR writer LIKE CONCAT('%', #{words}, '%') 
+				OR content LIKE CONCAT('%', #{words}, '%')
+			</when>
+			<otherwise> 
+				WHERE ${searchOpt} LIKE CONCAT('%', #{words}, '%')
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<select id="getArticleList" parameterType="hashMap" resultType="com.setup.test2.Model.Notice.noticeArticleVO">
+		SELECT 
+				division, aid, subject, writer, hit, fileOriName, ref, re_step, re_level, date_format(regdate, '%Y-%m-%d') as regdate,
+				(SELECT count(*) FROM gat_comment_${boardCode} c WHERE c.aid = a.aid ) AS cnt 
+		FROM notice_board a 
+		<include refid = "search"></include>
+		ORDER BY division DESC, ref DESC, re_step ASC LIMIT #{start}, #{end}
+	</select>
+	
+	<select id="getArticleTotalCount"  resultType="int">
+		SELECT COUNT(*) FROM notice_board
+		<include refid = "search"></include>
+	</select>
+	
+	<insert id="setArticle" >
+	
+		<selectKey resultType="int" keyProperty="ref" order="BEFORE">
+			
+			SELECT IFNULL(MAX(ref), 0) + 1 FROM notice_board
+			  
+		</selectKey>
+		INSERT INTO notice_board 
+		SET division = #{division}, subject = #{subject}, content = #{content}, writer = #{writer}, regdate = NOW(), 
+		fileName = #{fileName}, fileOriName = #{fileOriName}, fileUrl = #{fileUrl},
+		ref = #{ref}, re_step = 0, re_level = 0
+	</insert>
+	
+	<select id="getArticleOne" resultType="com.setup.test2.Model.Notice.noticeArticleVO">
+		SELECT * FROM notice_board WHERE aid = #{aid}
+	</select>
+	
+	<update id="hitUp">
+		UPDATE notice_board SET hit = hit + 1 WHERE aid = #{aid}
+	</update>
+	
+	<update id="setArticleModify" >
+		UPDATE notice_board SET 
+			division = #{division},
+			subject = #{subject}, 
+			content = #{content}, 
+			regdate = now(), 
+			fileName = #{fileName}, 
+			fileOriName = #{fileOriName}, 
+			fileUrl = #{fileUrl}
+		WHERE aid = #{aid}
+	</update>
+	
+	<delete id="setArticleDelete" parameterType="hashMap">
+		DELETE FROM notice_board WHERE aid = #{aid}
+	</delete>
+	
+	
+	<delete id="setArticleDeleteAll">
+		DELETE FROM notice_board WHERE aid = #{aid}
+	</delete>
+	
+	<select id="getArticleReplyInfo" resultType="com.setup.test2.Model.Notice.noticeArticleVO">
+		SELECT aid, ref, re_step, re_level
+	    FROM notice_board
+	    WHERE aid = #{aid}
+	</select>
+	
+	<update id="setArticleRef" parameterType="com.setup.test2.Model.Notice.noticeArticleVO">
+		UPDATE notice_board
+		   SET re_step = re_step + 1, regdate = NOW()
+		 WHERE ref = #{ref} AND re_step > #{re_step}	
+	</update>
+	
+	<insert id="setArticleReply" >	
+		INSERT INTO notice_board
+		SET division=#{division},subject = #{subject}, content = #{content}, writer = #{writer}, regdate = NOW(), 
+		fileName = #{fileName}, fileOriName = #{fileOriName}, fileUrl = #{fileUrl},
+		ref = #{ref}, re_step = #{re_step} + 1, re_level = #{re_step} + 1
+	</insert>
+</mapper>
