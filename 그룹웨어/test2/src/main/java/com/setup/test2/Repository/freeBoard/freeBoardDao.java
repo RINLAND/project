@@ -25,7 +25,7 @@ public class freeBoardDao {
 		String str = "CREATE TABLE gat_freearticle_" + boardCode;
 		str += "(aid int not null auto_increment primary key,";
 		str += "division char(1),";
-		str += "subject varchar(300) not null,";
+		str += "subject varchar(300),";
 		str += "writer varchar(20) not null,";
 		str += "content text,";
 		str += "regdate datetime,";

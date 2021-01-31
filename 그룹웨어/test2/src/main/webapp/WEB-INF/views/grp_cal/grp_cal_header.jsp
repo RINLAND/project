@@ -38,7 +38,6 @@
 	<script src="${pageContext.request.contextPath }/js/browser.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/breakpoints.min.js"></script>
 	<script src="${pageContext.request.contextPath }/js/util.js"></script>
-	<script src="${pageContext.request.contextPath }/js/main.js"></script>
 	<script src="${pageContext.request.contextPath }/js/tab.js"></script>
 	<script src="${pageContext.request.contextPath }/js/jquery.treeview.js"></script>
 	<script src="${pageContext.request.contextPath }/js/jquery.ztree.core.js"></script>

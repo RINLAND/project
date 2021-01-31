@@ -50,8 +50,12 @@ public class BoardSrv {
 		bDao.dropCommentTbl(boardCode);
 	}
 	
-	public void setBoardModify(BoardVO bvo) {
-		bDao.setBoardModify(bvo);
+	public BoardVO getBoardOne(String boardCode) {
+		return bDao.getBoardOne(boardCode);
+	}
+	
+	public int setBoardModify(BoardVO bvo) {
+		return bDao.setBoardModify(bvo);
 	}
 	
 	public int getBoardCount() {

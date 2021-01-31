@@ -11,7 +11,7 @@
 	</insert>
 	
 	<select id="getCal" resultType="com.setup.test2.Model.CalVO">
-		SELECT * FROM grp_calendar WHERE empNum	= #{empNum}
+		SELECT * FROM grp_calendar WHERE empNum = #{empNum}
 	</select>
 	
 	

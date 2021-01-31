@@ -61,7 +61,7 @@
                             <td colspan="3"  class="td-90 p-lr3">
                                 <input type="file"  name="files" class="input-100" multiple="multiple"/>
                             </td>
-                           ..
+                           
                         </tr>
                         <c:if test="${modifyArticle.fileOriName != null}">
 	                        <tr>
@@ -104,7 +104,7 @@
 				success : function(resData){
 					if(resData == "success"){
 						alert("수정이 완료되었습니다.");
-						location.href="${pageContext.request.contextPath }/article/grp_article_list?boardCode=${boardCode }";
+						location.href="${pageContext.request.contextPath }/article/grp_article_list?boardCode=${boardCode}";
 
 					}
 				},

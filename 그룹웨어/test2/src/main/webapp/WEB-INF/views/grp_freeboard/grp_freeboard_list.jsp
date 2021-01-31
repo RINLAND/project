@@ -25,12 +25,12 @@
 												
 							<div class="search-wrap flex flex-justify  m-b5 bg-white">
 								<div class="">
-									<span class="btn-count">전체게시판 수  ${count }개</span>
+									<span class="btn-count">전체게시글 수  ${count }개</span>
 								</div>
 								<div class="flex flex-justify"  >
-									<form method="post " class="flex flex-justify " action="${pageContext.request.contextPath }/board">
-										
-										<select class="" >
+									<form method="post" class="flex flex-justify " action="${pageContext.request.contextPath }/freeArticle/grp_article_list">
+										<input type="hidden" name="boardCode" value="${boardCode}" />
+										<select class="searchOpt" >
 											<option value="boardCode">게시판코드</option>
 											<option value="boardTitle">게시판제목</option>
 											<option value="boardTeam">게시판그룹</option>
@@ -67,7 +67,7 @@
                   <c:forEach items="${list }" var="artList" varStatus="status">
                     <tr class="center font14">
                         <td>
-                            <input type="checkbox" />
+                            <input type="checkbox"  name="chk" class="chk" data-uid="${artList.aid}" data-code="${boardCode}" />
                         </td>
                         <td>
                         	<c:if test="${artList.division eq 'Y' }">
@@ -90,7 +90,7 @@
                         	<img src="${pageContext.request.contextPath }/images/icon_reply.gif" />
                         </c:forEach>
                             <a href="${pageContext.request.contextPath }/freeArticle/grp_article_view?boardCode=${boardCode}&aid=${artList.aid}" 
-                            class="under weight700">${artList.subject }
+                            class="weight700">${artList.subject }
                        </a>
                          <c:set var="fileName" value="${fn:toLowerCase(artList.fileOriName) }"> </c:set> 
                          <c:forTokens var="ext" items="${fileName }" delims="." varStatus="status">
@@ -125,8 +125,8 @@
                         <td>${artList.regdate }</td>
                         <td>
                             <!-- input이면 type=submit -->
-                            <button type="button" class="s-btn-on" onclick="location.href='grp_board_modify.html?id=10'">수정</button>
-                            <button type="button" class="s-btn-off">삭제</button>
+                            <button type="button" class="s-btn-on" onClick="location.href='${pageContext.request.contextPath}/freeArticle/grp_article_modify?boardCode=${boardCode}&aid=${artList.aid}'">수정</button>
+                            <button type="button" onClick="articleDel('${boardCode}', ${artList.aid});" class="s-btn-off">삭제</button>
                         </td>
                     </tr>
                     </c:forEach>
@@ -222,5 +222,36 @@
 
 	</div>
 </body>
+<!--게시글 삭제  -->
+<script>
+	function articleDel(boardCode, aid){
+		//alert(aid);
+		//alert(boardCode);
 
+		var msg = "삭제 후 복구는 불가능합니다. \n선택하신 게시글을 삭제하시겠습니까?";
+		if(confirm(msg)){  //확인 클릭
+
+			var formData = {
+					boardCode : boardCode,
+					aid : aid  //ctr 변수 : 파라미터 키
+				};
+			
+			$.ajax({
+				url : "${pageContext.request.contextPath }/freeArticle/grp_article_delete",
+				type : "post",
+				data : formData,
+				success : function(resData){
+					if(resData == "success"){
+						alert("삭제되었습니다.");
+						location.href="${pageContext.request.contextPath }/freeArticle/grp_article_list?boardCode=${boardCode }";
+					}
+				},
+				error : function(){
+					alert("삭제 시스템 에러");
+			},
+				complete : function(){}
+		});
+	}
+}
+</script>
 </html>

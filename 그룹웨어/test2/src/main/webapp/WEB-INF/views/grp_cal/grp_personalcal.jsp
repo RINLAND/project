@@ -31,7 +31,7 @@
 					<h4 class="m-b20">
 						<i class="far fa-calendar-check"></i>일정 > 일정등록</h4>
 				</div>
-				<div class="calendar-insert">
+				<div class="calendar-insert center">
 					<form method="POST" id="frm">
 					 <input type="hidden" id="empNum" name="empNum" value="${empNum}" />
 						<table>
@@ -110,7 +110,7 @@
 			url		: "${pageContext.request.contextPath}/grp_cal/grp_calendar_add",
 			type	: "POST",
 			data	: formData,
-			success	: function(resData) {
+			success	: function(formData) {
 				alert("일정이 추가 되었습니다.");
 				window.location.reload();
 			},

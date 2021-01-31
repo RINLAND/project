@@ -13,7 +13,8 @@
 			<div class="inner">
 
 				<!-- Header -->
-					<%@include file = "/WEB-INF/views/grp_admin/grp_admin_auth.jsp" %>
+										<%@include file = "/WEB-INF/views/grp_admin/grp_admin_auth.jsp" %>
+					
 
 				<!-- Content -->
 				
@@ -163,7 +164,7 @@
 <!------------------------------------------------ 게시판생성 목록--------------------------------------- -->
  					<div class="board-list">
                             <table>
-                                <tr class="center  tr-color f6 weight700 font14" id="rowColor">
+                                <tr class="center tr-color f6 weight700 font14" id="rowColor">
                                     <td class="td-5">
                                         <input type="checkbox" onClick="chkAll();"/>
                                     </td>
