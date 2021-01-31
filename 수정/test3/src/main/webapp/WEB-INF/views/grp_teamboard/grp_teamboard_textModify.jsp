@@ -41,7 +41,7 @@
                         <tr>
                             <td  class="td-10 center weight700 bg-sub" style="background-color: ${boardColor}">작성자</td>
                             <td colspan="3"  class="td-90 p-lr3">
-                                <input type="text"  value="${modifyArticle.writer}" name="writer"  class="input-50" maxlength="5" required/> 
+                                <input type="text"  value="${modifyArticle.writer}" name="writer"  class="input-50" maxlength="5" required readonly="readonly"/> 
                             </td>
                             
                         </tr>
@@ -87,8 +87,8 @@
 </script>
 <script>
 	function articleModify(boardCode, aid){
-		alert(boardCode);
-		alert(aid);
+		//alert(boardCode);
+		//alert(aid);
 		var msg = "수정하신 내용을 저장하시겠습니까?";
 		if(confirm(msg)){  //확인 클릭
 
