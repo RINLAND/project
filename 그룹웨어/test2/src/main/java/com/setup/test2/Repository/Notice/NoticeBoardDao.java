@@ -9,20 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.setup.test2.Model.PostVO;
-import com.setup.test2.Model.freeBoard.freeBoardVO;
+import com.setup.test2.Model.Notice.NoticeBoardVO;
+
 
 @Repository
 public class NoticeBoardDao {
 	@Autowired 
 	SqlSession sql;
 	
-	public void setBoard(freeBoardVO fvo) {
-		sql.insert("freeboard.setBoard", fvo);
+	public void setBoard(NoticeBoardVO fvo) {
+		sql.insert("notice.setBoard", fvo);
 	}
 	
 	
 	public void createArticleTbl(String boardCode) {
-		String str = "CREATE TABLE gat_freearticle_" + boardCode;
+		String str = "CREATE TABLE gat_noticeArticle_" + boardCode;
 		str += "(aid int not null auto_increment primary key,";
 		str += "division char(1),";
 		str += "subject varchar(300),";
@@ -38,12 +39,12 @@ public class NoticeBoardDao {
 		str += "re_level int);";
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("str", str);
-		sql.update("freeboard.createArticleTbl", map);
+		sql.update("notice.createArticleTbl", map);
 
 	}
 	
 	public void createCommentTbl(String boardCode) {
-		String str = "CREATE TABLE gat_freecomment_" + boardCode;
+		String str = "CREATE TABLE gat_noticeComment_" + boardCode;
 		str += "(cid int not null auto_increment primary key,";
 		str += "aid int not null,";
 		str += "comment text,";
@@ -51,48 +52,48 @@ public class NoticeBoardDao {
 		str += "regdate datetime);";
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("str", str);
-		sql.update("freeboard.createCommentTbl", map);
+		sql.update("notice.createCommentTbl", map);
 	}
 	
 	
-	public List<freeBoardVO> getBoardList(int start, int end) {
+	public List<NoticeBoardVO> getBoardList(int start, int end) {
 		Map<String,Object> map =new HashMap<String, Object>();
 		map.put("start", start);
 		map.put("end", end);
-		return sql.selectList("freeboard.getBoardList", map);
+		return sql.selectList("notice.getBoardList", map);
 		
 	}
 	
 	
 	
 	public void setBoardDel(String boardCode) {
-		sql.delete("freeboard.setBoardDel", boardCode);
+		sql.delete("notice.setBoardDel", boardCode);
 	}
 	
 	public void dropArticleTbl(String boardCode) {
-		String str = "drop TABLE gat_freeArticle_" + boardCode;
+		String str = "drop TABLE gat_noticeArticle_" + boardCode;
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("str", str);
-		sql.insert("freeboard.dropArticleTbl", map);
+		sql.insert("notice.dropArticleTbl", map);
 	}
 
 	public void dropCommentTbl(String boardCode) {
-		String str = "drop TABLE gat_freeComment_" + boardCode;
+		String str = "drop TABLE gat_noticeComment_" + boardCode;
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("str", str);
-		sql.insert("freeboard.dropCommentTbl", map);
+		sql.insert("notice.dropCommentTbl", map);
 	}
 	
-	public void setBoardModify(freeBoardVO fvo) {
-		sql.update("freeboard.setBoardModify", fvo);
+	public void setBoardModify(NoticeBoardVO nvo) {
+		sql.update("notice.setBoardModify", nvo);
 		
 	}
 	
 	public int getBoardCount() {
-		return sql.selectOne("freeboard.getBoardCount");
+		return sql.selectOne("notice.getBoardCount");
 	}
 	
 	public List<PostVO> getPostList() {
-		return sql.selectList("freeboard.getPostList");
+		return sql.selectList("notice.getPostList");
 	}
 }

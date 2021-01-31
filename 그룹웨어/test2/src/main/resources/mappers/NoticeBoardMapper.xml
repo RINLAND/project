@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="noticeBoard">
+<mapper namespace="notice">
 	<insert id= "setBoard" parameterType="com.setup.test2.Model.Notice.NoticeBoardVO">
-		INSERT INTO grp_freeboard SET 
+		INSERT INTO grp_noticeboard SET 
 			boardTeam      = #{boardTeam},
 			boardCode     = #{boardCode},
 			boardColor    = #{boardColor},
@@ -29,12 +29,12 @@
 	
 	
 	<select id= "getBoardList" resultType="com.setup.test2.Model.Notice.NoticeBoardVO">
-		SELECT * FROM grp_freeboard A, grp_team B WHERE A.boardTeam = B.team_id ORDER BY boardID DESC LIMIT #{start}, #{end}
+		SELECT * FROM grp_noticeboard A, grp_team B WHERE A.boardTeam = B.team_id ORDER BY boardID DESC LIMIT #{start}, #{end}
 	</select>
 
 	
 	<delete id="setBoardDel" parameterType="String">
-		DELETE FROM grp_freeboard WHERE boardCode = #{boardCode}
+		DELETE FROM grp_noticeboard WHERE boardCode = #{boardCode}
 	</delete>
 	
 	<insert id="dropArticleTbl">
@@ -47,11 +47,11 @@
 	
 	
 	<select id= "getBoardCount"  resultType="int">
-		SELECT COUNT(boardID) FROM grp_freeboard
+		SELECT COUNT(boardID) FROM grp_noticeboard
 	</select>
 	
 	<update id="setBoardModify" parameterType="com.setup.test2.Model.Notice.NoticeBoardVO">
-		UPDATE grp_freeboard SET 
+		UPDATE grp_noticeboard SET 
 		 boardCode = #{boardCode}, 
 		 boardColor = #{boardColor}, 
 		 boardTitle = #{boardTitle}, 

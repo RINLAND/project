@@ -135,7 +135,7 @@ public class BoardCtr {
 	
 	
 	
-	@RequestMapping(value="/grp_teamboard_modify") 
+	@RequestMapping(value="/grp_teamboard_modify" , method = RequestMethod.POST) 
 	public ModelAndView setBoardModify(@ModelAttribute BoardVO bv) {
 		BoardVO bvo = bSrv.getBoardSelectOne(bv);
 		ModelAndView mav = new ModelAndView();
