@@ -50,9 +50,12 @@
 		SELECT COUNT(boardID) FROM grp_teamboard
 	</select>
 	
+	<select id="getBoardSelectOne" resultType="com.setup.test2.Model.BoardVO">
+		SELECT * FROM grp_teamboard WHERE boardCode = #{boardCode}
+	</select>
+	
 	<update id="setBoardModify" parameterType="com.setup.test2.Model.BoardVO">
-		UPDATE grp_teamboard SET 
-		 boardCode = #{boardCode}, 
+		UPDATE grp_teamboard SET  
 		 boardColor = #{boardColor}, 
 		 boardTitle = #{boardTitle}, 
 		 boardType = #{boardType}, 

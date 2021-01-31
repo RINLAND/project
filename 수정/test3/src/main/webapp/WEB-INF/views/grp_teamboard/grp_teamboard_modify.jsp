@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
-	 <%@include file="/WEB-INF/views/grp_freeboard/article_header.jsp"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	 <%@include file = "/WEB-INF/views/grp_teamboard/grp_teamboard_header.jsp" %>
 	
 
 <body>
@@ -26,32 +26,33 @@
 
 					<div class="main ">
 						<div class="main-top ">
-							<h4 class="m-b20">${sessionScope.boardTilte }</h4>
+							<h4 class="m-b20">${boardTitle }</h4>
 							
 <!------------------------------------------------ 게시판생성--------------------------------------- -->
 				<div class="board-wrap bg-white ">
-					<form method="POST" id="frm" action="${pageContext.request.contextPath }/board/grp_teamboard_modify?boardCode=${board.boardCode }">
+					<form method="POST" id="frm" action="${pageContext.request.contextPath }/board/grp_teamboard_modify" autocomplete="off">
+						<input type="hidden" name="boardID" value="${boardID }"/>
 						<table>
 							<tr>
 								<td class="td-10 center weight700  bg-sub">게시판 이름</td>
 								<td class="td-15 p-lr3">
-									<input type="text" name="boardTitle" id="boardTitle" value="${board.boardTitle }" class="input-100" maxlength="100"
+									<input type="text" name="boardTitle" id="boardTitle" value="${modifyBoard.boardTitle }" class="input-100" maxlength="100"
 										required />
 								</td>
 								<td class="td-10 center weight700  bg-sub"> 게시판 코드</td>
 								<td class="td-15 p-lr3">
-									<input type="text" placeholder="영어로만 입력하세요." value="${board.boardCode }"  name="boardCode" id="boardCode"
-										class="input-30" maxlength="100" required />
+									<input type="text" placeholder="영어로만 입력하세요." value="${modifyBoard.boardCode }"  name="boardCode" id="boardCode"
+										class="input-30" maxlength="100" required readonly="readonly" />
 								</td>
 								<td class="td-10 center weight700  bg-sub"> 게시판 종류</td>
 								<td class="td-15 p-lr3">
-									<select class="center sel-100" name="boardType" id="boardType" value="${board.boardType }" >
+									<select class="center sel-100" name="boardType" id="boardType" value="${modifyBoard.boardType }" >
 										
 									</select>
 								</td>
 								<td class="td-10 center weight700 bg-gray">게시판 부서</td>
 								<td class="p-lr3">
-									<select name="boardTeam" id="boardTeam" value="${board.boardTeam }"  class="center sel-100" >
+									<select name="boardTeam" id="boardTeam" value="${modifyBoard.boardTeam }"  class="center sel-100" >
 									
 									</select>
 									
@@ -61,7 +62,7 @@
 
 								<td class="td-10 center weight700  bg-sub font14">게시판 열람가능 등급</td>
 								<td class="p-lr3">
-									<select name="boardRead" id="boardRead" value="${board.boardRead }"  class="center sel-100">
+									<select name="boardRead" id="boardRead" value="${modifyBoard.boardRead }"  class="center sel-100">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -71,7 +72,7 @@
 								</td>
 								<td class="td-10 center weight700  bg-sub font14">게시판 글 작성가능 등급</td>
 								<td class="p-lr3">
-									<select name="boardWrite" id="boardWrite"value="${board.boardWrite }"  class="center sel-100">
+									<select name="boardWrite" id="boardWrite"value="${modifyBoard.boardWrite }"  class="center sel-100">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -80,7 +81,7 @@
 								</td>
 								<td class="td-10 center weight700 bg-gray font14">자료다운로드가능 등급</td>
 								<td class="p-lr3">
-									<select name="boardDown" id="boardDown" value="${board.boardDown }" class="center sel-100">
+									<select name="boardDown" id="boardDown" value="${modifyBoard.boardDown }" class="center sel-100">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -89,7 +90,7 @@
 								</td>
 								<td class="td-10 center weight700 bg-gray font14">댓글 작성가능 등급</td>
 								<td class="p-lr3">
-									<select name="boardReply" id="boardReply" value="${board.boardReply }"  class="center sel-100">
+									<select name="boardReply" id="boardReply" value="${modifyBoard.boardReply }"  class="center sel-100">
 										<option value="1">1</option>
 										<option value="2">2</option>
 										<option value="3">3</option>
@@ -100,7 +101,7 @@
 							<tr>
 								<td class="td-10 center weight700 bg-gray">게시판 색상</td>
 								<td class="p-lr3">
-									<select class="center sel-100" name="boardColor" id="boardColor" value="${board.boardColor }" >
+									<select class="center sel-100" name="boardColor" id="boardColor" value="${modifyBoard.boardColor }" >
 										<option value="red">Red / #C62828</option>
 										<option value="blue">Blue / #283593</option>
 										<option value="skyblue">Sky Blue / #1565C0 </option>
@@ -113,18 +114,18 @@
 
 								<td class="td-10 center weight700 bg-gray">게시판 설명</td>
 								<td class="td-10 p-lr3" >
-									<input type="text" name="boardDetail" value="${board.boardDetail }" 
+									<input type="text" name="boardDetail" value="${modifyBoard.boardDetail }" 
 										id="boardDetail" class="input-100" maxlength="100" required />
 								</td>
 								<td class="bg-gray weight700 td-10">게시판 관리자</td>
                                     <td class="td-15 p-lr3">
-                                    <input type="text" class="input-100" value="${sessionScope.empName }" name="boardMaker" readonly />
+                                    <input type="text" class="input-100" value="${modifyBoard.boardMaker }" name="boardMaker" readonly />
                                </td>
 
 
 								<td class="td-10 center weight700 bg-gray">자료실 여부</td>
 								<td>
-									<select name="boardReference" id="boardReference" value="${board.boardRefence }" class="center sel-100">
+									<select name="boardReference" id="boardReference" value="${modifyBoard.boardReference }" class="center sel-100">
 										<option value="yes">Y</option>
 										<option value="no">N</option>
 									</select>
@@ -135,8 +136,8 @@
 						</table>
 						
 						<div class="btn-grp center m-t5">
-							<button class="s-btn-on" onClick="boardModify('${board.boardCode}');">수정</button>
-                        	<button type="button" onclick="location.href='${pageContext.request.contextPath }/board/grp_teamboard_list'"  class="btn-red">목록</button>
+							<button type="submit"  class="btn-normal"  onClick="boardModify(${boardID});">수정</button>
+                        	<button type="button" onclick="location.href='${pageContext.request.contextPath }/board/grp_teamboard'"  class="btn-red">목록</button>
 						</div>
 					</form>
 					</div>
@@ -168,7 +169,7 @@ function loadTeam(){
 		dataType : "json",
 		success : function(resData){
 			$.each(resData, function(key, value) {
-					$("#boardGrp").append("<option value="+value.team_id+">"+value.team_name+"</option>");
+					$("#boardTeam").append("<option value="+value.team_id+">"+value.team_name+"</option>");
 				});
 		},
 		error : function(){
@@ -264,12 +265,15 @@ $(function(){
 </script>
 
 <script>
-	function boardModify(boardCode){
+	function boardModify(boardID){
+		alert(boardID);
+		
 		var msg = "수정하신 내용을 저장하시겠습니까?";
 		if(confirm(msg)){  //확인 클릭
 
 			var formData = {
-					boardCode : boardCode  //ctr 변수 : 파라미터 키
+					boardID : boardID
+					
 				};
 			
 			$.ajax({
@@ -279,7 +283,8 @@ $(function(){
 				success : function(resData){
 					if(resData == "success"){
 						alert("수정이 완료되었습니다.");
-						window.location.reload();
+						location.href="${pageContext.request.contextPath }/board/grp_teamboard";
+
 					}
 				},
 				error : function(){

@@ -54,6 +54,10 @@ public class BoardSrv {
 		return bDao.getBoardOne(boardCode);
 	}
 	
+	public BoardVO getBoardSelectOne(BoardVO bv) {
+		return bDao.getBoardSelectOne(bv);
+	}
+	
 	public int setBoardModify(BoardVO bvo) {
 		return bDao.setBoardModify(bvo);
 	}

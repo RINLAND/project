@@ -90,6 +90,10 @@ public class BoardDao {
 		return sql.selectOne("board.getBoardOne", boardCode);
 	}
 	
+	public BoardVO getBoardSelectOne(BoardVO bv) {
+		return sql.selectOne("board.getBoardSelectOne", bv);
+	}
+	
 	public int setBoardModify(BoardVO bvo) {
 		return sql.update("board.setBoardModify", bvo);
 		

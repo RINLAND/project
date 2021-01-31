@@ -108,11 +108,12 @@ public class BoardCtr {
 		return list;
 	}
 	
-	/*@RequestMapping(value="grp_teamboard_modify", method = RequestMethod.GET)
-	public ModelAndView getBoardModify(@ModelAttribute BoardVO bvo) {
-		BoardVO bvo = bSrv.getBoardOne(bvo.getBoardCode());
+	@RequestMapping(value="grp_teamboard_modify", method = RequestMethod.GET)
+	public ModelAndView getBoardModify(@ModelAttribute BoardVO bv) {
+		BoardVO bvo = bSrv.getBoardSelectOne(bv);
 		ModelAndView mav = new ModelAndView();
 		
+		mav.addObject("modifyBoard", bvo);
 		mav.addObject("boardCode", bvo.getBoardCode());
 		mav.addObject("boardTitle", bvo.getBoardTitle());
 		mav.addObject("boardColor", bvo.getBoardColor());
@@ -124,23 +125,41 @@ public class BoardCtr {
 		mav.addObject("boardWrite", bvo.getBoardWrite());
 		mav.addObject("boardReference", bvo.getBoardReference());
 		mav.addObject("boardRegdate", bvo.getBoardRegdate());
-		mav.addObject("boardID", bvo.getBoardID());
-		mav.addObject("boardMaker", bvo.getBoardMaker());
+		mav.addObject("boardID", bv.getBoardID());
 		
 		mav.setViewName("grp_teamboard/grp_teamboard_modify");
+		bSrv.setBoardModify(bv);
 		return mav;
 		
-	}*/
+	}
 	
 	
-	/*@RequestMapping("/grp_teamboard_modify") 
-	@ResponseBody 
-	 public String setModify(@ModelAttribute BoardVO bvo) { 
-	 bSrv.setBoardModify(bvo); bSrv.createArticleTbl(bvo.getBoardCode());
-	 bSrv.createCommentTbl(bvo.getBoardCode()); 
-	 return "success"; 
-	 
-	}*/
+	
+	@RequestMapping(value="/grp_teamboard_modify") 
+	public ModelAndView setBoardModify(@ModelAttribute BoardVO bv) {
+		BoardVO bvo = bSrv.getBoardSelectOne(bv);
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("modifyBoard", bvo);
+		mav.addObject("boardCode", bvo.getBoardCode());
+		mav.addObject("boardTitle", bvo.getBoardTitle());
+		mav.addObject("boardColor", bvo.getBoardColor());
+		mav.addObject("boardType", bvo.getBoardType());
+		mav.addObject("boardTeam", bvo.getBoardTeam());
+		mav.addObject("boardDown", bvo.getBoardDown());
+		mav.addObject("boardDetail", bvo.getBoardDetail());
+		mav.addObject("boardRead", bvo.getBoardRead());
+		mav.addObject("boardWrite", bvo.getBoardWrite());
+		mav.addObject("boardReference", bvo.getBoardReference());
+		mav.addObject("boardRegdate", bvo.getBoardRegdate());
+		mav.addObject("boardID", bv.getBoardID());
+		
+		mav.setViewName("grp_teamboard/grp_teamboard_modify");
+		bSrv.setBoardModify(bv);
+		return mav;
+		
+	} 
+	
 	
 	
 }
