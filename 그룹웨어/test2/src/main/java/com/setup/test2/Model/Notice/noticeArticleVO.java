@@ -1,7 +1,7 @@
 package com.setup.test2.Model.Notice;
 
+public class NoticeArticleVO {
 
-public class noticeArticleVO {
 	private int aid;
 	private String division;
 	private String subject;
@@ -18,43 +18,17 @@ public class noticeArticleVO {
 	private int re_step;
 	private int re_level;
 	private String boardCode;
-
-	public int getCnt() {
-		return cnt;
-	}
-	public void setCnt(int cnt) {
-		this.cnt = cnt;
-	}
-	public int getRef() {
-		return ref;
-	}
-	public void setRef(int ref) {
-		this.ref = ref;
-	}
-	public int getRe_step() {
-		return re_step;
-	}
-	public void setRe_step(int re_step) {
-		this.re_step = re_step;
-	}
-	public int getRe_level() {
-		return re_level;
-	}
-	public void setRe_level(int re_level) {
-		this.re_level = re_level;
-	}
-
 	public int getAid() {
 		return aid;
 	}
 	public void setAid(int aid) {
 		this.aid = aid;
 	}
-	public String getBoardCode() {
-		return boardCode;
+	public String getDivision() {
+		return division;
 	}
-	public void setBoardCode(String boardCode) {
-		this.boardCode = boardCode;
+	public void setDivision(String division) {
+		this.division = division;
 	}
 	public String getSubject() {
 		return subject;
@@ -98,18 +72,43 @@ public class noticeArticleVO {
 	public void setFileOriName(String fileOriName) {
 		this.fileOriName = fileOriName;
 	}
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
 	public String getFileUrl() {
 		return fileUrl;
 	}
 	public void setFileUrl(String fileUrl) {
 		this.fileUrl = fileUrl;
 	}
-	public String getDivision() {
-		return division;
+	public int getRef() {
+		return ref;
 	}
-	public void setDivision(String division) {
-		this.division = division;
+	public void setRef(int ref) {
+		this.ref = ref;
 	}
+	public int getRe_step() {
+		return re_step;
+	}
+	public void setRe_step(int re_step) {
+		this.re_step = re_step;
+	}
+	public int getRe_level() {
+		return re_level;
+	}
+	public void setRe_level(int re_level) {
+		this.re_level = re_level;
+	}
+	public String getBoardCode() {
+		return boardCode;
+	}
+	public void setBoardCode(String boardCode) {
+		this.boardCode = boardCode;
+	}
+	
 	
 	
 }

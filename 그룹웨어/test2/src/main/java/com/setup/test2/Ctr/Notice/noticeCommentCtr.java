@@ -10,21 +10,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.setup.test2.Model.CommentVO;
-import com.setup.test2.Service.teamBoard.CommentSrv;
-
-
+import com.setup.test2.Model.freeBoard.freeCommentVO;
+import com.setup.test2.Service.freeBoard.freeCommentSrv;
 
 @Controller
-@RequestMapping("/comment")
-public class noticeCommentCtr {
+@RequestMapping("/freeComment")
+public class NoticeCommentCtr {
 	@Autowired
-	CommentSrv cSrv;
-	
+	freeCommentSrv cSrv;
 	
 	@RequestMapping("/grp_comment_register")
-	@ResponseBody //ajax쓰기 위해서 필요
-	public void setComment(@ModelAttribute CommentVO cvo) {
+	@ResponseBody 
+	public void setComment(@ModelAttribute freeCommentVO cvo) {
 		//System.out.println(cvo);
 		cSrv.setComment(cvo);
 		
@@ -32,9 +29,9 @@ public class noticeCommentCtr {
 	
 	@RequestMapping("/grp_comment_list")
 	@ResponseBody //ajax쓰기 위해서 필요
-	public Map<String, Object> getCommentList(@ModelAttribute CommentVO cvo) {
+	public Map<String, Object> getCommentList(@ModelAttribute freeCommentVO cvo) {
 		System.out.println(cvo);
-		List<CommentVO> list = cSrv.getCommentList(cvo); //내용가져오기
+		List<freeCommentVO> list = cSrv.getCommentList(cvo); //내용가져오기
 		int count = cSrv.getCommentCount(cvo); //게시물 개수
 		
 		System.out.println(list);
@@ -49,7 +46,7 @@ public class noticeCommentCtr {
 	
 	@RequestMapping("/grp_comment_delete")
 	@ResponseBody
-	public void setDelete(@ModelAttribute CommentVO cvo) {
+	public void setDelete(@ModelAttribute freeCommentVO cvo) {
 		//System.out.println(cvo.getCid());
 		//System.out.println(cvo.getBoardCode());
 		cSrv.setCommentDelete(cvo);
@@ -57,12 +54,13 @@ public class noticeCommentCtr {
 	
 	@RequestMapping("/grp_comment_modify")
 	@ResponseBody
-	public void setModify(@ModelAttribute CommentVO cvo) {
+	public void setModify(@ModelAttribute freeCommentVO cvo) {
 		//System.out.println(cvo.getCid());
 		//System.out.println(cvo.getBoardCode());
 		//System.out.println(cvo.getComment());
 		cSrv.setCommentModify(cvo);
 		
 	}
+	
 
 }

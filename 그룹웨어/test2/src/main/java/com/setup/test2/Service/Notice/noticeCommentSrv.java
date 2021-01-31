@@ -5,33 +5,34 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.setup.test2.Model.CommentVO;
-import com.setup.test2.Repository.teamBoard.CommentDao;
+import com.setup.test2.Model.freeBoard.freeCommentVO;
+import com.setup.test2.Repository.freeBoard.freeCommentDao;
+
 
 @Service
-public class noticeCommentSrv {
-	
+public class NoticeCommentSrv {
+
 	@Autowired
-	CommentDao cDao;
+	freeCommentDao cDao;
 	
-	public void setComment(CommentVO cvo) {
+	public void setComment(freeCommentVO cvo) {
 		cDao.setComment(cvo);
 	}
 	
-	public List<CommentVO> getCommentList(CommentVO cvo){
+	public List<freeCommentVO> getCommentList(freeCommentVO cvo){
 		return cDao.getCommentList(cvo);
 	}
 	
-	public int getCommentCount(CommentVO cvo) {
+	public int getCommentCount(freeCommentVO cvo) {
 		return cDao.getCommentCount(cvo);
 	}
 	
-	public void setCommentDelete(CommentVO cvo) {
+	public void setCommentDelete(freeCommentVO cvo) {
 		cDao.setCommentDelete(cvo);
 	}
 	
-	public void setCommentModify(CommentVO cvo) {
+	public void setCommentModify(freeCommentVO cvo) {
 		cDao.setCommentModify(cvo);
 	}
-
+	
 }

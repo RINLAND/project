@@ -1,6 +1,6 @@
 package com.setup.test2.Model.Notice;
 
-public class noticeCommentVO {
+public class NoticeCommentVO {
 	private int cid; //댓글을 생성할 것인지
 	private int aid; //몇번째 게시물에
 	private String comment;
@@ -43,5 +43,7 @@ public class noticeCommentVO {
 	public void setBoardCode(String boardCode) {
 		this.boardCode = boardCode;
 	}
+	
+	
 
 }
