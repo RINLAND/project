@@ -1,5 +1,6 @@
 package com.setup.test2.Ctr.Notice;
 
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -24,17 +25,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.setup.test2.Model.freeBoard.freeArticleVO;
-import com.setup.test2.Model.freeBoard.freeBoardVO;
-import com.setup.test2.Service.freeBoard.freeArticleSrv;
+
+import com.setup.test2.Model.Notice.NoticeArticleVO;
+import com.setup.test2.Model.Notice.NoticeBoardVO;
+import com.setup.test2.Service.Notice.NoticeArticleSrv;
 
 import pager.Pager;
 
 @Controller
-@RequestMapping("/freeArticle")
+@RequestMapping("/notice")
 public class NoticeArticleCtr {
+	
 	@Autowired
-	freeArticleSrv freeArticleSrv;
+	NoticeArticleSrv articleSrv;
 	
 	@RequestMapping("/grp_article_list")
 	public ModelAndView getArticleList(
@@ -43,15 +46,15 @@ public class NoticeArticleCtr {
 			@RequestParam(defaultValue = "subject") String searchOpt, 
 			@RequestParam String boardCode) {
 		
-		int count = freeArticleSrv.getArticleTotalCount(words, searchOpt, boardCode);
+		int count = articleSrv.getArticleTotalCount(words, searchOpt, boardCode);
 		
 		Pager pager = new Pager(count, curPage);
 		
 		int start = pager.getPageBegin();
 		int end = pager.getPageEnd();
 		
-		freeBoardVO fvo = freeArticleSrv.getBoardOne(boardCode);
-		List<freeArticleVO> list = freeArticleSrv.getArticleList(start, end, words, searchOpt, boardCode);
+		NoticeBoardVO bvo = articleSrv.getBoardOne(boardCode);
+		List<NoticeArticleVO> list = articleSrv.getArticleList(start, end, words, searchOpt, boardCode);
 
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("list", list);
@@ -70,10 +73,10 @@ public class NoticeArticleCtr {
 		mav.addObject("curPage", pager.getCurPage());
 		mav.addObject("selected", pager.getCurPage());
 		mav.addObject("boardCode", boardCode);
-		mav.addObject("boardColor", fvo.getBoardColor());
-		mav.addObject("boardTitle", fvo.getBoardTitle());
+		mav.addObject("boardColor", bvo.getBoardColor());
+		mav.addObject("boardTitle", bvo.getBoardTitle());
 		
-		mav.setViewName("grp_freeboard/grp_freeboard_list");
+		mav.setViewName("grp_notice/grp_notice");
 		return mav;
 	}
 	
@@ -82,24 +85,24 @@ public class NoticeArticleCtr {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("boardCode", boardCode);
 		
-		freeBoardVO fvo = freeArticleSrv.getBoardOne(boardCode);
-		mav.addObject("boardColor", fvo.getBoardColor());
-		mav.addObject("boardTitle", fvo.getBoardTitle());
-		mav.addObject("boardWrite", fvo.getBoardWrite());
+		NoticeBoardVO bvo = articleSrv.getBoardOne(boardCode);
+		mav.addObject("boardColor", bvo.getBoardColor());
+		mav.addObject("boardTitle", bvo.getBoardTitle());
+		mav.addObject("boardWrite", bvo.getBoardWrite());
 		
-		mav.setViewName("grp_freeboard/grp_freeboard_insert");
+		mav.setViewName("grp_notice/grp_notice_insert");
 		return mav;
 	}
 	
 	@RequestMapping(value = "/grp_article_insert", method=RequestMethod.POST)
 	public String setArticleDo(
-			@ModelAttribute freeArticleVO fvo,
+			@ModelAttribute NoticeArticleVO vo,
 			@RequestPart MultipartFile files) throws IllegalStateException, IOException {
 		
 		//System.out.println(vo.getBoardCode());
 		
 		if (files.isEmpty()) { // 업로드할 파일이 없을 시
-			freeArticleSrv.setArticle(fvo);
+			articleSrv.setArticle(vo);
 			
 		} else {
 			String fileName = files.getOriginalFilename();
@@ -116,36 +119,21 @@ public class NoticeArticleCtr {
 				destinationFile.getParentFile().mkdirs();
 				files.transferTo(destinationFile);
 	
-				fvo.setFileName(destinationFileName);
-				fvo.setFileOriName(fileName);
-				fvo.setFileUrl(fileUrl);
-			freeArticleSrv.setArticle(fvo);
+				vo.setFileName(destinationFileName);
+				vo.setFileOriName(fileName);
+				vo.setFileUrl(fileUrl);
+			articleSrv.setArticle(vo);
 		}
 		
-		return "redirect:/freeArticle/grp_article_list?boardCode="+fvo.getBoardCode();
+		return "redirect:/article/grp_article_list?boardCode="+vo.getBoardCode();
 	}
 	
 	
 	
 	@RequestMapping(value = "/grp_article_modify", method =  RequestMethod.GET)
-	public ModelAndView getArticleModify(@ModelAttribute freeArticleVO vo) {
-		freeArticleVO avo = freeArticleSrv.getArticleOne(vo);
-		freeBoardVO fbvo = freeArticleSrv.getBoardOne(vo.getBoardCode());
-		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("modifyArticle", avo);
-		mav.addObject("aid", avo.getAid());
-		mav.addObject("boardColor", fbvo.getBoardColor());
-		mav.addObject("boardTitle", fbvo.getBoardTitle());
-		mav.addObject("boardCode", vo.getBoardCode());
-		mav.addObject("subject", vo.getSubject());
-		mav.setViewName("grp_freeboard/grp_freeboard_textModify");
-		return mav;
-	}
-	@RequestMapping(value = "/grp_article_modify", method =  RequestMethod.POST)
-	public ModelAndView getArticleModifysave(@ModelAttribute freeArticleVO vo) {
-		freeArticleVO avo = freeArticleSrv.getArticleOne(vo);
-		freeBoardVO bvo = freeArticleSrv.getBoardOne(vo.getBoardCode());
+	public ModelAndView getArticleModify(@ModelAttribute NoticeArticleVO vo) {
+		NoticeArticleVO avo = articleSrv.getArticleOne(vo);
+		NoticeBoardVO bvo = articleSrv.getBoardOne(vo.getBoardCode());
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("modifyArticle", avo);
@@ -154,59 +142,74 @@ public class NoticeArticleCtr {
 		mav.addObject("boardTitle", bvo.getBoardTitle());
 		mav.addObject("boardCode", vo.getBoardCode());
 		mav.addObject("subject", vo.getSubject());
-		mav.setViewName("grp_freeboard/grp_freeboard_textModify");
-		freeArticleSrv.setArticleModify(vo);
+		mav.setViewName("grp_teamboard/grp_teamboard_textModify");
 		return mav;
 	}
 	
+	@RequestMapping(value = "/grp_article_modify", method =  RequestMethod.POST)
+	public ModelAndView getArticleModifysave(@ModelAttribute NoticeArticleVO vo) {
+		NoticeArticleVO avo = articleSrv.getArticleOne(vo);
+		NoticeBoardVO bvo = articleSrv.getBoardOne(vo.getBoardCode());
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("modifyArticle", avo);
+		mav.addObject("aid", avo.getAid());
+		mav.addObject("boardColor", bvo.getBoardColor());
+		mav.addObject("boardTitle", bvo.getBoardTitle());
+		mav.addObject("boardCode", vo.getBoardCode());
+		mav.addObject("subject", vo.getSubject());
+		mav.setViewName("grp_teamboard/grp_teamboard_textModify");
+		articleSrv.setArticleModify(vo);
+		return mav;
+	}
 	@RequestMapping(value = "/grp_article_delete", method = RequestMethod.GET)
 	public String getArticleDelete() {
-		return "grp_freeboard/grp_article_delete";
+		return "grp_teamboard/grp_article_delete";
 	}
 	
 	@RequestMapping(value = "/grp_article_delete", method = RequestMethod.POST)
 	@ResponseBody
-	public String setArticleDelete(@ModelAttribute freeArticleVO vo) {
+	public String setArtcileDelete(@ModelAttribute NoticeArticleVO vo) {
 		
-		freeArticleVO fvo = freeArticleSrv.getArticleOne(vo);
-		if( fvo.getFileName() != null ) {
+		NoticeArticleVO avo = articleSrv.getArticleOne(vo);
+		if( avo.getFileName() != null ) {
 			String fileUrl = "c://upload//fileUpload//";
-			File file = new File(fileUrl + fvo.getFileName());
+			File file = new File(fileUrl + avo.getFileName());
 			if( file.exists() ) {
 				file.delete();
 			}
 		}
-		freeArticleSrv.setArticleDelete(vo.getAid(), vo.getBoardCode());
+		articleSrv.setArticleDelete(vo.getAid(), vo.getBoardCode());
 		return "success";
 	}
 	
 	@RequestMapping(value = "/grp_article_view", method = RequestMethod.GET)
-	public ModelAndView getArticleView(@ModelAttribute freeArticleVO vo) {
-		freeArticleVO fvo = freeArticleSrv.getArticleOne(vo);
-		freeBoardVO fbvo = freeArticleSrv.getBoardOne(vo.getBoardCode());
+	public ModelAndView getArticleView(@ModelAttribute NoticeArticleVO vo) {
+		NoticeArticleVO avo = articleSrv.getArticleOne(vo);
+		NoticeBoardVO bvo = articleSrv.getBoardOne(vo.getBoardCode());
 		ModelAndView mav = new ModelAndView();
-		freeArticleSrv.hitUp(vo);
-		mav.addObject("freeArticle", fvo);
+		articleSrv.hitUp(vo);
+		mav.addObject("article", avo);
 		mav.addObject("boardCode", vo.getBoardCode());
-		mav.addObject("boardTitle", fbvo.getBoardTitle());
-		mav.addObject("boardColor", fbvo.getBoardColor());
-		mav.addObject("boardRead", fbvo.getBoardRead());
+		mav.addObject("boardTitle", bvo.getBoardTitle());
+		mav.addObject("boardColor", bvo.getBoardColor());
+		mav.addObject("boardRead", bvo.getBoardRead());
 		
 		
-		mav.setViewName("grp_freeboard/grp_freeboard_view");
+		mav.setViewName("grp_teamboard/grp_teamboard_view");
 		
 		return mav;
 	}
 	
 	@RequestMapping(value = "/grp_article_download", method = RequestMethod.GET)
 	public void fileDown(
-			@ModelAttribute freeArticleVO fvo,
+			@ModelAttribute NoticeArticleVO avo,
 			HttpServletRequest request, 
 			HttpServletResponse response)
 			throws Exception {
 
 		request.setCharacterEncoding("UTF-8");
-		freeArticleVO vo = freeArticleSrv.getArticleOne(fvo);
+		NoticeArticleVO vo = articleSrv.getArticleOne(avo);
 
 		// 파일 업로드된 경로
 		try {
@@ -275,7 +278,7 @@ public class NoticeArticleCtr {
 	@RequestMapping(value = "/grp_article_delete_all", method = RequestMethod.POST)
 	@ResponseBody
 	public String setArticleDeleteAll(
-			@ModelAttribute freeArticleVO fvo,
+			@ModelAttribute NoticeArticleVO vo,
 			@RequestParam(value = "chkArr[]") List<String> chkArr) {
 		
 		int aid;
@@ -284,18 +287,17 @@ public class NoticeArticleCtr {
 		File files = null;
 		for(String list : chkArr) {
 			aid = Integer.parseInt(list);
-			fvo.setAid(aid);
-			fvo.setBoardCode(fvo.getBoardCode());
+			vo.setAid(aid);
+			vo.setBoardCode(vo.getBoardCode());
 			
-			freeArticleVO vo = freeArticleSrv.getArticleOne(fvo);
-			files = new File(fileUrl + vo.getFileName());
+			NoticeArticleVO avo = articleSrv.getArticleOne(vo);
+			files = new File(fileUrl + avo.getFileName());
 			if( files.exists() ) {
 				files.delete();
 			}
-			freeArticleSrv.setArticleDeleteAll(aid, fvo.getBoardCode());
+			articleSrv.setArticleDeleteAll(aid, vo.getBoardCode());
 		}
 		
 		return "success";
 	}
-
 }

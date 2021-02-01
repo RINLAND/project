@@ -5,32 +5,32 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.setup.test2.Model.freeBoard.freeArticleVO;
-import com.setup.test2.Model.freeBoard.freeBoardVO;
-import com.setup.test2.Repository.freeBoard.freeArticleDao;
+import com.setup.test2.Model.Notice.NoticeArticleVO;
+import com.setup.test2.Model.Notice.NoticeBoardVO;
+import com.setup.test2.Repository.Notice.NoticeArticleDao;
 
 @Service
 public class NoticeArticleSrv {
 	@Autowired
-	freeArticleDao faDao;
+	NoticeArticleDao naDao;
 	
 	
-	public List<freeArticleVO> getArticleList(
+	public List<NoticeArticleVO> getArticleList(
 			int start, int end,
 			String words, 
 			String searchOpt,
 			String boardCode) {
 		
-		return faDao.getArticleList(start, end, words, searchOpt, boardCode);
+		return naDao.getArticleList(start, end, words, searchOpt, boardCode);
 	}
 
 	
 	public int getArticleTotalCount(String words, String searchOpt, String boardCode) {
-		return faDao.getArticleTotalCount(words, searchOpt, boardCode);
+		return naDao.getArticleTotalCount(words, searchOpt, boardCode);
 	}
 
 	
-	public int setArticle(freeArticleVO vo) {
+	public int setArticle(NoticeArticleVO vo) {
 		String subject 	= vo.getSubject();
 		String writer 	= vo.getWriter();
 		String content 	= vo.getContent();
@@ -51,61 +51,53 @@ public class NoticeArticleSrv {
 		vo.setWriter(writer);
 		vo.setContent(content);
 		
-		return faDao.setArticle(vo);
+		return naDao.setArticle(vo);
 	}
 
 	
-	public freeArticleVO getArticleOne(freeArticleVO favo) {
-		return faDao.getArticleOne(favo);
+	public NoticeArticleVO getArticleOne(NoticeArticleVO navo) {
+		return naDao.getArticleOne(navo);
 	}
 
 	
-	public void hitUp(freeArticleVO favo) {
-		faDao.hitUp(favo);
+	public void hitUp(NoticeArticleVO navo) {
+		naDao.hitUp(navo);
 	}
 
 	
 	public int setArticleDelete(int aid, String boardCode) {
-		return faDao.setArticleDelete(aid, boardCode);
+		return naDao.setArticleDelete(aid, boardCode);
 	}
 
 	
-	public int setArticleModify(freeArticleVO vo) {
-		return faDao.setArticleModify(vo);
+	public int setArticleModify(NoticeArticleVO vo) {
+		return naDao.setArticleModify(vo);
 	}
 
 	
-	public freeBoardVO getBoardOne(String boardCode) {
-		return faDao.getBoardOne(boardCode);
+	public NoticeBoardVO getBoardOne(String boardCode) {
+		return naDao.getBoardOne(boardCode);
 	}
 
 	
 	public int setArticleDeleteAll(int aid, String boardCode) {
-		return faDao.setArticleDeleteAll(aid, boardCode);
+		return naDao.setArticleDeleteAll(aid, boardCode);
 	}
 
 	
-	public freeArticleVO getArticleReplyInfo(freeArticleVO favo) throws Exception {
-		return null;
-	}
-
 	
-	public int setArticleRef(freeArticleVO favo) throws Exception {
-		return 0;
-	}
-
 	
-	public int setArticleReply(freeArticleVO favo) throws Exception {
+	public int setArticleReply(NoticeArticleVO navo) throws Exception {
 		
-		freeArticleVO dto = faDao.getArticleReplyInfo(favo);
-		favo.setRef(dto.getRef()); //update
-		favo.setRe_step(dto.getRe_step());
-		favo.setRe_level(dto.getRe_level());
+		NoticeArticleVO dto = naDao.getArticleReplyInfo(navo);
+		navo.setRef(dto.getRef()); //update
+		navo.setRe_step(dto.getRe_step());
+		navo.setRe_level(dto.getRe_level());
 		
 		int result = 0;
 		
-		result += faDao.setArticleRef(favo);
-		result += faDao.setArticleReply(favo);
+		result += naDao.setArticleRef(navo);
+		result += naDao.setArticleReply(navo);
 		
 		return result;
 	}

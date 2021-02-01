@@ -12,7 +12,7 @@
 					<ul id="tree">
 						<li><span class="opener"><a href="">공지사항</a></span>
 							<ul>
-								<li><a href="${pageContext.request.contextPath }/grp_notice_list.html">공지사항 목록</a></li>
+								<li><a href="${pageContext.request.contextPath }/notice/grp_article_list">공지사항 목록</a></li>
 
 
 							</ul>

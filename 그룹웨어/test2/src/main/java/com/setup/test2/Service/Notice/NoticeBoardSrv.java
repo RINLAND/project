@@ -6,55 +6,55 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.setup.test2.Model.PostVO;
-import com.setup.test2.Model.freeBoard.freeBoardVO;
-import com.setup.test2.Repository.freeBoard.freeBoardDao;
+import com.setup.test2.Model.Notice.NoticeBoardVO;
+import com.setup.test2.Repository.Notice.NoticeBoardDao;
 
 @Service
 public class NoticeBoardSrv {
 	@Autowired
-	freeBoardDao fDao;
+	NoticeBoardDao nDao;
 	
-	public void setBoard(freeBoardVO fvo) {
-		fDao.setBoard(fvo);
+	public void setBoard(NoticeBoardVO nvo) {
+		nDao.setBoard(nvo);
 	}
 	
-	public List<freeBoardVO> getBoardList(int start, int end) {
-		return fDao.getBoardList(start, end);
+	public List<NoticeBoardVO> getBoardList(int start, int end) {
+		return nDao.getBoardList(start, end);
 		
 	}
 	
 	public void createArticleTbl(String boardCode) {
-		fDao.createArticleTbl(boardCode);
+		nDao.createArticleTbl(boardCode);
 	}
 
 	
 	public void createCommentTbl(String boardCode) {
-		fDao.createCommentTbl(boardCode);
+		nDao.createCommentTbl(boardCode);
 	}
 	
 	
 	public void setBoardDel(String boardCode) {
-		fDao.setBoardDel(boardCode);
+		nDao.setBoardDel(boardCode);
 	}
 	
 	public void dropArticleTbl(String boardCode) {
-		fDao.dropArticleTbl(boardCode);
+		nDao.dropArticleTbl(boardCode);
 	}
 
 	
 	public void dropCommentTbl(String boardCode) {
-		fDao.dropCommentTbl(boardCode);
+		nDao.dropCommentTbl(boardCode);
 	}
 	
-	public void setBoardModify(freeBoardVO fvo) {
-		fDao.setBoardModify(fvo);
+	public void setBoardModify(NoticeBoardVO nvo) {
+		nDao.setBoardModify(nvo);
 	}
 	
 	public int getBoardCount() {
-		return fDao.getBoardCount();
+		return nDao.getBoardCount();
 	}
 	
 	public List<PostVO> getPostList() {
-		return fDao.getPostList();
+		return nDao.getPostList();
 	}
 }

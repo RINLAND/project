@@ -8,8 +8,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.setup.test2.Model.freeBoard.freeArticleVO;
-import com.setup.test2.Model.freeBoard.freeBoardVO;
+import com.setup.test2.Model.Notice.NoticeArticleVO;
+import com.setup.test2.Model.Notice.NoticeBoardVO;
+
 
 @Repository
 public class NoticeArticleDao {
@@ -17,7 +18,7 @@ public class NoticeArticleDao {
 	private SqlSession sql;
 	
 	
-	public List<freeArticleVO> getArticleList(
+	public List<NoticeArticleVO> getArticleList(
 			int start, int end,
 			String words, 
 			String searchOpt,
@@ -28,7 +29,7 @@ public class NoticeArticleDao {
 		map.put("words", words);
 		map.put("searchOpt", searchOpt);
 		map.put("boardCode", boardCode);
-		return sql.selectList("freeArticle.getArticleList", map);
+		return sql.selectList("noticeArticle.getArticleList", map);
 	}
 
 	
@@ -37,29 +38,29 @@ public class NoticeArticleDao {
 		map.put("words", words);
 		map.put("searchOpt", searchOpt);
 		map.put("boardCode", boardCode);
-		return sql.selectOne("freeArticle.getArticleTotalCount", map);
+		return sql.selectOne("noticeArticle.getArticleTotalCount", map);
 	}
 
 	
-	public int setArticle(freeArticleVO favo) {
-		return sql.insert("freeArticle.setArticle", favo);
+	public int setArticle(NoticeArticleVO navo) {
+		return sql.insert("noticeArticle.setArticle", navo);
 	}
 
 	
-	public freeArticleVO getArticleOne(freeArticleVO favo) {
-		return sql.selectOne("freeArticle.getArticleOne", favo);
+	public NoticeArticleVO getArticleOne(NoticeArticleVO navo) {
+		return sql.selectOne("noticeArticle.getArticleOne", navo);
 	}
 
 	
-	public void hitUp(freeArticleVO favo) {
-		sql.update("freeArticle.hitUp", favo);
+	public void hitUp(NoticeArticleVO navo) {
+		sql.update("noticeArticle.hitUp", navo);
 	}
 	
 	
-	public int setArticleModify(freeArticleVO vo) {
+	public int setArticleModify(NoticeArticleVO vo) {
 	System.out.println(vo.getAid());
 	System.out.println(vo.getBoardCode());
-		return sql.update("freeArticle.setArticleModify", vo);
+		return sql.update("noticeArticle.setArticleModify", vo);
 	}
 
 	
@@ -67,12 +68,12 @@ public class NoticeArticleDao {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("aid", aid);
 		map.put("boardCode", boardCode);
-		return sql.delete("freeArticle.setArticleDelete", map);
+		return sql.delete("noticeArticle.setArticleDelete", map);
 	}
 
 	
-	public freeBoardVO getBoardOne(String boardCode) {
-		return sql.selectOne("freeArticle.getBoardOne", boardCode);
+	public NoticeBoardVO getBoardOne(String boardCode) {
+		return sql.selectOne("noticeArticle.getBoardOne", boardCode);
 	}
 
 	
@@ -80,23 +81,23 @@ public class NoticeArticleDao {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("aid", aid);
 		map.put("boardCode", boardCode);
-		return sql.delete("freeArticle.setArticleDeleteAll", map);
+		return sql.delete("noticeArticle.setArticleDeleteAll", map);
 	}
 	
 	/** 게시판 - 답글 정보  조회 */
-	public freeArticleVO getArticleReplyInfo(freeArticleVO favo) throws Exception {
-		return sql.selectOne("freeArticle.getArticleReplyInfo", favo);
+	public NoticeArticleVO getArticleReplyInfo(NoticeArticleVO navo) throws Exception {
+		return sql.selectOne("noticeArticle.getArticleReplyInfo", navo);
 	}
 	
 	/** 게시판 - 답글의 순서 수정 */
-	public int setArticleRef(freeArticleVO favo) throws Exception {
+	public int setArticleRef(NoticeArticleVO navo) throws Exception {
 
-		return sql.update("freeArticle.setArticleRef", favo);
+		return sql.update("noticeArticle.setArticleRef", navo);
 	}
 	
 	/** 게시판 - 답글 등록 */
-	public int setArticleReply(freeArticleVO favo) throws Exception {
-		return sql.insert("freeArticle.setArticleReply", favo);
+	public int setArticleReply(NoticeArticleVO navo) throws Exception {
+		return sql.insert("noticeArticle.setArticleReply", navo);
 	}
 
 }

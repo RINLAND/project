@@ -15,17 +15,17 @@
 		</choose>
 	</sql>
 	
-	<select id="getArticleList" parameterType="hashMap" resultType="com.setup.test2.Model.freeBoard.freeArticleVO">
+	<select id="getArticleList" parameterType="hashMap" resultType="com.setup.test2.Model.Notice.NoticeArticleVO">
 		SELECT 
 				division, aid, subject, writer, hit, fileOriName, ref, re_step, re_level, date_format(regdate, '%Y-%m-%d') as regdate,
 				(SELECT count(*) FROM gat_freecomment_${boardCode} c WHERE c.aid = a.aid ) AS cnt 
-		FROM gat_freearticle_${boardCode} a 
+		FROM gat_noticearticle_${boardCode} a 
 		<include refid = "search"></include>
 		ORDER BY division DESC, ref DESC, re_step ASC LIMIT #{start}, #{end}
 	</select>
 	
 	<select id="getArticleTotalCount"  resultType="int">
-		SELECT COUNT(*) FROM gat_freearticle_${boardCode} 
+		SELECT COUNT(*) FROM gat_noticearticle_${boardCode} 
 		<include refid = "search"></include>
 	</select>
 	
@@ -33,25 +33,25 @@
 	
 		<selectKey resultType="int" keyProperty="ref" order="BEFORE">
 			
-			SELECT IFNULL(MAX(ref), 0) + 1 FROM gat_freearticle_${boardCode}
+			SELECT IFNULL(MAX(ref), 0) + 1 FROM gat_noticearticle_${boardCode}
 			  
 		</selectKey>
-		INSERT INTO gat_freearticle_${boardCode} 
+		INSERT INTO gat_noticearticle_${boardCode} 
 		SET division = #{division}, subject = #{subject}, content = #{content}, writer = #{writer}, regdate = NOW(), 
 		fileName = #{fileName}, fileOriName = #{fileOriName}, fileUrl = #{fileUrl},
 		ref = #{ref}, re_step = 0, re_level = 0
 	</insert>
 	
-	<select id="getArticleOne" resultType="com.setup.test2.Model.freeBoard.freeArticleVO">
-		SELECT * FROM gat_freearticle_${boardCode} WHERE aid = #{aid}
+	<select id="getArticleOne" resultType="com.setup.test2.Model.Notice.NoticeArticleVO">
+		SELECT * FROM gat_noticearticle_${boardCode} WHERE aid = #{aid}
 	</select>
 	
 	<update id="hitUp">
-		UPDATE gat_freearticle_${boardCode} SET hit = hit + 1 WHERE aid = #{aid}
+		UPDATE gat_noticearticle_${boardCode} SET hit = hit + 1 WHERE aid = #{aid}
 	</update>
 	
 	<update id="setArticleModify" >
-		UPDATE gat_freearticle_${boardCode} SET 
+		UPDATE gat_noticearticle_${boardCode} SET 
 			division = #{division},
 			subject = #{subject}, 
 			content = #{content}, 
@@ -63,20 +63,20 @@
 	</update>
 	
 	<delete id="setArticleDelete" parameterType="hashMap">
-		DELETE FROM gat_freearticle_${boardCode} WHERE aid = #{aid}
+		DELETE FROM gat_noticearticle_${boardCode} WHERE aid = #{aid}
 	</delete>
 	
-	<select id="getBoardOne" resultType="com.setup.test2.Model.freeBoard.freeBoardVO">
-		SELECT * FROM grp_freeboard WHERE boardCode = #{boardCode}
+	<select id="getBoardOne" resultType="com.setup.test2.Model.Notice.NoticeBoardVO">
+		SELECT * FROM grp_noticeboard WHERE boardCode = #{boardCode}
 	</select>
 	
 	<delete id="setArticleDeleteAll">
-		DELETE FROM gat_freearticle_${boardCode} WHERE aid = #{aid}
+		DELETE FROM gat_noticearticle_${boardCode} WHERE aid = #{aid}
 	</delete>
 	
-	<select id="getArticleReplyInfo" resultType="com.setup.test2.Model.freeBoard.freeArticleVO">
+	<select id="getArticleReplyInfo" resultType="com.setup.test2.Model.Notice.NoticeArticleVO">
 		SELECT aid, ref, re_step, re_level
-	    FROM gat_freearticle_${boardCode}
+	    FROM gat_noticearticle_${boardCode}
 	    WHERE aid = #{aid}
 	</select>
 	

@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.setup.test2.Model.PostVO;
-import com.setup.test2.Model.freeBoard.freeBoardVO;
-import com.setup.test2.Service.freeBoard.freeBoardSrv;
+import com.setup.test2.Model.Notice.NoticeBoardVO;
+import com.setup.test2.Service.Notice.NoticeBoardSrv;
 
 import pager.Pager;
 
 @Controller
-@RequestMapping("/freeboard")
-public class NoticefreeBoardCtr {
+@RequestMapping("/notice")
+public class NoticeBoardCtr {
 	@Autowired
-	freeBoardSrv fSrv;
+	NoticeBoardSrv nSrv;
 
 	
 	@RequestMapping("")
@@ -33,7 +33,7 @@ public class NoticefreeBoardCtr {
 		ModelAndView mav = new ModelAndView();
 		
 		
-		 int count = fSrv.getBoardCount();
+		 int count = nSrv.getBoardCount();
 		 
 		//*************************************************************************************		
 			Pager pager = new Pager(count, curPage);
@@ -45,7 +45,7 @@ public class NoticefreeBoardCtr {
 		
 		 
 		
-		mav.addObject("list", fSrv.getBoardList(start, end));
+		mav.addObject("list", nSrv.getBoardList(start, end));
 		
 		
 		
@@ -69,29 +69,29 @@ public class NoticefreeBoardCtr {
 				
 		
 		
-		mav.setViewName("grp_freeboard/grp_freeboard");
+		mav.setViewName("grp_notice/grp_teamboard");
 		
 		return mav;
 	}
 	
-	@RequestMapping("/grp_freeboard_insert")
+	@RequestMapping("/grp_notice_insert")
 	@ResponseBody  
-	public String setBoard(@ModelAttribute freeBoardVO fvo) {
-		fSrv.setBoard(fvo);
-		fSrv.createArticleTbl(fvo.getBoardCode());
-		fSrv.createCommentTbl(fvo.getBoardCode());
+	public String setBoard(@ModelAttribute NoticeBoardVO nvo) {
+		nSrv.setBoard(nvo);
+		nSrv.createArticleTbl(nvo.getBoardCode());
+		nSrv.createCommentTbl(nvo.getBoardCode());
 		return "success";
 	}
 	
 	
 	
-	@RequestMapping("/grp_freeboard_delete") 
+	@RequestMapping("/grp_notice_delete") 
 	@ResponseBody  
 	public String setBoardDel(@RequestParam String boardCode) {
 		
-		fSrv.setBoardDel(boardCode);
-		fSrv.dropArticleTbl(boardCode);
-		fSrv.dropCommentTbl(boardCode);
+		nSrv.setBoardDel(boardCode);
+		nSrv.dropArticleTbl(boardCode);
+		nSrv.dropCommentTbl(boardCode);
 		return "success";
 		
 	}
@@ -100,17 +100,17 @@ public class NoticefreeBoardCtr {
 	@RequestMapping(value = "/grp_get_post", method = RequestMethod.POST)
 	@ResponseBody
 	public List<PostVO> getPost() {
-		fSrv.getPostList();
-		List<PostVO> list = fSrv.getPostList();
+		nSrv.getPostList();
+		List<PostVO> list = nSrv.getPostList();
 		//System.out.println(list);
 		return list;
 	}
 	
 	@RequestMapping("/grp_freeboard_modify")
 	@ResponseBody 
-	 public String setModify(@ModelAttribute freeBoardVO fvo) { 
-	 fSrv.setBoardModify(fvo); fSrv.createArticleTbl(fvo.getBoardCode());
-	 fSrv.createCommentTbl(fvo.getBoardCode()); return "success"; }
+	 public String setModify(@ModelAttribute NoticeBoardVO nvo) { 
+	 nSrv.setBoardModify(nvo); nSrv.createArticleTbl(nvo.getBoardCode());
+	 nSrv.createCommentTbl(nvo.getBoardCode()); return "success"; }
 	
 
 }
