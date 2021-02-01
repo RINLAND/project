@@ -51,7 +51,7 @@
 	</select>
 	
 	<select id="getBoardSelectOne" resultType="com.setup.test2.Model.BoardVO">
-		SELECT * FROM grp_teamboard WHERE boardCode = #{boardCode}
+		SELECT * FROM grp_teamboard WHERE boardID = #{boardID}
 	</select>
 	
 	<update id="setBoardModify" parameterType="com.setup.test2.Model.BoardVO">
