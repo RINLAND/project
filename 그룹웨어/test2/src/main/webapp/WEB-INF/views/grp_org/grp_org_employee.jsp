@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
  <%@include file = "/WEB-INF/views/grp_org/grp_org_header.jsp" %>
 
 <body class="is-preload">
@@ -66,7 +67,7 @@
 									<td class="td-5">승인</td>
 									<td class="td-10">비고</td>
 								</tr>
-								<c:if test="${list == null }">	
+								<c:if test="${count == null }">	
 									<tr>
 										<td colspan="15" class="center font14 weight700">등록된 직원이 없습니다.</td>
 									</tr>
@@ -76,7 +77,7 @@
 								
 								<tr class="center font14">
 									<td>
-										<input type="checkbox" name="chk" class="chk" data-uid="${emp.empID }"/>
+										<input type="checkbox" name="chk" class="chk" data-uid="${emp.empId }"/>
 									</td>
 									<td>${ (count - status.index) - ( (curPage -1) * end )}</td>
 									<td>${emp.empTeamCode }</td>
@@ -90,7 +91,7 @@
 									</td>
 									<td>${emp.empPwd }</td>
 									<td>
-										<select name="" onchange="authChange(this.value, '${emp.empID }')" id="" style="width: 75px">
+										<select name="" onchange="authChange(this.value, '${emp.empId }')" id="" style="width: 75px">
 												<option value="1" <c:if test="${emp.empAuth eq 1 }">selected</c:if> >협력업체</option>
 												<option value="2" <c:if test="${emp.empAuth eq 2 }">selected</c:if> >사원</option>
 												<option value="3" <c:if test="${emp.empAuth eq 3 }">selected</c:if> >부서장</option>
@@ -99,14 +100,14 @@
 											</select>
 									</td>
 									<td>
-										<select name="" onchange="confirmChange(this.value, '${emp.empID }');" id="" style="width: 75px">
+										<select name="" onchange="confirmChange(this.value, '${emp.empId }');" id="" style="width: 75px">
 												<option value="N" <c:if test="${emp.empConfirm eq 'N' }">selected</c:if>  >거절</option>
 												<option value="Y"  <c:if test="${emp.empConfirm eq 'Y' }">selected</c:if>  >승인</option>
 										</select>
 									</td>
 									<td>
 											<button class="s-btn-on">수정</button>
-											<button onclick="deleteOne('${emp.empID }');" class="s-btn-off">삭제</button>
+											<button onclick="deleteOne('${emp.empId }');" class="s-btn-off">삭제</button>
 									</td>
 								</tr>
 							</c:forEach>

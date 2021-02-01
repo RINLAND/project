@@ -44,11 +44,14 @@ public class OrgCtr {
 		return "grp_org/grp_org_employee";
 	}
 	
-	@RequestMapping("/grp_employee_list")
+	@RequestMapping(value="/grp_employee_list", method = RequestMethod.GET)
 	public ModelAndView getEmployeeList(
 			@RequestParam(defaultValue = "") String words, 
 			@RequestParam(defaultValue = "emp_name") String searchOpt,
-			@RequestParam(defaultValue = "1") int curPage) {
+			@RequestParam(defaultValue = "1") int curPage
+			) 
+	
+	{
 		
 		int count = eSrv.getEmpCount(searchOpt, words);
 		
@@ -59,8 +62,9 @@ public class OrgCtr {
 		
 		List<EmpVO> list = eSrv.getEmpListAll(start, end, words, searchOpt);
 		
+		
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", list);
+		mav.addObject("list", eSrv.getEmpListAll(start, end, words, searchOpt));
 		mav.addObject("count", count);
 		mav.addObject("searchOpt", searchOpt);
 		mav.addObject("words", words);

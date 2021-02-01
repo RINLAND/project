@@ -80,7 +80,7 @@
 <!--여러개면 파라미터 타입이 map이나 get,set  -->
 	<select id="getEmpNeedOne" parameterType="String" resultType="com.setup.test2.Model.EmpVO">
 		SELECT
-		emp_id AS empID,
+		emp_id AS empId,
 		emp_team AS empTeamCode,
 		T.team_name AS empTeamName,
 		emp_grade AS empGradeCode,
@@ -96,7 +96,7 @@
 	
 	<select id="getEmployeeNeedOne" parameterType="com.setup.test2.Model.EmpVO" resultType="com.setup.test2.Model.EmpVO">
 		SELECT
-			emp_id as empID,
+			emp_id as empId,
 			emp_team as empTeamCode,
 			emp_grade as empGradeCode,
 			emp_num as empNum,
