@@ -108,13 +108,13 @@ public class BoardCtr {
 		return list;
 	}
 	
-	@RequestMapping(value="grp_teamboard_modify", method = RequestMethod.GET)
+	/*@RequestMapping(value="grp_teamboard_modify", method = RequestMethod.GET)
 	public ModelAndView getBoardModify(@ModelAttribute BoardVO bv) {
 		BoardVO bvo = bSrv.getBoardSelectOne(bv);
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("modifyBoard", bvo);
-		mav.addObject("boardCode", bvo.getBoardCode());
+		mav.addObject("boardCode", bv.getBoardCode());
 		mav.addObject("boardTitle", bvo.getBoardTitle());
 		mav.addObject("boardColor", bvo.getBoardColor());
 		mav.addObject("boardType", bvo.getBoardType());
@@ -134,10 +134,10 @@ public class BoardCtr {
 	
 	
 	
-	/*@RequestMapping(value="/grp_teamboard_modify") 
-=======
+	@RequestMapping(value="/grp_teamboard_modify") 
+
 	@RequestMapping(value="/grp_teamboard_modify" , method = RequestMethod.POST) 
->>>>>>> 01d179a42458d6f32f71715ef501956fbf746bf5
+
 	public ModelAndView setBoardModify(@ModelAttribute BoardVO bv) {
 		BoardVO bvo = bSrv.getBoardSelectOne(bv);
 		ModelAndView mav = new ModelAndView();
@@ -159,7 +159,7 @@ public class BoardCtr {
 		bSrv.setBoardModify(bv);
 		return mav;
 		
-	} */
+	} 
 	
 	@RequestMapping(value="/grp_teamboard_modify", method = RequestMethod.POST)
 	 @ResponseBody 
@@ -168,7 +168,7 @@ public class BoardCtr {
 		
 	  ModelAndView mav = new ModelAndView();
 	  mav.addObject("modifyBoard", bvo);
-	  mav.addObject("boardCode", bvo.getBoardCode());
+	  mav.addObject("boardCode", bv.getBoardCode());
 		mav.addObject("boardTitle", bvo.getBoardTitle());
 		mav.addObject("boardColor", bvo.getBoardColor());
 		mav.addObject("boardType", bvo.getBoardType());
@@ -185,7 +185,7 @@ public class BoardCtr {
 		
 		return mav;
 	  
-	}
+	}*/
 	
 	
 	
