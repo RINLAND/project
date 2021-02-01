@@ -51,6 +51,11 @@
 
 
 		}
+		
+		.fontwhite{
+		color:white;
+		}
+		
 	</style>
 
 
