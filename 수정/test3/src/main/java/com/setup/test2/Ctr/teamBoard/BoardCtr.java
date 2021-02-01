@@ -135,7 +135,6 @@ public class BoardCtr {
 	
 	
 	
-<<<<<<< HEAD
 	/*@RequestMapping(value="/grp_teamboard_modify") 
 =======
 	@RequestMapping(value="/grp_teamboard_modify" , method = RequestMethod.POST) 
