@@ -125,23 +125,22 @@ public class BoardCtr {
 		mav.addObject("boardWrite", bvo.getBoardWrite());
 		mav.addObject("boardReference", bvo.getBoardReference());
 		mav.addObject("boardRegdate", bvo.getBoardRegdate());
-		mav.addObject("boardID", bv.getBoardID());
+		mav.addObject("boardID", bvo.getBoardID());
 		
 		mav.setViewName("grp_teamboard/grp_teamboard_modify");
-		bSrv.setBoardModify(bv);
+	
 		return mav;
 		
 	}
 	
 	
 	
-	@RequestMapping(value="/grp_teamboard_modify") 
+	/*@RequestMapping(value="/grp_teamboard_modify") 
 	public ModelAndView setBoardModify(@ModelAttribute BoardVO bv) {
 		BoardVO bvo = bSrv.getBoardSelectOne(bv);
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("modifyBoard", bvo);
-		mav.addObject("boardCode", bvo.getBoardCode());
 		mav.addObject("boardTitle", bvo.getBoardTitle());
 		mav.addObject("boardColor", bvo.getBoardColor());
 		mav.addObject("boardType", bvo.getBoardType());
@@ -158,7 +157,16 @@ public class BoardCtr {
 		bSrv.setBoardModify(bv);
 		return mav;
 		
-	} 
+	} */
+	
+	@RequestMapping(value="/grp_teamboard_modify", method = RequestMethod.POST)
+	 @ResponseBody 
+	  public String setModify(@ModelAttribute BoardVO bvo) { 
+	  bSrv.setBoardModify(bvo); 
+	 
+	  return "success"; 
+	  
+	}
 	
 	
 	

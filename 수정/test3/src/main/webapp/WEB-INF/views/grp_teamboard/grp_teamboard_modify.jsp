@@ -283,8 +283,7 @@ $(function(){
 				success : function(resData){
 					if(resData == "success"){
 						alert("수정이 완료되었습니다.");
-						location.href="${pageContext.request.contextPath }/board/grp_teamboard";
-
+						window.location.reload();
 					}
 				},
 				error : function(){
