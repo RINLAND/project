@@ -1,72 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="notice">
-	<insert id= "setBoard" parameterType="com.setup.test2.Model.Notice.NoticeBoardVO">
-		INSERT INTO grp_noticeboard SET 
-			boardTeam      = #{boardTeam},
-			boardCode     = #{boardCode},
-			boardColor    = #{boardColor},
-			boardMaker    = #{boardMaker},
-			boardTitle    = #{boardTitle},
-			boardType     = #{boardType},
-			boardRead     = #{boardRead},
-			boardWrite    = #{boardWrite},
-			boardReply    = #{boardReply},
-			boardDown 	  = #{boardDown}, 
-			boardDetail		=#{boardDetail},
-			boardReference  =#{boardReference},
-			boardRegdate  = now()
-			
+<mapper namespace="grp_notice">
+	  <select id="selectBoard1List" resultType="com.setup.test2.Model.Notice.NoticeBoardVO" >
+        SELECT BRDNO, BRDTITLE, BRDWRITER, DATE_FORMAT(BRDDATE,'%Y-%m-%d') BRDDATE
+          FROM grp_grp_notice
+         ORDER BY BRDNO DESC 
+    </select> 
+    
+    <insert id="insertBoard1" parameterType="com.setup.test2.Model.Notice.NoticeBoardVO" >
+    	INSERT INTO grp_grp_notice(BRDTITLE, BRDWRITER, BRDMEMO, BRDDATE)
+		VALUES (#{brdtitle}, #{brdwriter}, #{brdmemo}, NOW() )
 	</insert>
 	
-	<insert id="createArticleTbl">
-		${str}
-	</insert>
+    <update id="updateBoard1" parameterType="com.setup.test2.Model.Notice.NoticeBoardVO">
+        UPDATE grp_grp_notice
+           SET BRDTITLE=#{brdtitle}
+             , BRDWRITER=#{brdwriter}
+             , BRDMEMO=#{brdmemo}
+         WHERE BRDNO=#{brdno}
+    </update> 
+		
+    <select id="selectBoard1One" parameterType="String" resultType="com.setup.test2.Model.Notice.NoticeBoardVO">
+        SELECT BRDNO, BRDTITLE, BRDWRITER, BRDMEMO, DATE_FORMAT(BRDDATE,'%Y-%m-%d') BRDDATE
+          FROM grp_grp_notice
+         WHERE BRDNO=#{brdno}
+    </select> 
 
-	<insert id="createCommentTbl">
-		${str}
+    <delete id="deleteBoard1One" parameterType="String">
+        DELETE 
+          FROM grp_grp_notice
+         WHERE BRDNO=#{brdno}
+    </delete> 
+    
+    <select id="selectBoard2Count" resultType="Integer" >
+        SELECT COUNT(*)
+          FROM grp_notice
+         WHERE BRDDELETEFLAG='N'
+    </select> 
+    
+    <select id="selectBoard2List" resultType="com.setup.test2.Model.Notice.NoticeBoardVO" parameterType="com.setup.test2.Model.Notice.PageVO">
+        SELECT BRDNO, BRDTITLE, BRDWRITER, DATE_FORMAT(BRDDATE,'%Y-%m-%d') BRDDATE, BRDHIT
+          FROM grp_notice
+         WHERE BRDDELETEFLAG='N'
+         ORDER BY BRDNO DESC 
+         LIMIT ${rowStart-1}, 10
+    </select> 
+    
+    <insert id="insertBoard2" parameterType="com.setup.test2.Model.Notice.NoticeBoardVO" >
+    	INSERT INTO grp_notice(BRDTITLE, BRDWRITER, BRDMEMO, BRDDATE, BRDHIT, BRDDELETEFLAG)
+		VALUES (#{brdtitle}, #{brdwriter}, #{brdmemo}, NOW(), 0, 'N' )
 	</insert>
 	
-	
-	<select id= "getBoardList" resultType="com.setup.test2.Model.Notice.NoticeBoardVO">
-		SELECT * FROM grp_noticeboard A, grp_team B WHERE A.boardTeam = B.team_id ORDER BY boardID DESC LIMIT #{start}, #{end}
-	</select>
+    <update id="updateBoard2" parameterType="com.setup.test2.Model.Notice.NoticeBoardVO">
+        UPDATE grp_notice
+           SET BRDTITLE=#{brdtitle}
+             , BRDWRITER=#{brdwriter}
+             , BRDMEMO=#{brdmemo} 
+         WHERE BRDDELETEFLAG='N'
+           AND BRDNO=#{brdno}
+    </update> 
+		
+    <select id="selectBoard2One" parameterType="String" resultType="com.setup.test2.Model.Notice.NoticeBoardVO">
+        SELECT BRDNO, BRDTITLE, BRDWRITER, BRDMEMO, DATE_FORMAT(BRDDATE,'%Y-%m-%d') BRDDATE
+          FROM grp_notice
+         WHERE BRDDELETEFLAG='N'
+           AND BRDNO=#{brdno}
+    </select> 
 
-	
-	<delete id="setBoardDel" parameterType="String">
-		DELETE FROM grp_noticeboard WHERE boardCode = #{boardCode}
-	</delete>
-	
-	<insert id="dropArticleTbl">
-		${str}
-	</insert>
+    <update id="updateBoard2Read" parameterType="String">
+        UPDATE grp_notice
+           SET BRDHIT = BRDHIT + 1 
+         WHERE BRDNO=#{brdno}
+    </update> 
 
-	<insert id="dropCommentTbl">
-		${str}
-	</insert>
-	
-	
-	<select id= "getBoardCount"  resultType="int">
-		SELECT COUNT(boardID) FROM grp_noticeboard
-	</select>
-	
-	<update id="setBoardModify" parameterType="com.setup.test2.Model.Notice.NoticeBoardVO">
-		UPDATE grp_noticeboard SET 
-		 boardCode = #{boardCode}, 
-		 boardColor = #{boardColor}, 
-		 boardTitle = #{boardTitle}, 
-		 boardType = #{boardType}, 
-		 boardRead = #{boardRead}, 
-		 boardDownload = #{boardDownload},
-		 boardDetail	=#{boardDetail},
-		 boardReference  =#{boardReference}, 
-		 WHERE boardID = ${boardID}
-		 
-	
-	</update>
-	
-	<select id="getPostList" resultType="com.setup.test2.Model.PostVO">
-		SELECT * FROM grp_post ORDER BY post_id
-	</select>
+    <delete id="deleteBoard2One" parameterType="String">
+        UPDATE grp_notice
+           SET BRDDELETEFLAG='Y' 
+         WHERE BRDNO=#{brdno}
+    </delete> 
 	
 </mapper>

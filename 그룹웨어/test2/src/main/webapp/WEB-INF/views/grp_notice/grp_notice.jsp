@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-	 <%@include file = "/WEB-INF/views/grp_notice/grp_notice_header.jsp" %>
+	 <%@include file = "/WEB-INF/views/grp_teamboard/grp_teamboard_header.jsp" %>
 	
 <body class="is-preload">
 
@@ -15,7 +15,7 @@
 				<!-- Header -->
 					<%@include file = "/WEB-INF/views/grp_admin/grp_admin_auth.jsp" %>
 
-								<!-- Content -->
+					<!-- Content -->
 				
 					<header class="main" style="margin: 10px;">
 						<h2>공지사항</h2>
@@ -23,81 +23,77 @@
 
 					<div class="main">
 						<div class="main-top">
-							<h4 class="m-b20">공지사항 목록</h4>
 							<div class="search-wrap flex flex-justify  m-b5 bg-white">
 								<div class="">
-									<span class="btn-count">전체게시물 수 123 / PAGE</span>
+									<span class="btn-count">전체게시물 수 ${count } 개</span>
 								</div>
-								<div class="flex flex-justify"  >
-									<form method="post " class="" action="grp_board_list.html"></form>
-										
-										<select class="" >
-											<option value="">게시물제목</option>
-											<option value="">작성자</option>
-											<option value="">작성자+제목</option>
-										</select>
-									
-										<input type="text" name="words" required style="margin-left:-2px" />
-									
-										<button type="submit" class="btn-off" style="margin-left:-2px">검색</button>
-										<button type="button" class="btn-on"
-											onClick="location.href='grp_board_insert.html'">작성</button>
-									</form>
-								</div>
+								<button type="button" class="btn-on" onclick="location.href='${pageContext.request.contextPath }/notice/write'">글작성</button>
 							</div>
 							
 
 						</div>
-
-						<div class="board-wrap bg-white">
-							<table style="table-layout: fixed;">
-								<tr class="weight700 center tr-color f6 font14 ">
-									<td class="td-3">
-										<!-- td-width설정안한곳에 남은 %가 다 지정됨 -->
-										<input type="checkbox" />
-									</td>
+						 <div class="title">
+                		<h3 class="tomato font18 noto m-t10">
+                    		공지사항
+                		</h3>
+            		</div>	
+						<div class="board-list">
+							<table>
+								<tr class="center white f6 weight700 font14 fontwhite" style="background-color:#6200EA" >
+									<td class="td-5">
+                                        <input type="checkbox" onClick="chkAll();"/>
+                                    </td>
 									<td class="td-5">번호</td>
-									<td class="td-5 ">분류</td>
-									<td class="td-5 ">부서</td>
-									<td>공지사항 제목</td>
-									<td class="td-5">작성자</td>
-									<td class="td-5">조회</td>
+									<td class="td-40">게시글 제목</td>
+									<td class="td-10">작성자</td>
 									<td class="td-8">게시일</td>
+									<td class="td-5">조회</td>
 									<td class="td-10">관리</td>
 								</tr>
-								<tr class="center font14">
+				<c:forEach var="listview" items="${listview}" varStatus="status">	
+				<c:url var="link" value="board2Read">
+					<c:param name="brdno" value="${listview.brdno}" />
+				</c:url>	
+						<tr class="center font14">
+						<td>
+                            <input type="checkbox"  name="chk" class="chk" data-uid="${artList.aid}" data-code="${boardCode}" />
+                        </td>
 									<td>
-										<input type="checkbox" />
-									</td>
-									<td>1</td>
-									<td>공지사항</td>
-									<td class>관리부</td>
-									<td class="left p-lr10" onclick="location.href='grp_notice_view.html'">
-										공지사항 등록 테스트입니다.
-									</td>
-									<td>관리자</td>
-									<td>12</td>
-									<td>2020.09.09</td>
+						<c:out value="${pageVO.totRow-((pageVO.page-1)*pageVO.displayRowCount + status.index)}"/>					
+					</td>
+					<td><a href="${link}"><c:out value="${listview.brdtitle}"/></a></td>
+					<td><c:out value="${listview.brdwriter}"/></td>
+					<td><c:out value="${listview.brddate}"/></td>
+					<td><c:out value="${listview.brdhit}"/></td>
+									
 									<td>
 										<!-- input이면 type=submit -->
-										<button type="button" class="s-btn-on" onclick="location.href='grp_notice_update.html?id=10'">수정</button>
-										<button type="button" class="s-btn-off">삭제</button>
+			
+										<button type="button" class="s-btn-on" onclick="location.href='modify?brdno=<c:out value="${listview.brdno}"/>'">수정</button>
+										<button type="button" class="s-btn-off" onclick="location.href='delete?brdno=<c:out value="${listview.brdno}"/>'">삭제</button>
 									</td>
 								</tr>
-							
+							</c:forEach>
 							</table>
 						</div>
-						<div class="page-grp center m-t10">
-							<span class="page "><a href=""><i class="fas fa-angle-double-left"></i></a></span>
-							<span class="page"><a href=""><i class="fas fa-angle-left"></i></a></span>
-							<span class="page page-active"><a href="" class="f6">1</a></span>
-							<span class="page"><a href="">2</a></span>
-							<span class="page"><a href="">3</a></span>
-							<span class="page"><a href="">4</a></span>
-							<span class="page"><a href="">5</a></span>
-							<span class="page"><a href=""><i class="fas fa-angle-right"></i></a></span>
-							<span class="page"><a href=""><i class="fas fa-angle-double-right"></i></a></span>
-						</div>
+						<c:if test="${pageVO.totPage>1}">
+		<div class="paging center">
+			<c:forEach var="i" begin="${pageVO.pageStart}" end="${pageVO.pageEnd}" step="1">
+				<c:url var="pageLink" value="List">
+					<c:param name="page" value="${i}" />
+				</c:url>						
+	            <c:choose>
+	                <c:when test="${i eq pageVO.page}">
+	                	<c:out value="${i}"/>
+	                </c:when>
+	                <c:otherwise>
+	                	<a href="${pageLink}"><c:out value="${i}"/></a>
+	                </c:otherwise>
+	            </c:choose>
+	        </c:forEach>
+		</div>
+		<br/>
+	</c:if>		  
 						<div class="clearfix"></div>
 					</div>
 

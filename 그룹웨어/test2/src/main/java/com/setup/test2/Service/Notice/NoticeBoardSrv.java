@@ -2,59 +2,47 @@ package com.setup.test2.Service.Notice;
 
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.setup.test2.Model.PostVO;
 import com.setup.test2.Model.Notice.NoticeBoardVO;
-import com.setup.test2.Repository.Notice.NoticeBoardDao;
+import com.setup.test2.Model.Notice.PageVO;
 
 @Service
 public class NoticeBoardSrv {
 	@Autowired
-	NoticeBoardDao nDao;
-	
-	public void setBoard(NoticeBoardVO nvo) {
-		nDao.setBoard(nvo);
-	}
-	
-	public List<NoticeBoardVO> getBoardList(int start, int end) {
-		return nDao.getBoardList(start, end);
+	private SqlSessionTemplate sqlSession;	
 		
-	}
-	
-	public void createArticleTbl(String boardCode) {
-		nDao.createArticleTbl(boardCode);
-	}
-
-	
-	public void createCommentTbl(String boardCode) {
-		nDao.createCommentTbl(boardCode);
-	}
-	
-	
-	public void setBoardDel(String boardCode) {
-		nDao.setBoardDel(boardCode);
-	}
-	
-	public void dropArticleTbl(String boardCode) {
-		nDao.dropArticleTbl(boardCode);
-	}
-
-	
-	public void dropCommentTbl(String boardCode) {
-		nDao.dropCommentTbl(boardCode);
-	}
-	
-	public void setBoardModify(NoticeBoardVO nvo) {
-		nDao.setBoardModify(nvo);
-	}
-	
-	public int getBoardCount() {
-		return nDao.getBoardCount();
-	}
-	
-	public List<PostVO> getPostList() {
-		return nDao.getPostList();
-	}
+    public List<?> selectBoardList() throws Exception {
+		return sqlSession.selectList("notice.selectBoard1List");
+    }
+    
+    
+    public Integer selectBoardCount() throws Exception {
+  		return sqlSession.selectOne("selectBoard2Count");
+      }
+      public List<?> selectBoardList(PageVO param) throws Exception {
+  		return sqlSession.selectList("selectBoard2List", param);
+      }
+      
+      public void insertBoard(NoticeBoardVO nvo) throws Exception {
+  		sqlSession.insert("insertBoard2", nvo);
+      }
+      public void updateBoard(NoticeBoardVO nvo) throws Exception {
+  		sqlSession.insert("updateBoard2", nvo);
+      }
+   
+      public NoticeBoardVO selectBoardOne(String param) throws Exception {
+  		return sqlSession.selectOne("selectBoard2One", param);
+      }
+      
+      public void updateBoard2Read(String param) throws Exception {
+  		sqlSession.insert("updateBoard2Read", param);
+      }
+      
+      public void deleteBoardOne(String param) throws Exception {
+  		sqlSession.delete("deleteBoard2One", param);
+      }
+    
 }
