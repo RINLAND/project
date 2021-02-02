@@ -27,15 +27,16 @@ public class EmpDaoImpl implements EmpDao {
 	public void setEmpDeleteAll(int empId) {
 		 sqlSession.delete("employee.setEmpDeleteAll", empId);
 	}
+	
+	
 
 	@Override
 	public List<EmpVO> getEmpListAll(int start, int end, String words, String searchOpt) {
-		HashMap<String,Object> map =new HashMap<String, Object>();
+		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("start", start);
 		map.put("end", end);
 		map.put("words", words);
 		map.put("searchOpt", searchOpt);
-	
 		return sqlSession.selectList("employee.getEmpListAll", map);
 	}
 
@@ -91,5 +92,13 @@ public class EmpDaoImpl implements EmpDao {
 	public EmpVO getEmployeeNeedOne(EmpVO evo) {
 		return sqlSession.selectOne("employee.getEmployeeNeedOne", evo);
 	}
+
+	/*@Override
+	public List<EmpVO> selectAllempList() {
+		List<HashMap<String, String>> selectAllempList = null;
+		selectAllempList = sqlSession.selectList("employee.selectAllempList")
+		
+		return null;
+	} */
 
 }

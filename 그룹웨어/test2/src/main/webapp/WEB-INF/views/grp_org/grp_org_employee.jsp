@@ -41,7 +41,7 @@
 										</select>
 										<input value="${words}" type="text" name="words" required style="margin-left: -2px" />
 										<button type="submit" class="cbtn-off" style="margin-left: -2px">검색</button>
-										<button type="button" class="cbtn-on" onClick="location.href='${pageContext.request.contextPath }/Organization/grp_employee_register'">등록</button>
+										<button type="button" class="cbtn-on" onClick="location.href='${pageContext.request.contextPath }/Organization/grp_emp_others'">등록</button>
 										
 									</form>
 								</div>

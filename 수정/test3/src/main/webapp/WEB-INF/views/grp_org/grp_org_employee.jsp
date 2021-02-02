@@ -40,7 +40,7 @@
 										</select>
 										<input value="${words}" type="text" name="words" required style="margin-left: -2px" />
 										<button type="submit" class="cbtn-off" style="margin-left: -2px">검색</button>
-										<button type="button" class="cbtn-on" onClick="location.href='${pageContext.request.contextPath }/Organization/grp_employee_register'">등록</button>
+										<button type="button" class="cbtn-on" onClick="location.href='${pageContext.request.contextPath }/Organization/grp_emp_others'">등록</button>
 										
 									</form>
 								</div>
@@ -72,11 +72,11 @@
 									</tr>
 								</c:if>
 								
-								<c:forEach items="${list }" var="emp" varStatus="status">
+								<c:forEach items="${list }" var="emp" >
 								
 								<tr class="center font14">
 									<td>
-										<input type="checkbox" name="chk" class="chk" data-uid="${emp.empID }"/>
+										<input type="checkbox" name="chk" class="chk" data-uid="${emp.empId }"/>
 									</td>
 									<td>${ (count - status.index) - ( (curPage -1) * end )}</td>
 									<td>${emp.empTeamCode }</td>
@@ -84,13 +84,13 @@
 									<td> 
 										<a href="#"><u><strong> ${emp.empNum }</strong></u></a>
 									</td>
-									<td>${emp.empRegdate }</td>
+									<td>${emp.empDate }</td>
 									<td>
 										<a href="#"><u><strong>${emp.empName }</strong></u></a>
 									</td>
 									<td>${emp.empPwd }</td>
 									<td>
-										<select name="" onchange="authChange(this.value, '${emp.empID }')" id="" style="width: 75px">
+										<select name="" onchange="authChange(this.value, '${emp.empId }')" id="" style="width: 75px">
 												<option value="1" <c:if test="${emp.empAuth eq 1 }">selected</c:if> >협력업체</option>
 												<option value="2" <c:if test="${emp.empAuth eq 2 }">selected</c:if> >사원</option>
 												<option value="3" <c:if test="${emp.empAuth eq 3 }">selected</c:if> >부서장</option>
@@ -99,87 +99,19 @@
 											</select>
 									</td>
 									<td>
-										<select name="" onchange="confirmChange(this.value, '${emp.empID }');" id="" style="width: 75px">
+										<select name="" onchange="confirmChange(this.value, '${emp.empId }');" id="" style="width: 75px">
 												<option value="N" <c:if test="${emp.empConfirm eq 'N' }">selected</c:if>  >거절</option>
 												<option value="Y"  <c:if test="${emp.empConfirm eq 'Y' }">selected</c:if>  >승인</option>
 										</select>
 									</td>
 									<td>
 											<button class="s-btn-on">수정</button>
-											<button onclick="deleteOne('${emp.empID }');" class="s-btn-off">삭제</button>
+											<button onclick="deleteOne('${emp.empId }');" class="s-btn-off">삭제</button>
 									</td>
 								</tr>
 							</c:forEach>
 							</table>
-	<!----------------------------------페이징 ui 시작--------------------------------------------------------->
-								<c:if test = "${count > 0 }">
-									<div class="page-grp center m-t10">
-									<!--맨앞으로  -->
-									<c:choose>
-										<c:when test="${curPage > 1 }">
-											<span class="page ">
-											<a href="${pageContext.request.contextPath }/Organization/grp_employee_list?curPage=1&searchOpt=${searchOpt}&words=${words}">
-											<i class="fas fa-angle-double-left"></i></a>
-											</span> 
-										</c:when>
-										<c:otherwise>
-											<span class="page "><i class="fas fa-angle-double-left"></i></span> 
-										</c:otherwise>
-									</c:choose>
-									<!--한칸 앞으로  -->
-									<c:choose>
-										<c:when test="${curPage > 1 }">
-											
-											<a href="${pageContext.request.contextPath }/Organization/grp_employee_list?curPage=${curPage-1 }&searchOpt=${searchOpt}&words=${words}">
-											<span class="page "><i class="fas fa-angle-left"></i></a>
-											</span> 
-										</c:when>
-										<c:otherwise>
-											<span class="page "><i class="fas fa-angle-left"></i></span> 
-										</c:otherwise>
-									</c:choose>
-										
-					<!----------------페이지 번호 출력---------------->
-									<c:forEach begin="${blockBegin }" end="${blockEnd }" var="num"> <!--시작, 끝, 변수명  -->
-										<c:if test="${selected == num }">
-											<span class="page page-active"><a href="#" class="f6">${num }</a></span> 
-										</c:if>
-										<c:if test="${selected != num }">
-											<a href="${pageContext.request.contextPath }/Organization/grp_employee_list?curPage=${num }&searchOpt=${searchOpt}&words=${words}">
-												<span class="page">${num }</a></span> 
-										</c:if>
-									</c:forEach>
-					<!-------------------페이지 번호 출력 끝----------->
-									
-					<!---------------한칸 뒤로------------------------>
-									<c:choose>
-										<c:when test="${curPage != totalPage }">
-											
-											<a href="${pageContext.request.contextPath }/Organization/grp_employee_list?curPage=${curPage+1 }&searchOpt=${searchOpt}&words=${words}">
-											<span class="page "><i class="fas fa-angle-right"></i></a>
-											</span> 
-										</c:when>
-										<c:otherwise>
-											<span class="page "><i class="fas fa-angle-right"></i></span> 
-										</c:otherwise>
-									</c:choose>
-									
-					<!---------------맨 뒤로------------------------------>
-										<c:choose>
-										<c:when test="${curPage != totalPage }">
-											
-											<a href="${pageContext.request.contextPath }/Organization/grp_employee_list?curPage=${totalPage}&searchOpt=${searchOpt}&words=${words}">
-											<span class="page "><i class="fas fa-angle-double-right"></i></a>
-											</span> 
-										</c:when>
-										<c:otherwise>
-											<span class="page "><i class="fas fa-angle-double-right"></i></span> 
-										</c:otherwise>
-									</c:choose>
-										
-									</div>
-								</c:if>
-<!-----------------------------페이징 ui 끝-------------------------------------------------------->
+	
 							</div>
 						<div class="clearfix"></div>
 				</div>

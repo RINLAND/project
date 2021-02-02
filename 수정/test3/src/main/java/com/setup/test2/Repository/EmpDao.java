@@ -18,6 +18,8 @@ public interface EmpDao {
 	
 	public List<EmpVO> getEmpListAll(int start, int end, String words, String searchOpt);
 	
+	//public List<EmpVO> selectAllempList();
+	
 	public int getEmpCount(String searchOpt, String words);
 	
 	public EmpVO getEmpNeedOne(String sessionNum);

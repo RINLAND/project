@@ -25,7 +25,7 @@
 
 	</insert>
 	
-	<insert id = "setRegisterOthersOne" parameterType="com.setup.test2.Model.EmpVO">
+	<insert id = "setEmpRegOthers" parameterType="com.setup.test2.Model.EmpVO">
 		INSERT INTO grp_emp_others SET 
 			emp_gender 		= #{empGender},
 			emp_birth 		= #{empBirth}, 
@@ -55,7 +55,7 @@
 			emp_award3		= #{empAward3},
 			emp_award4		= #{empAward4},
 			emp_award5		= #{empAward5},
-			emp_num			= #{empNum}.
+			emp_num			= #{empNum},
 			emp_comment		= #{empComment}
 	</insert>
 	

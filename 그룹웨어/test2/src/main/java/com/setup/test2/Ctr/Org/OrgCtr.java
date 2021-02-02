@@ -146,19 +146,22 @@ public class OrgCtr {
 			return "success";
 		}
 
-	
-	
-
-	
-	
-	
-	
-
-	
-	
 	@RequestMapping(value="/grp_orgchart", method = RequestMethod.GET)
 	public String grpMemberChart() {
 		return "grp_org/grp_orgchart";
+	}
+	
+	//직원상세 등록
+	@RequestMapping(value="/grp_emp_others", method = RequestMethod.GET)
+	public String setEmpRegOthers() {
+		return "grp_org/grp_orgemp_register";
+	}
+	
+	
+	@RequestMapping(value="/grp_emp_others", method = RequestMethod.POST)
+	public String setEmpRegOthers(EmpVO evo) {
+		eSrv.setEmpRegOthers(evo);
+		return "grp_org/grp_org_employee";
 	}
 }
 	

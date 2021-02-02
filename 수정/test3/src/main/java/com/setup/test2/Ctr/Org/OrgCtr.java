@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,7 +44,7 @@ public class OrgCtr {
 	}
 	
 	@RequestMapping("/grp_employee_list")
-	public ModelAndView getEmployeeList(
+	public ModelAndView getEmpListAll(
 			@RequestParam(defaultValue = "") String words, 
 			@RequestParam(defaultValue = "emp_name") String searchOpt,
 			@RequestParam(defaultValue = "1") int curPage) {
@@ -143,18 +142,23 @@ public class OrgCtr {
 		}
 
 	
-	
 
-	
-	
-	
-	
-
-	
-	
 	@RequestMapping(value="/grp_orgchart", method = RequestMethod.GET)
 	public String grpMemberChart() {
 		return "grp_org/grp_orgchart";
 	}
+	
+	@RequestMapping(value="/grp_emp_others", method = RequestMethod.GET)
+	public String setEmpRegOthers() {
+		return "grp_org/grp_orgemp_register";
+	}
+	
+	
+	@RequestMapping(value="/grp_emp_others", method = RequestMethod.POST)
+	public String setEmpRegOthers(EmpVO evo) {
+		eSrv.setEmpRegOthers(evo);
+		return "redirect:/";
+	}
+	
 }
 	
