@@ -69,7 +69,7 @@
 								</tr>
 								<c:if test="${list == null }">	
 									<tr>
-										<td colspan="15" class="center font14 weight700">등록된 직원이 없습니다.</td>
+										<td colspan="11" class="center font14 weight700">등록된 직원이 없습니다.</td>
 									</tr>
 								</c:if>
 								
@@ -83,11 +83,11 @@
 									<td>${emp.empTeamCode }</td>
 									<td >${emp.empGradeCode }</td>
 									<td> 
-										<a href="#"><u><strong> ${emp.empNum }</strong></u></a>
+										<u><strong> ${emp.empNum }</strong></u>
 									</td>
-									<td>${emp.empDate }</td>
+									<td>${emp.empDate}</td>
 									<td>
-										<a href="#"><u><strong>${emp.empName }</strong></u></a>
+										<u><strong>${emp.empName }</strong></u></a>
 									</td>
 									<td>${emp.empPwd }</td>
 									<td>
