@@ -24,6 +24,8 @@ public class NoticeBoardCtr {
 	    // 리스트
 	    @RequestMapping(value = "/List")
 	   	public String boardList(PageVO pageVO, ModelMap modelMap) throws Exception {
+			
+	    	//카운트넣기
 
 	    	pageVO.pageCalculate( boardSvc.selectBoardCount() ); // startRow, endRow
 

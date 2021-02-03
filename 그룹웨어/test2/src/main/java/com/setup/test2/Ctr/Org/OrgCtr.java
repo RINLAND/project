@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.UUID;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,12 +43,11 @@ public class OrgCtr {
 		return "grp_org/grp_org_employee";
 	}
 	
-	@RequestMapping(value="/grp_employee_list", method = RequestMethod.GET)
+	@RequestMapping(value="/grp_employee_list")
 	public ModelAndView getEmployeeList(
 			@RequestParam(defaultValue = "") String words, 
 			@RequestParam(defaultValue = "emp_name") String searchOpt,
-			@RequestParam(defaultValue = "1") int curPage
-			) 
+			@RequestParam(defaultValue = "1") int curPage ) 
 	
 	{
 		
@@ -64,7 +62,7 @@ public class OrgCtr {
 		
 		
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("list", eSrv.getEmpListAll(start, end, words, searchOpt));
+		mav.addObject("list", list);
 		mav.addObject("count", count);
 		mav.addObject("searchOpt", searchOpt);
 		mav.addObject("words", words);

@@ -41,7 +41,7 @@ public class EmpDaoImpl implements EmpDao {
 
 	@Override
 	public int getEmpCount(String searchOpt, String words) {
-		Map<String,Object> map =new HashMap<String, Object>();
+		Map<String, String> map =new HashMap<String, String>();
 		
 		map.put("searchOpt", searchOpt);
 		map.put("words", words);
