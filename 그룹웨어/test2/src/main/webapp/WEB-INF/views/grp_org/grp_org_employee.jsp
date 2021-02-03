@@ -106,7 +106,7 @@
 										</select>
 									</td>
 									<td>
-											<button class="s-btn-on">수정</button>
+											<button class="s-btn-on" onClick="location.href='${pageContext.request.contextPath}/Organization/grp_emp_others?empNum = ${empNum }'">수정</button>
 											<button onclick="deleteOne('${emp.empId }');" class="s-btn-off">삭제</button>
 									</td>
 								</tr>
@@ -203,13 +203,13 @@
 <!--직원 삭제  -->
 <script>
 	function deleteOne(empId){
-		alert(empId);
+		//alert(empId);
 
 		var msg = "선택하신 직원정보를 삭제하시겠습니까?";
-		if(confirm(msg)){  //확인 클릭
+		if(confirm(msg)){ 
 
 			var formData = {
-					empId : empId  //ctr 변수 : 파라미터 키
+					empId : empId 
 				};
 			
 			$.ajax({

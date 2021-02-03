@@ -129,10 +129,10 @@ public class OrgCtr {
 		@RequestMapping(value = "/grp_employee_delete_all", method = RequestMethod.POST)
 		@ResponseBody
 		public String userDeleteAll(@RequestParam(value = "chkArr[]") List<String> chkArr) {
-			int empID;
+			int empId;
 			for(String list : chkArr) {
-				empID = Integer.parseInt(list);
-				eSrv.setEmpDeleteAll(empID);
+				empId = Integer.parseInt(list);
+				eSrv.setEmpDeleteAll(empId);
 			}
 			return "success";
 		}
@@ -161,5 +161,11 @@ public class OrgCtr {
 		eSrv.setEmpRegOthers(evo);
 		return "grp_org/grp_org_employee";
 	}
+	
+	/*직원 수정(가입된 직원 상세등록)
+	@RequestMapping(value="grp_emp_modify", method = RequestMethod.GET)
+	public ModelAndView setEmpModify(EmpVO empVO) {
+		 
+	}*/
 }
 	
