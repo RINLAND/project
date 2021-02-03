@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="trainee">
+	<!--쿼리 추가 위한 -->
+	<sql id="searchData">
+		<choose>
+			<when test="words==''"></when>
+			<when test="searchOpt=='all'">
+				AND (tra_name LIKE CONCAT('%', #{words}, '%') OR
+				tra_num LIKE CONCAT('%', #{words}, '%'))
+			</when>
+			<otherwise>
+				AND ${searchOpt} = #{words}
+			</otherwise>
+		</choose>
+
+	</sql>
+
+	<select id="getTraListAll" parameterType="hashmap" resultType="com.setup.test2.Model.TraineeVO">
+		SELECT
+		trainee_id AS traID,
+		trainee_name AS traName,
+		trainee_gender AS traGender,
+		trainee_birth AS traBirth,
+		trainee_hight AS traHight,
+		trainee_weight AS traWeight, 
+		trainee_phon AS traPhon, 
+		trainee_tell AS traTell, 
+		trainee_hire AS traHire,
+		trainee_hiredate AS traHireDate, 
+		trainee_unique AS traUnique, 
+		trainee_unique_detail AS traUniqueDetail, 
+		trainee_military AS traMilitary, 
+		trainee_hobby AS traHobby,
+		trainee_speciality AS traSpeciality, 
+		trainee_manager AS traManager, 
+		trainee_rewarding AS traRewarding, 
+		trainee_structue AS traStructue, 
+		trainee_level AS traLevel, 
+		trainee_school AS traSchool, 
+		trainee_major AS traMajor, 
+		trainee_email AS traMail, 
+		trainee_address AS traAddr, 
+		trainee_home AS traHome, 
+		trainee_license1 AS traLicense1, 
+		trainee_license2 AS traLicense2, 
+		trainee_license3 AS traLicense3, 
+		trainee_languge1 AS traLang1, 
+		trainee_languge2 AS traLang2, 
+		trainee_languge3 AS traLang3, 
+		trainee_award1 AS traAward1, 
+		trainee_award2 AS traAward2, 
+		trainee_award3 AS traAward3, 
+		trainee_award4 AS traAward4, 
+		trainee_photo AS traPhoto, 
+		trainee_comment AS traComment FROM grp_trainee 
+		<include refid="searchData"></include> 
+		ORDER BY trainee_id DESC LIMIT #{start}, #{end}
+
+	</select>
+
+	<select id="getTraCount" resultType="int">
+		SELECT 
+		COUNT(trainee_id)
+		FROM 
+		grp_trainee 
+		<include refid="searchData"></include>
+
+	</select>
+
+	<delete id="setTraDeleteOne" parameterType="int">
+		DELETE FROM grp_trainee
+		WHERE trainee_id = #{traID}
+
+	</delete>
+	
+	
+
+<!--여러개면 파라미터 타입이 map이나 get,set  -->
+	<select id="getTraNeedOne" parameterType="String" resultType="com.setup.test2.Model.TraineeVO">
+		SELECT
+		trainee_id AS traID,
+		trainee_name AS traName,
+		trainee_gender AS traGender,
+		trainee_birth AS traBirth,
+		trainee_hight AS traHight,
+		trainee_weight AS traWeight, 
+		trainee_phon AS traPhon, 
+		trainee_tell AS traTell, 
+		trainee_hire AS traHire,
+		trainee_hiredate AS traHireDate, 
+		trainee_unique AS traUnique, 
+		trainee_unique_detail AS traUniqueDetail, 
+		trainee_military AS traMilitary, 
+		trainee_hobby AS traHobby,
+		trainee_speciality AS traSpeciality, 
+		trainee_manager AS traManager, 
+		trainee_rewarding AS traRewarding, 
+		trainee_structue AS traStructue, 
+		trainee_level AS traLevel, 
+		trainee_school AS traSchool, 
+		trainee_major AS traMajor, 
+		trainee_email AS traMail, 
+		trainee_address AS traAddr, 
+		trainee_home AS traHome, 
+		trainee_license1 AS traLicense1, 
+		trainee_license2 AS traLicense2, 
+		trainee_license3 AS traLicense3, 
+		trainee_languge1 AS traLang1, 
+		trainee_languge2 AS traLang2, 
+		trainee_languge3 AS traLang3, 
+		trainee_award1 AS traAward1, 
+		trainee_award2 AS traAward2, 
+		trainee_award3 AS traAward3, 
+		trainee_award4 AS traAward4, 
+		trainee_photo AS traPhoto, 
+		trainee_comment AS traComment FROM grp_trainee 
+		WHERE trainee_id = #{sessionNum}
+	</select>
+
+<insert id = "setTraRegister" parameterType="com.setup.test2.Model.EmpVO">
+		INSERT INTO grp_trainee SET 
+			trainee_name 			= #{traName},
+			trainee_gender 			= #{traGender},
+			trainee_birth 			= #{traBirth}, 
+			trainee_hight 			= #{traHight}, 
+			trainee_weight 			= #{traWeight}, 
+			trainee_phon 			= #{traPhon}, 
+			trainee_tell 			= #{traTell}, 
+			trainee_hire	 		= #{traHire}, 
+			trainee_hiredate		= #{traHireDate}, 
+			trainee_unique			= #{traUnique}, 
+			trainee_unique_detail	= #{traUniqueDetail}, 
+			trainee_military		= #{traMilitary}, 
+			trainee_hobby			= #{traHobby}, 
+			trainee_speciality		= #{traSpeciality},
+			trainee_manager			= #{traManager},
+			trainee_rewarding		= #{traRewarding},
+			trainee_structue		= #{traStructue},
+			trainee_level			= #{traLevel},
+			trainee_school 			= #{traSchool},
+			trainee_major			= #{traMajor}, 
+			trainee_email			= #{traMail}, 
+			trainee_address			= #{traAddr},
+			trainee_home			= #{traHome}, 
+			trainee_license1		= #{traLicense1},
+			trainee_license2		= #{traLicense2},
+			trainee_license2		= #{traLicense3},
+			trainee_languge1		= #{traLang1},
+			trainee_languge2		= #{traLang2},
+			trainee_languge3		= #{traLang3},
+			trainee_award1			= #{traAward1},
+			trainee_award2			= #{traAward2},
+			trainee_award3			= #{traAward3},
+			trainee_award4			= #{traAward},
+			trainee_photo			= #{traPhoto},
+			trainee_comment 		= #{traComment}
+	</insert>
+	
+	
+
+</mapper>

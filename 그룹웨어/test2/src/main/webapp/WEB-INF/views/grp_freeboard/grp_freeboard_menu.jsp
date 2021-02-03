@@ -21,7 +21,7 @@
 							<ul>
 								<li><a href="${pageContext.request.contextPath }/Organization/grp_orgchart">조직도</a></li>
 								<li><a href="${pageContext.request.contextPath }/Organization/grp_employee_list">사원목록</a></li>
-								<li><a href="${pageContext.request.contextPath }/Organization">연습생목록</a></li>
+								<li><a href="${pageContext.request.contextPath }/Trainee/grp_trainee_list">연습생목록</a></li>
 							</ul>
 						</li>
 						<li><span class="opener"><a href="">자유게시판</a></span>
