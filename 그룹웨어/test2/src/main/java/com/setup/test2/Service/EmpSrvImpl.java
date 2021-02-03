@@ -15,8 +15,8 @@ public class EmpSrvImpl implements EmpSrv {
 	EmpDao empdao;
 	
 	@Override
-	public void setEmpDeleteOne(String empNum) {
-		empdao.setEmpDeleteOne(empNum);
+	public void setEmpDeleteOne(int empId) {
+		empdao.setEmpDeleteOne(empId);
 	}
 	
 	@Override

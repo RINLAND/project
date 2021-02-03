@@ -119,9 +119,9 @@ public class OrgCtr {
 	//직원삭제
 	@RequestMapping(value = "/grp_employee_delete", method = RequestMethod.POST)
 	@ResponseBody
-	public String setEmployeeDeleteOne(@RequestParam String empNum) {
-		//System.out.println(empNum);
-		eSrv.setEmpDeleteOne(empNum);
+	public String setEmpDeleteOne(@RequestParam int empId) {
+		//System.out.println(empId);
+		eSrv.setEmpDeleteOne(empId);
 		return "success";
 	}
 	

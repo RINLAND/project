@@ -10,7 +10,7 @@ import com.setup.test2.Model.EmpVO;
 public interface EmpSrv {
 	
 	
-	public void setEmpDeleteOne(String empNum);
+	public void setEmpDeleteOne(int empId);
 	
 	public void setEmpDeleteAll(int empId);
 	

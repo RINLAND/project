@@ -200,5 +200,34 @@
 	</div>
 
 </body>
+<!--직원 삭제  -->
+<script>
+	function deleteOne(empId){
+		alert(empId);
 
+		var msg = "선택하신 직원정보를 삭제하시겠습니까?";
+		if(confirm(msg)){  //확인 클릭
+
+			var formData = {
+					empId : empId  //ctr 변수 : 파라미터 키
+				};
+			
+			$.ajax({
+				url : "${pageContext.request.contextPath }/Organization/grp_employee_delete",
+				type : "post",
+				data : formData,
+				success : function(resData){
+					if(resData == "success"){
+						alert("삭제되었습니다.");
+						window.location.reload();
+					}
+				},
+				error : function(){
+					alert("삭제 시스템 에러");
+			},
+				complete : function(){}
+		});
+	}
+}
+</script>
 </html>
