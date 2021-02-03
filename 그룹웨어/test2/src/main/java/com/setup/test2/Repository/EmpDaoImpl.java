@@ -19,8 +19,8 @@ public class EmpDaoImpl implements EmpDao {
 	SqlSession sqlSession;
 	
 	@Override
-	public void setEmpDeleteOne(String empNum) {
-		 sqlSession.delete("employee.setEmpDelete", empNum);		
+	public void setEmpDeleteOne(int empId) {
+		 sqlSession.delete("employee.setEmpDeleteOne", empId);		
 	}
 	
 	@Override

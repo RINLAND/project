@@ -186,22 +186,16 @@
                                         <input type="checkbox"  name="chk" class="chk" data-uid="${freeboard.boardCode }"/>
                                     </td>
                                     <td>${freeboard.team_name}</td>
-                                    <td>
-                                        <a href="${pageContext.request.contextPath }/freeArticle/grp_article_list?boardCode=${freeboard.boardCode }" 
-                                        target="_blank" class="">
-                                        ${freeboard.boardCode}</a></td>
+                                    <td>${freeboard.boardCode}</td>
                                     <td>${freeboard.boardColor}</td>
-                                    <td>
-                                        <a href="${pageContext.request.contextPath }/freeArticle/grp_article_list?boardCode=${freeboard.boardCode }" 
-                                        target="_blank" class="">
-                                         ${freeboard.boardTitle }</a></td>
+                                    <td>${freeboard.boardTitle }</td>
                                     <td>${freeboard.boardRead }</td>
                                     <td>${freeboard.boardWrite }</td>
                                     <td>${freeboard.boardReply }</td>
                                     <td>${freeboard.boardDown }</td>
                                   	<td>${freeboard.boardReference }</td>
                                     <td>
-                                        <button class="s-btn-on" onClick="boardModify('${freeboard.boardCode}');">수정</button>
+                                        <button class="s-btn-on" onClick="location.href='${pageContext.request.contextPath }/freeArticle/grp_article_list?boardCode=${freeboard.boardCode }'">보기</button>
                                         <button class="s-btn-off" onClick="boardDel('${freeboard.boardCode}');">삭제</button>
                                     </td>
                                 </tr>

@@ -53,7 +53,7 @@ public class EmpVO {
 	private String empAward5;
 	private String empComment;
 	
-
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	
 	
 	public int getRef() {
@@ -175,8 +175,8 @@ public class EmpVO {
 
 
 
-	public Date getEmpDate() {
-		return empDate;
+	public String getEmpDate() {
+		return sdf.format(empDate);
 	}
 
 
@@ -208,13 +208,6 @@ public class EmpVO {
 	public void setEmpConfirm(String empConfirm) {
 		this.empConfirm = empConfirm;
 	}
-
-
-
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-
-
-
 
 	public String getEmpPhoto() {
 		return empPhoto;

@@ -12,7 +12,7 @@ import com.setup.test2.Model.TeamVO;
 
 public interface EmpDao {
 	
-	public void setEmpDeleteOne(String empNum);
+	public void setEmpDeleteOne(int empId);
 	
 	public void setEmpDeleteAll(int empId);
 	
