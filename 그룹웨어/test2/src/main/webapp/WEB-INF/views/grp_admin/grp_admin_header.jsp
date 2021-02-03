@@ -28,6 +28,8 @@
 
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/fontawesome-all.min.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/main1.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/board_main.css" />
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/board.css" />
 	
 	<script src="https://kit.fontawesome.com/62ab751ce0.js" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -41,4 +43,74 @@
 	<script src="${pageContext.request.contextPath }/js/jquery.treeview.js"></script>
 	<script src="${pageContext.request.contextPath }/js/jquery.ztree.core.js"></script>
 	<script src="${pageContext.request.contextPath }/js/treeview.js"></script>
+	
+	<style>
+		.mod {
+			display: inline-block;
+			width: 50px;
+			height: 35px;
+			text-align: center;
+			line-height: 35px;
+			border: 2px solid #6200EA;
+			background-color:#6200EA ;
+			color:white;
+
+		}
+
+		.mod:hover {
+			cursor: pointer;
+			color: white;
+			transition: 0.1s;
+			font-weight: 700;
+			border: 2px solid#6200EA;
+
+
+		}
+		
+		.fontwhite{
+		color:white;
+		
+		}
+		 .prev{
+          
+            border: 0;
+            outline: 0;
+            color:black;
+            padding: 10px 30px;
+            cursor: pointer;
+        }
+
+        .next{
+            
+            border: 0;
+            outline: 0;
+            color: black;
+            padding: 10px 30px;
+            cursor: pointer;
+        }
+
+        .banner{
+            width:10000px;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+
+        .banner img{
+            /* img는 inline타입이라 block타입으로 바꿔줌 */
+            display: block;
+            width: 1800px;
+            height: 900px;
+            float: left;
+        }
+
+        .banner-wrap{
+            /* 한장만 보이게 하고 다 숨기기 */
+            width: 1800px;
+            height: 900px;
+            overflow: hidden;
+            position: relative;
+        }
+	</style>
 </head>
