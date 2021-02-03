@@ -118,7 +118,7 @@
 		WHERE trainee_id = #{sessionNum}
 	</select>
 
-<insert id = "setTraRegister" parameterType="com.setup.test2.Model.EmpVO">
+<insert id = "setTraRegister" parameterType="com.setup.test2.Model.TraineeVO" >
 		INSERT INTO grp_trainee SET 
 			trainee_name 			= #{traName},
 			trainee_gender 			= #{traGender},

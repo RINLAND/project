@@ -90,7 +90,7 @@
         }
 
         .banner{
-            width:10000px;
+            width:3000px;
             position: absolute;
             top: 0;
             left: 0;
@@ -100,15 +100,15 @@
         .banner img{
             /* img는 inline타입이라 block타입으로 바꿔줌 */
             display: block;
-            width: 1800px;
-            height: 900px;
+            width: 640px;
+            height: 610px;
             float: left;
         }
 
         .banner-wrap{
             /* 한장만 보이게 하고 다 숨기기 */
-            width: 1800px;
-            height: 900px;
+            width: 640px;
+            height: 610px;
             overflow: hidden;
             position: relative;
         }

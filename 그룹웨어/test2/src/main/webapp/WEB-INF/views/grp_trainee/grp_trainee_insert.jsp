@@ -25,7 +25,7 @@
 						<div class="page-member-bottom"  >
 							<div class="page-content " >
 								<form style="padding: 10px 170px 10px  40px;" id="frm"  enctype="multipart/form-data" 
-								action="${pageContext.request.contextPath}/Trainee/grp_trainee_register" method="POST">								
+								action="grp_trainee_register" method="POST">								
 									<div class="member-info flex flex-justify " >
 									<input type="hidden" name="traID" value="${traID}" />
 										<div class="member-left" >

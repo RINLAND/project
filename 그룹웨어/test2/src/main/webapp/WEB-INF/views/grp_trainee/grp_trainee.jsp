@@ -82,9 +82,8 @@
 									<td>${trainee.traGender }</td>
 									<td >${trainee.traBirth }</td>
 									<td>${trainee.traHire }</td>
-									<td>${trainee.empDate}</td>
 									<td>${trainee.traHireDate }</td>
-									<td>${trainee.empName }</td>
+									<td>${trainee.traName }</td>
 									<td>${trainee.traManager }</td>
 									<td>${trainee.traPhon}</td>
 									<td>${trainee.traStructue}</td>
