@@ -20,7 +20,7 @@
 					<header class="main" style="margin: 10px;">
 						<h2>조직도</h2>
 					</header>
-					<h4 class="m-b20">조직도 > 1.사원목록</h4>
+					<h4 class="m-b20">1.사원목록 > 상세등록</h4>
 					<div class="system-main center">
 						<div class="page-member-bottom"  >
 							<div class="page-content " >
