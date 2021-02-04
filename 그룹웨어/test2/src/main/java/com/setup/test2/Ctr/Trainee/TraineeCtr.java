@@ -1,15 +1,20 @@
 package com.setup.test2.Ctr.Trainee;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.setup.test2.Model.EmpVO;
@@ -86,9 +91,21 @@ public class TraineeCtr {
 	
 	
 	@RequestMapping(value="/grp_trainee_register", method = RequestMethod.POST)
-	public String setTraRegister(TraineeVO tvo) {
+	public String setTraRegister(TraineeVO tvo, MultipartFile file) throws IOException {
+		
+		/* 파일 업로드 */
+		UUID uuid = UUID.randomUUID();
+		
+		String orgFileName = uuid.toString() + "_" + file.getOriginalFilename();
+		File location = new File(uploadPath, orgFileName);
+		FileCopyUtils.copy(file.getBytes(), location);
+		
+		
+		tvo.setTraPhoto(orgFileName);
+		/* 파일 업로드 */
+		
 		tSrv.setTraRegister(tvo);
-		return "grp_trainee/grp_trainee";
+		return "redirect:/Trainee/grp_trainee_list";
 	}
 
 }
