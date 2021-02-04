@@ -24,7 +24,7 @@ public class RegisterCtr {
 	public List<TeamVO> getTeam() {
 		rSrv.getTeamList();
 		List<TeamVO> list = rSrv.getTeamList();
-		System.out.println(list);
+		//System.out.println(list);
 		return list;
 	}
 	
@@ -33,7 +33,7 @@ public class RegisterCtr {
 	public List<GradeVO> getGrade() {
 		rSrv.getGradeList();
 		List<GradeVO> list = rSrv.getGradeList();
-		System.out.println(list);
+		//System.out.println(list);
 		return list;
 	}
 }

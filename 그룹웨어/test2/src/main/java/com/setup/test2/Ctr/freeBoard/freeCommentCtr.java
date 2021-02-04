@@ -30,7 +30,7 @@ public class freeCommentCtr {
 	@RequestMapping("/grp_comment_list")
 	@ResponseBody //ajax쓰기 위해서 필요
 	public Map<String, Object> getCommentList(@ModelAttribute freeCommentVO cvo) {
-		System.out.println(cvo);
+		//System.out.println(cvo);
 		List<freeCommentVO> list = cSrv.getCommentList(cvo); //내용가져오기
 		int count = cSrv.getCommentCount(cvo); //게시물 개수
 		

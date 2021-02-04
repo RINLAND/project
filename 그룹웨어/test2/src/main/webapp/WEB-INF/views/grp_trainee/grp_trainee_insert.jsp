@@ -27,7 +27,7 @@
 								<form style="padding: 10px 170px 10px  40px;" id="frm"  enctype="multipart/form-data" 
 								action="${pageContext.request.contextPath}/Trainee/grp_trainee_register" method="POST">								
 									<div class="member-info flex flex-justify " >
-									<input type="hidden" name="empNum" value="${traID}" />
+									
 										<div class="member-left" >
 											<div class="photo-area">
 												<img src="${pageContext.request.contextPath }/images/main3.jpg" id='traPhotoImg' />

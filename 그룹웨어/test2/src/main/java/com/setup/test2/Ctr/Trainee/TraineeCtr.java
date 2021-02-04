@@ -42,7 +42,7 @@ public class TraineeCtr {
 	public ModelAndView getTraListAll(
 			@RequestParam(defaultValue = "") String words, 
 			@RequestParam(defaultValue = "trainee_name") String searchOpt,
-			@RequestParam(defaultValue = "1") int curPage ) 
+			@RequestParam(defaultValue = "1") int curPage, String traName ) 
 	
 	{
 		
@@ -53,7 +53,8 @@ public class TraineeCtr {
 		int start = pager.getPageBegin();
 		int end = pager.getPageEnd();
 		
-		List<TraineeVO> list = tSrv.getTraListAll(start, end, words, searchOpt);
+		
+		List<TraineeVO> list = tSrv.getTraListAll(start, end, words, searchOpt, traName);
 		
 		
 		ModelAndView mav = new ModelAndView();
@@ -72,6 +73,7 @@ public class TraineeCtr {
 		mav.addObject("totalPage", pager.getTotPage());
 		mav.addObject("curPage", pager.getCurPage());
 		mav.addObject("selected", pager.getCurPage());
+		
 		mav.setViewName("grp_trainee/grp_trainee");
 		return mav;
 	}
@@ -91,18 +93,7 @@ public class TraineeCtr {
 	
 	
 	@RequestMapping(value="/grp_trainee_register", method = RequestMethod.POST)
-	public String setTraRegister(TraineeVO tvo, MultipartFile file) throws IOException {
-		
-		/* 파일 업로드 */
-		UUID uuid = UUID.randomUUID();
-		
-		String orgFileName = uuid.toString() + "_" + file.getOriginalFilename();
-		File location = new File(uploadPath, orgFileName);
-		FileCopyUtils.copy(file.getBytes(), location);
-		
-		
-		tvo.setTraPhoto(orgFileName);
-		/* 파일 업로드 */
+	public String setTraRegister(TraineeVO tvo)  {
 		
 		tSrv.setTraRegister(tvo);
 		return "redirect:/Trainee/grp_trainee_list";

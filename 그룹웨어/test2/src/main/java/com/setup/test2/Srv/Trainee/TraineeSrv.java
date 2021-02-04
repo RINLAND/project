@@ -1,8 +1,6 @@
 package com.setup.test2.Srv.Trainee;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,16 +18,16 @@ public class TraineeSrv {
 		 tDao.setTraDeleteOne(traID);		
 	}
 	
-	public List<TraineeVO> getTraListAll(int start, int end, String words, String searchOpt) {
-		return tDao.getTraListAll(start, end, words, searchOpt);
+	public List<TraineeVO> getTraListAll(int start, int end, String words, String searchOpt, String traName) {
+		return tDao.getTraListAll(start, end, words, searchOpt,traName);
 	}
 	
 	public int getTraCount(String searchOpt, String words) {
 		return tDao.getTraCount(searchOpt, words);
 	}
 	
-	public TraineeVO getTraNeedOne(String sessionNum) {
-		return tDao.getTraNeedOne(sessionNum);
+	public TraineeVO getTraNeedOne(String traName) {
+		return tDao.getTraNeedOne(traName);
 	}
 	
 	public void setTraRegister(TraineeVO tvo) {

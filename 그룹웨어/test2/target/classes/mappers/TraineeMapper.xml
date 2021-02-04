@@ -16,7 +16,7 @@
 
 	</sql>
 
-	<select id="getTraListAll" parameterType="hashmap" resultType="com.setup.test2.Model.TraineeVO">
+	<select id="getTraListAll" parameterType="hashMap" resultType="com.setup.test2.Model.TraineeVO">
 		SELECT
 		trainee_id AS traID,
 		trainee_name AS traName,
@@ -60,10 +60,7 @@
 	</select>
 
 	<select id="getTraCount" resultType="int">
-		SELECT 
-		COUNT(trainee_id)
-		FROM 
-		grp_trainee 
+		SELECT COUNT(trainee_id) FROM grp_trainee 
 		<include refid="searchData"></include>
 
 	</select>
@@ -115,7 +112,7 @@
 		trainee_award4 AS traAward4, 
 		trainee_photo AS traPhoto, 
 		trainee_comment AS traComment FROM grp_trainee 
-		WHERE trainee_id = #{sessionNum}
+		WHERE trainee_name = #{traName}
 	</select>
 
 <insert id = "setTraRegister" parameterType="com.setup.test2.Model.TraineeVO" >
