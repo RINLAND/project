@@ -36,4 +36,10 @@ public class CalDaoImpl implements CalDao{
 
 	}
 
+	@Override
+	public void cdelCal(String param) {
+		sql.delete("calendar.cdelCal",param);
+		
+	}
+
 }

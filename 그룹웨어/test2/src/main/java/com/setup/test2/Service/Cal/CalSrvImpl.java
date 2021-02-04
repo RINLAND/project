@@ -35,4 +35,10 @@ public class CalSrvImpl implements CalSrv {
 		return cDao.cgetCal();
 	}
 
+	@Override
+	public void cdelCal(String param) {
+		cDao.cdelCal(param);
+		
+	}
+
 }
