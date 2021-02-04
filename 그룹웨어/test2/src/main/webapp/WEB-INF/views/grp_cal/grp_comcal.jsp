@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <%@include file="/WEB-INF/views/grp_cal/grp_cal_header.jsp"%>
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/board.css">
 
 <!-- datepicker(달력모양 css) -->
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" type="text/css" />
@@ -35,19 +35,19 @@
 					<form method="POST" id="frm">
 						<table>
 							<tr>
-								<td class="td-10 noto  bg-gray weight600 center">시작일자</td>
+								<td class="td-10 noto  bg-gray weight700 center">시작일자</td>
 								<td class="flex flex-justify">
 									<input type="text" autocomplete="off" id="comstartDate" name="comstartDate" class="input-150" />
 									<i class="far fa-calendar-alt font16"></i>
 								</td>
-								<td class="td-10 noto  bg-gray weight600 center">종료일자</td>
+								<td class="td-10 noto  bg-gray weight700 center">종료일자</td>
 								<td class="flex flex-justify">
 									<input type="text" autocomplete="off" id="comendDate" name="comendDate" class="input-150" />
 									<i class="far fa-calendar-alt font16"></i>								
 								</td>
-								<td class="td-10 noto  bg-gray weight600 center">일정내용</td>
-								<td class="">
-									<input type="text" autocomplete="off" name="comcalContent" id="comcalContent" class="input-200" />
+								<td class="td-10 noto  bg-gray weight700 center">일정내용</td>
+								<td class="flex flex-justify">
+									<input type="text" autocomplete="off" name="comcalContent" id="comcalContent" class="input-100" />
 								</td>
 							</tr>
 						</table>
@@ -58,11 +58,43 @@
 					</form>
 				</div>
 				<div class="main-top">
+					<h4 class="m-b20">
+						<i class="far fa-calendar-check"></i>일정 > 일정삭제</h4>
+				</div>
+				
+					<div class="">
+							
+							<table class="center">
+								<tr class="center f6 weight700 font14 fontwhite" style="background-color:rgba(98, 0, 234, 0.8)">
+									<td class="td-5">
+                                        <input type="checkbox" onClick="chkAll();"/>
+                                    </td>
+									<td class="td-30">시작 일자</td>
+									<td class="td-30">종료 일자</td>
+									<td class="td-30">일정 내용</td>
+									<td class="">관리</td>
+								</tr>	
+				<c:forEach var="list" items="${list}" varStatus="status">
+						<tr class="center font14">
+					<td class="td-5"><input type="checkbox" onClick="chkAll();"/></td>				
+					<td><c:out value="${list.comstartDate}"/></td>
+					<td><c:out value="${list.comendDate}"/></td>
+					<td><c:out value="${list.comcalContent}"/></td>
+					<td><button type="button" class="btn-off" onclick="location.href='delete?comcal_id=<c:out value="${list.comcal_id}"/>'">삭제</button></td>
+					</tr>
+				</c:forEach>	
+                       
+				</table>
+				</div>
+				
+				<div class="main-top">
 					<h4 class="m-b20"><i class="far fa-calendar-check"></i>일정 > 일정목록</h4>
 					<div id='calendar'></div>
 
-				</div>			
-
+				</div>		
+					
+				
+				
 
 			</div>
 		</div>
@@ -165,7 +197,23 @@
     }
 </script>
 
-
+<<script >
+function delCalendar() {
+	var formData = $("#form").serialize();
+	$.ajax({
+		url		: "${pageContext.request.contextPath}/grp_cal/grp_calendar_cdel",
+		type	: "POST",
+		data	: formData,
+		success	: function(resData) {
+			alert("일정이 삭제 되었습니다.");
+			window.location.reload();
+		},
+		error	: function() {
+			alert("관리자에게 문의하세요.(일정추가)");
+		}
+	});
+}
+</script>
 
 	
 

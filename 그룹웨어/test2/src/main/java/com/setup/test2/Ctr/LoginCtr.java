@@ -40,7 +40,7 @@ public class LoginCtr {
 	@ResponseBody
 	public String grpLogout(HttpSession httpSession) {
 		lSrv.logout(httpSession);
-		return "success";
+		return "grp_login";
 	}
 	
 	@RequestMapping(value = "/grp_login", method = RequestMethod.GET)

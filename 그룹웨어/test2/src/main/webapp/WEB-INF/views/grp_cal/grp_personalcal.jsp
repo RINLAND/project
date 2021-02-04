@@ -36,17 +36,17 @@
 					 <input type="hidden" id="empNum" name="empNum" value="${empNum}" />
 						<table>
 							<tr>
-								<td class="td-10 noto under bg-gray weight700 center">시작일자</td>
+								<td class="td-10 noto bg-gray weight700 center">시작일자</td>
 								<td class="flex flex-justify">
 									<input type="text" autocomplete="off" id="startDate" name="startDate" class="input-150" />
 									<i class="far fa-calendar-alt font16"></i>
 								</td>
-								<td class="td-10 noto under bg-gray weight700 center">종료일자</td>
+								<td class="td-10 noto  bg-gray weight700 center">종료일자</td>
 								<td class="flex flex-justify">
 									<input type="text" autocomplete="off" id="endDate" name="endDate" class="input-150" />
 									<i class="far fa-calendar-alt font16"></i>								
 								</td>
-								<td class="td-10 noto under bg-gray weight700 center">일정내용</td>
+								<td class="td-10 noto  bg-gray weight700 center">일정내용</td>
 								<td class="flex flex-justify">
 									<input type="text" autocomplete="off" name="calContent" id="calContent" class="input-100" />
 								</td>

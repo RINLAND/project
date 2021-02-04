@@ -77,7 +77,19 @@
 			border: 1px solid #d4d4d4;
 			color: black;
 		}
-
+		
+		.input-250{
+    padding: 5px ;
+    border-radius: 2px;
+    border: 1px solid #d5d5d5;
+    width: 300px;
+    height: 35px;
+    font-size: 12px;
+}
+		.fontwhite{
+		color:white;
+		
+		}
 	
 	</style>
 

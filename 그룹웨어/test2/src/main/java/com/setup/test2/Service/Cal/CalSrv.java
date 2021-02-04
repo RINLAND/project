@@ -17,6 +17,8 @@ public interface CalSrv {
 	
 	public List<ComCalVO> cgetCal();
 	
+	public void cdelCal(String param);
+	
 }
 
 

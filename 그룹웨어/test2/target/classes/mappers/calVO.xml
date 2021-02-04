@@ -26,6 +26,9 @@
 		SELECT * FROM grp_comcalendar
 	</select>
 	
+	<delete id="cdelCal" parameterType="String">
+        DELETE FROM grp_comcalendar WHERE comcal_id= #{comcal_id}
+    </delete> 
 
 </mapper>
 

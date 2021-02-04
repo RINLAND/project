@@ -15,6 +15,8 @@ public interface CalDao {
 	
 	public List<ComCalVO> cgetCal();
 	
+	public void cdelCal(String param);
+	
 }
 
 
