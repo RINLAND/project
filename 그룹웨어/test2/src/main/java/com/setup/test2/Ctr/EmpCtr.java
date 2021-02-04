@@ -43,27 +43,7 @@ public class EmpCtr {
 	@Autowired
 	RegisterSrv rSrv;
 	
-	/*
-	@RequestMapping(value = "/grp_employee_list")
-	public ModelAndView empList(
-		@RequestParam(defaultValue = "1") int curPage, 
-		@RequestParam(defaultValue = "empName") String searchOpt, 
-		@RequestParam(defaultValue = "") String words) {
-		
-		ModelAndView mav = new ModelAndView();
-		
-		
-		int count = eSrv.getEmpCount(searchOpt, words);
-				
-		mav.setViewName("grp_employee/grp_employee_list");
-		
-		return mav;
-	}
-	*/
-	
-	
 
-	
 	
 	@RequestMapping(value= "/grp_employee_confirm_change", method = RequestMethod.POST )
 	@ResponseBody

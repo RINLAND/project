@@ -23,17 +23,17 @@ public class CommentCtr {
 	
 	
 	@RequestMapping("/grp_comment_register")
-	@ResponseBody //ajax쓰기 위해서 필요
+	@ResponseBody 
 	public void setComment(@ModelAttribute CommentVO cvo) {
-		//System.out.println(cvo);
+		
 		cSrv.setComment(cvo);
 		
 	}
 	
 	@RequestMapping("/grp_comment_list")
-	@ResponseBody //ajax쓰기 위해서 필요
+	@ResponseBody 
 	public Map<String, Object> getCommentList(@ModelAttribute CommentVO cvo) {
-		System.out.println(cvo);
+		
 		List<CommentVO> list = cSrv.getCommentList(cvo); //내용가져오기
 		int count = cSrv.getCommentCount(cvo); //게시물 개수
 		

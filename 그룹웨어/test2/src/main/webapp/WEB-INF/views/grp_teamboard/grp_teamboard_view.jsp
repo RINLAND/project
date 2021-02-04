@@ -135,7 +135,7 @@
                                 <input type="checkbox" name="" /> 
                                 	비밀댓글</div>
                         	<div class="">
-                        		<button id="btn" style="padding:20px 25px; background-color:#3f51b5; color:#fff; border-radius:3px" class="noto font20 weight700" type="button">
+                        		<button id="btn" style="padding:15px 20px; background-color:#3f51b5; color:#fff; border-radius:3px" class="noto font16 weight700 class="s-btn-on"" type="button">댓글등록
                         		</button>
                         	</div>
                         </div>
@@ -184,14 +184,14 @@
 </script>
 
 <script>
-    function checkComment(){ //동작 기능만 만든 것 -> 실행 아님
+    function checkComment(){ 
         
         if($("#comment").val()==''){
-            alert("put in comment");
+            alert("댓글을 입력하세요.");
             $("#comment").focus();
-            return false; //return : 프로그램이 끝날 떄, 반환형이 있을 떄 
+            return false;  
         }
-       var formData = $("#frm").serialize(); //form안의 name값의 데이터를 전부 가져오기
+       var formData = $("#frm").serialize(); 
 
        $.ajax({
            url : "${pageContext.request.contextPath}/comment/grp_comment_register",
@@ -217,13 +217,11 @@
 		$.ajax({
 	           url : "${pageContext.request.contextPath}/comment/grp_comment_list",
 	           type : "POST",
-	           data : formData, //목록이지만 내 게시판 코드, 게시물 번호가 필요함
-	           success : function(resData){ //개수 ? 개, 내용? 줄 출력
-		           
-		           //resData.list -> who(key), 관리자(value)
+	           data : formData, 
+	           success : function(resData){ 
 		           
 		           var a = '';
-		           $.each(resData.list, function(key, value){ //내용 출력하는 jquery
+		           $.each(resData.list, function(key, value){ 
 		        	   a += '<div>';
 		        	    a += ' <div class="flex" style="margin: 10px 0;">';
 		        	     a += ' <div style="width: 6%"> ';

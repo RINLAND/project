@@ -15,7 +15,7 @@
 	<insert id="setComment"
 		parameterType="com.setup.test2.Model.freeBoard.freeCommentVO">
 		INSERT INTO gat_freecomment_${boardCode} (aid, comment, regdate, who)
-		VALUES (#{aid}, #{comment}, #{regdate}, #{who})
+		VALUES (#{aid}, #{comment}, now(), #{who})
 
 	</insert>
 

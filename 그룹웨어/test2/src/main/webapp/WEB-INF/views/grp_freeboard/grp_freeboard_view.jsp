@@ -135,7 +135,7 @@
                                 <input type="checkbox" name="" /> 
                                 	비밀댓글</div>
                         	<div class="">
-                        		<button id="btn" style="padding:20px 25px; background-color:#3f51b5; color:#fff; border-radius:3px" class="noto font20 weight700" type="button">
+                        		<button id="btn" style="padding:15px 20px; background-color:#3f51b5; color:#fff; border-radius:3px" class="noto font16 weight700 class="s-btn-on"" type="button">댓글등록
                         		</button>
                         	</div>
                         </div>

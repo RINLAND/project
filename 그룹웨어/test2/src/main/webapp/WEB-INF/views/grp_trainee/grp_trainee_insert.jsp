@@ -27,7 +27,7 @@
 								<form style="padding: 10px 170px 10px  40px;" id="frm"  enctype="multipart/form-data" 
 								action="${pageContext.request.contextPath}/Trainee/grp_trainee_register" method="POST">								
 									<div class="member-info flex flex-justify " >
-									
+									<input type="hidden" name="empNum" value="${traID}" />
 										<div class="member-left" >
 											<div class="photo-area">
 												<img src="${pageContext.request.contextPath }/images/main3.jpg" id='traPhotoImg' />
@@ -74,10 +74,10 @@
 													<td class="td-7 center  bg-sub weight700">입사경로</td>
 													<td class="td-13 p-lr3 ">
 														<select name="traHire" class="sel-135" id="traHire">
-															<option value="1">공개오디션</option>
-															<option value="2">수시오디션</option>
-															<option value="3">특별오디션</option>
-															<option value="4">캐스팅</option>
+															<option value="공개오디션">공개오디션</option>
+															<option value="수시오디션">수시오디션</option>
+															<option value="특별오디션">특별오디션</option>
+															<option value="캐스팅">캐스팅</option>
 														</select>
 													</td>
 													<td class="td-7 center  bg-sub weight700">입사일</td>
@@ -112,9 +112,9 @@
 													<td class="td-7 center bg-sub weight700">구분</td>
 													<td class="td-13 p-lr3 ">
 														<select name="traStructue" class="sel-135" id="traStructue">
-															<option value="1">팀</option>
-															<option value="2">솔로</option>
-															<option value="3">미정</option>
+															<option value="팀">팀</option>
+															<option value="솔로">솔로</option>
+															<option value="미정">미정</option>
 														</select>
 													</td>
 													<td class="td-7 center bg-sub weight700">취미</td>
@@ -218,7 +218,7 @@
 									</div>
 									<div class="comment">
 										<div class="title">
-											<h3 class="tomato font14 noto m-t20">
+											<h3 class=" font14 noto m-t20">
 												추가사항 입력
 											</h3>
 										</div>

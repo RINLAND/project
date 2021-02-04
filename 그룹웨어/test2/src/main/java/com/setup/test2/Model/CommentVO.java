@@ -7,6 +7,7 @@ public class CommentVO {
 	private String who;
 	private String regdate;
 	private String boardCode; //어떤 게시판
+	
 	public int getCid() {
 		return cid;
 	}

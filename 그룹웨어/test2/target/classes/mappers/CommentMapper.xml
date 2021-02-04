@@ -15,7 +15,7 @@
 	<insert id="setComment"
 		parameterType="com.setup.test2.Model.CommentVO">
 		INSERT INTO gat_comment_${boardCode} (aid, comment, regdate, who)
-		VALUES (#{aid}, #{comment}, #{regdate}, #{who})
+		VALUES (#{aid}, #{comment}, now(), #{who})
 
 	</insert>
 
