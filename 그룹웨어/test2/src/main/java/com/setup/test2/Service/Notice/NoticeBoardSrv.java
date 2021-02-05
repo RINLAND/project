@@ -44,5 +44,9 @@ public class NoticeBoardSrv {
       public void deleteBoardOne(String param) throws Exception {
   		sqlSession.delete("deleteBoard2One", param);
       }
+      
+      public int getBoardCount() throws Exception{
+    	 return sqlSession.selectOne("notice.getBoardCount");
+      }
     
 }

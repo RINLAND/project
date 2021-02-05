@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="grp_notice">
+<mapper namespace="notice">
 	  <select id="selectBoard1List" resultType="com.setup.test2.Model.Notice.NoticeBoardVO" >
         SELECT BRDNO, BRDTITLE, BRDWRITER, DATE_FORMAT(BRDDATE,'%Y-%m-%d') BRDDATE
           FROM grp_grp_notice
@@ -74,9 +74,11 @@
     </update> 
 
     <delete id="deleteBoard2One" parameterType="String">
-        UPDATE grp_notice
-           SET BRDDELETEFLAG='Y' 
-         WHERE BRDNO=#{brdno}
+        DELETE FROM grp_notice WHERE BRDNO=#{brdno}
     </delete> 
+    
+    <select id= "getBoardCount"  resultType="int">
+		SELECT COUNT(BRDNO) FROM grp_notice
+	</select>
 	
 </mapper>
