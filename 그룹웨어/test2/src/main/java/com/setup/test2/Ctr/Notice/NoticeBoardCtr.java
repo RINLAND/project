@@ -26,12 +26,13 @@ public class NoticeBoardCtr {
 	   	public String boardList(PageVO pageVO, ModelMap modelMap) throws Exception {
 			
 	    	//카운트넣기
-
+	    	int count = boardSvc.getBoardCount();
 	    	pageVO.pageCalculate( boardSvc.selectBoardCount() ); // startRow, endRow
 
 	    	List<?> listview   = boardSvc.selectBoardList(pageVO);
 	        
 	    	modelMap.addAttribute("listview", listview);
+	    	modelMap.addAttribute("count", count);
 			modelMap.addAttribute("pageVO", pageVO);
 	        return "grp_notice/grp_notice";
 	    }

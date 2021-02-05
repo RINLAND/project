@@ -74,6 +74,11 @@
 									<td class="td-30">일정 내용</td>
 									<td class="">관리</td>
 								</tr>	
+				<c:if test="${list == null }">	
+					<tr>
+						<td colspan="5" class="center font14 weight700">등록된 일정이 없습니다.</td>
+								</tr>
+					</c:if>
 				<c:forEach var="list" items="${list}" varStatus="status">
 						<tr class="center font14">
 					<td class="td-5"><input type="checkbox" onClick="chkAll();"/></td>				
