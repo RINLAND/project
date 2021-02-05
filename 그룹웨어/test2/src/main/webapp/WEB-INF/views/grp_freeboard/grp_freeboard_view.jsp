@@ -35,8 +35,8 @@
                
                
                      <div class="title">
-                    <h3 class="tomato font18 noto">
-                        <i class="fas fa-feather-alt"></i>게시글 상세보기
+                    <h3 class="font18 noto">
+                        ${freeArticle.subject }
                     </h3>
                 </div>
                     <table>

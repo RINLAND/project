@@ -34,7 +34,7 @@
                             </div>
                             <div class="title">
                                 <h3 class="tomato font18 noto m-t20">
-                                    <i class="fas fa-feather-alt"></i>조직도 > 조직도
+                                    조직도 > 조직도
                                 </h3>
                             </div>
                             <div class="page-member-bottom">

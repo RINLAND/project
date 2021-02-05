@@ -14,7 +14,7 @@
                 	
                      <div class="title">
                     <h3 class=" font18 m-b5">
-                        <i class="fas fa-feather-alt"></i>${boardTitle }
+                        ${modifyArticle.subject}
                     </h3>
                 </div>
                     <table>
