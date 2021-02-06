@@ -143,7 +143,18 @@ public class OrgCtr {
 			eSrv.setEmpAuthChange(empAuth, empId);
 			return "success";
 		}
-
+		
+		
+	//직원승인변경
+		@RequestMapping(value= "/grp_employee_confirm_change", method = RequestMethod.POST )
+		@ResponseBody
+		public String EmpConfChange(@RequestParam String empConfirm, @RequestParam int empId) {
+			eSrv.setEmpConfirmChange(empConfirm, empId);
+			return "success";
+		}
+		
+		
+	//일정보기
 	@RequestMapping(value="/grp_orgchart", method = RequestMethod.GET)
 	public String grpMemberChart() {
 		return "grp_org/grp_orgchart";

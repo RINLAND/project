@@ -40,7 +40,7 @@ public class LoginCtr {
 	@ResponseBody
 	public String grpLogout(HttpSession httpSession) {
 		lSrv.logout(httpSession);
-		return "grp_login";
+		return "redirect:/grp_login";
 	}
 	
 	@RequestMapping(value = "/grp_login", method = RequestMethod.GET)
@@ -81,7 +81,7 @@ public class LoginCtr {
 				lSrv.setSession(evo, httpSession);
 				mav.setViewName("redirect:/grp_admin");
 
-			} else if (vo.getEmpAuth() >= auth && vo.getEmpConfirm().equals("Y")) {
+			} else if (vo.getEmpAuth() >= auth && vo.getEmpConfirm().equals("N")) {
 				lSrv.setSession(evo, httpSession);
 				mav.setViewName("redirect:/");
 
@@ -93,8 +93,8 @@ public class LoginCtr {
 
 		} else {
 			msg = "아이디/비밀번호를 확인하세요.";
-			mav.addObject("msg", msg); // ��
-			mav.setViewName("grp_login"); // ȭ��
+			mav.addObject("msg", msg); 
+			mav.setViewName("grp_login"); 
 		}
 		return mav;
 	}
@@ -124,7 +124,7 @@ public class LoginCtr {
 	public String setRegisterOne(@ModelAttribute EmpVO evo) {
 		Calendar cal = Calendar.getInstance();
 		int enterYear = Integer.parseInt(evo.getEmpEnter().substring(0, 4));
-		System.out.println(enterYear);
+		//System.out.println(enterYear);
 
 		String num = enterYear + evo.getEmpTeamCode() + evo.getEmpGradeCode();
 		evo.setEmpNum(num);

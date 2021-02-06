@@ -92,6 +92,7 @@
 									<td>${emp.empPwd }</td>
 									<td>
 										<select name="" onchange="authChange(this.value, '${emp.empId }')" id="" style="width: 75px">
+												<option value="0" <c:if test="${emp.empAuth eq 0 }">selected</c:if> >연습생</option>
 												<option value="1" <c:if test="${emp.empAuth eq 1 }">selected</c:if> >협력업체</option>
 												<option value="2" <c:if test="${emp.empAuth eq 2 }">selected</c:if> >사원</option>
 												<option value="3" <c:if test="${emp.empAuth eq 3 }">selected</c:if> >부서장</option>
@@ -229,5 +230,70 @@
 		});
 	}
 }
+
+//직원 권한 변경 - 권한 : 그룹웨어 접근
+	function authChange(empAuth, empId){
+		
+		var msg = "선택하신 직원의 권한을 변경하시겠습니까?";
+		if(confirm(msg)){
+				
+				var formData = {
+					empAuth : empAuth,
+					empId : empId
+				};
+
+				$.ajax({
+					url :"${pageContext.request.contextPath }/Organization/grp_employee_auth_change",
+					type : "post",
+					data : formData,
+					success : function(resData){
+						if(resData == "success"){
+								alert("권한이 변경 되었습니다.");
+								}
+							},
+						error : function(){
+							alert("권한이 변경될 수 없습니다.");
+						},
+							complete : function(){
+								window.location.reload();
+					}
+
+				});
+			}
+	}
+
+
+	//직원 승인 변경
+	function confirmChange(empConfirm, empId){
+			//alert(empConfirm);
+			//alert(empID);
+
+			var msg = "선택하신 직원의 승인을 변경하시겠습니까?";
+			if(confirm(msg)){
+					
+					var formData = {
+						empConfirm : empConfirm,
+						empId : empId
+					};
+
+					$.ajax({
+						url :"${pageContext.request.contextPath }/Organization/grp_employee_confirm_change",
+						type : "post",
+						data : formData,
+						success : function(resData){
+							if(resData == "success"){
+									alert("승인이 변경 되었습니다.");
+									}
+								},
+							error : function(){
+								alert("승인이 변경될 수 없습니다.");
+							},
+								complete : function(){
+									window.location.reload();
+						}
+
+					});
+				}
+		}
 </script>
 </html>
