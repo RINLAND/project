@@ -24,7 +24,7 @@
 						<h4 class="m-b20">출퇴근 관리</h4>
 						<div class="search-wrap flex flex-justify  m-b5 bg-white">
 							<div class="">
-								<span class="btn-count">전체게시물 수 123 / PAGE</span>
+								
 							</div>
 							<div class="flex flex-justify">
 								<form method="post" class="" action="grp_board_list.html">
@@ -33,13 +33,12 @@
 										<option value="">게시물제목</option>
 										<option value="">작성자</option>
 										<option value="">작성자+제목</option>
-									</select> <input type="text" name="words" required
+									</select> 
+									<input type="text" name="words" required
 										style="margin-left: -2px" />
 
 									<button type="submit" class="btn-off" style="margin-left: -2px">검색</button>
-									<button type="button" class="btn-on"
-										onClick="location.href='grp_board_insert.html'">작성</button>
-								</form>
+																	</form>
 							</div>
 						</div>
 
