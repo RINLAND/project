@@ -27,7 +27,7 @@
 								
 							</div>
 							<div class="flex flex-justify">
-								<form method="post" class="" action="grp_board_list.html">
+								<form method="post" class="flex flex-justify" action="grp_board_list.html">
 
 									<select class="">
 										<option value="">게시물제목</option>
@@ -38,7 +38,7 @@
 										style="margin-left: -2px" />
 
 									<button type="submit" class="btn-off" style="margin-left: -2px">검색</button>
-																	</form>
+								</form>
 							</div>
 						</div>
 
