@@ -21,7 +21,7 @@
 				</header>
 				<div class="main">
 					<div class="main-top">
-						<h4 class="m-b20">근태관리 > 1. 나의 근태 현황</h4>
+						<h4 class="m-b20">근태관리 > 2. 직원 근태 현황</h4>
 						<div class="search-wrap flex flex-justify  m-b5 bg-white">
 							<div class="">
 								
@@ -29,21 +29,15 @@
 							<div class="flex flex-justify">
 								<form method="post" class="flex flex-justify" action="grp_board_list.html">
 
-						<div class="attend flex flex-justify font14 noto weight700 m-t20">
-							<button
-								style="width: 150px; border: 1px solid #6200EA; color: #6200EA; border-radius: 50px; padding: 10px 0;"
-								class="noto font14 weight700">출근하기</button>
-							
-						</div>
-								</form>
-								<form method="post" class="flex flex-justify" action="grp_board_list.html">
+									<select class="">
+										<option value="">게시물제목</option>
+										<option value="">작성자</option>
+										<option value="">작성자+제목</option>
+									</select> 
+									<input type="text" name="words" required
+										style="margin-left: -2px" />
 
-						<div class="attend flex flex-justify font14 noto weight700 m-t20">
-							
-							<button
-								style="width: 150px; border: 1px solid #ccc; color: #ccc; border-radius: 50px; padding: 10px 0;"
-								class="noto font14 weight700">퇴근하기</button>
-						</div>
+									<button type="submit" class="btn-off" style="margin-left: -2px">검색</button>
 								</form>
 							</div>
 						</div>
@@ -62,9 +56,9 @@
 								<td class="td-10 ">일자</td>
 								<td>이름</td>
 								<td class="td-10">출근시간</td>
-								
+								<td class="td-10">출근상태</td>
 								<td class="td-10">퇴근시간</td>
-								<td class="td-10">총 근무 시간</td>
+								<td class="td-10">퇴근상태</td>
 								<td class="td-10">비고</td>
 							</tr>
 							<tr class="center font14">
@@ -74,9 +68,15 @@
 								<td>2020-12-15</td>
 								<td class="center p-lr10">김사원</td>
 								<td>08:50</td>
-								
+								<td><select class="">
+										<option value="">정상출근</option>
+										<option value="">지각</option>
+								</select></td>
 								<td>20:10</td>
-								<td>08:50</td>
+								<td><select class="">
+										<option value="">정상</option>
+										<option value="">추가근무</option>
+								</select></td>
 								<td><select class="">
 										<option value="">연차</option>
 										<option value="">휴가</option>

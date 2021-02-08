@@ -12,4 +12,9 @@ public class CommuteCtr {
 		return "grp_commute/grp_commute";
 	}
 	
+	@RequestMapping("/list")
+	public String getHome() {
+		return "grp_commute/grp_commute_list";
+	}
+	
 }
