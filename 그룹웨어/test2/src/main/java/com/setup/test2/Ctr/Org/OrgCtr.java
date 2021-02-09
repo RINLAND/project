@@ -143,6 +143,13 @@ public class OrgCtr {
 			eSrv.setEmpAuthChange(empAuth, empId);
 			return "success";
 		}
+		
+		@RequestMapping(value= "/grp_employee_confirm_change", method = RequestMethod.POST )
+		@ResponseBody
+		public String EmpConfChange(@RequestParam String empConfirm, @RequestParam int empId) {
+			eSrv.setEmpConfirmChange(empConfirm, empId);
+			return "success";
+		}
 
 	@RequestMapping(value="/grp_orgchart", method = RequestMethod.GET)
 	public String grpMemberChart() {

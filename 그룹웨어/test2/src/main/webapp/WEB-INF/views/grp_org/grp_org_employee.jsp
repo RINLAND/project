@@ -230,16 +230,16 @@
 	}
 }
 
-	function confirmChange(empConfirm, empID){
+	function confirmChange(empConfirm, empId){
 		//alert(empConfirm);
-		//alert(empID);
+		//alert(empId);
 
 		var msg = "선택하신 직원의 승인을 변경하시겠습니까?";
 		if(confirm(msg)){
 				
 				var formData = {
 					empConfirm : empConfirm,
-					empID : empID
+					empId : empId
 				};
 
 				$.ajax({
