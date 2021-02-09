@@ -128,7 +128,7 @@
 			emp_lang2 AS empLang2,
 			emp_award1 AS empAward1,
 			emp_comment AS empComment,
-			emp_address AS empAddress
+			emp_address AS empAddress,
 			emp_photo AS empPhoto
 		FROM grp_employee WHERE emp_num = #{empNum} AND emp_pwd = #{empPwd}
 	</select>
