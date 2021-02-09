@@ -101,6 +101,7 @@
 			emp_grade AS empGradeCode,
 			emp_num AS empNum,
 			emp_name AS empName,
+			emp_pwd AS empPwd,
 			emp_enter AS empEnter,
 			emp_confirm AS empConfirm,
 			emp_auth AS empAuth,
