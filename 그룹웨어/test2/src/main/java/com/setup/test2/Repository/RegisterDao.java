@@ -24,6 +24,8 @@ public interface RegisterDao {
 	
 	public void setEmployeeAuthChange(HashMap<String, String> map);
 	
+	public void setEmpRegOthers(EmpVO evo);
+	
 	/**/
 	
 

@@ -96,16 +96,50 @@
 	
 	<select id="getEmployeeNeedOne" parameterType="com.setup.test2.Model.EmpVO" resultType="com.setup.test2.Model.EmpVO">
 		SELECT
-			emp_id as empId,
-			emp_team as empTeamCode,
-			emp_grade as empGradeCode,
-			emp_num as empNum,
-			emp_name as empName,
-			emp_enter as empEnter,
-			emp_confirm as empConfirm,
-			emp_auth as empAuth
+			emp_id AS empId,
+			emp_team AS empTeamCode,
+			emp_grade AS empGradeCode,
+			emp_num AS empNum,
+			emp_name AS empName,
+			emp_enter AS empEnter,
+			emp_confirm AS empConfirm,
+			emp_auth AS empAuth,
+			emp_gender AS empGender,
+			emp_birth AS empBirth,
+			emp_cp AS empCP,
+			emp_in AS empIn,
+			emp_tel AS empTel,
+			emp_recruit AS empRecuit,
+			emp_unique AS empUnique,
+			emp_uniquedetail AS empUniquedetail,
+			emp_military AS empMilitary,
+			emp_hobby AS empHobby,
+			emp_disability  AS empDisability,
+			emp_reward AS empReward,
+			emp_married AS empMarried,
+			emp_level AS empLevel,
+			emp_school AS empSchool,
+			emp_major AS empMajor,
+			emp_email AS empEmail,
+			emp_license1 AS empLicense1,
+			emp_license2 AS empLicense2,
+			emp_lang1 AS empLang1,
+			emp_lang2 AS empLang2,
+			emp_award1 AS empAward1,
+			emp_comment AS empComment,
+			emp_address AS empAddress
+			emp_photo AS empPhoto
 		FROM grp_employee WHERE emp_num = #{empNum} AND emp_pwd = #{empPwd}
 	</select>
 	
-
+	<select id="getEmpDetailOne" parameterType="com.setup.test2.Model.EmpVO" resultType="com.setup.test2.Model.EmpVO">
+		SELECT 
+			grp_employee.*, grp_emp_others.* 
+		FROM grp_employee 
+		LEFT JOIN grp_emp_others 
+		ON  grp_employee.emp_num = grp_emp_others.emp_Dnum where emp_id = #{empId};
+	</select>
+	
+	
+	
 </mapper>

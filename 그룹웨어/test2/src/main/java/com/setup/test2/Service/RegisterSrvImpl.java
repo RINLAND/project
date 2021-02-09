@@ -52,6 +52,12 @@ public class RegisterSrvImpl implements RegisterSrv{
 		rDao.setEmployeeAuthChange(map);
 	}
 
+	@Override
+	public void setEmpRegOthers(EmpVO evo) {
+		rDao.setEmpRegOthers(evo);
+		
+	}
+
 	
 	
 }

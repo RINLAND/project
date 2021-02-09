@@ -113,7 +113,7 @@ public class OrgCtr {
 		/* 파일 업로드 */
 		
 		rSrv.setRegisterOne(evo);
-		rSrv.setRegisterOthersOne(evo);
+		rSrv.setEmpRegOthers(evo);
 		return "redirect:/Organization/grp_employee_list";
 	}
 	//직원삭제
@@ -143,18 +143,7 @@ public class OrgCtr {
 			eSrv.setEmpAuthChange(empAuth, empId);
 			return "success";
 		}
-		
-		
-	//직원승인변경
-		@RequestMapping(value= "/grp_employee_confirm_change", method = RequestMethod.POST )
-		@ResponseBody
-		public String EmpConfChange(@RequestParam String empConfirm, @RequestParam int empId) {
-			eSrv.setEmpConfirmChange(empConfirm, empId);
-			return "success";
-		}
-		
-		
-	//일정보기
+
 	@RequestMapping(value="/grp_orgchart", method = RequestMethod.GET)
 	public String grpMemberChart() {
 		return "grp_org/grp_orgchart";
@@ -170,7 +159,7 @@ public class OrgCtr {
 	@RequestMapping(value="/grp_emp_others", method = RequestMethod.POST)
 	public String setEmpRegOthers(EmpVO evo) {
 		eSrv.setEmpRegOthers(evo);
-		return "grp_org/grp_org_employee";
+		return "redirect:/Organization/grp_employee_list";
 	}
 	
 	/*직원 수정(가입된 직원 상세등록)
@@ -178,5 +167,18 @@ public class OrgCtr {
 	public ModelAndView setEmpModify(EmpVO empVO) {
 		 
 	}*/
+	
+	@RequestMapping(value="/grp_employee_view", method = RequestMethod.GET)
+	public ModelAndView getEmployeeNeedOne(@ModelAttribute EmpVO vo) {
+		EmpVO evo = eSrv.getEmployeeNeedOne(vo);
+		
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("employee", evo);
+		
+		mav.setViewName("grp_org/grp_employee_view");
+		
+		return mav;
+	}
 }
 	

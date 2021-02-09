@@ -22,11 +22,19 @@
 		emp_pwd = #{empPwd},
 		emp_date = now(),
 		emp_photo	= #{empPhoto}
+		
 
 	</insert>
 	
 	<insert id = "setEmpRegOthers" parameterType="com.setup.test2.Model.EmpVO">
-		INSERT INTO grp_emp_others SET 
+		INSERT INTO grp_employee SET 
+			emp_team = #{empTeamCode},
+			emp_grade = #{empGradeCode},
+			emp_num = CONCAT(#{empNum}, #{ref}),
+			emp_name = #{empName},
+			emp_pwd = #{empPwd},
+			emp_date = now(),
+			emp_photo	= #{empPhoto},
 			emp_gender 		= #{empGender},
 			emp_birth 		= #{empBirth}, 
 			emp_cp 			= #{empCP}, 
@@ -47,15 +55,9 @@
 			emp_address		= #{empAddress},
 			emp_license1	= #{empLicense1}, 
 			emp_license2	= #{empLicense2}, 
-			emp_license3	= #{empLicense3},
 			emp_lang1		= #{empLang1}, 
 			emp_lang2		= #{empLang2},
 			emp_award1		= #{empAward1},
-			emp_award2		= #{empAward2},
-			emp_award3		= #{empAward3},
-			emp_award4		= #{empAward4},
-			emp_award5		= #{empAward5},
-			emp_num			= #{empNum},
 			emp_comment		= #{empComment}
 	</insert>
 	

@@ -54,6 +54,13 @@ public class RegisterDaoImpl implements RegisterDao{
 	}
 
 
+	@Override
+	public void setEmpRegOthers(EmpVO evo) {
+		sql.insert("register.setEmpRegOthers", evo);
+		
+	}
+
+
 	
 
 }

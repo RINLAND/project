@@ -24,6 +24,8 @@ public interface RegisterSrv {
 	public void setRegisterOthersOne(EmpVO evo);
 		
 	public void setEmployeeAuthChange(String auth, String empNum);
+
+	public void setEmpRegOthers(EmpVO evo);
 	
 	
 }
