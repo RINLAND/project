@@ -18,8 +18,8 @@ public class TraineeSrv {
 		 tDao.setTraDeleteOne(traID);		
 	}
 	
-	public List<TraineeVO> getTraListAll(int start, int end, String words, String searchOpt, String traName) {
-		return tDao.getTraListAll(start, end, words, searchOpt,traName);
+	public List<TraineeVO> getTraListAll(int start, int end, String words, String searchOpt) {
+		return tDao.getTraListAll(start, end, words, searchOpt);
 	}
 	
 	public int getTraCount(String searchOpt, String words) {

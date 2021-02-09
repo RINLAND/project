@@ -20,13 +20,13 @@ public class TraineeDao {
 		 sqlSession.delete("trainee.setTraDeleteOne", traID);		
 	}
 	
-	public List<TraineeVO> getTraListAll(int start, int end, String words, String searchOpt, String traName) {
+	public List<TraineeVO> getTraListAll(int start, int end, String words, String searchOpt) {
 		Map<String,Object> map =new HashMap<String, Object>();
 		map.put("start", start);
 		map.put("end", end);
 		map.put("words", words);
 		map.put("searchOpt", searchOpt);
-		map.put("traName", traName);
+		
 	
 		return sqlSession.selectList("trainee.getTraListAll", map);
 	}
