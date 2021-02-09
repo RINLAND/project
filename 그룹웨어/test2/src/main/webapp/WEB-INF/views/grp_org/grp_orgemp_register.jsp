@@ -112,17 +112,11 @@
 													
 												</tr>
 												<tr>
-													<td class="td-7 center bg-sub weight700">권한등급</td>
+													<td class="td-7 center bg-sub weight700">승인여부</td>
 													<td class="td-13 p-lr3 ">
-														<select name="empAuth" class="sel-135" id="empAuth">
-															<option value="8">8</option>
-															<option value="7">7</option>
-															<option value="6">6</option>
-															<option value="5">5</option>
-															<option value="4">4</option>
-															<option value="3">3</option>
-															<option value="2">2</option> 
-															<option value="1">1</option>
+														<select name="empConfirm" class="sel-135" id="empConfirm">
+															<option value="N" >거절</option>
+															<option value="Y">승인</option>
 														</select>
 													</td>
 													<td class="td-7 center bg-sub weight700">취미/특기</td>

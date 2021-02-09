@@ -40,13 +40,11 @@
 												<tr >
 													<td class="td-7 center bg-sub weight700">사원명/성별</td>
 													<td class="td-13 p-lr3 flex flex-justify">
-														<input type="text" name="empName" id="empName" class="input-65" autofocus autocomplete="off" value="${employee.empName }" />
-														<c:if test="${employee.empGender eq 'M' }">
-						                        			<span class="M">남자</span>
-							                        	</c:if>
-							                        	<c:if test="${employee.empGender eq 'W' }">
-							                        		<span class="W">여자</span>
-							                        	</c:if>
+														<input type="text" name="empName" id="empName" class="input-65" autofocus autocomplete="off" value="${empOne.empName }" />
+														<select name="empGender" class="sel-70" id="empGender">
+															<option value="M">남자</option>
+															<option value="Y">여자</option>
+														</select>
 													</td>
 													<td class="td-7 center  bg-sub weight700" >생년월일</td>
 													<td class="td-13 p-lr3 ">
@@ -113,17 +111,11 @@
 													
 												</tr>
 												<tr>
-													<td class="td-7 center bg-sub weight700">권한등급</td>
+													<td class="td-7 center bg-sub weight700">승인여부</td>
 													<td class="td-13 p-lr3 ">
-														<select name="empAuth" class="sel-135" id="empAuth">
-															<option value="8">8</option>
-															<option value="7">7</option>
-															<option value="6">6</option>
-															<option value="5">5</option>
-															<option value="4">4</option>
-															<option value="3">3</option>
-															<option value="2">2</option> 
-															<option value="1">1</option>
+														<select name="empConfirm" class="sel-135" id="empConfirm">
+															<option value="N" >거절</option>
+															<option value="Y">승인</option>
 														</select>
 													</td>
 													<td class="td-7 center bg-sub weight700">취미/특기</td>
@@ -175,8 +167,46 @@
 													<td class="td-13 p-lr3">
 														<input type="text" name="empEmail" id="empEmail" class="input-135" autocomplete="off"/>
 													</td>
-													<td class="td-7 center  bg-sub weight700">주소</td>
+													<td class="td-7 center  bg-sub weight700">권한</td>
 													<td class="td-13 p-lr3 ">
+														
+														<select class="sel-135" name="empAuth" id="empAuth" style="width: 75px">
+															<option value="1" >협력업체</option>
+															<option value="2" >사원</option>
+															<option value="3">부서장</option>
+															<option value="4" >임원</option>
+															<option value="10" >관리자</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													
+													<td class="td-7 center  bg-sub weight700">보유자격1</td>
+													<td class="td-13 p-lr3 flex flex-justify">
+														<input  maxlength="20" type="text" name="empLicense1" id="empLicense1" class="input-135" />
+													</td>
+													<td class="td-7 center  bg-sub weight700">보유자격2</td>
+													<td class="td-13 p-lr3 flex flex-justify">
+														<input  maxlength="20" type="text" name="empLicense2" id="empLicense2" class="input-135" />
+													</td>
+													<td class="td-7 center  bg-sub weight700">상벌사항</td>
+													<td class="td-13 p-lr3 flex flex-justify">
+														<input  maxlength="20" type="text" name="empAward1" id="empAward1" class="input-135" />
+													</td>
+													<td class="td-7 center bg-sub weight700">어학사항1</td>
+													<td class="td-13 p-lr3 flex flex-justify">
+														<input type="text" name="empLanguge1" id="empLang1" class="input-135" autocomplete="off"/>
+														
+													</td>
+													<td class="td-7 center bg-sub weight700">어학사항2</td>
+													<td class="td-13 p-lr3 flex flex-justify">
+														<input type="text" name="empLanguge2" id="empLang2" class="input-135" autocomplete="off"/>
+														
+													</td>
+												</tr>
+												<tr>
+													<td class="td-7 center  bg-sub weight700">주소</td>
+													<td class="td-13 p-lr3 " colspan="3">
 														
 														<select name="empAddress" class="sel-135" id="empAddress">
 															<option value="02">서울특별시</option>
@@ -199,44 +229,10 @@
 	
 														</select>
 													</td>
-												</tr>
-												<tr>
 													
-													<td class="td-7 center  bg-sub weight700">보유자격1</td>
-													<td class="td-13 p-lr3 flex flex-justify">
-														<input  maxlength="20" type="text" name="empLicense1" id="empLicense1" class="input-135" />
-													</td>
-													<td class="td-7 center  bg-sub weight700">보유자격2</td>
-													<td class="td-13 p-lr3 flex flex-justify">
-														<input  maxlength="20" type="text" name="empLicense2" id="empLicense2" class="input-135" />
-													</td>
-													<td class="td-7 center  bg-sub weight700">보유자격3</td>
-													<td class="td-13 p-lr3 flex flex-justify">
-														<input  maxlength="20" type="text" name="empLicense3" id="empLicense3" class="input-135" />
-													</td>
-													<td class="td-7 center bg-sub weight700">어학사항1</td>
-													<td class="td-13 p-lr3 flex flex-justify">
-														<input type="text" name="empLanguge1" id="empLang1" class="input-135" autocomplete="off"/>
-														
-													</td>
-													<td class="td-7 center bg-sub weight700">어학사항2</td>
-													<td class="td-13 p-lr3 flex flex-justify">
-														<input type="text" name="empLanguge2" id="empLang2" class="input-135" autocomplete="off"/>
-														
-													</td>
-												</tr>
-												<tr>
-													<td class="td-7 center bg-sub weight700">상벌사항1</td>
+													<td class="td-7 center bg-sub weight700">비밀번호</td>
 													<td class="td-13 p-lr3">
-														<input type="text" name="empAward1" id="empAward1" class="input-135" autocomplete="off"/>
-													</td>
-													<td class="td-7 center bg-sub weight700">상벌사항2</td>
-													<td class="td-13 p-lr3">
-														<input type="text" name="empAward2" id="empAward2" class="input-135" autocomplete="off"/>
-													</td>
-													<td class="td-7 center bg-sub weight700">상벌사항3</td>
-													<td class="td-13 p-lr3">
-														<input type="text" name="empAward3" id="empAward3" class="input-135"autocomplete="off" />
+														<input type="text" name="empPwd" id="empPwd" class="input-135"autocomplete="off" />
 													</td>
 													<td class="td-7 center bg-sub weight700">입사연월일</td>
 													<td class="td-13 p-lr3">
