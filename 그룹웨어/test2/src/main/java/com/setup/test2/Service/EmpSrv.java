@@ -26,7 +26,7 @@ public interface EmpSrv {
 	
 	public void setEmpRegOthers(EmpVO evo);
 	
-	public EmpVO getEmployeeNeedOne(EmpVO evo);
+	public EmpVO getEmployeeNeedOne(EmpVO evo) ;
 
 	
 }

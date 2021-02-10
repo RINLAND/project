@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -175,10 +176,11 @@ public class OrgCtr {
 		 
 	}*/
 	
-	@RequestMapping(value="/grp_employee_view", method = RequestMethod.GET)
+	
+	//직원목록
+	@RequestMapping(value="/grp_employee_view" , method = RequestMethod.GET)
 	public ModelAndView getEmployeeNeedOne(@ModelAttribute EmpVO vo) {
 		EmpVO evo = eSrv.getEmployeeNeedOne(vo);
-		
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("employee", evo);
@@ -187,5 +189,23 @@ public class OrgCtr {
 		
 		return mav;
 	}
+	
+	
+	/*직원목록2
+	 @RequestMapping(value = "/grp_employee_view")
+	   	public String getEmployeeNeedOne(HttpServletRequest request, ModelMap modelMap) throws Exception {
+	    	
+	    	String empId = request.getParameter("empId");
+	    	
+	    	
+	    	EmpVO evo = eSrv.getEmployeeNeedOne(empId);
+	    	
+	        
+	    	modelMap.addAttribute("employee", evo);
+	    	
+	        return "grp_notice/grp_notice_view";
+	    }
+	    
+	    */
 }
 	

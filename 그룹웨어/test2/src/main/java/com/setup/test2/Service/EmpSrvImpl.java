@@ -2,6 +2,7 @@ package com.setup.test2.Service;
 
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ public class EmpSrvImpl implements EmpSrv {
 
 	@Autowired
 	EmpDao empdao;
+
 	
 	@Override
 	public void setEmpDeleteOne(int empId) {

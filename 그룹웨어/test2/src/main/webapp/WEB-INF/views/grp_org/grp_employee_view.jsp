@@ -21,10 +21,15 @@
 						<h2>조직도</h2>
 					</header>
 					<h4 class="m-b20">1.사원목록 > 상세보기</h4>
+					<c:if test="${employee == null }">	
+									<tr>
+										<td colspan="11" class="center font14 weight700">등록된 직원이 없습니다.</td>
+									</tr>
+								</c:if>
 					<div class="system-main center">
 						<div class="page-member-bottom"  >
 							<div class="page-content " >
-									<h3>${empName }</h3>
+									<h3>${employee.empName}</h3>
 									<div class="member-info flex flex-justify " >
 									
 										<div class="member-left" >
@@ -40,7 +45,7 @@
 												<tr >
 													<td class="td-7 center bg-sub weight700">사원명/성별</td>
 													<td class="td-13 p-lr3 flex flex-justify">
-														<input type="text" name="empName" id="empName" class="input-65" autofocus autocomplete="off" value="${empOne.empName }" />
+														<input type="text" name="empName" id="empName" class="input-65" autofocus autocomplete="off" value="${employee.empName }" />
 														<select name="empGender" class="sel-70" id="empGender">
 															<option value="M">남자</option>
 															<option value="Y">여자</option>
@@ -261,10 +266,6 @@
 												CKEDITOR.config.height = 150;
 											</script>
 										</div>
-									</div>
-									<div class="btn-grp center m-t10 ">
-										<button type="submit" class="btn-on" >내용저장</button>
-										<button type="reset" class="btn-off">새로고침</button>
 									</div>
 								
 	
