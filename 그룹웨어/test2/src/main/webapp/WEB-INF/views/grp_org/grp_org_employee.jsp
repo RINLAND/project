@@ -83,7 +83,7 @@
 									<td>${emp.empTeamCode }</td>
 									<td >${emp.empGradeCode }</td>
 									<td> 
-										<a href="${pageContext.request.contextPath }/Organization/grp_employee_view?emp_id=${empName}">${emp.empNum}</a>
+										<a href="${pageContext.request.contextPath }/Organization/grp_employee_view?emp_id=${emp.empId}">${emp.empNum}</a>
 									</td>
 									<td>${emp.empDate}</td>
 									<td>
